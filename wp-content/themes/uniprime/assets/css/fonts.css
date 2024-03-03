@@ -1,0 +1,26 @@
+/* @TODO -> VER QUAL FONTE É SIMILAR */
+@font-face { 
+  font-family: 'Calibri';
+  src: url('../fonts/Calibri/calibri.ttf') format("truetype");
+  font-weight: normal; 
+}
+@font-face { 
+  font-family: 'Calibri';
+  src: url('../fonts/Calibri/calibrib.ttf') format("truetype");
+  font-weight: bold; 
+}
+@font-face { 
+  font-family: 'Switzerland';
+  src: url('../fonts/Switzerland/SwitzerlandRegular.ttf') format("truetype");
+  font-weight: normal; 
+}
+@font-face { 
+  font-family: 'SwitzerlandLight';
+  src: url('../fonts/Switzerland/SwitzerlandLight.ttf') format("truetype");
+  font-weight: 300;  
+}
+@font-face { 
+  font-family: 'SwitzerlandBold';
+  src: url('../fonts/Switzerland/SwitzerlandBold.ttf') format("truetype");
+  font-weight: bold; 
+}

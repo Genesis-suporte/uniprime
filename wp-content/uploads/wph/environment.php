@@ -1,0 +1,2 @@
+<?php if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+$environment_variable = '{"theme":{"folder_name":"twentytwentyfour","mapped_name":""},"allowed_paths":["C:\/Users\/tyara\/Local Sites\/uniprime\/app\/public\/wp-content\/themes"],"cache_path":"C:\/Users\/tyara\/Local Sites\/uniprime\/app\/public\/wp-content\/cache\/wph\/","wordpress_directory":"","site_relative_path":"\/"}'; ?>

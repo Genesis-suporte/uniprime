@@ -1,0 +1,578 @@
+/* GERAL */ 
+:root {
+  --primary-color: #004F71;
+  --primary-color-brand: #002B44;
+  --secondary-color-brand: #00324D;
+  --primary-color-para-voce: #F8FAFB;
+  --primary-color-para-cooperativa: #004F71;
+  --color-actived: #B78B20;
+  --color-neutral: #6C6C6C;
+  --color-neutral-2: #B7C9d3;
+}
+:where(body .is-layout-constrained) > * , :where(body .is-layout-flow) > *{
+  margin-block-start: 0px !important;
+  margin-block-end: 0;
+}
+.wp-block-site-title,.wp-block-separator.has-alpha-channel-opacity, #wp--skip-link--target .wp-block-post-title {
+  display: none !important;
+}
+#wp--skip-link--target {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.body {
+  font-family: 'Calibri';
+  font-size: 15px;
+}
+a {
+  text-decoration: none !important;
+  color: var(--primary-color);
+}
+.arrow {
+  border: solid var(--primary-color);
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 2px;
+  margin: 2px 15px;
+}
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+.btn {
+  padding: 9px 23px !important;
+  height: 44px;
+  border-radius: 22px !important;
+  font-size: 15px !important;
+}
+.btn-primary {
+  color: white !important;
+  background-color: var(--primary-color) !important;
+  border: 0px !important;
+
+}
+.btn-secondary {
+  color: var(--primary-color) !important;
+  background-color: white !important;
+  border: 0px !important;
+}
+.btn-actived {
+  color: white !important;
+  background-color: var(--color-actived)  !important;
+  border: 0px !important;
+}
+/* ICONS */
+.icon {
+  height: 24px; 
+  width: 24px; 
+  display: block;
+  padding-left:20px;
+  float: right;
+  position: relative;
+  margin: 2px 0 0 9px;
+}
+.icon:after{
+  content: '';
+  display: block;
+  height: 24px; 
+  width: 24px; 
+  background-size:cover;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.icon-search {
+  background: url('../images/icons/icon-search.png') no-repeat 0px 0px;
+}
+.icon-search-white {
+  background: url('../images/icons/icon-search-white.png') no-repeat 0px 0px;
+}
+.icon-logo:after {
+  background: url('../images/icons/icon-logo.png') no-repeat 0px 0px;
+}
+.icon-cta:after {
+  background: url('../images/icons/icon-right-arrow.png') no-repeat 0px 0px;
+}
+/* MENU MOBILE */
+.menu-mobile {
+  display: none !important;
+}
+/* HEADER */
+.top-bar {
+  height: 48px;
+  padding: 0px 0;
+  color: var(--primary-color);
+  font-size: 14px;
+}
+.top-bar .first-col {
+  padding-top: 12px;
+}
+.top-bar .first-col img {
+  padding-right: 11px;
+}
+.top-bar .first-col a {
+  color: var(--primary-color);
+  font-size: 14px;
+  padding-left: 6px;
+}
+.top-bar nav a {
+  color: var(--primary-color);
+}
+.top-bar .menu-top-bar .menu-item {
+  width: 184px;
+  text-align: center;
+}
+.top-bar .menu-top-bar .menu-item a {
+  width: 100%;
+  text-align: center;
+  display: block;
+  padding: 11px 0 12px;
+}
+.top-bar .menu-top-bar .separador-top-menu {
+  border-right: 1px solid var(--color-neutral-2);
+  height: 16px;
+  margin: 16px 0 0;
+}
+.top-bar .menu-top-bar .menu-item.search {
+  width: 48px;
+}
+.top-bar .menu-top-bar .menu-item.current-menu-item.para-voce {
+  background-color: var(--primary-color-para-voce);
+}
+.top-bar .menu-top-bar .menu-item.current-menu-item.para-voce + .separador-top-menu  {
+  border: 0px !important;
+}
+.top-bar .menu-top-bar .menu-item.current-menu-item.para-empresa {
+  background-color: var(--primary-color-brand);
+}
+.top-bar .menu-top-bar .menu-item.current-menu-item.para-empresa a {
+  color: white;
+}
+.top-bar .menu-top-bar .menu-item.current-menu-item.para-cooperativa {
+  background-color: var(--primary-color-para-cooperativa);
+}
+.top-bar .menu-top-bar .menu-item.current-menu-item.para-cooperativa a {
+  color: white;
+}
+.top-bar .menu-top-bar .menu-item.search a {
+  text-align: right;
+}
+.header-menu-banner {
+  max-height: 800px;
+}
+.main-menu {
+  height: 125px;
+  background-color: transparent;
+  z-index: 10;
+  position: relative;
+}
+.main-menu:hover {
+
+}
+.main-menu.menu-fixed.para-voce, .main-menu.para-voce.actived {
+  background-color: var(--primary-color-para-voce);
+}
+.main-menu.menu-fixed.para-empresa {
+  background-color: var(--primary-color-brand);
+}
+.main-menu.menu-fixed.para-cooperativa {
+  background-color: var(--primary-color-para-cooperativa);
+}
+.main-menu .logo {
+  padding: 39px 60px 0 0;
+}
+.menu-inicial .menu-item {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+}
+.menu-inicial .menu-item:hover {
+}
+.main-menu.actived .menu-inicial .menu-item .menu-dropdown {
+  color: var(--primary-color);
+}
+.menu-inicial .menu-item .menu-dropdown {
+  color: white;
+  padding: 50px 10px 49px;
+}
+.menu-inicial .menu-item:hover .menu-dropdown,
+.main-menu.actived .menu-inicial .menu-item:hover .menu-dropdown {
+  color: var(--color-actived);
+  border-bottom: 2px solid var(--color-actived);
+}
+.menu-inicial .menu-item .menu-dropdown .arrow {
+  border-color: white;
+}
+.main-menu.actived .menu-inicial .menu-item .menu-dropdown .arrow {
+  border-color: var(--primary-color);
+}
+.menu-inicial .menu-item:hover .menu-dropdown .arrow,
+cccc.menu-item:hover .menu-dropdown .arrow {
+  border-color: var(--color-actived);
+}
+
+.menu-inicial .menu-item .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 9;
+  transition: all .2s ease-in-out;
+  box-shadow: 0 5px 5px rgba(0,0,0,.1);
+  -moz-box-shadow: 0 5px 5px rgba(0,0,0,.1);
+  -webkit-box-shadow: 0 5px 5px rgba(0,0,0,.1);
+  padding-top: 50px;
+  padding-bottom: 60px;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  background-color: #fff;
+  padding: 0 1000em; /* trick from css-tricks comments */
+  margin: 0 -1000em; /* trick from css-tricks comments */
+}
+.menu-inicial .menu-item:hover .dropdown-content {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+.main-menu .bts-externos .seja-um-cooperado {
+  margin-left: 20px;
+}
+.main-menu.actived .bts-externos .seja-um-cooperado {
+  color: white !important;
+  background-color: var(--color-actived) !important;
+}
+.main-menu .bts-externos .seja-um-cooperado img{
+  margin-right: 5px;
+}
+.main-menu .bts-externos {
+  padding: 40px 0px;
+}
+.hero-banner {
+  top: -125px;
+  z-index: 1;
+  position: relative;
+}
+.hero-banner .hero-image {
+
+}
+.hero-banner .hero-image .copy {
+  position: absolute;
+  top: 0;
+  color: white;
+  padding: 190px 0 0 103px;
+  max-width: 50%;
+}
+.hero-banner .hero-image .copy .title{
+  font-size: 48px;
+  font-family: 'SwitzerlandLight';
+  line-height: 62px;
+  padding-bottom: 28px;
+}
+.hero-banner .hero-image .copy .description{
+  font-size: 20px;
+  font-family: 'Calibri';
+  line-height: 34px;
+  padding-bottom: 40px;
+}
+.hero-banner .hero-image .copy .cta a{
+  font-size: 18px !important;
+  font-family: 'Calibri';
+  padding: 12px 20px 0 25px !important;
+  height: 52px;
+  border-radius: 30px !important;
+}
+.hero-banner .hero-image .image {
+  width:100%; 
+  max-height: 800px; 
+  height: 800px; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.hero-banner .slick-arrow {
+  display: none !important;
+}
+.dots-hero {
+  position: absolute;
+  z-index: 9;
+  /* @TODO -> Ajustar posição dots*/
+  right: 120px;
+  top: calc( 50% - 44px );
+  height: 100%;
+}
+.dots-hero .slick-dots {
+  position: absolute;
+  right: 0;
+  list-style-type: none;
+}
+.dots-hero .slick-dots li.slick-active button:before, 
+.dots-hero .slick-dots li button:before {
+  color: transparent;
+  opacity: 1;
+  font-size: 1px;
+}
+.dots-hero .slick-dots li.slick-active button {
+  border: 2px solid var(--color-actived);
+  border-radius: 100%;
+  height: 16px;
+  width: 16px;
+  background-color: transparent !important;
+  margin: 0 0 25px;
+}
+.dots-hero .slick-dots li button {
+  background-color: #E1E1E2;
+  border-radius: 50%;
+  display: inline-block;
+  height: 8px;
+  width: 8px;
+  border: 0px;
+  text-indent: -10000px;
+  padding: 0;
+  margin: 0 5px 25px;
+}
+.dots-hero .slick-dots li.slick-active button:before {
+  color: transparent;
+}
+/* GERAL CONTENT */
+.div-logo-uniprime {
+  height: 739px;
+  width: 100%;
+  position: relative;
+}
+.div-logo-uniprime .logo-uniprime-background {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 739px;
+  width: 674px;
+  position: absolute;
+  right: 0;
+  top: -45px;
+}
+.top-739 {
+  position: relative !important;
+  top: -739px !important;
+}
+.label-block {
+  font-family: 'Calibri';
+  font-size: 14px;
+  color: var(--color-actived);
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 41px;
+}
+.label-block:before {
+  content: '';
+  display: block;
+  height: 24px; 
+  width: 34px; 
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  color: var(--color-actived);
+  border-top: 1px solid var(--color-actived);
+}
+.title-block {
+  color: var(--primary-color-brand);
+  font-size: 30px;
+  font-family: 'Switzerland';
+  font-weight: bold;
+  padding-top: 2px;
+}
+.description-block {
+  color: var(--color-neutral);
+  font-family: 'Calibri';
+  font-size: 16px;
+  padding-top: 5px;
+  line-height: 27px;
+}
+/* NOSSOS PRODUTOS */
+.nossos-produtos {
+  padding: 130px 0 115px;
+}
+.nossos-produtos .description-block {
+  width: 50%;
+}
+.nossos-produtos .block-content{
+  height: 480px;
+}
+/* NOSSA HISTÓRIA */
+.nossa-historia {
+  padding: 96px 0 147px;
+  background: var(--primary-color-brand) url('../images/logo-traco.png') no-repeat 0px 0px;
+  z-index: 11;
+}
+.nossa-historia .col-4{
+  padding-top: 43px;
+  /* @TODO: Remover padding e ajustar padding real */
+  padding-left: 120px;
+}
+.nossa-historia .col-8{
+  padding: 0 20px 0 50px;
+}
+.nossa-historia .title-block {
+  color: white;
+  font-size: 48px;
+  font-family: 'SwitzerlandLight';
+  font-weight: 300;
+  padding-top: 12px;
+  line-height: 62px;
+  padding-right: 40px;
+}
+.nossa-historia .arrows-nossa-historia {
+  margin-top: 46px;
+}
+/* @TODO: AJUSTAR ENABLED ARROW */
+.nossa-historia .arrows-nossa-historia .slick-arrow {
+  background: url('../images/icons/icon-right-arrow.png') no-repeat;
+  background-color: transparent;
+  background-position: center;
+  border-radius: 50%;
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  border: 1px solid var(--color-neutral-2);
+  text-indent: -10000px;
+  padding: 0;
+  margin: 0 21px 0px 0px;
+}
+.nossa-historia .arrows-nossa-historia .slick-arrow.slick-prev {
+  transform: rotate(180deg);
+}
+.nossa-historia .slide-nossa-historia .slick-list{
+  padding:0 10% 0 0 !important; 
+  margin: 0 -12px;
+}
+.nossa-historia .card-nossa-historia {
+  background-color: var(--secondary-color-brand);
+  padding: 96px 52px;
+  margin: 0 12px;
+  border-radius: 16px;
+}
+.nossa-historia .card-nossa-historia .content-card {
+  border-top: 1px solid var(--color-actived);
+}
+.nossa-historia .card-nossa-historia .content-card .title {
+  font-family: 'Calibri';
+  font-size: 14px;
+  color: var(--color-actived);
+  text-transform: uppercase;
+  position: relative;
+  padding: 17px 0 8px 0px;
+}
+.nossa-historia .card-nossa-historia .content-card .title .icon-logo {
+  float: left;
+  margin: 3px 7px 0 0px;
+}
+.nossa-historia .card-nossa-historia .content-card .destaque {
+  color: white;
+  font-size: 62px;
+  font-family: 'SwitzerlandLight';
+  font-weight: 300;
+  padding-top: 12px;
+}
+.nossa-historia .card-nossa-historia .content-card .description {
+  color: white;
+  font-family: 'Calibri';
+  font-size: 16px;
+  padding-top: 0px;
+  line-height: 27px;
+}
+/* CANAIS DIGITAIS */
+.canais-digitais {
+  padding: 129px 0 128px;
+  z-index: 12;
+  background-color: white;
+}
+.canais-digitais .canais-digitais-image {
+  position: relative;
+}
+.canais-digitais .canais-digitais-image img{
+  position: absolute;
+  top: -238px;
+  left: 14px;
+}
+.canais-digitais .description-block {
+  padding-bottom: 34px;
+}
+/* ONDE ENCONTRAR */
+.onde-encontrar {
+  padding: 186px 0 130px;
+  background: url('../images/bg-onde-encontrar.jpg') no-repeat;
+  background-color: transparent;
+  background-position: cover;
+}
+.onde-encontrar .block-left {
+  padding: 0px 0 0 207px;
+}
+.onde-encontrar .destaque-block {
+  color: white;
+  font-size: 60px;
+  font-family: 'SwitzerlandLight';
+  font-weight: 300;
+  line-height: 84px;
+}
+.onde-encontrar .description {
+  color: white;
+  font-family: 'Switzerland';
+  font-size: 30px;
+  padding-top: 10px;
+  line-height: 37px;
+}
+.onde-encontrar .input-onde-encontrar {
+  z-index: 13;
+  position: relative;
+  margin-top: 130px;
+  max-width: 392px;
+}
+.onde-encontrar .input-onde-encontrar .input{
+  background: var(--primary-color-brand);
+  border: 1px solid white;
+  border-radius: 30px;
+  color: white;
+  font-size: 14px;
+  padding: 14px 23px 15px;
+  position: relative;
+  width: 100%;
+  z-index: 13;
+}
+.onde-encontrar .input-onde-encontrar .icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 0px;
+  padding: 0px 22px;
+  margin: 16px 0;
+  z-index: 14;
+}
+/* NOVIDADES */
+.novidades {
+  padding: 129px 0 128px;
+  z-index: 12;
+  background-color: white;
+}
+.novidades .novidades-image {
+  position: relative;
+}
+.novidades .novidades-image img{
+  position: absolute;
+  top: -238px;
+  left: 14px;
+}
+.novidades .description-block {
+  padding-bottom: 34px;
+}
