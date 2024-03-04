@@ -121,8 +121,16 @@ function bootstrapstarter_enqueue_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'bootstrapstarter_enqueue_scripts' );
 
-
-
+/*
+FUNTION DO ADD STICKY ON CPT
+function addbox($post, $metabox) {  
+	$entered = get_post_meta($post->ID, 'pseudosticky', true);
+	?>
+    <label><input name="pseudosticky" type="checkbox"<?if($entered=="on")echo' checked="checked"';?>> Is sticky</label>
+    <?
+}
+add_meta_box('pseudosticky', 'Is sticky', 'addbox', 'campanha', 'normal', 'high');
+*/
 function setMenuThreeLevels($menu) {
 	$menu_lists = array();
 	

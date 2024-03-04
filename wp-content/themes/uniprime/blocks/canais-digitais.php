@@ -4,7 +4,7 @@
   $descricao = get_field('descricao', $block['id']);
   $img = get_field('imagem_do_bloco', $block['id']);
   ?>
-<section class="canais-digitais mw-100 top-739">
+<section class="canais-digitais mw-100">
   <div class="container">
     <div class="row d-flex justify-content-between">
       <div class="col canais-digitais-image">

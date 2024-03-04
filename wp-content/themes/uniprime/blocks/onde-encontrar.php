@@ -2,8 +2,9 @@
   $label = get_field('label', $block['id']);
   $destaque = get_field('destaque', $block['id']);
   $descricao = get_field('descricao', $block['id']);
+  $imagem_de_fundo = get_field('imagem_de_fundo', $block['id']);
 ?>
-<section class="onde-encontrar mw-100 top-739">
+<section class="onde-encontrar mw-100" style="background: url(<?php echo esc_html($imagem_de_fundo); ?>) no-repeat;">
   <div class="container">
     <div class="row d-flex justify-content-between">
       <div class="col">

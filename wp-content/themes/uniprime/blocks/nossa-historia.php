@@ -2,7 +2,7 @@
   $label = get_field('label', $block['id']);
   $titulo = get_field('titulo', $block['id']);
   ?>
-<section class="nossa-historia mw-100 top-739">
+<section class="nossa-historia mw-100">
   <div class="">
     <div class="row">
       <div class="col-4">
@@ -30,8 +30,8 @@
                 //print_r( $destaque);?>
                 <div class="card-nossa-historia">
                   <div class="content-card">
-                    <div class="title">
-                      <i class="icon icon-logo"></i><?php echo esc_html($titulo); ?>
+                    <div class="title icon-menu icon-logo">
+                      <?php echo esc_html($titulo); ?>
                     </div>
                     <div class="destaque">
                       <?php echo esc_html($destaque); ?>

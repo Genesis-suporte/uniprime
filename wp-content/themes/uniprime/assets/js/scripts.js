@@ -6,6 +6,7 @@
     })*/
     $('.hero-banner').slick({
       dots: true,
+      infinite: false,
       appendDots: '.dots-hero'
     });
     var height_dots = $('.slick-dots').height();
@@ -15,6 +16,7 @@
       dots: false,
       slidesToShow: 2,
       slidesToScroll: 1,
+      infinite: false,
       appendArrows: '.arrows-nossa-historia',
     });
     // CLICK OR MOUSEOVER EVENT FOR MENU DROP DOWN
@@ -42,7 +44,7 @@
         $("#icon-users-white").addClass('d-none') 
       }
     )
-    $('.menu-dropdown').hover(
+    $('.header-menu-banner .menu-dropdown').hover(
       function(){ 
         $(this).children(".arrow").removeClass('down').addClass('up');
       },
@@ -56,5 +58,14 @@
       Qual a sua cidade?
     });
     */
+    $('.slide-novidades').slick({
+      dots: false,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      infinite: false,
+      appendArrows: '.arrows-novidades',
+      rows: 0
+    })
+    
   });
 })(jQuery); 
