@@ -161,6 +161,7 @@ a {
 .top-bar .menu-top-bar .menu-item {
   width: 184px;
   text-align: center;
+  height: 48px;
 }
 .top-bar .menu-top-bar .menu-item a {
   width: 100%;
@@ -427,12 +428,46 @@ cccc.menu-item:hover .menu-dropdown .arrow {
 .nossos-produtos {
   padding: 130px 0 115px;
   position: relative;
+  overflow: hidden;
 }
-.nossos-produtos .description-block {
-  width: 50%;
+.nossos-produtos .description-block .col-left {
+  width: 55%;
+  padding: 0 70px 38px 0;
+  
 }
-.nossos-produtos .block-content{
-  height: 480px;
+.nossos-produtos .arrows-nossos-produtos {
+  margin-top: 1px;
+  width: 45%;
+  position: relative;
+}
+.nossos-produtos .arrows-nossos-produtos .slick-arrow {
+  background: url('../images/icons/icon-right-arrow.png') no-repeat 10px 10px;
+  border: 1px solid var(--primary-color);
+  padding: 0;
+  margin: 0 0px 0px 24px;
+  position: relative;
+  z-index: 12;
+}
+.nossos-produtos .slick-list {
+  width: 100%;
+  margin: 0 -12px;
+  position: relative;
+  z-index: 12;
+}
+.nossos-produtos .slick-slide > div {
+  margin: 12px 3px 26px 20px;
+  background-color: rgba(248, 250, 251, .9);
+  border-radius: 20px;
+  border: 1px solid;
+}
+.nossos-produtos .card-nossos-produtos {
+}
+.nossos-produtos .card-nossos-produtos a {
+  color: var(--primary-color-para-cooperativa);
+  font-size: 17px;
+  font-weight: bold;
+  padding: 46px 60px 48px;
+  display: block;
 }
 /* NOSSA HISTÓRIA */
 .nossa-historia {

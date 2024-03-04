@@ -12,6 +12,16 @@
     var height_dots = $('.slick-dots').height();
     var height_hero = $('.hero-banner').height();
     $('.dots-hero').css('top',((height_hero/2)-(height_dots/2))).height(height_dots);
+
+    $('.slide-nossos-produtos').slick({
+      dots: false,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      infinite: false,
+      appendArrows: '.arrows-nossos-produtos',
+      rows: 3
+    });
+
     $('.slide-nossa-historia').slick({
       dots: false,
       slidesToShow: 2,
@@ -19,6 +29,7 @@
       infinite: false,
       appendArrows: '.arrows-nossa-historia',
     });
+    
     // CLICK OR MOUSEOVER EVENT FOR MENU DROP DOWN
     /*var element = document.getElementById('main-menu');
     // - THIS IS FOR DEMO, TO CHECK IF ELEMENT WAS HOVERED -
