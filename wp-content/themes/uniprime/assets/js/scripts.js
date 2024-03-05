@@ -45,7 +45,9 @@
         $(".logo-black").removeClass('d-none') 
         $(".logo-white").addClass('d-none') 
         $("#icon-users").addClass('d-none') 
-        $("#icon-users-white").removeClass('d-none') 
+        $("#icon-users-white").removeClass('d-none')
+        $("#modal-menu").addClass('d-block')
+        
       },
       function(){ 
         $(this).removeClass('actived') 
@@ -53,6 +55,7 @@
         $(".logo-white").removeClass('d-none') 
         $("#icon-users").removeClass('d-none') 
         $("#icon-users-white").addClass('d-none') 
+        $("#modal-menu").removeClass('d-block')
       }
     )
     $('.header-menu-banner .menu-dropdown').hover(

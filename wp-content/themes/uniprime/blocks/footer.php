@@ -66,185 +66,196 @@
       </div>
     </div>
   </div>
-  <div class="footer-menu mw-100">
-    <div class="">
-      <div class="d-flex">
-        <div class="col-solucoes">
-          <div class="solucoes">
-            <div class="label-footer-menu">
-              <?php echo esc_html('Soluções'); ?>
-            </div>
-            <div class="description-menu">
-              <?php echo esc_html($texto_solucoes); ?>
-            </div>
-          </div>
-          <nav class="menu-footer-solucoes">
-            <div class="menu-item">
-              <a href="#" class="menu-dropdown">
-                <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para você');?><i class="arrow right"></i></div>
-              </a>
-              <div class="dropdown-content">
+  <div class="footer-menu mw-100 d-flex">
+    <div class="col-solucoes">
+      <div class="solucoes">
+        <div class="label-footer-menu">
+          <?php echo esc_html('Soluções'); ?>
+        </div>
+        <div class="description-menu">
+          <?php echo esc_html($texto_solucoes); ?>
+        </div>
+      </div>
+      <nav class="menu-footer-solucoes">
+        <div class="menu-item">
+          <a href="#" class="menu-dropdown">
+            <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para você');?><i class="arrow right"></i></div>
+          </a>
+          <div class="dropdown-content">
+            <div class="container">
+              <div class="row">
                 <?php 
-                  $menu_lists = setMenuThreeLevels('solucoes-para-voce');
+                  $menu_lists_voce = setMenuThreeLevels('solucoes-para-voce');
                   $menu_solucoes_voce = "";
-                  foreach ($menu_lists as $item) { 
+                  foreach ($menu_lists_voce as $item) { 
                     $class = '';
                     if(isset( $item[ 'class' ])) {
                       $class = esc_attr( implode( ' ', $item['class']));
                     }
-                    $menu_solucoes_voce .= '<div class="menu-dropdown-item '.$class.'">'."\n";
-                    $menu_solucoes_voce .= '<a href="#" class="link-dropdown">'. esc_html($item['title']) .'</a>'."\n";              
+                    $menu_solucoes_voce .= '<div class="col-4 menu-subitem '.$class.'">'."\n";
+                    $menu_solucoes_voce .= '<a href="#" class="icon-menu icon-'.$class.'-white">'. esc_html($item['title']) ."\n";
+                    $menu_solucoes_voce .= '<i class="arrow right"></i></a>'."\n";
                     $menu_solucoes_voce .= '</div>'."\n";
                   }
                   echo $menu_solucoes_voce;
                 ?>
               </div>
             </div>
-            <div class="menu-item">
-              <a href="#" class="menu-dropdown">
-                <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para seu negócio');?><i class="arrow right"></i></div>
-              </a>
-              <div class="dropdown-content">
+          </div>
+        </div>
+        <div class="menu-item">
+          <a href="#" class="menu-dropdown">
+            <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para seu negócio');?><i class="arrow right"></i></div>
+          </a>
+          <div class="dropdown-content">
+            <div class="container">
+              <div class="row">
                 <?php 
-                  $menu_lists = setMenuThreeLevels('solucoes-para-empresa');
+                  $menu_lists_empresa = setMenuThreeLevels('solucoes-para-empresa');
                   $menu_solucoes_empresa = "";
-                  foreach ($menu_lists as $item) { 
+                  foreach ($menu_lists_empresa as $item) { 
                     $class = '';
                     if(isset( $item[ 'class' ])) {
                       $class = esc_attr( implode( ' ', $item['class']));
                     }
-                    $menu_solucoes_empresa .= '<div class="menu-dropdown-item '.$class.'">'."\n";
-                    $menu_solucoes_empresa .= '<a href="#" class="link-dropdown">'. esc_html($item['title']) .'</a>'."\n";              
+                    $menu_solucoes_empresa .= '<div class="col-4 menu-subitem '.$class.'">'."\n";
+                    $menu_solucoes_empresa .= '<a href="#" class="icon-menu icon-'.$class.'-white">'. esc_html($item['title']) ."\n";
+                    $menu_solucoes_empresa .= '<i class="arrow right"></i></a>'."\n";
                     $menu_solucoes_empresa .= '</div>'."\n";
                   }
                   echo $menu_solucoes_empresa;
                 ?>
               </div>
             </div>
-            <div class="menu-item">
-              <a href="#" class="menu-dropdown">
-                <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para sua cooperativa');?><i class="arrow right"></i></div>
-              </a>
-              <div class="dropdown-content">
+          </div>
+        </div>
+        <div class="menu-item">
+          <a href="#" class="menu-dropdown">
+            <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para sua cooperativa');?><i class="arrow right"></i></div>
+          </a>
+          <div class="dropdown-content">
+            <div class="container">
+              <div class="row">
                 <?php 
-                  $menu_lists = setMenuThreeLevels('solucoes-para-cooperativa');
+                  $menu_lists_cooperativa = setMenuThreeLevels('solucoes-para-cooperativa');
                   $menu_solucoes_cooperativa = "";
-                  foreach ($menu_lists as $item) { 
+                  foreach ($menu_lists_cooperativa as $item) { 
                     $class = '';
                     if(isset( $item[ 'class' ])) {
                       $class = esc_attr( implode( ' ', $item['class']));
                     }
-                    $menu_solucoes_cooperativa .= '<div class="menu-dropdown-item '.$class.'">'."\n";
-                    $menu_solucoes_cooperativa .= '<a href="#" class="link-dropdown">'. esc_html($item['title']) .'</a>'."\n";              
+                    $menu_solucoes_cooperativa .= '<div class="col-4 menu-subitem '.$class.'">'."\n";
+                    $menu_solucoes_cooperativa .= '<a href="#" class="icon-menu icon-'.$class.'-white">'. esc_html($item['title']) ."\n";
+                    $menu_solucoes_cooperativa .= '<i class="arrow right"></i></a>'."\n";
                     $menu_solucoes_cooperativa .= '</div>'."\n";
                   }
                   echo $menu_solucoes_cooperativa;
                 ?>
               </div>
             </div>
-            
-          </nav>
-        </div>
-        <div class="col-right d-flex">
-          <div class="col">
-            <div class="label-footer-menu">
-              <?php echo esc_html('Atendimento'); ?>
-            </div>
-            <nav class="menu-footer">
-              <ul>
-                <?php 
-                  $menu_lists = setMenuThreeLevels('menu-atendimento');
-                  $menu_atendimento = "";
-                  foreach ($menu_lists as $item) { 
-                    $class = '';
-                    if(isset( $item[ 'class' ])) {
-                      $class = esc_attr( implode( ' ', $item['class']));
-                    }
-                    // if (in_array("search", $item['class'])) {
-                    //   $class_search = true;
-                    // }
-                    //print_r($item['class']).'<br />';
-                    //echo $class_search.'<br />';
-                    $menu_atendimento .= '<li class="menu-item '.$class.'">'."\n";
-                    $menu_atendimento .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
-                    $menu_atendimento .= '</li>'."\n";
-                  }
-                  echo $menu_atendimento;
-                ?>
-              </ul>
-            </nav>
-          </div>
-          <div class="col">
-            <div class="label-footer-menu">
-              <?php echo esc_html('A Uniprime'); ?>
-            </div>
-            <nav class="menu-footer">
-              <ul>
-                <?php 
-                  $menu_lists = setMenuThreeLevels('menu-a-uniprime-footer');
-                  $menu_a_uniprime = "";
-                  foreach ($menu_lists as $item) { 
-                    $class = '';
-                    if(isset( $item[ 'class' ])) {
-                      $class = esc_attr( implode( ' ', $item['class']));
-                    }
-                    $menu_a_uniprime .= '<li class="menu-item '.$class.'">'."\n";
-                    $menu_a_uniprime .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
-                    $menu_a_uniprime .= '</li>'."\n";
-                  }
-                  echo $menu_a_uniprime;
-                ?>
-              </ul>
-            </nav>
-          </div>
-          
-          <div class="col">
-            <div class="label-footer-menu">
-              <?php echo esc_html('Governança'); ?>
-            </div>
-            <nav class="menu-footer">
-              <ul>
-                <?php 
-                  $menu_lists = setMenuThreeLevels('menu-governanca');
-                  $menu_governanca = "";
-                  foreach ($menu_lists as $item) { 
-                    $class = '';
-                    if(isset( $item[ 'class' ])) {
-                      $class = esc_attr( implode( ' ', $item['class']));
-                    }
-                    $menu_governanca .= '<li class="menu-item '.$class.'">'."\n";
-                    $menu_governanca .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
-                    $menu_governanca .= '</li>'."\n";
-                  }
-                  echo $menu_governanca;
-                ?>
-              </ul>
-            </nav>
-          </div>
-          <div class="col">
-            <div class="label-footer-menu">
-              <?php echo esc_html('Fique por dentro'); ?>
-            </div>
-            <nav class="menu-footer">
-              <ul>
-                <?php 
-                  $menu_lists = setMenuThreeLevels('menu-fique-por-dentro');
-                  $menu_fique_por_dentro = "";
-                  foreach ($menu_lists as $item) { 
-                    $class = '';
-                    if(isset( $item[ 'class' ])) {
-                      $class = esc_attr( implode( ' ', $item['class']));
-                    }
-                    $menu_fique_por_dentro .= '<li class="menu-item '.$class.'">'."\n";
-                    $menu_fique_por_dentro .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
-                    $menu_fique_por_dentro .= '</li>'."\n";
-                  }
-                  echo $menu_fique_por_dentro;
-                ?>
-              </ul>
-            </nav>
           </div>
         </div>
+        
+      </nav>
+    </div>
+    <div class="col-right d-flex">
+      <div class="col">
+        <div class="label-footer-menu">
+          <?php echo esc_html('Atendimento'); ?>
+        </div>
+        <nav class="menu-footer">
+          <ul>
+            <?php 
+              $menu_lists = setMenuThreeLevels('menu-atendimento');
+              $menu_atendimento = "";
+              foreach ($menu_lists as $item) { 
+                $class = '';
+                if(isset( $item[ 'class' ])) {
+                  $class = esc_attr( implode( ' ', $item['class']));
+                }
+                // if (in_array("search", $item['class'])) {
+                //   $class_search = true;
+                // }
+                //print_r($item['class']).'<br />';
+                //echo $class_search.'<br />';
+                $menu_atendimento .= '<li class="menu-item '.$class.'">'."\n";
+                $menu_atendimento .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
+                $menu_atendimento .= '</li>'."\n";
+              }
+              echo $menu_atendimento;
+            ?>
+          </ul>
+        </nav>
+      </div>
+      <div class="col">
+        <div class="label-footer-menu">
+          <?php echo esc_html('A Uniprime'); ?>
+        </div>
+        <nav class="menu-footer">
+          <ul>
+            <?php 
+              $menu_lists = setMenuThreeLevels('menu-a-uniprime-footer');
+              $menu_a_uniprime = "";
+              foreach ($menu_lists as $item) { 
+                $class = '';
+                if(isset( $item[ 'class' ])) {
+                  $class = esc_attr( implode( ' ', $item['class']));
+                }
+                $menu_a_uniprime .= '<li class="menu-item '.$class.'">'."\n";
+                $menu_a_uniprime .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
+                $menu_a_uniprime .= '</li>'."\n";
+              }
+              echo $menu_a_uniprime;
+            ?>
+          </ul>
+        </nav>
+      </div>
+      
+      <div class="col">
+        <div class="label-footer-menu">
+          <?php echo esc_html('Governança'); ?>
+        </div>
+        <nav class="menu-footer">
+          <ul>
+            <?php 
+              $menu_lists = setMenuThreeLevels('menu-governanca');
+              $menu_governanca = "";
+              foreach ($menu_lists as $item) { 
+                $class = '';
+                if(isset( $item[ 'class' ])) {
+                  $class = esc_attr( implode( ' ', $item['class']));
+                }
+                $menu_governanca .= '<li class="menu-item '.$class.'">'."\n";
+                $menu_governanca .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
+                $menu_governanca .= '</li>'."\n";
+              }
+              echo $menu_governanca;
+            ?>
+          </ul>
+        </nav>
+      </div>
+      <div class="col">
+        <div class="label-footer-menu">
+          <?php echo esc_html('Fique por dentro'); ?>
+        </div>
+        <nav class="menu-footer">
+          <ul>
+            <?php 
+              $menu_lists = setMenuThreeLevels('menu-fique-por-dentro');
+              $menu_fique_por_dentro = "";
+              foreach ($menu_lists as $item) { 
+                $class = '';
+                if(isset( $item[ 'class' ])) {
+                  $class = esc_attr( implode( ' ', $item['class']));
+                }
+                $menu_fique_por_dentro .= '<li class="menu-item '.$class.'">'."\n";
+                $menu_fique_por_dentro .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
+                $menu_fique_por_dentro .= '</li>'."\n";
+              }
+              echo $menu_fique_por_dentro;
+            ?>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
@@ -252,6 +263,8 @@
 <div id="site-modal">
     <!-- Adicione aqui o conteúdo do modal -->
 </div>
+
+<div id="modal-menu"></div>
 
 <script>
 // No arquivo footer.php, antes de </body>

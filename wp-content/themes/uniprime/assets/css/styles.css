@@ -117,134 +117,260 @@ a {
   background: url('../images/icons/icon-right-arrow-white.png') no-repeat 0px 0px;
 }
 /* ICONS SOLUÇÔES */
+
+/* GOLD */
+/* app-uniprime-cartoes*/
+.icon-app-uniprime-cartoes {
+  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
+}
 .icon-app-uniprime-cartoes-gold {
   background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-app-uniprime-cartoes-white {
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
+}
+/* boleto-bancario */
+.icon-boleto-bancario-cobranca {
+  background: url('../images/icons/icon-cartao-credito.png') no-repeat 0px 0px;
 }
 .icon-boleto-bancario-cobranca-gold, .icon-boleto-bancario-cobranca-2-gold, .icon-boleto-bancario-cobranca-3-gold {
   background: url('../images/icons/icon-cambio-gold.png') no-repeat 35px 42px;
 }
+.icon-boleto-bancario-cobranca-white {
+  background: url('../images/icons/icon-cartao-credito-white.png') no-repeat 0px 18px;
+}
+/* cambio */
+.icon-cambio {
+  background: url('../images/icons/icon-cambio.png') no-repeat 0px 0px;
+}
 .icon-cambio-gold {
   background: url('../images/icons/icon-cambio-gold.png') no-repeat 35px 42px;
+}
+.icon-cambio-white {
+  background: url('../images/icons/icon-cambio-white.png') no-repeat 35px 42px;
+}
+/* cartao-credito */
+.icon-cartao-credito {
+  background: url('../images/icons/icon-cartao-credito.png') no-repeat 0px 0px;
+}
+.icon-cartao-credito-gold, .icon-cartao-credito-2-gold, .icon-cartao-credito-3-gold {
+  background: url('../images/icons/icon-cartao-credito-gold.png') no-repeat 35px 42px;
+}
+.icon-cartao-credito-white {
+  background: url('../images/icons/icon-cartao-credito-white.png') no-repeat 0px 18px;
+}
+/* cartoes */
+.icon-cartoes {
+  background: url('../images/icons/icon-cartao-credito.png') no-repeat 0px 0px;
 }
 .icon-cartoes-gold, .icon-cartoes-2-gold, .icon-cartoes-3-gold {
   background: url('../images/icons/icon-cambio-gold.png') no-repeat 35px 42px;
 }
+.icon-cartoes-white {
+  background: url('../images/icons/icon-cartao-credito-white.png') no-repeat 0px 18px;
+}
+/* cobranca */
+.icon-cobranca {
+  background: url('../images/icons/icon-cobranca.png') no-repeat 35px 42px;
+}
 .icon-cobranca-gold {
   background: url('../images/icons/icon-cobranca-gold.png') no-repeat 35px 42px;
 }
+.icon-cobranca-white {
+  background: url('../images/icons/icon-cobranca-white.png') no-repeat 35px 42px;
+}
+/* consorcios */
+.icon-consorcios {
+  background: url('../images/icons/icon-consorcios.png') no-repeat 0px 0px;
+}
 .icon-consorcios-gold, .icon-consorcios-2-gold, .icon-consorcios-3-gold {
-  background: url('../images/icons/icon-credit-card-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-consorcios-gold.png') no-repeat 35px 42px;
+}
+.icon-consorcios-white {
+  background: url('../images/icons/icon-consorcios-white.png') no-repeat 0px 18px;
+}
+/*conta-corrente */
+.icon-conta-corrente {
+  background: url('../images/icons/icon-conta-corrente.png') no-repeat 0px 0px;
 }
 .icon-conta-corrente-gold, .icon-conta-corrente-2-gold, .icon-conta-corrente-3-gold {
-  background: url('../images/icons/icon-credit-card-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-conta-corrente-gold.png') no-repeat 35px 42px;
 }
-.icon-credit-card-gold {
-  background: url('../images/icons/icon-credit-card-gold.png') no-repeat 35px 42px;
+.icon-conta-corrente-white {
+  background: url('../images/icons/icon-conta-corrente-white.png') no-repeat 0px 18px;
+}
+/* credito */
+.icon-credito {
+  background: url('../images/icons/icon-credito.png') no-repeat 0px 0px;
 }
 .icon-credito-gold, .icon-credito-2-gold, .icon-credito-3-gold {
-  background: url('../images/icons/icon-credit-card-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-credito-gold.png') no-repeat 35px 42px;
+}
+.icon-credito-white {
+  background: url('../images/icons/icon-credito-white.png') no-repeat 0px 18px;
+}
+/* domicilio-bancario */
+.icon-domicilio-bancario {
+  background: url('../images/icons/icon-domicilio-bancario.png') no-repeat 0px 0px;
 }
 .icon-domicilio-bancario-gold, .icon-domicilio-bancario-2-gold, .icon-domicilio-bancario-3-gold {
   background: url('../images/icons/icon-domicilio-bancario-gold.png') no-repeat 35px 42px;
 }
+.icon-domicilio-bancario-white {
+  background: url('../images/icons/icon-domicilio-bancario-white.png') no-repeat 0px 18px;
+}
+/* financiamento */
+.icon-financiamento {
+  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
+}
 .icon-financiamento-gold {
   background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-financiamento-white {
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
+}
+/* investimentos */
+.icon-investimentos {
+  background: url('../images/icons/icon-investimentos.png') no-repeat 0px 0px;
 }
 .icon-investimentos-gold {
   background: url('../images/icons/icon-investimentos-gold.png') no-repeat 35px 42px;
 }
-.icon-linha-credito-gold {
-  background: url('../images/icons/icon-linha-credito-gold.png') no-repeat 35px 42px;
+.icon-investimentos-white {
+  background: url('../images/icons/icon-investimentos-white.png') no-repeat 0px 18px;
+}
+/* maquina-de-cartao */
+
+.icon-maquina-de-cartao {
+  background: url('../images/icons/icon-maquina-de-cartao.png') no-repeat 0px 0px;
 }
 .icon-maquina-de-cartao-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-maquina-de-cartao-gold.png') no-repeat 35px 42px;
+}
+.icon-maquina-de-cartao-white {
+  background: url('../images/icons/icon-maquina-de-cartao-white.png') no-repeat 0px 18px;
+}
+/* -open-banking */
+.icon-open-banking {
+  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
 }
 .icon-open-banking-gold {
   background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
 }
+.icon-open-banking-white {
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
+}
+/* open-finance */
+.icon-open-finance {
+  background: url('../images/icons/icon-open-finance.png') no-repeat 0px 0px;
+}
 .icon-open-finance-gold, .icon-open-finance-2-gold, .icon-open-finance-3-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-open-finance-gold.png') no-repeat 35px 42px;
+}
+.icon-open-finance-white {
+  background: url('../images/icons/icon-open-finance-white.png') no-repeat 0px 18px;
+}
+/* portabilidade-de-conta-salario */
+.icon-portabilidade-de-conta-salario {
+  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
 }
 .icon-portabilidade-de-conta-salario-gold {
   background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
 }
+.icon-portabilidade-de-conta-salario-white {
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
+}
+/* pix */
+.icon-pix {
+  background: url('../images/icons/icon-pix.png') no-repeat 0px 0px;
+}
 .icon-pix-gold, .icon-pix-2-gold, .icon-pix-3-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-pix-gold.png') no-repeat 35px 42px;
+}
+.icon-pix-white {
+  background: url('../images/icons/icon-pix-white.png') no-repeat 0px 18px;
+}
+/* previdencia */
+.icon-previdencia {
+  background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
 .icon-previdencia-gold, .icon-previdencia-2-gold, .icon-previdencia-3-gold  {
   background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
 }
+.icon-previdencia-white {
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 18px;
+}
+/* produtos-de-investimento */
+.icon-produtos-de-investimento {
+  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
+}
 .icon-produtos-de-investimento-gold {
   background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-produtos-de-investimento-white {
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
+}
+/* remessa-internacional */
+.icon-remessa-internacional {
+  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
 }
 .icon-remessa-internacional-gold {
   background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
 }
+.icon-remessa-internacional-white {
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
+}
+/* repasse-mediante-convenios */
+.icon-repasse-mediante-convenios {
+  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
+}
 .icon-repasse-mediante-convenios-gold {
   background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
 }
-.icon-seguros-gold, .icon-seguros-2-gold, .icon-seguros-3-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+.icon-repasse-mediante-convenios-white {
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
 }
-.icon-servicos-e-assessoria-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
-}
-.icon-servicos-internacionais-gold, .icon-servicos-internacionais-2-gold, .icon-servicos-internacionais-3-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
-}
-.icon-tag-gold, .icon-tag-2-gold, .icon-tag-3-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
-}
-/* BLUE */
-
-.icon-boleto-bancario-cobranca {
-  background: url('../images/icons/icon-credit-card.png') no-repeat 0px 0px;
-}
-.icon-cartoes {
-  background: url('../images/icons/icon-credit-card.png') no-repeat 0px 0px;
-}
-.icon-credit-card {
-  background: url('../images/icons/icon-credit-card.png') no-repeat 0px 0px;
-}
-.icon-consorcios {
-  background: url('../images/icons/icon-consorcios.png') no-repeat 0px 0px;
-}
-.icon-conta-corrente {
-  background: url('../images/icons/icon-conta-corrente.png') no-repeat 0px 0px;
-}
-.icon-credito {
-  background: url('../images/icons/icon-credito.png') no-repeat 0px 0px;
-}
-.icon-cobranca {
-  background: url('../images/icons/icon-cobranca.png') no-repeat 35px 42px;
-}
-.icon-domicilio-bancario {
-  background: url('../images/icons/icon-domicilio-bancario.png') no-repeat 0px 0px;
-}
-.icon-investimentos {
-  background: url('../images/icons/icon-investimentos.png') no-repeat 0px 0px;
-}
-.icon-maquininha-de-cartao {
-  background: url('../images/icons/icon-maquininha-de-cartao.png') no-repeat 0px 0px;
-}
-.icon-open-finance {
-  background: url('../images/icons/icon-open-finance.png') no-repeat 0px 0px;
-}
-.icon-pix {
-  background: url('../images/icons/icon-pix.png') no-repeat 0px 0px;
-}
-.icon-previdencia {
-  background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
-}
+/* seguros */
 .icon-seguros {
   background: url('../images/icons/icon-seguros.png') no-repeat 0px 0px;
 }
+.icon-seguros-gold, .icon-seguros-2-gold, .icon-seguros-3-gold {
+  background: url('../images/icons/icon-seguros-gold.png') no-repeat 35px 42px;
+}
+.icon-seguros-white {
+  background: url('../images/icons/icon-seguros-white.png') no-repeat 0px 18px;
+}
+/* servicos-e-assessoria */
+.icon-servicos-e-assessoria {
+  background: url('../images/icons/icon-servicos-e-assessoria.png') no-repeat 35px 42px;
+}
+.icon-servicos-e-assessoria-gold {
+  background: url('../images/icons/icon-servicos-e-assessoria-gold.png') no-repeat 35px 42px;
+}
+.icon-servicos-e-assessoria-white {
+  background: url('../images/icons/icon-servicos-e-assessoria-white.png') no-repeat 35px 42px;
+}
+/* servicos-internacionais */
 .icon-servicos-internacionais {
   background: url('../images/icons/icon-servicos-internacionais.png') no-repeat 0px 0px;
 }
+.icon-servicos-internacionais-gold, .icon-servicos-internacionais-2-gold, .icon-servicos-internacionais-3-gold {
+  background: url('../images/icons/icon-servicos-internacionais-gold.png') no-repeat 35px 42px;
+}
+.icon-servicos-internacionais-white {
+  background: url('../images/icons/icon-servicos-internacionais-white.png') no-repeat 0px 18px;
+}
+/* tag */
 .icon-tag {
   background: url('../images/icons/icon-tag.png') no-repeat 0px 0px;
 }
+.icon-tag-gold, .icon-tag-2-gold, .icon-tag-3-gold {
+  background: url('../images/icons/icon-tag-gold.png') no-repeat 35px 42px;
+}
+.icon-tag-white {
+  background: url('../images/icons/icon-tag-white.png') no-repeat 0px 18px;
+}
+
 
 .slick-arrow {
   background: url('../images/icons/icon-right-arrow-white.png') no-repeat;
@@ -274,6 +400,9 @@ a {
   padding: 0px 0;
   color: var(--primary-color);
   font-size: 14px;
+  z-index: 110;
+  position: relative;
+  background-color: white;
 }
 .top-bar .first-col {
   padding-top: 12px;
@@ -335,7 +464,8 @@ a {
 .main-menu {
   height: 125px;
   background-color: transparent;
-  z-index: 10;
+  position: relative;
+  z-index: 110;
   position: relative;
 }
 .main-menu.menu-fixed.para-voce, .main-menu.para-voce.actived {
@@ -376,7 +506,7 @@ a {
   border-color: var(--color-actived);
 }
 
-.menu-inicial .menu-item .dropdown-content {
+.menu-item .dropdown-content {
   display: none;
   position: absolute;
   top: 100%;
@@ -406,10 +536,10 @@ a {
   position: relative;
   z-index: 110;
 }
-.menu-inicial .menu-item .dropdown-content .container .menu-subitem {
+.menu-item .dropdown-content .container .menu-subitem {
   margin: 0px 0px 30px 0px;
 }
-.menu-inicial .menu-item .dropdown-content .container .menu-subitem a {
+.menu-item .dropdown-content .container .menu-subitem a {
   color: var(--primary-color-para-cooperativa);
   font-size: 17px;
   font-weight: bold;
@@ -418,29 +548,14 @@ a {
   position: relative;
   font-family: "Calibri";
 }
-.menu-inicial .menu-item .dropdown-content .container .menu-subitem a:hover {
+.menu-item .dropdown-content .container .menu-subitem a:hover {
   color: var(--color-actived);
 }
-.menu-inicial .menu-item .dropdown-content .container .menu-subitem .arrow.right{
+.menu-item .dropdown-content .container .menu-subitem .arrow.right{
   position: absolute;
   top: 16px;
   border-color: var(--color-actived);
 }
-.menu-inicial .menu-item .dropdown-content .modal-menu {
-  display: none;
-}
-/*.menu-inicial .menu-item:hover .dropdown-content .modal-menu {
-  display: block;
-  background-color: black;
-  opacity: 0.4;
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-}
-*/
 .menu-inicial .menu-item .dropdown-content .container .a-uniprime {
   width: 100%;
   margin: 0 auto;
@@ -505,6 +620,19 @@ a {
 .menu-inicial .menu-item .dropdown-content.dropdown-content-atendimento .container .menu-subitem a {
   padding: 8px 0px 8px 0px !important;
 }
+#modal-menu {
+  background-color: black;
+  display: none;
+  height: 100vh;
+  left: 0;
+  max-width: 100% !important;
+  opacity: 0.5;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 100;
+}
+
 .main-menu .bts-externos .seja-um-cooperado {
   margin-left: 20px;
 }
@@ -1006,6 +1134,7 @@ footer {
 .footer-menu {
   background-color: var(--color-footer);
   padding: 91px 0 90px;
+  position: relative;
 }
 .footer-menu .label-footer-menu {
   color: var(--primary-color-brand);
@@ -1027,28 +1156,15 @@ footer {
   line-height: 24px;
 }
 .footer-menu .menu-item .dropdown-content {
-  display: none;
-  position: absolute;
   top: 0;
   left: 100%;
   background-color: var(--primary-color-para-cooperativa);
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 9;
   transition: all .2s ease-in-out;
-  box-shadow: 0 5px 5px rgba(0,0,0,.1);
-  -moz-box-shadow: 0 5px 5px rgba(0,0,0,.1);
-  -webkit-box-shadow: 0 5px 5px rgba(0,0,0,.1);
-  padding-top: 50px;
-  padding-bottom: 60px;
-  opacity: 0;
-  visibility: hidden;
-  width: 100%;
+  padding: 94px 100px;
+  width: 245%;
   background-color: #fff;
-  padding: 0 0em; /* trick from css-tricks comments */
-  margin: -91px 0 0 0; /* trick from css-tricks comments */
-  max-height: 530px;
-  overflow-y: auto;
-  overflow-x: hidden;
+  margin: -91px 0 0 0;
 }
 .footer-menu .menu-footer-solucoes .menu-item .menu-dropdown{
   color: var(--color-actived);
@@ -1073,6 +1189,21 @@ footer {
   display: block;
   visibility: visible;
   opacity: 1;
+  background-color: var(--primary-color-para-cooperativa);
+}
+
+.footer-menu .menu-item .dropdown-content .container .menu-subitem {
+  /* margin: 0px 0px 30px 0px; */
+}
+.footer-menu .menu-item .dropdown-content .container .menu-subitem a {
+  color: white;
+  padding: 20px 0px 20px 53px !important;
+}
+.footer-menu .menu-item .dropdown-content .container .menu-subitem a:hover {
+  color: var(--color-actived);
+}
+.footer-menu .menu-item .dropdown-content .container .menu-subitem .arrow.right{
+  top: 26px;
 }
 
 .footer-menu .col-right {
