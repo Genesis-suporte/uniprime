@@ -33,22 +33,18 @@
           foreach($get_solucoes as $get_colucao) {
             //echo $get_colucao;
             $terms = get_the_terms( $get_colucao, 'tipo-solucao' ); 
-            $index_nh = 0;
+            //$index_nh = 0;
             foreach($terms as $term) {
               //echo $currentSlug.' - '.$term->slug;
-              if($currentSlug == $term->slug || (is_front_page() && $term->slug == 'para-voce')) {
-                if(!$index_nh % 3) { ?>
-                  <div class="col col-4 card-nossos-produtos">
-                    <a href="<?php echo $get_colucao->post_title;?>" target="_SELF" class="icon-menu <?php echo $get_colucao->post_title;?>"><?php echo $get_colucao->post_title; ?></a>
-                  </div>
-                <?php } else { echo 'tyara';?>
-                    <div class="col col-4 card-nossos-produtos d-none">
-                      
-                    </div>
-                  <?php 
-                }
+              if($currentSlug == $term->slug || (is_front_page() && $term->slug == 'para-voce')) { ?>
+                <div class="col col-4 card-nossos-produtos">
+                  <a href="<?php echo $get_colucao->guid;?>" target="_SELF" role="button" class="icon-menu icon-<?php echo $get_colucao->post_name;?>-gold">
+                    <?php echo $get_colucao->post_title; ?>
+                    <i class="arrow right"></i>
+                  </a>
+                </div>
+              <?php 
               }
-              $index_nh++;
             }
             
           }

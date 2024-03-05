@@ -106,15 +106,146 @@ a {
 .icon-phone {
   background: url('../images/icons/icon-phone.png') no-repeat 0px 0px;
 }
-.icon-credit-card {
-  background: url('../images/icons/icon-credit-card.png') no-repeat 0px 0px;
+.icon-central {
+  background: url('../images/icons/icon-central.png') no-repeat 0px 0px;
 }
+
 .icon-logo {
   background: url('../images/icons/icon-logo.png') no-repeat 0px 20px;
 }
-.icon-cta:after {
+.icon-cta {
   background: url('../images/icons/icon-right-arrow-white.png') no-repeat 0px 0px;
 }
+/* ICONS SOLUÇÔES */
+.icon-app-uniprime-cartoes-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-boleto-bancario-cobranca-gold, .icon-boleto-bancario-cobranca-2-gold, .icon-boleto-bancario-cobranca-3-gold {
+  background: url('../images/icons/icon-cambio-gold.png') no-repeat 35px 42px;
+}
+.icon-cambio-gold {
+  background: url('../images/icons/icon-cambio-gold.png') no-repeat 35px 42px;
+}
+.icon-cartoes-gold, .icon-cartoes-2-gold, .icon-cartoes-3-gold {
+  background: url('../images/icons/icon-cambio-gold.png') no-repeat 35px 42px;
+}
+.icon-cobranca-gold {
+  background: url('../images/icons/icon-cobranca-gold.png') no-repeat 35px 42px;
+}
+.icon-consorcios-gold, .icon-consorcios-2-gold, .icon-consorcios-3-gold {
+  background: url('../images/icons/icon-credit-card-gold.png') no-repeat 35px 42px;
+}
+.icon-conta-corrente-gold, .icon-conta-corrente-2-gold, .icon-conta-corrente-3-gold {
+  background: url('../images/icons/icon-credit-card-gold.png') no-repeat 35px 42px;
+}
+.icon-credit-card-gold {
+  background: url('../images/icons/icon-credit-card-gold.png') no-repeat 35px 42px;
+}
+.icon-credito-gold, .icon-credito-2-gold, .icon-credito-3-gold {
+  background: url('../images/icons/icon-credit-card-gold.png') no-repeat 35px 42px;
+}
+.icon-domicilio-bancario-gold, .icon-domicilio-bancario-2-gold, .icon-domicilio-bancario-3-gold {
+  background: url('../images/icons/icon-domicilio-bancario-gold.png') no-repeat 35px 42px;
+}
+.icon-financiamento-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-investimentos-gold {
+  background: url('../images/icons/icon-investimentos-gold.png') no-repeat 35px 42px;
+}
+.icon-linha-credito-gold {
+  background: url('../images/icons/icon-linha-credito-gold.png') no-repeat 35px 42px;
+}
+.icon-maquina-de-cartao-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-open-banking-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-open-finance-gold, .icon-open-finance-2-gold, .icon-open-finance-3-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-portabilidade-de-conta-salario-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-pix-gold, .icon-pix-2-gold, .icon-pix-3-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-previdencia-gold, .icon-previdencia-2-gold, .icon-previdencia-3-gold  {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-produtos-de-investimento-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-remessa-internacional-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-repasse-mediante-convenios-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-seguros-gold, .icon-seguros-2-gold, .icon-seguros-3-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-servicos-e-assessoria-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-servicos-internacionais-gold, .icon-servicos-internacionais-2-gold, .icon-servicos-internacionais-3-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+.icon-tag-gold, .icon-tag-2-gold, .icon-tag-3-gold {
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+}
+/* BLUE */
+
+.icon-boleto-bancario-cobranca {
+  background: url('../images/icons/icon-credit-card.png') no-repeat 0px 0px;
+}
+.icon-cartoes {
+  background: url('../images/icons/icon-credit-card.png') no-repeat 0px 0px;
+}
+.icon-credit-card {
+  background: url('../images/icons/icon-credit-card.png') no-repeat 0px 0px;
+}
+.icon-consorcios {
+  background: url('../images/icons/icon-consorcios.png') no-repeat 0px 0px;
+}
+.icon-conta-corrente {
+  background: url('../images/icons/icon-conta-corrente.png') no-repeat 0px 0px;
+}
+.icon-credito {
+  background: url('../images/icons/icon-credito.png') no-repeat 0px 0px;
+}
+.icon-cobranca {
+  background: url('../images/icons/icon-cobranca.png') no-repeat 35px 42px;
+}
+.icon-domicilio-bancario {
+  background: url('../images/icons/icon-domicilio-bancario.png') no-repeat 0px 0px;
+}
+.icon-investimentos {
+  background: url('../images/icons/icon-investimentos.png') no-repeat 0px 0px;
+}
+.icon-maquininha-de-cartao {
+  background: url('../images/icons/icon-maquininha-de-cartao.png') no-repeat 0px 0px;
+}
+.icon-open-finance {
+  background: url('../images/icons/icon-open-finance.png') no-repeat 0px 0px;
+}
+.icon-pix {
+  background: url('../images/icons/icon-pix.png') no-repeat 0px 0px;
+}
+.icon-previdencia {
+  background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
+}
+.icon-seguros {
+  background: url('../images/icons/icon-seguros.png') no-repeat 0px 0px;
+}
+.icon-servicos-internacionais {
+  background: url('../images/icons/icon-servicos-internacionais.png') no-repeat 0px 0px;
+}
+.icon-tag {
+  background: url('../images/icons/icon-tag.png') no-repeat 0px 0px;
+}
+
 .slick-arrow {
   background: url('../images/icons/icon-right-arrow-white.png') no-repeat;
   background-color: transparent;
@@ -207,9 +338,6 @@ a {
   z-index: 10;
   position: relative;
 }
-.main-menu:hover {
-
-}
 .main-menu.menu-fixed.para-voce, .main-menu.para-voce.actived {
   background-color: var(--primary-color-para-voce);
 }
@@ -224,10 +352,7 @@ a {
 }
 .menu-inicial .menu-item {
   display: flex;
-  position: relative;
   box-sizing: border-box;
-}
-.menu-inicial .menu-item:hover {
 }
 .main-menu.actived .menu-inicial .menu-item .menu-dropdown {
   color: var(--primary-color);
@@ -247,8 +372,7 @@ a {
 .main-menu.actived .menu-inicial .menu-item .menu-dropdown .arrow {
   border-color: var(--primary-color);
 }
-.menu-inicial .menu-item:hover .menu-dropdown .arrow,
-cccc.menu-item:hover .menu-dropdown .arrow {
+.menu-inicial .menu-item:hover .menu-dropdown .arrow {
   border-color: var(--color-actived);
 }
 
@@ -259,24 +383,127 @@ cccc.menu-item:hover .menu-dropdown .arrow {
   left: 0;
   background-color: white;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 9;
+  z-index: 111;
   transition: all .2s ease-in-out;
   box-shadow: 0 5px 5px rgba(0,0,0,.1);
   -moz-box-shadow: 0 5px 5px rgba(0,0,0,.1);
   -webkit-box-shadow: 0 5px 5px rgba(0,0,0,.1);
-  padding-top: 50px;
-  padding-bottom: 60px;
+  padding-top: 58px;
+  padding-bottom: 88px;
   opacity: 0;
   visibility: hidden;
   width: 100%;
-  background-color: #fff;
-  padding: 0 1000em; /* trick from css-tricks comments */
-  margin: 0 -1000em; /* trick from css-tricks comments */
+  /* padding: 0 1000em;trick from css-tricks comments */
+   /* margin: 0 -1000em; /* trick from css-tricks comments */
 }
 .menu-inicial .menu-item:hover .dropdown-content {
   display: block;
   visibility: visible;
   opacity: 1;
+}
+.menu-inicial .menu-item .dropdown-content .container {
+  display: flex;
+  position: relative;
+  z-index: 110;
+}
+.menu-inicial .menu-item .dropdown-content .container .menu-subitem {
+  margin: 0px 0px 30px 0px;
+}
+.menu-inicial .menu-item .dropdown-content .container .menu-subitem a {
+  color: var(--primary-color-para-cooperativa);
+  font-size: 17px;
+  font-weight: bold;
+  padding: 8px 0px 8px 53px !important;
+  display: block;
+  position: relative;
+  font-family: "Calibri";
+}
+.menu-inicial .menu-item .dropdown-content .container .menu-subitem a:hover {
+  color: var(--color-actived);
+}
+.menu-inicial .menu-item .dropdown-content .container .menu-subitem .arrow.right{
+  position: absolute;
+  top: 16px;
+  border-color: var(--color-actived);
+}
+.menu-inicial .menu-item .dropdown-content .modal-menu {
+  display: none;
+}
+/*.menu-inicial .menu-item:hover .dropdown-content .modal-menu {
+  display: block;
+  background-color: black;
+  opacity: 0.4;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+*/
+.menu-inicial .menu-item .dropdown-content .container .a-uniprime {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 95px;
+}
+
+.menu-inicial .menu-item .dropdown-content .container .menu-subitem-uniprime .icon-cobranca {
+  background-position: 0px 5px;
+}
+.menu-inicial .menu-item .dropdown-content .container .label-header-menu {
+  color: var(--primary-color-brand);
+  font-size: 21px;
+  font-family: 'Switzerland';
+  font-weight: bold;
+  padding: 0px 0px 22px 78px;
+}
+
+.menu-inicial .menu-item .dropdown-content .container ul {
+  padding: 8px 0 0 94px;
+}
+.menu-inicial .menu-item .dropdown-content .container ul li {
+  padding: 0px 0 26px 0px;
+  display: list-item;
+}
+.menu-inicial .menu-item .dropdown-content .container ul li::marker {
+  color: var(--color-actived);
+}
+.menu-inicial .menu-item .dropdown-content .container .menu-item a {
+  color: var(--primary-color-para-cooperativa);
+  line-height: 28px;
+  font-size: 15px;
+} 
+
+.menu-inicial .menu-item .dropdown-content .container .menu-item a:hover {
+  color: var(--color-actived);
+}
+.menu-inicial .menu-item .dropdown-content.dropdown-content-atendimento {
+  max-width: 700px;
+  left: 30%;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+  padding-bottom: 30px;
+}
+.menu-inicial .menu-item .dropdown-content.dropdown-content-atendimento .row {
+  display: block;
+  position: relative;
+}
+.menu-inicial .menu-item .dropdown-content.dropdown-content-atendimento ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 112px !important;
+}
+.menu-inicial .menu-item .dropdown-content.dropdown-content-atendimento .container ul li {
+  padding: 0px 0 10px 0px;
+  display: list-item;
+  margin: 0 0 0 20px;
+}
+.menu-inicial .menu-item .dropdown-content.dropdown-content-atendimento .container .menu-subitem {
+  margin: 0px 0px 0px 0px;
+}
+.menu-inicial .menu-item .dropdown-content.dropdown-content-atendimento .container .menu-subitem a {
+  padding: 8px 0px 8px 0px !important;
 }
 .main-menu .bts-externos .seja-um-cooperado {
   margin-left: 20px;
@@ -381,6 +608,7 @@ cccc.menu-item:hover .menu-dropdown .arrow {
 .div-logo-uniprime {
   width: 100%;
   position: relative;
+  z-index: 10;
 }
 .div-logo-uniprime .logo-uniprime-background {
   background-repeat: no-repeat;
@@ -426,13 +654,13 @@ cccc.menu-item:hover .menu-dropdown .arrow {
 }
 /* NOSSOS PRODUTOS */
 .nossos-produtos {
-  padding: 130px 0 115px;
+  padding: 130px 0 102px;
   position: relative;
   overflow: hidden;
 }
 .nossos-produtos .description-block .col-left {
   width: 55%;
-  padding: 0 70px 38px 0;
+  padding: 0 70px 48px 0;
   
 }
 .nossos-produtos .arrows-nossos-produtos {
@@ -455,19 +683,22 @@ cccc.menu-item:hover .menu-dropdown .arrow {
   z-index: 12;
 }
 .nossos-produtos .slick-slide > div {
-  margin: 12px 3px 26px 20px;
+  margin: 0px 0px 30px 23px;
   background-color: rgba(248, 250, 251, .9);
-  border-radius: 20px;
-  border: 1px solid;
-}
-.nossos-produtos .card-nossos-produtos {
+  border-radius: 16px;
 }
 .nossos-produtos .card-nossos-produtos a {
   color: var(--primary-color-para-cooperativa);
   font-size: 17px;
   font-weight: bold;
-  padding: 46px 60px 48px;
+  padding: 46px 30px 48px 86px !important;
   display: block;
+  position: relative;
+}
+.nossos-produtos .card-nossos-produtos a .arrow.right{
+  right: 20px;
+  position: absolute;
+  top: 56px;
 }
 /* NOSSA HISTÓRIA */
 .nossa-historia {

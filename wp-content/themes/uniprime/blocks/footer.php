@@ -31,7 +31,7 @@
           </div>
         </div>
         <div class="col-5">
-          <div class="label-footer icon-credit-card icon-menu">
+          <div class="label-footer icon-central icon-menu">
             <?php echo esc_html($label_bloco_direita); ?>
           </div>
           <div class="d-flex justify-content-between">
@@ -181,18 +181,13 @@
             <nav class="menu-footer">
               <ul>
                 <?php 
-                  $menu_lists = setMenuThreeLevels('menu-a-uniprime');
+                  $menu_lists = setMenuThreeLevels('menu-a-uniprime-footer');
                   $menu_a_uniprime = "";
                   foreach ($menu_lists as $item) { 
                     $class = '';
                     if(isset( $item[ 'class' ])) {
                       $class = esc_attr( implode( ' ', $item['class']));
                     }
-                    // if (in_array("search", $item['class'])) {
-                    //   $class_search = true;
-                    // }
-                    //print_r($item['class']).'<br />';
-                    //echo $class_search.'<br />';
                     $menu_a_uniprime .= '<li class="menu-item '.$class.'">'."\n";
                     $menu_a_uniprime .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
                     $menu_a_uniprime .= '</li>'."\n";
@@ -217,11 +212,6 @@
                     if(isset( $item[ 'class' ])) {
                       $class = esc_attr( implode( ' ', $item['class']));
                     }
-                    // if (in_array("search", $item['class'])) {
-                    //   $class_search = true;
-                    // }
-                    //print_r($item['class']).'<br />';
-                    //echo $class_search.'<br />';
                     $menu_governanca .= '<li class="menu-item '.$class.'">'."\n";
                     $menu_governanca .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
                     $menu_governanca .= '</li>'."\n";
@@ -245,11 +235,6 @@
                     if(isset( $item[ 'class' ])) {
                       $class = esc_attr( implode( ' ', $item['class']));
                     }
-                    // if (in_array("search", $item['class'])) {
-                    //   $class_search = true;
-                    // }
-                    //print_r($item['class']).'<br />';
-                    //echo $class_search.'<br />';
                     $menu_fique_por_dentro .= '<li class="menu-item '.$class.'">'."\n";
                     $menu_fique_por_dentro .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
                     $menu_fique_por_dentro .= '</li>'."\n";
