@@ -39,7 +39,7 @@
     element.addEventListener('mouseout', (e) => {
       e.target.classList.remove('actived');
     });*/
-    $('#main-menu').hover(
+    $('#main-menu.para-voce').hover(
       function(){ 
         $(this).addClass('actived') 
         $(".logo-black").removeClass('d-none') 
@@ -53,6 +53,36 @@
         $(this).removeClass('actived') 
         $(".logo-black").addClass('d-none') 
         $(".logo-white").removeClass('d-none') 
+        $("#icon-users").removeClass('d-none') 
+        $("#icon-users-white").addClass('d-none') 
+        $("#modal-menu").removeClass('d-block')
+      }
+    )
+    $('#main-menu.para-empresa').hover(
+      function(){ 
+        $(this).addClass('actived') 
+        $("#icon-users").addClass('d-none') 
+        $("#icon-users-white").removeClass('d-none')
+        $("#modal-menu").addClass('d-block')
+        
+      },
+      function(){ 
+        $(this).removeClass('actived') 
+        $("#icon-users").removeClass('d-none') 
+        $("#icon-users-white").addClass('d-none') 
+        $("#modal-menu").removeClass('d-block')
+      }
+    )
+    $('#main-menu.para-cooperativa').hover(
+      function(){ 
+        $(this).addClass('actived') 
+        $("#icon-users").addClass('d-none') 
+        $("#icon-users-white").removeClass('d-none')
+        $("#modal-menu").addClass('d-block')
+        
+      },
+      function(){ 
+        $(this).removeClass('actived') 
         $("#icon-users").removeClass('d-none') 
         $("#icon-users-white").addClass('d-none') 
         $("#modal-menu").removeClass('d-block')

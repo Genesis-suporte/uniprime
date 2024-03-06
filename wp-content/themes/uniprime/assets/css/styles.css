@@ -47,6 +47,7 @@ a {
 .up {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
+  margin: 1px 15px;
 }
 .down {
   transform: rotate(45deg);
@@ -121,123 +122,123 @@ a {
 /* GOLD */
 /* app-uniprime-cartoes*/
 .icon-app-uniprime-cartoes {
-  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
 .icon-app-uniprime-cartoes-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
 .icon-app-uniprime-cartoes-white {
-  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* boleto-bancario */
 .icon-boleto-bancario-cobranca {
-  background: url('../images/icons/icon-cartao-credito.png') no-repeat 0px 0px;
+  background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
 .icon-boleto-bancario-cobranca-gold, .icon-boleto-bancario-cobranca-2-gold, .icon-boleto-bancario-cobranca-3-gold {
-  background: url('../images/icons/icon-cambio-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
 .icon-boleto-bancario-cobranca-white {
-  background: url('../images/icons/icon-cartao-credito-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
-/* cambio */
+/* cambio 
 .icon-cambio {
   background: url('../images/icons/icon-cambio.png') no-repeat 0px 0px;
 }
 .icon-cambio-gold {
-  background: url('../images/icons/icon-cambio-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-cambio-gold.png') no-repeat 0px 0px;
 }
 .icon-cambio-white {
-  background: url('../images/icons/icon-cambio-white.png') no-repeat 35px 42px;
-}
+  background: url('../images/icons/icon-cambio-white.png') no-repeat 0px 0px;
+}*/
 /* cartao-credito */
 .icon-cartao-credito {
   background: url('../images/icons/icon-cartao-credito.png') no-repeat 0px 0px;
 }
 .icon-cartao-credito-gold, .icon-cartao-credito-2-gold, .icon-cartao-credito-3-gold {
-  background: url('../images/icons/icon-cartao-credito-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-cartao-credito-gold.png') no-repeat 0px 0px;
 }
 .icon-cartao-credito-white {
-  background: url('../images/icons/icon-cartao-credito-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-cartao-credito-white.png') no-repeat 0px 0px;
 }
 /* cartoes */
 .icon-cartoes {
   background: url('../images/icons/icon-cartao-credito.png') no-repeat 0px 0px;
 }
 .icon-cartoes-gold, .icon-cartoes-2-gold, .icon-cartoes-3-gold {
-  background: url('../images/icons/icon-cambio-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-cartao-credito-gold.png') no-repeat 0px 0px;
 }
 .icon-cartoes-white {
-  background: url('../images/icons/icon-cartao-credito-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-cartao-credito-white.png') no-repeat 0px 0px;
 }
 /* cobranca */
 .icon-cobranca {
-  background: url('../images/icons/icon-cobranca.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-cobranca.png') no-repeat 0px 0px;
 }
 .icon-cobranca-gold {
-  background: url('../images/icons/icon-cobranca-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-cobranca-gold.png') no-repeat 0px 0px;
 }
 .icon-cobranca-white {
-  background: url('../images/icons/icon-cobranca-white.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-cobranca-white.png') no-repeat 0px 0px;
 }
 /* consorcios */
 .icon-consorcios {
   background: url('../images/icons/icon-consorcios.png') no-repeat 0px 0px;
 }
 .icon-consorcios-gold, .icon-consorcios-2-gold, .icon-consorcios-3-gold {
-  background: url('../images/icons/icon-consorcios-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-consorcios-gold.png') no-repeat 0px 0px;
 }
 .icon-consorcios-white {
-  background: url('../images/icons/icon-consorcios-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-consorcios-white.png') no-repeat 0px 0px;
 }
 /*conta-corrente */
 .icon-conta-corrente {
   background: url('../images/icons/icon-conta-corrente.png') no-repeat 0px 0px;
 }
 .icon-conta-corrente-gold, .icon-conta-corrente-2-gold, .icon-conta-corrente-3-gold {
-  background: url('../images/icons/icon-conta-corrente-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-conta-corrente-gold.png') no-repeat 0px 0px;
 }
 .icon-conta-corrente-white {
-  background: url('../images/icons/icon-conta-corrente-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-conta-corrente-white.png') no-repeat 0px 0px;
 }
 /* credito */
 .icon-credito {
   background: url('../images/icons/icon-credito.png') no-repeat 0px 0px;
 }
 .icon-credito-gold, .icon-credito-2-gold, .icon-credito-3-gold {
-  background: url('../images/icons/icon-credito-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-credito-gold.png') no-repeat 0px 0px;
 }
 .icon-credito-white {
-  background: url('../images/icons/icon-credito-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-credito-white.png') no-repeat 0px 0px;
 }
 /* domicilio-bancario */
 .icon-domicilio-bancario {
   background: url('../images/icons/icon-domicilio-bancario.png') no-repeat 0px 0px;
 }
 .icon-domicilio-bancario-gold, .icon-domicilio-bancario-2-gold, .icon-domicilio-bancario-3-gold {
-  background: url('../images/icons/icon-domicilio-bancario-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-domicilio-bancario-gold.png') no-repeat 0px 0px;
 }
 .icon-domicilio-bancario-white {
-  background: url('../images/icons/icon-domicilio-bancario-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-domicilio-bancario-white.png') no-repeat 0px 0px;
 }
 /* financiamento */
 .icon-financiamento {
-  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
 .icon-financiamento-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
 .icon-financiamento-white {
-  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* investimentos */
 .icon-investimentos {
   background: url('../images/icons/icon-investimentos.png') no-repeat 0px 0px;
 }
 .icon-investimentos-gold {
-  background: url('../images/icons/icon-investimentos-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-investimentos-gold.png') no-repeat 0px 0px;
 }
 .icon-investimentos-white {
-  background: url('../images/icons/icon-investimentos-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-investimentos-white.png') no-repeat 0px 0px;
 }
 /* maquina-de-cartao */
 
@@ -245,130 +246,130 @@ a {
   background: url('../images/icons/icon-maquina-de-cartao.png') no-repeat 0px 0px;
 }
 .icon-maquina-de-cartao-gold {
-  background: url('../images/icons/icon-maquina-de-cartao-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-maquina-de-cartao-gold.png') no-repeat 0px 0px;
 }
 .icon-maquina-de-cartao-white {
-  background: url('../images/icons/icon-maquina-de-cartao-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-maquina-de-cartao-white.png') no-repeat 0px 0px;
 }
 /* -open-banking */
 .icon-open-banking {
-  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
 .icon-open-banking-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
 .icon-open-banking-white {
-  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* open-finance */
 .icon-open-finance {
   background: url('../images/icons/icon-open-finance.png') no-repeat 0px 0px;
 }
 .icon-open-finance-gold, .icon-open-finance-2-gold, .icon-open-finance-3-gold {
-  background: url('../images/icons/icon-open-finance-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-open-finance-gold.png') no-repeat 0px 0px;
 }
 .icon-open-finance-white {
-  background: url('../images/icons/icon-open-finance-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-open-finance-white.png') no-repeat 0px 0px;
 }
 /* portabilidade-de-conta-salario */
 .icon-portabilidade-de-conta-salario {
-  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
 .icon-portabilidade-de-conta-salario-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
 .icon-portabilidade-de-conta-salario-white {
-  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* pix */
 .icon-pix {
   background: url('../images/icons/icon-pix.png') no-repeat 0px 0px;
 }
 .icon-pix-gold, .icon-pix-2-gold, .icon-pix-3-gold {
-  background: url('../images/icons/icon-pix-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-pix-gold.png') no-repeat 0px 0px;
 }
 .icon-pix-white {
-  background: url('../images/icons/icon-pix-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-pix-white.png') no-repeat 0px 0px;
 }
 /* previdencia */
 .icon-previdencia {
   background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
 .icon-previdencia-gold, .icon-previdencia-2-gold, .icon-previdencia-3-gold  {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
 .icon-previdencia-white {
-  background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* produtos-de-investimento */
 .icon-produtos-de-investimento {
-  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
 .icon-produtos-de-investimento-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
 .icon-produtos-de-investimento-white {
-  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* remessa-internacional */
 .icon-remessa-internacional {
-  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
 .icon-remessa-internacional-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
 .icon-remessa-internacional-white {
-  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* repasse-mediante-convenios */
 .icon-repasse-mediante-convenios {
-  background: url('../images/icons/icon-previdencia.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
 .icon-repasse-mediante-convenios-gold {
-  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
 .icon-repasse-mediante-convenios-white {
-  background: url('../images/icons/icon-previdencia-white.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* seguros */
 .icon-seguros {
   background: url('../images/icons/icon-seguros.png') no-repeat 0px 0px;
 }
 .icon-seguros-gold, .icon-seguros-2-gold, .icon-seguros-3-gold {
-  background: url('../images/icons/icon-seguros-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-seguros-gold.png') no-repeat 0px 0px;
 }
 .icon-seguros-white {
-  background: url('../images/icons/icon-seguros-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-seguros-white.png') no-repeat 0px 0px;
 }
 /* servicos-e-assessoria */
 .icon-servicos-e-assessoria {
-  background: url('../images/icons/icon-servicos-e-assessoria.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-servicos-e-assessoria.png') no-repeat 0px 0px;
 }
 .icon-servicos-e-assessoria-gold {
-  background: url('../images/icons/icon-servicos-e-assessoria-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-servicos-e-assessoria-gold.png') no-repeat 0px 0px;
 }
 .icon-servicos-e-assessoria-white {
-  background: url('../images/icons/icon-servicos-e-assessoria-white.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-servicos-e-assessoria-white.png') no-repeat 0px 0px;
 }
 /* servicos-internacionais */
 .icon-servicos-internacionais {
   background: url('../images/icons/icon-servicos-internacionais.png') no-repeat 0px 0px;
 }
 .icon-servicos-internacionais-gold, .icon-servicos-internacionais-2-gold, .icon-servicos-internacionais-3-gold {
-  background: url('../images/icons/icon-servicos-internacionais-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-servicos-internacionais-gold.png') no-repeat 0px 0px;
 }
 .icon-servicos-internacionais-white {
-  background: url('../images/icons/icon-servicos-internacionais-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-servicos-internacionais-white.png') no-repeat 0px 0px;
 }
 /* tag */
 .icon-tag {
   background: url('../images/icons/icon-tag.png') no-repeat 0px 0px;
 }
 .icon-tag-gold, .icon-tag-2-gold, .icon-tag-3-gold {
-  background: url('../images/icons/icon-tag-gold.png') no-repeat 35px 42px;
+  background: url('../images/icons/icon-tag-gold.png') no-repeat 0px 0px;
 }
 .icon-tag-white {
-  background: url('../images/icons/icon-tag-white.png') no-repeat 0px 18px;
+  background: url('../images/icons/icon-tag-white.png') no-repeat 0px 0px;
 }
 
 
@@ -423,11 +424,38 @@ a {
   text-align: center;
   height: 48px;
 }
+.top-bar .menu-top-bar .menu-item.para-voce:hover a {
+  background-color: var(--primary-color-para-voce);
+}
+.top-bar .menu-top-bar .menu-item.para-empresa:hover a {
+  background-color: var(--primary-color-brand);
+  color: white;
+}
+.top-bar .menu-top-bar .menu-item.para-cooperativa:hover a {
+  background-color: var(--primary-color-para-cooperativa);
+  color: white;
+}
+/* ANIMAÇÕES */
+/* .main-menu.menu-fixed.para-voce, 
+.main-menu.para-voce.actived {
+  background-color: var(--primary-color-para-voce);
+}
+.main-menu.menu-fixed.para-empresa, 
+.main-menu.para-empresa.actived {
+  background-color: var(--primary-color-brand);
+}
+.main-menu.menu-fixed.para-cooperativa, 
+.main-menu.para-cooperativa.actived {
+  background-color: var(--primary-color-para-cooperativa);
+} */
+
 .top-bar .menu-top-bar .menu-item a {
   width: 100%;
   text-align: center;
   display: block;
-  padding: 11px 0 12px;
+  padding: 12px 0 15px;
+  transition: all .2s ease-in-out;
+  background-color: transparent;
 }
 .top-bar .menu-top-bar .separador-top-menu {
   border-right: 1px solid var(--color-neutral-2);
@@ -455,6 +483,8 @@ a {
 .top-bar .menu-top-bar .menu-item.current-menu-item.para-cooperativa a {
   color: white;
 }
+
+
 .top-bar .menu-top-bar .menu-item.search a {
   text-align: right;
 }
@@ -466,17 +496,21 @@ a {
   background-color: transparent;
   position: relative;
   z-index: 110;
-  position: relative;
+  transition: all .2s ease-in-out;
 }
-.main-menu.menu-fixed.para-voce, .main-menu.para-voce.actived {
+.main-menu.menu-fixed.para-voce, 
+.main-menu.para-voce.actived {
   background-color: var(--primary-color-para-voce);
 }
-.main-menu.menu-fixed.para-empresa {
+.main-menu.menu-fixed.para-empresa, 
+.main-menu.para-empresa.actived {
   background-color: var(--primary-color-brand);
 }
-.main-menu.menu-fixed.para-cooperativa {
+.main-menu.menu-fixed.para-cooperativa, 
+.main-menu.para-cooperativa.actived {
   background-color: var(--primary-color-para-cooperativa);
 }
+
 .main-menu .logo {
   padding: 39px 60px 0 0;
 }
@@ -484,9 +518,13 @@ a {
   display: flex;
   box-sizing: border-box;
 }
-.main-menu.actived .menu-inicial .menu-item .menu-dropdown {
+.main-menu.para-voce.actived .menu-inicial .menu-item .menu-dropdown {
   color: var(--primary-color);
 }
+.main-menu.para-empresa.actived .menu-inicial .menu-item .menu-dropdown, .main-menu.para-cooperativa.actived .menu-inicial .menu-item .menu-dropdown {
+  color: white;
+}
+
 .menu-inicial .menu-item .menu-dropdown {
   color: white;
   padding: 50px 10px 49px;
@@ -499,10 +537,10 @@ a {
 .menu-inicial .menu-item .menu-dropdown .arrow {
   border-color: white;
 }
-.main-menu.actived .menu-inicial .menu-item .menu-dropdown .arrow {
+.main-menu.para-voce.actived .menu-inicial .menu-item .menu-dropdown .arrow {
   border-color: var(--primary-color);
 }
-.menu-inicial .menu-item:hover .menu-dropdown .arrow {
+.menu-inicial.para-voce .menu-item:hover .menu-dropdown .arrow {
   border-color: var(--color-actived);
 }
 
@@ -633,26 +671,68 @@ a {
   z-index: 100;
 }
 
-.main-menu .bts-externos .seja-um-cooperado {
-  margin-left: 20px;
-}
-.main-menu.actived .bts-externos .seja-um-cooperado {
-  color: white !important;
-  background-color: var(--color-actived) !important;
-}
-.main-menu .bts-externos .seja-um-cooperado img{
-  margin-right: 5px;
-}
 .main-menu .bts-externos {
   padding: 40px 0px;
 }
+/* ACTIVED */
+.main-menu.para-cooperativa.actived .bts-externos .acesse-sua-conta {
+  background-color: var(--primary-color-brand) !important;
+  color: white !important;
+}
+.main-menu.actived .bts-externos .seja-um-cooperado {
+  background-color: var(--color-actived) !important;
+  color: white !important;
+}
+/* CASOS PARA-VOCE, PARA-EMPRESA, PARA-COOP */
+.main-menu.para-voce .bts-externos .acesse-sua-conta:hover {
+  background-color: var(--primary-color-brand) !important;
+  color: white !important;
+  border: 1px solid var(--primary-color-brand) !important;
+}
+.main-menu.para-empresa .bts-externos .acesse-sua-conta:hover,
+.main-menu.para-cooperativa .bts-externos .acesse-sua-conta:hover {
+  background-color: white !important;
+  color: var(--primary-color-brand) !important;
+  border: 1px solid white !important;
+}
+.main-menu.para-voce .bts-externos .seja-um-cooperado:hover {
+  background-color: var(--primary-color-brand) !important;
+  color: white !important;
+  border: 1px solid white !important;
+}
+.main-menu.para-empresa .bts-externos .seja-um-cooperado:hover {
+  background-color:  var(--primary-color-brand) !important;
+  color: white !important;
+  border: 1px solid  white !important;
+}
+.main-menu.para-cooperativa .bts-externos .seja-um-cooperado:hover {
+  background-color:  var(--primary-color-para-cooperativa) !important;
+  color: white !important;
+  border: 1px solid  white !important;
+}
+
+/* NATURAIS */
+.main-menu .bts-externos .acesse-sua-conta {
+  transition: all .2s ease-in-out;
+  border: 1px solid var(--primary-color-para-cooperativa) !important;
+}
+.main-menu .bts-externos .seja-um-cooperado {
+  background-color: white !important;
+  color: var(--primary-color-brand) !important;
+  margin-left: 20px;
+  transition: all .2s ease-in-out;
+  border: 1px solid transparent !important;
+  padding: 38px 0px;
+}
+
+.main-menu .bts-externos .seja-um-cooperado img{
+  margin-right: 5px;
+}
+
 .hero-banner {
   top: -125px;
   z-index: 1;
   position: relative;
-}
-.hero-banner .hero-image {
-
 }
 .hero-banner .hero-image .copy {
   position: absolute;
@@ -811,7 +891,7 @@ a {
   z-index: 12;
 }
 .nossos-produtos .slick-slide > div {
-  margin: 0px 0px 30px 23px;
+  margin: 0px 0px 30px 25px;
   background-color: rgba(248, 250, 251, .9);
   border-radius: 16px;
 }
@@ -822,15 +902,25 @@ a {
   padding: 46px 30px 48px 86px !important;
   display: block;
   position: relative;
+  background-position: 32px 45px;
+}
+.nossos-produtos .card-nossos-produtos:hover {
+  background: url('../images/bg-solucoes.png') no-repeat 0 0;
 }
 .nossos-produtos .card-nossos-produtos a .arrow.right{
   right: 20px;
   position: absolute;
   top: 56px;
 }
+.nossos-produtos .card-nossos-produtos:hover a {
+  color: var(--color-actived);
+}
+.nossos-produtos .card-nossos-produtos:hover a .arrow.right{
+  border-color: var(--color-actived);
+}
 /* NOSSA HISTÓRIA */
 .nossa-historia {
-  padding: 96px 0 147px;
+  padding: 93px 0 147px;
   background: var(--primary-color-brand) url('../images/logo-traco.png') no-repeat 0px 0px;
   z-index: 11;
   overflow: hidden;
@@ -1133,7 +1223,7 @@ footer {
 }
 .footer-menu {
   background-color: var(--color-footer);
-  padding: 91px 0 90px;
+  padding: 91px 0 0px;
   position: relative;
 }
 .footer-menu .label-footer-menu {
@@ -1214,7 +1304,7 @@ footer {
   padding-left: 20px;
 }
 .footer-menu .col-right .menu-footer ul li {
-  padding-bottom: 28px;
+  padding-bottom: 26px;
 }
 .footer-menu .col-right .menu-footer ul li::marker {
   color: var(--color-actived);
@@ -1223,4 +1313,11 @@ footer {
   color: var(--primary-color-para-cooperativa);
   line-height: 28px;
   font-size: 15px;
+}
+.footer-copyrigth {
+  background-color: var(--color-footer);
+  color: #919294;
+  padding: 24px 0 95px;
+  position: relative;
+  font-size: 13px;
 }

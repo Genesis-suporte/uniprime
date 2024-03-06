@@ -259,6 +259,11 @@
       </div>
     </div>
   </div>
+  <div class="footer-copyrigth">
+    <div class="container">
+        ©Copyright <?php echo date("Y"); ?> Uniprime Cooperativa de Crédito. Todos os Direitos Reservados.
+    </div>
+  </div>
 </footer>
 <div id="site-modal">
     <!-- Adicione aqui o conteúdo do modal -->
