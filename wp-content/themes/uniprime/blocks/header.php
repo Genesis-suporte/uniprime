@@ -1,19 +1,25 @@
 <?php
   // BLOCK WITH TOP BAR
   $top_bar_localization = get_field('top_bar_localization', $block['id']);
-
+  if(is_front_page()) {
+    $currentSlug = 'para-voce';
+  } else {
+    global $post;
+    $currentSlug = $post->post_name;
+  }
+ //if($currentSlug == $term->slug || (is_front_page() && $term->slug == 'para-voce')) { 
   // Verificar se há conteúdo antes de renderizar
   //if ($top_bar_localization && $a_uniprime_menu && $atendimento_menu) {?>
-  <div class="top-bar mw-100">
+  <div class="top-bar mw-100 <?php echo $currentSlug;?>">
     <div class="container">
-      <div class="d-flex justify-content-between">
-        <div class="first-col">
+      <div class="d-flex justify-content-center justify-content-lg-between">
+        <div class="first-col d-none d-lg-block">
           <img src="<?php echo get_template_directory_uri();?>/assets/images/icons/icon-localization.png" alt="Qual unidade você deseja navegar?">
           Você está em: <strong><a href="#" blank="_SELF" class=""><?php echo esc_html($top_bar_localization);?><i class="arrow down"></i></a></strong>
         </div>
-        <div class="second-col d-flex justify-content-end">
-          <nav>
-            <div class="menu-top-bar d-flex justify-content-between">
+        <div class="second-col d-flex justify-content-center justify-content-lg-end">
+          <nav class="w-100">
+            <div class="menu-top-bar d-flex justify-content-center justify-content-md-between">
             <?php 
               $menu_lists = setMenuThreeLevels('top-bar');
               $menu_top_bar = "";
@@ -21,8 +27,6 @@
               foreach ($menu_lists as $item) { 
                 $class = '';
                 $class_search = false;
-                $separador = false;
-                $separador2 = false;
                 if(isset( $item[ 'class' ])) {
                   $class = esc_attr( implode( ' ', $item['class']));
                 }
@@ -31,16 +35,16 @@
                 }
                 if(isset( $item[ 'active' ])) {
                   $class .= ' '.$item[ 'active' ];
-                  // para adicionar separador
-                  if (in_array("para-voce", $item['class'])) {
-                    $separador = true;
-                  }
-                  if (in_array("para-cooperativa", $item['class'])) {
-                    $separador2 = true;
-                  }
                 }
                 
-                
+                /*if ($index==2) {
+                  $class = $class. ' flex-fill';
+                } else {
+                  $class = $class. ' flex-shrink-1';
+                }*/
+                if($index != 0 && $index != (count($menu_lists) - 1) ) { 
+                  $menu_top_bar .= '<div class="separador-top-menu"></div>'."\n";
+                }
                 $menu_top_bar .= '<div class="menu-item '.$class.'">'."\n";
                 if(!$class_search) { 
                   $menu_top_bar .= '<a href="'. esc_html($item['link']) .'" class="menu-dropdown">'. esc_html($item['title']) .'</a>'."\n";
@@ -72,12 +76,7 @@
                   $menu_top_bar .= '</div>' ."\n";
                 }*/
                 $menu_top_bar .= '</div>'."\n";
-                if(($index == 0 || $index == 1)) { 
-                  // @TODO -> tirar separador de para você
-                  //if(get_permalink() === '') {
-                    $menu_top_bar .= '<div class="separador-top-menu"></div>'."\n";
-                  //}
-                }
+                
                 $index++;
               }
               echo $menu_top_bar;

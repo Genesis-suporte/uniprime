@@ -16,7 +16,7 @@
         <div class="col col-left">
           <?php echo esc_html($descricao); ?>
         </div>
-        <div class="arrows-nossos-produtos"></div>
+        <div class="arrows-nossos-produtos-desktop d-none d-lg-flex"></div>
       </div>
     </div>
     <div class="block-content">
@@ -46,19 +46,12 @@
               <?php 
               }
             }
-            
           }
-          
-          //echo '<br /><br /><br /><br />';
-      /*$args = array( 'post_type' => 'Vacancies');
-      $loop = new WP_Query( $args );
-      while ( $loop->have_posts() ) : $loop->the_post();
-        get_template_part( 'template-parts/vacancies', get_post_format() );
-      endwhile;
-      wp_reset_query()*/
-    ?>
+        ?>
           
       </div>
     </div>
+    
+    <div class="arrows-nossos-produtos-mobile d-flex d-lg-none justify-content-center"></div>
   </div>
 </section>

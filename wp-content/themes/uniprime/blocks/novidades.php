@@ -18,7 +18,7 @@
             <div class="description-block flex-grow-1">
               <?php echo esc_html($descricao); ?>
             </div>
-            <div class="arrows-novidades"></div>
+            <div class="arrows-novidades-desktop d-none d-md-flex"></div>
           </div>
         </div>
         <div class="artigos">
@@ -103,6 +103,7 @@
             ?>
           </div>
         </div>
+        <div class="arrows-novidades-mobile d-flex d-md-none justify-content-center"></div>
       </div>
     </div>
   </div>

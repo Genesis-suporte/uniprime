@@ -15,11 +15,11 @@
 <footer class="footer mw-100">
   <div class="footer-top">
     <div class="container">
-      <div class="row">
-        <div class="col-4">
+      <div class="row d-flex flex-column flex-md-row">
+        <div class="col-12 col-lg-4 logo-footer">
           <img src="<?php echo esc_url($logo_footer['url']); ?>" alt="<?php echo esc_attr($logo_footer['alt']); ?>" />
         </div>
-        <div class="col-3">
+        <div class="col-12 col-lg-3 ouvidoria">
           <div class="label-footer bloco-central icon-phone icon-menu">
             <?php echo esc_html($label_bloco_central); ?>
           </div>
@@ -30,11 +30,11 @@
             <?php echo esc_html($descricao); ?>
           </div>
         </div>
-        <div class="col-5">
+        <div class="col-12 col-lg-5">
           <div class="label-footer icon-central icon-menu">
             <?php echo esc_html($label_bloco_direita); ?>
           </div>
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between flex-column flex-xxl-row col-telefone">
             <div class="col">
               <div class="telefone-footer">
                 <?php echo esc_html($telefone_1_direita); ?>
@@ -67,7 +67,7 @@
     </div>
   </div>
   <div class="footer-menu mw-100 d-flex">
-    <div class="col-solucoes">
+    <div class="col-solucoes d-none d-lg-flex flex-column">
       <div class="solucoes">
         <div class="label-footer-menu">
           <?php echo esc_html('Soluções'); ?>
@@ -133,7 +133,7 @@
           <a href="#" class="menu-dropdown">
             <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para sua cooperativa');?><i class="arrow right"></i></div>
           </a>
-          <div class="dropdown-content">
+          <div class="dropdown-content cooperativa">
             <div class="container">
               <div class="row">
                 <?php 
@@ -158,7 +158,7 @@
         
       </nav>
     </div>
-    <div class="col-right d-flex">
+    <div class="col-right d-flex flex-column flex-lg-row">
       <div class="col">
         <div class="label-footer-menu">
           <?php echo esc_html('Atendimento'); ?>
@@ -210,7 +210,6 @@
           </ul>
         </nav>
       </div>
-      
       <div class="col">
         <div class="label-footer-menu">
           <?php echo esc_html('Governança'); ?>

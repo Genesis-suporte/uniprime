@@ -4,18 +4,18 @@
   ?>
 <section class="nossa-historia mw-100">
   <div class="">
-    <div class="row">
-      <div class="col-4">
+    <div class="row d-flex flex-column flex-lg-row">
+      <div class="col-left col-12 col-lg-5 col-xl-4">
         <div class="label-block">
           <?php echo esc_html($label); ?>
         </div>
         <div class="title-block">
           <?php echo esc_html($titulo); ?>
         </div>
-        <div class="arrows-nossa-historia">
+        <div class="arrows-nossa-historia-desktop d-none d-md-flex">
         </div>
       </div>
-      <div class="col-8">
+      <div class="col-12 col-lg-7 col-xl-8">
         <div class="d-flex justify-content-between slide-nossa-historia">
           <?php 
           if( have_rows('cards') ):
@@ -53,6 +53,7 @@
           ?>
         </div>
       </div>
+      <div class="arrows-nossa-historia-mobile d-flex d-md-none justify-content-center">
     </div>
   </div>
 </section>

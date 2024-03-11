@@ -9,12 +9,12 @@
 <section class="atendimento mw-100" style="background: url(<?php echo esc_html($imagem_de_fundo); ?>) no-repeat;">
   <div class="container">
     <div class="row">
-      <div class="col col-left col-5" >
+      <div class="col col-left col-5 d-none d-lg-flex" >
         <div class="img">
           <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" >
         </div>
       </div>
-      <div class="col col-right">
+      <div class="col col-right col-7">
         <div class="label-block col-7">
           <?php echo esc_html($label); ?>
         </div>
@@ -27,11 +27,11 @@
         <div class="description">
           <?php echo esc_html($descricao); ?>
         </div>        
-        <div class="d-flex justify-content-between">
-          <div class="col col-3">
+        <div class="d-flex justify-content-between flex-column flex-lg-row">
+          <div class="col col-12 col-lg-4 col-xxl-3 col-bts-left">
             <a class="btn-primary btn" href="/contato/" target="_blank">Entre em contato</a>
           </div>
-          <div class="col col-9 d-flex justify-content-between">
+          <div class="col col-12 col-lg-8 col-xxl-9 d-flex justify-content-between col-redes">
             <?php 
             if( have_rows('botoes') ):
               while ( have_rows('botoes') ) : the_row();
@@ -62,8 +62,6 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="block-content">
     </div>
   </div>
 </section>
