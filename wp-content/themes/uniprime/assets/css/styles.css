@@ -1453,6 +1453,7 @@ footer {
   }
   .btn {
     font-size: 14px !important;
+    padding: 9px 9px !important;
   }
   .atendimento .col-redes {
     padding: 0px 80px 0 0px;

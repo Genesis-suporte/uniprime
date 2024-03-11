@@ -111,7 +111,7 @@ function stylestarter_enqueue_styles() {
 	wp_enqueue_style( 'fonts' ,  get_template_directory_uri() . '/assets/css/fonts.css' );
 }
 add_action( 'wp_enqueue_scripts', 'stylestarter_enqueue_styles' );
-
+add_action( 'enqueue_block_editor_assets', 'stylestarter_enqueue_styles' );
 function bootstrapstarter_enqueue_scripts() {
 	$dependencies = array('jquery');
 	wp_enqueue_script('bootstrap', get_template_directory_uri().'/assets/js/bootstrap.bundle.min.js', $dependencies );
@@ -120,6 +120,7 @@ function bootstrapstarter_enqueue_scripts() {
 }	
 
 add_action( 'wp_enqueue_scripts', 'bootstrapstarter_enqueue_scripts' );
+add_action( 'enqueue_block_editor_assets', 'bootstrapstarter_enqueue_scripts' );
 
 /*
 FUNTION DO ADD STICKY ON CPT
