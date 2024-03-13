@@ -10,7 +10,7 @@
   --color-neutral-alpha: #B7C9d3;
   --color-neutral-alpha: rgba(183, 201, 211, 0.3);
   --color-footer: #EFF1F2;
-  
+  --bs-font-sans-serif: 'Calibri';
 }
 :where(body .is-layout-constrained) > * , :where(body .is-layout-flow) > *{
   margin-block-start: 0px !important;
@@ -23,8 +23,8 @@
   padding: 0 !important;
   margin: 0 !important;
 }
-.body {
-  font-family: 'Calibri';
+.body, .body.editor-styles-wrapper {
+  font-family: 'Calibri' !important;
   font-size: 15px;
 }
 a {
@@ -37,6 +37,9 @@ a {
   display: inline-block;
   padding: 2px;
   margin: 2px 15px;
+  width: 6px;
+  height: 6px;
+  position: relative;
 }
 .right {
   transform: rotate(-45deg);
@@ -78,6 +81,13 @@ a {
   border: 0px !important;
 }
 /* ICONS */
+.dashicons-uniprime {
+  background-image: url('../images/icons/icon-logo.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: 100% 100%;
+}
 .icon-menu {
   padding-left: 40px !important;
 }
@@ -393,7 +403,14 @@ a {
 .slick-arrow.slick-disabled {
   opacity: 0.3;
 }
-
+.z-13 {
+  z-index: 13;
+  position: relative;
+}
+.z-14 {
+  z-index: 14;
+  position: relative;
+}
 /* HEADER */
 .top-bar {
   height: 48px;
@@ -403,6 +420,7 @@ a {
   z-index: 110;
   position: relative;
   background-color: white;
+  font-family: 'Calibri' !important;
 }
 
 
@@ -523,6 +541,7 @@ a {
 }
 .header-menu-banner {
   max-height: 800px;
+  font-family: 'Calibri' !important;
 }
 .main-menu {
   height: 125px;
@@ -530,6 +549,7 @@ a {
   position: relative;
   z-index: 110;
   transition: all .2s ease-in-out;
+  
 }
 .main-menu.menu-fixed.para-voce, 
 .main-menu.para-voce.actived,
@@ -590,6 +610,7 @@ a {
 .menu-inicial .menu-item .menu-dropdown {
   color: white;
   padding: 50px 10px 49px;
+  position: relative;
 }
 
 .main-menu.actived .menu-inicial .menu-item.actived .menu-dropdown {
@@ -937,11 +958,33 @@ a {
   padding-top: 5px;
   line-height: 27px;
 }
+div.breadcrumbs {
+  width: 100%;
+  background-color: #f2f2f2;
+  padding: 0px 4px;
+}
+.breadcrumbs ul {
+  list-style: none;
+  margin: 0px;
+  padding-left: 0px;
+  font-size: 80%;
+}
+
+.breadcrumbs ul li {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0px;
+}
+
+.breadcrumbs li.separator {
+  font-size: 150%;    
+}
 /* NOSSOS PRODUTOS */
 .nossos-produtos {
   padding: 130px 0 99px;
   position: relative;
   overflow: hidden;
+  font-family: 'Calibri' !important;
 }
 .nossos-produtos .description-block .col-left {
   width: 55%;
@@ -1014,6 +1057,7 @@ a {
   z-index: 11;
   overflow: hidden;
   position: relative;
+  font-family: 'Calibri' !important;
 }
 .nossa-historia .col-left{
   padding-top: 43px;
@@ -1086,6 +1130,7 @@ a {
   z-index: 12;
   background-color: white;
   position: relative;
+  font-family: 'Calibri' !important;
 }
 
 .canais-digitais .container {
@@ -1118,11 +1163,10 @@ a {
   background-position: center !important;
   background-size: cover !important;
   position: relative;
+  font-family: 'Calibri' !important;
 }
 .onde-encontrar .block-left {
   padding: 0px 0 0 207px;
-  z-index: 13;
-  position: relative;
 }
 .onde-encontrar .destaque-block {
   color: white;
@@ -1139,8 +1183,6 @@ a {
   line-height: 37px;
 }
 .onde-encontrar .input-onde-encontrar {
-  z-index: 13;
-  position: relative;
   margin-top: 130px;
   max-width: 392px;
 }
@@ -1151,9 +1193,7 @@ a {
   color: white;
   font-size: 14px;
   padding: 14px 23px 15px;
-  position: relative;
   width: 100%;
-  z-index: 13;
 }
 .onde-encontrar .input-onde-encontrar .icon {
   position: absolute;
@@ -1172,6 +1212,7 @@ a {
   background-color: white;
   overflow: hidden;
   position: relative;
+  font-family: 'Calibri' !important;
 }
 .novidades .novidades-image {
   position: relative;
@@ -1261,6 +1302,7 @@ a {
   background-color: white !important;
   background-position: 0 100px !important;
   position: relative;
+  font-family: 'Calibri' !important;
 }
 .atendimento .col-left .img {
   padding-left: 121px;
@@ -1299,11 +1341,83 @@ a {
 .atendimento .col-redes {
   padding: 0px 150px 0 30px;
 }
+/* INSTITUCIONAL */
 
+.banner-internas .hero-image .copy {
+  position: absolute;
+  top: 0;
+  color: white;
+  padding: 190px 0 0 103px;
+  max-width: 50%;
+}
+.banner-internas .hero-image .copy .title{
+  font-size: 48px;
+  font-family: 'SwitzerlandLight';
+  line-height: 62px;
+  padding-bottom: 28px;
+}
+.banner-internas .hero-image .copy .description{
+  font-size: 20px;
+  font-family: 'Calibri';
+  line-height: 34px;
+  padding-bottom: 40px;
+}
+.banner-internas .hero-image .copy .cta a{
+  font-size: 18px !important;
+  font-family: 'Calibri';
+  padding: 12px 20px 0 25px !important;
+  height: 52px;
+  border-radius: 30px !important;
+}
+.banner-internas .hero-image .image {
+  width:100%; 
+  max-height: 560px; 
+  height: 560px; 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.banner-internas .slick-arrow {
+  display: none !important;
+}
+
+.content-internas .img {
+  float:none;
+  width: 49% !important;
+}
+.content-internas .img.direita {
+  float:right;
+}
+.content-internas .img.esquerda {
+  float:left;
+}
+.content-internas .img.nenhuma {
+  float:none;
+  width: 100% !important;
+}
+.content-internas .img img{
+  width: 100%;
+}
+
+.content-internas .copy .description-block {
+  float:none;
+  width: 49% !important;
+}
+.content-internas .copy .description-block.direita {
+  float:left;
+}
+.content-internas .copy .description-block.esquerda {
+  float:right;
+}
+.content-internas .copy .description-block.nenhuma {
+  float:none;
+  width: 100% !important;
+}
 /* FOOTER */
 footer {
   z-index: 12;
   position: relative;
+  font-family: 'Calibri' !important;
 }
 .footer-top {
   background-color:  var(--primary-color-para-voce);

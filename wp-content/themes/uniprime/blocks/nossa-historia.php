@@ -12,7 +12,7 @@
         <div class="title-block">
           <?php echo esc_html($titulo); ?>
         </div>
-        <div class="arrows-nossa-historia-desktop d-none d-md-flex">
+        <div class="arrows-nossa-historia-desktop d-none d-lg-flex">
         </div>
       </div>
       <div class="col-12 col-lg-7 col-xl-8">
@@ -53,7 +53,7 @@
           ?>
         </div>
       </div>
-      <div class="arrows-nossa-historia-mobile d-flex d-md-none justify-content-center">
+      <div class="arrows-nossa-historia-mobile d-flex d-lg-none justify-content-center">
     </div>
   </div>
 </section>

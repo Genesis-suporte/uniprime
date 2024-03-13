@@ -14,12 +14,12 @@ if ( ! function_exists( 'Uniprime' ) ) :
 	 */
 	function Uniprime() {
 		acf_register_block_type(array(
-			'name'      			=> 'Header',
-			'title' 					=> __('header-para-voce'),
+			'name'      			=> 'header-para-voce',
+			'title' 					=> __('Header Top bar'),
 			'description' 		=> __('Menu inicial de Uniprime'),
 			"render_template"	=> "blocks/header.php",
 			'category' 				=> 'layout',
-			'icon' 						=> 'dashicons-admin-home',
+			'icon'            => 'uniprime' ,
 			'keywords' => 		array( 'nav', 'menu' )
 		));
 		acf_register_block_type(array(
@@ -28,7 +28,7 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'description' 		=> __('Hero banner da Homepage'),
 			"render_template"	=> "blocks/hero-banner.php",
 			'category' 				=> 'layout',
-			'icon' 						=> 'dashicons-admin-home',
+			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'hero', 'banner' )
 		));
 		acf_register_block_type(array(
@@ -37,7 +37,7 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'description' 		=> __('Terceiro bloco da Homepage, onde mostra a lista das soluções'),
 			"render_template"	=> "blocks/nossos-produtos.php",
 			'category' 				=> 'layout',
-			'icon' 						=> 'dashicons-admin-home',
+			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'list', 'categories' )
 		));
 		acf_register_block_type(array(
@@ -46,7 +46,7 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'description' 		=> __('Quarto bloco da Homepage, onde mostra os cards'),
 			"render_template"	=> "blocks/nossa-historia.php",
 			'category' 				=> 'layout',
-			'icon' 						=> 'dashicons-admin-home',
+			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'slick', 'slides' )
 		));
 		acf_register_block_type(array(
@@ -55,7 +55,7 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'description' 		=> __('Quinto bloco da Homepage, onde mostra o texto e imagem dos canais digitais'),
 			"render_template"	=> "blocks/canais-digitais.php",
 			'category' 				=> 'layout',
-			'icon' 						=> 'dashicons-admin-home'
+			'icon' 						=> 'uniprime'
 		));
 		acf_register_block_type(array(
 			'name'      			=> 'Bloco onde encontrar',
@@ -63,7 +63,7 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'description' 		=> __('Sexto bloco da Homepage, onde tem o combobox de escolha das unidades'),
 			"render_template"	=> "blocks/onde-encontrar.php",
 			'category' 				=> 'layout',
-			'icon' 						=> 'dashicons-admin-home'
+			'icon' 						=> 'uniprime'
 		));
 		acf_register_block_type(array(
 			'name'      			=> 'Bloco novidades',
@@ -71,7 +71,7 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'description' 		=> __('Sétimo bloco da Homepage, onde lista as notícias em destaque'),
 			"render_template"	=> "blocks/novidades.php",
 			'category' 				=> 'layout',
-			'icon' 						=> 'dashicons-admin-home'
+			'icon' 						=> 'uniprime'
 		));
 		acf_register_block_type(array(
 			'name'      			=> 'Bloco atendimento',
@@ -79,7 +79,7 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'description' 		=> __('Oitavo bloco da Homepage, onde se encontram os links das redes sociais'),
 			"render_template"	=> "blocks/atendimento.php",
 			'category' 				=> 'layout',
-			'icon' 						=> 'dashicons-admin-home'
+			'icon' 						=> 'uniprime'
 		));
 		acf_register_block_type(array(
 			'name'      			=> 'Footer',
@@ -87,8 +87,71 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'description' 		=> __('Bloco footer'),
 			"render_template"	=> "blocks/footer.php",
 			'category' 				=> 'layout',
-			'icon' 						=> 'dashicons-admin-home',
+			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'footer' )
+		));
+		acf_register_block_type(array(
+			'name'      			=> 'Breadcrumbs nav',
+			'title' 					=> __('Breadcrumbs nav'),
+			'description' 		=> __('Bloco de Breadcrumbs'),
+			"render_template"	=> "blocks/breadcrumbs.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'breadcrumbs' )
+		));
+		acf_register_block_type(array(
+			'name'      			=> 'banner-topo-titulo',
+			'title' 					=> __('Banner topo + Título'),
+			'description' 		=> __('Bloco de Banner topo + Título das páginas internas '),
+			"render_template"	=> "blocks/banner-titulo.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'banner' )
+		));
+		acf_register_block_type(array(
+			'name'      			=> 'texto-imagem',
+			'title' 					=> __('Texto + Imagem'),
+			'description' 		=> __('Bloco de Texto + Imagem das páginas internas'),
+			"render_template"	=> "blocks/text-image.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'texto','imagem' )
+		));
+		acf_register_block_type(array(
+			'name'      			=> 'bloco-mvv',
+			'title' 					=> __('Bloco Missão, Visão, Valores'),
+			'description' 		=> __('Bloco Missão, Visão, Valores da página institucional'),
+			"render_template"	=> "blocks/bloco-mvv.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'texto','imagem' )
+		));
+		acf_register_block_type(array(
+			'name'      			=> 'bloco-beneficios',
+			'title' 					=> __('Bloco benefícios'),
+			'description' 		=> __('Bloco benefícios da página institucional'),
+			"render_template"	=> "blocks/bloco-beneficios.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'institucional' )
+		));
+		acf_register_block_type(array(
+			'name'      			=> 'bloco-diretoria-e-conselhos',
+			'title' 					=> __('Bloco Diretoria e Conselhos'),
+			'description' 		=> __('Bloco Diretoria e Conselhos da página institucional'),
+			"render_template"	=> "blocks/bloco-diretoria-e-conselhos.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'institucional' )
+		));
+		acf_register_block_type(array(
+			'name'      			=> 'bloco-aplicativo-associe',
+			'title' 					=> __('Bloco Aplicativo Uniprime + Associe-se'),
+			'description' 		=> __('Bloco Aplicativo Uniprime + Associe-se da página institucional'),
+			"render_template"	=> "blocks/bloco-aplicativo-associe.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'institucional' )
 		));
 		
 		add_theme_support( 'wp-block-styles' );
@@ -104,23 +167,23 @@ add_action( 'after_setup_theme', 'Uniprime' );
 if ( function_exists( 'acf_register_block_type' ) ) {
 	add_action('acf/init', 'Uniprime');
 }
-function stylestarter_enqueue_styles() {
+function my_block_plugin_editor_scripts() {
 	wp_enqueue_style('styles', get_template_directory_uri() . '/assets/css/styles.css', array(), null, 'all');
 	wp_enqueue_style('bootstrap', get_template_directory_uri() . '/assets/css/bootstrap.min.css', array(), null, 'all' );
 	wp_enqueue_style('slick', get_template_directory_uri() . '/assets/css/slick.css', array(), null, 'all');
 	wp_enqueue_style( 'fonts' ,  get_template_directory_uri() . '/assets/css/fonts.css' );
-}
-add_action( 'wp_enqueue_scripts', 'stylestarter_enqueue_styles' );
-add_action( 'enqueue_block_editor_assets', 'stylestarter_enqueue_styles' );
-function bootstrapstarter_enqueue_scripts() {
-	$dependencies = array('jquery');
-	wp_enqueue_script('bootstrap', get_template_directory_uri().'/assets/js/bootstrap.bundle.min.js', $dependencies );
-	wp_enqueue_script('slick', get_template_directory_uri().'/assets/js/slick.min.js' );
-	wp_enqueue_script('scripts', get_template_directory_uri().'/assets/js/scripts.js' );
-}	
 
-add_action( 'wp_enqueue_scripts', 'bootstrapstarter_enqueue_scripts' );
-add_action( 'enqueue_block_editor_assets', 'bootstrapstarter_enqueue_scripts' );
+	$dependencies = array('jquery','wp-blocks', 'wp-element' );
+	$dependencies2 = array('jquery','wp-blocks', 'wp-element','slick' );
+	wp_enqueue_script('bootstrap', get_template_directory_uri().'/assets/js/bootstrap.bundle.min.js', $dependencies );
+	wp_enqueue_script('slick', get_template_directory_uri().'/assets/js/slick.min.js', $dependencies );
+	wp_enqueue_script('scripts', get_template_directory_uri().'/assets/js/scripts.js', $dependencies2 );
+
+}
+add_action( 'wp_enqueue_scripts', 'my_block_plugin_editor_scripts' );
+add_action( 'enqueue_block_editor_assets', 'my_block_plugin_editor_scripts' );
+add_action( 'admin_enqueue_scripts', 'my_block_plugin_editor_scripts' );
+
 
 /*
 FUNTION DO ADD STICKY ON CPT

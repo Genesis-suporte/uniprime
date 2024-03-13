@@ -21,8 +21,8 @@
         </div>
       </div>
       <div class="col">
-        <div class="input-onde-encontrar">
-          <input type="text" class="input" id="click-onde-encontrar" onfocus="this.value='';" value="Qual a sua cidade?"></input>
+        <div class="input-onde-encontrar z-13">
+          <input type="text" class="input z-13" id="click-onde-encontrar" onfocus="this.value='';" value="Qual a sua cidade?"></input>
           <button class="icon icon-search-white"></button>
         </div>
       </div>
