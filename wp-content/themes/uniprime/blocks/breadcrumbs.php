@@ -3,7 +3,7 @@
   // Get the post information and the query
   global $post, $wp_query;
   // Define a separator character.
-  $separator = ' &gt; ';
+  $separator = ' <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-separator"><path d="M9.1665 7.5L11.6665 10L9.1665 12.5" stroke="#6C6C6C" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/></svg> ';
   // What is the title & URL of the Home Page that you want to display?
   $home_title = 'Home';
   $home_url = get_home_url();

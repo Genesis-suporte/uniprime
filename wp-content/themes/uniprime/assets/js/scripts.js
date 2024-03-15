@@ -29,8 +29,6 @@
             if (mainMenu.classList.contains('para-voce')) {
               $(".logo-black").removeClass('d-none') 
               $(".logo-white").addClass('d-none') 
-              $("#icon-users").addClass('d-none') 
-              $("#icon-users-white").removeClass('d-none')
               /*$("#modal-menu").addClass('d-block')*/
             }
           }
@@ -49,7 +47,7 @@
     
     var initializeBlock = function( $block ) {
       checkResize ()
-      /*if($('.hero-banner')) {
+      if($('.hero-banner')) {
         $('.hero-banner').slick({
           dots: true,
           infinite: false,
@@ -85,9 +83,9 @@
             }
           ]
         });
-      }*/
+      }
       
-      /*if($('.slide-nossa-historia')) {
+      if($('.slide-nossa-historia')) {
         $('.slide-nossa-historia').slick({
           dots: false,
           slidesToShow: 2,
@@ -121,9 +119,9 @@
             }
           ]
         });
-      }*/
+      }
       /* SLICK Benefícios Institucional */
-      /*if($('.slide-beneficios')) {
+      if($('.slide-beneficios')) {
         $('.slide-beneficios').slick({
           dots: false,
           slidesToShow: 3,
@@ -144,7 +142,7 @@
           ]
         });
       }
-      */
+      
      }
      initializeBlock();
       
@@ -153,7 +151,15 @@
           window.acf.addAction( 'render_block_preview', initializeBlock );
       }
 
-    
+      const triggerTabList = document.querySelectorAll('#tabs-politicas button')
+      triggerTabList.forEach(triggerEl => {
+        const tabTrigger = new bootstrap.Tab(triggerEl)
+        triggerEl.addEventListener('click', event => {
+          /*console.log(event);*/
+          event.preventDefault()
+          tabTrigger.show()
+        })
+      })
     
     // CLICK OR MOUSEOVER EVENT FOR MENU DROP DOWN
     /*

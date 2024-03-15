@@ -1,4 +1,4 @@
-<?php /* Template Name: Creative */ ?>
+<?php /* Template Name: Uniprime */ ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -14,6 +14,6 @@ get_post_type()
 ?>
 <?php the_post(); ?>
 <?php the_content(); ?>
-<?php wp_footer(); ?>
+		<?php get_footer(); ?>
 </body>
 </html>

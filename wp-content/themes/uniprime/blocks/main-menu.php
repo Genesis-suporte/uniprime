@@ -1,12 +1,8 @@
-<?php
-$tipo_homepage = get_field('tipo-homepage');
-?>
-<header class="header-menu-banner position-relative mw-100 <?php echo $tipo_homepage;?>">
-  <div class="main-menu  <?php echo $tipo_homepage;?>" id="main-menu">
+<header class="header-menu-banner position-relative mw-100">
+  <div class="main-menu interna" id="main-menu">
     <div class="container d-flex justify-content-between">
       <div class="logo">
-        <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black d-none" id="logo-black" alt="Logo Uniprime">
-        <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo-branco.png" class="logo-white" id="logo-white" alt="Logo Uniprime">
+        <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" id="logo-black" alt="Logo Uniprime">
       </div>
       <div class="flex-grow-1 d-none d-lg-block">
         <nav class="menu-inicial d-flex justify-content-start">
@@ -360,44 +356,4 @@ $tipo_homepage = get_field('tipo-homepage');
       </div>
     </div>
   </div>
-  <div class="hero-banner">
-    <?php 
-    if( have_rows('banner_container') ):
-      while ( have_rows('banner_container') ) : the_row();
-        // Case: Paragraph layout.
-        if( get_row_layout() == 'banner' ) {
-          $title_banner = get_sub_field('title_banner');
-          $description_banner = get_sub_field('description_banner');
-          $cta_banner = get_sub_field('cta_banner');
-          $image_banner = get_sub_field('image_banner');
-          //->filename url alt
-          //print_r( $image_banner);?>
-          <div class="hero-image">
-            <div class="container position-relative">
-              <div class="copy position-absolute">
-                <div class="title">
-                  <?php echo esc_html($title_banner); ?>
-                </div>
-                <div class="description">
-                  <?php echo esc_html($description_banner); ?>
-                </div>
-                <div class="cta">
-                  <?php echo '<a href="'. esc_url($cta_banner['url']) .'" class="btn btn-actived">'. esc_html($cta_banner['title']) .'<i class="icon icon-cta"></i></a>'; ?>
-                </div>
-              </div>
-            </div>
-            <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);"></div>
-          </div>
-          <?php
-        }
-        
-      // End loop.
-      endwhile;
-    // No value.
-    else :
-      // Do something...
-    endif;
-    ?>
-  </div>
-    <div class="dots-hero"></div>
 </header>

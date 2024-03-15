@@ -22,6 +22,16 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'icon'            => 'uniprime' ,
 			'keywords' => 		array( 'nav', 'menu' )
 		));
+		
+		acf_register_block_type(array(
+			'name'      			=> 'main-menu',
+			'title' 					=> __('Main menu'),
+			'description' 		=> __('Menu principal da'),
+			"render_template"	=> "blocks/main-menu.php",
+			'category' 				=> 'navigation',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'navigation', 'menu' )
+		));
 		acf_register_block_type(array(
 			'name'      			=> 'Hero banner',
 			'title' 					=> __('hero-banner'),
@@ -145,14 +155,24 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'keywords' => 		array( 'institucional' )
 		));
 		acf_register_block_type(array(
-			'name'      			=> 'bloco-aplicativo-associe',
-			'title' 					=> __('Bloco Aplicativo Uniprime + Associe-se'),
-			'description' 		=> __('Bloco Aplicativo Uniprime + Associe-se da página institucional'),
-			"render_template"	=> "blocks/bloco-aplicativo-associe.php",
+			'name'      			=> 'bloco-beneficios-coop',
+			'title' 					=> __('Bloco benefícios de Cooperativismo Financeiro'),
+			'description' 		=> __('Bloco benefícios da página Cooperativismo Financeiro'),
+			"render_template"	=> "blocks/bloco-beneficios-coop.php",
 			'category' 				=> 'layout',
 			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'institucional' )
-		));
+		));	
+		acf_register_block_type(array(
+			'name'      			=> 'bloco-assembleias',
+			'title' 					=> __('Bloco Assembleias'),
+			'description' 		=> __('Bloco que lista as Assembleias passadas e futuras'),
+			"render_template"	=> "blocks/bloco-assembleias.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'institucional' )
+		));	
+		
 		
 		add_theme_support( 'wp-block-styles' );
 		add_theme_support( 'align-wide' );
@@ -185,6 +205,19 @@ add_action( 'enqueue_block_editor_assets', 'my_block_plugin_editor_scripts' );
 add_action( 'admin_enqueue_scripts', 'my_block_plugin_editor_scripts' );
 
 
+/*
+function my_acf_editor( $mceInit, $editor_id ) {
+	$mceInit['setup'] = 'editShortcut_tiny_mce_init';
+	// What goes into the 'formatselect' list
+	$mceInit['block_formats'] = 'Título Uniprime=code;Header 3=h3;Header 4=h4;Header 5=h5;Header 6=h6;Paragraph=p;Code=code';
+	$mceInit['paste_word_valid_elements'] = '-strong/b,-em/i,-p,-ol,-ul,-li,-h3,-h4,-h5,-h6,-p,-table[width],-tr,-td[colspan|rowspan|width],-th,-thead,-tfoot,-tbody,-a[href|name],br,del';
+		
+	$mceInit['paste_strip_class_attributes'] = 'all';
+	$mceInit['toolbar1'] = 'bold,italic,formatselect,bullist,numlist,blockquote,link,unlink,undo,redo';
+
+	return $mceInit;
+}
+add_filter('tiny_mce_before_init', 'my_acf_editor')*/
 /*
 FUNTION DO ADD STICKY ON CPT
 function addbox($post, $metabox) {  

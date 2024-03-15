@@ -129,10 +129,23 @@ a {
 .icon-cta {
   background: url('../images/icons/icon-right-arrow-white.png') no-repeat 0px 0px;
 }
+.icon-users {
+  float: left;
+  padding-left: 0px;
+  margin: 5px 9px 0 0px; 
+}
+.icon-users path {
+  stroke: var(--primary-color);
+  transition: all .2s ease-in-out;
+}
+.btn:hover svg path {
+  stroke: white
+}
 /* ICONS SOLUÇÔES */
 
 /* GOLD */
 /* app-uniprime-cartoes*/
+
 .icon-app-uniprime-cartoes {
   background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
@@ -553,7 +566,8 @@ a {
 }
 .main-menu.menu-fixed.para-voce, 
 .main-menu.para-voce.actived,
-.main-menu.para-voce.isMobile, 
+.main-menu.para-voce.isMobile,
+.main-menu.interna,
 .header-menu-banner.para-voce .hero-banner,
 .header-menu-banner.para-voce .menu-inicial-mobile,
 .header-menu-banner.para-voce .menu-inicial-mobile .dropdown-content .content-dropdown-mobile,
@@ -595,7 +609,8 @@ a {
   box-sizing: border-box;
 }
 .main-menu.para-voce.actived .menu-inicial .menu-item .menu-dropdown,
-.main-menu.para-voce.isMobile .menu-inicial .menu-item .menu-dropdown {
+.main-menu.para-voce.isMobile .menu-inicial .menu-item .menu-dropdown,
+.main-menu.interna .menu-inicial .menu-item .menu-dropdown {
   color: var(--primary-color);
 }
 .main-menu.para-empresa.actived .menu-inicial .menu-item .menu-dropdown, 
@@ -621,7 +636,8 @@ a {
   border-color: white;
 }
 .main-menu.para-voce.actived .menu-inicial .menu-item .menu-dropdown .arrow,
-.main-menu.para-voce.isMobile .menu-inicial .menu-item .menu-dropdown .arrow {
+.main-menu.para-voce.isMobile .menu-inicial .menu-item .menu-dropdown .arrow,
+.main-menu.interna .menu-inicial .menu-item .menu-dropdown .arrow {
   border-color: var(--primary-color);
 }
 .main-menu.para-voce.actived .menu-inicial .menu-item.actived .menu-dropdown .arrow,
@@ -770,12 +786,23 @@ a {
   background-color: var(--primary-color-brand) !important;
   color: white !important;
 }
-.main-menu.actived .bts-externos .seja-um-cooperado {
+.main-menu.actived .bts-externos .seja-um-cooperado,
+.main-menu.interna .bts-externos .seja-um-cooperado {
   background-color: var(--color-actived) !important;
   color: white !important;
 }
+.main-menu.actived .bts-externos .seja-um-cooperado .icon-users path,
+.main-menu.interna .bts-externos .seja-um-cooperado .icon-users path {
+  stroke: white;
+  transition: all .2s ease-in-out;
+}
+.main-menu.interna .bts-externos .seja-um-cooperado:hover svg path, 
+.main-menu.actived .bts-externos .seja-um-cooperado:hover svg path{
+  stroke: white;
+}
 /* CASOS PARA-VOCE, PARA-EMPRESA, PARA-COOP */
-.main-menu.para-voce .bts-externos .acesse-sua-conta:hover {
+.main-menu.para-voce .bts-externos .acesse-sua-conta:hover,
+.main-menu.interna .bts-externos .acesse-sua-conta:hover {
   background-color: var(--primary-color-brand) !important;
   color: white !important;
   border: 1px solid var(--primary-color-brand) !important;
@@ -786,34 +813,37 @@ a {
   color: var(--primary-color-brand) !important;
   border: 1px solid white !important;
 }
-.main-menu.para-voce .bts-externos .seja-um-cooperado:hover {
+.main-menu.para-voce .bts-externos .seja-um-cooperado:hover,
+.main-menu.interna .bts-externos .seja-um-cooperado:hover {
   background-color: var(--primary-color-brand) !important;
   color: white !important;
-  border: 1px solid white !important;
+  /*border: 1px solid white !important;*/
 }
 .main-menu.para-empresa .bts-externos .seja-um-cooperado:hover {
   background-color:  var(--primary-color-brand) !important;
   color: white !important;
-  border: 1px solid  white !important;
+  /*border: 1px solid  white !important;*/
 }
 .main-menu.para-cooperativa .bts-externos .seja-um-cooperado:hover {
   background-color:  var(--primary-color-para-cooperativa) !important;
   color: white !important;
-  border: 1px solid  white !important;
+  /*border: 1px solid  white !important;*/
 }
 
 /* NATURAIS */
 .main-menu .bts-externos .acesse-sua-conta {
   transition: all .2s ease-in-out;
   border: 1px solid var(--primary-color-para-cooperativa) !important;
+  font-size: 16px !important;  
 }
 .main-menu .bts-externos .seja-um-cooperado {
   background-color: white !important;
   color: var(--primary-color-brand) !important;
-  margin-left: 20px;
+  margin-left: 24px;
   transition: all .2s ease-in-out;
   border: 1px solid transparent !important;
-  padding: 38px 0px;
+  padding: 9px 24px 9px 20px !important;
+  font-size: 16px !important;  
 }
 
 .main-menu .bts-externos .seja-um-cooperado img{
@@ -958,16 +988,18 @@ a {
   padding-top: 5px;
   line-height: 27px;
 }
-div.breadcrumbs {
+.breadcrumbs {
   width: 100%;
-  background-color: #f2f2f2;
-  padding: 0px 4px;
+  padding: 31px 0;
+  font-family: "Calibri";
+  font-size: 14px;
+  color: var(--color-neutral);
 }
+
 .breadcrumbs ul {
   list-style: none;
   margin: 0px;
   padding-left: 0px;
-  font-size: 80%;
 }
 
 .breadcrumbs ul li {
@@ -975,9 +1007,16 @@ div.breadcrumbs {
   vertical-align: middle;
   margin-right: 0px;
 }
-
+.breadcrumbs ul li a {
+  font-family: "Calibri";
+  font-size: 14px;
+  color: var(--color-neutral);
+}
 .breadcrumbs li.separator {
-  font-size: 150%;    
+  padding: 0px 13px 2px 4px;
+}
+.breadcrumbs ul li b {
+  color: var(--primary-color);
 }
 /* NOSSOS PRODUTOS */
 .nossos-produtos {
@@ -1342,25 +1381,22 @@ div.breadcrumbs {
   padding: 0px 150px 0 30px;
 }
 /* INSTITUCIONAL */
-
 .banner-internas .hero-image .copy {
-  position: absolute;
-  top: 0;
+  bottom: 0;
   color: white;
-  padding: 190px 0 0 103px;
   max-width: 50%;
+  padding-bottom: 50px;
 }
 .banner-internas .hero-image .copy .title{
   font-size: 48px;
   font-family: 'SwitzerlandLight';
   line-height: 62px;
-  padding-bottom: 28px;
+  padding-bottom: 10px;
 }
 .banner-internas .hero-image .copy .description{
-  font-size: 20px;
+  font-size: 28px;
   font-family: 'Calibri';
   line-height: 34px;
-  padding-bottom: 40px;
 }
 .banner-internas .hero-image .copy .cta a{
   font-size: 18px !important;
@@ -1376,42 +1412,65 @@ div.breadcrumbs {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  overflow: hidden !important;
 }
+.banner-internas .hero-image .image img {
+  width:100%; 
+}
+
 .banner-internas .slick-arrow {
   display: none !important;
 }
-
+.content-internas  {
+  padding: 163px 0 184px;
+}
+.content-internas .copy {
+  padding: 0 115px;
+}
+.content-internas .copy .description-block {
+  float:none;
+  padding-top: 4px;
+}
+.content-internas .copy .description-block .title-block {
+  padding: 2px 0 18px;
+}
 .content-internas .img {
   float:none;
-  width: 49% !important;
+  margin-top: -28px;
 }
 .content-internas .img.direita {
   float:right;
+  padding: 0 0 30px 30px;
 }
 .content-internas .img.esquerda {
   float:left;
+  padding: 0 30px 30px 0;
 }
 .content-internas .img.nenhuma {
   float:none;
   width: 100% !important;
 }
-.content-internas .img img{
-  width: 100%;
+.content-internas .copy .description-block p {
+  max-width: 57%;
 }
-
-.content-internas .copy .description-block {
-  float:none;
-  width: 49% !important;
+.mce-content-body,
+.mce-content-body p,
+.mce-content-body a, 
+.mce-content-body li {
+  font-family: "Calibri";
 }
-.content-internas .copy .description-block.direita {
-  float:left;
+.nossa-historia.internas {
+  padding: 93px 0 96px;
 }
-.content-internas .copy .description-block.esquerda {
-  float:right;
+/* BLOCO MVV */
+.bloco-mvv {
+  background-color: var(--primary-color-brand);
 }
-.content-internas .copy .description-block.nenhuma {
-  float:none;
-  width: 100% !important;
+.bloco-mvv .card-mvv {
+  background-image: linear-gradient(#004F71, #007D79);
+  padding: 96px 52px;
+  margin: 0 12px;
+  border-radius: 16px;
 }
 /* FOOTER */
 footer {

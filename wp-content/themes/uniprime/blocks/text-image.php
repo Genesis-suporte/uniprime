@@ -11,22 +11,20 @@
   <div class="container">
     <div class="row">
       <div class="copy">
-        <div class="label-block">
-          <?php echo esc_html($label); ?>
-        </div>
-        <div class="title-block">
-          <?php echo esc_html($titulo); ?>
-        </div>
         <div class="position-relative">
-          <div class="description-block <?php echo $posicao_imagem;?>">
+          
+          <div class="label-block">
+            <?php echo esc_html($label); ?>
+          </div>
+          <div class="description-block">
+            <?php if ($posicao_imagem != 'nenhuma') { ?>
+              <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" class="img <?php echo $posicao_imagem;?>">
+            <?php } ?>
+            <h1 class="title-block"><?php echo esc_html($titulo); ?></h1>
             <?php echo __($descricao); ?>
           </div>
           
-          <?php //if ($posicao_imagem != 'nenhuma') { ?>
-            <div class="img <?php echo $posicao_imagem;?>">
-              <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" >
-            </div>
-          <?php //} ?>
+          
         </div>
       </div>
       
