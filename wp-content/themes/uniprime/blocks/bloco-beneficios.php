@@ -4,11 +4,11 @@
   $descricao = get_field('descricao', $block['id']);
 ?>
 
-<section class="beneficios-institucional mw-100">
-  <div class="">
-    <div class="row d-flex flex-column flex-lg-row">
-      <div class="col-12 d-flex">
-        <div class="col-12 col-md-10">
+<section class="beneficios-institucional mw-100 z-13">
+  <div class="container">
+    <div class="row d-flex flex-row flex-lg-row">
+      <div class="d-flex">
+        <div class="col-md-10">
           <div class="label-block">
             <?php echo esc_html($label); ?>
           </div>
@@ -23,7 +23,7 @@
           <div class="arrows-beneficios-desktop d-none d-lg-flex"></div>
         </div>
       </div>
-      <div class="col-12">
+      <div class="">
         <div class="d-flex justify-content-between slide-beneficios">
           <?php 
           if( have_rows('beneficios') ){
@@ -35,17 +35,21 @@
                 $imagem_card = get_sub_field('imagem_card');
                 //->filename url alt
                 //print_r( $destaque);?>
-                <div class="card-beneficios">
-                  <div class="content-card">
-                    <div class="title-block">
-                      <?php echo esc_html($titulo_card); ?>
-                    </div>
-                    <div class="description-block">
-                      <?php echo esc_html($descricao_card); ?>
-                    </div>
-                    <div class="image">
-                      <img src="<?php echo esc_url($imagem_card['url']); ?>" alt="<?php echo esc_html($imagem_card['alt']); ?>" >
-                    </div>
+                <div class="card-beneficios position-relative">
+                  <div class="image">
+                    <img src="<?php echo esc_url($imagem_card['url']); ?>" alt="<?php echo esc_html($imagem_card['alt']); ?>" >
+                  </div>
+                  <div class="position-absolute copy">
+                    <?php if($titulo_card) { ?>
+                      <div class="title">
+                        <?php echo esc_html($titulo_card); ?>
+                      </div>
+                    <?php } ?>
+                    <?php if($descricao_card) { ?>
+                      <div class="description">
+                        <?php echo esc_html($descricao_card); ?>
+                      </div>
+                    <?php } ?>
                   </div>
                 </div>
                 <?php

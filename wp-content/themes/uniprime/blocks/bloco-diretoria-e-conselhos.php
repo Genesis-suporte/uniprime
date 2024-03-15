@@ -12,7 +12,7 @@
   $titulo_conselho_admin = get_field('titulo_conselho_admin', $block['id']);
 ?>
 
-<section class="diretoria-e-conselhos mw-100">
+<section class="diretoria-e-conselhos mw-100 z-13">
   <div class="container">
     <div class="row d-flex flex-column">
       <div class="col-12">
@@ -45,11 +45,11 @@
                 if( get_row_layout() == 'diretoria_cards' ) {
                   $nome = get_sub_field('nome');
                   $cargo = get_sub_field('cargo');?>
-                    <div class="diretoria-card col-12 col-md-9 d-flex flex-row">
-                      <div class="nome">
+                    <div class="diretoria-card d-flex flex-row diretoria">
+                      <div class="nome col">
                         <?php echo esc_html($nome); ?>
                       </div>
-                      <div class="cargo">
+                      <div class="cargo col">
                         <?php echo esc_html($cargo); ?>
                       </div>
                     </div>
@@ -62,7 +62,7 @@
           ?>
         </div>
       </div>
-        <div class="d-flex flex-column flex-lg-row">
+        <div class="d-flex flex-column flex-lg-row justify-content-between conselhos">
           <div class="container-diretoria col-12 col-md-6">
             <div class="content-diretoria">
               <div class="label-block">

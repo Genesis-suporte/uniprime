@@ -5,8 +5,10 @@ $tipo_homepage = get_field('tipo-homepage');
   <div class="main-menu  <?php echo $tipo_homepage;?>" id="main-menu">
     <div class="container d-flex justify-content-between">
       <div class="logo">
-        <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black d-none" id="logo-black" alt="Logo Uniprime">
-        <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo-branco.png" class="logo-white" id="logo-white" alt="Logo Uniprime">
+        <a href="/" class="link-logo">
+          <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black d-none" id="logo-black" alt="Logo Uniprime">
+          <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo-branco.png" class="logo-white" id="logo-white" alt="Logo Uniprime">
+        </a>
       </div>
       <div class="flex-grow-1 d-none d-lg-block">
         <nav class="menu-inicial d-flex justify-content-start">
@@ -25,7 +27,7 @@ $tipo_homepage = get_field('tipo-homepage');
                           $class = esc_attr( implode( ' ', $item['class']));
                         }
                         $menu_a_uniprime .= '<div class="menu-subitem '.$class.'">'."\n";
-                        $menu_a_uniprime .= '<a href="#" class="icon-menu icon-'.$class.'">'. esc_html($item['title']) ."\n";
+                        $menu_a_uniprime .= '<a href="'. esc_html($item['link']) .'" class="icon-menu icon-'.$class.'">'. esc_html($item['title']) ."\n";
                         $menu_a_uniprime .= '<i class="arrow right"></i></a>'."\n";
                         $menu_a_uniprime .= '</div>'."\n";
                       }
@@ -46,7 +48,7 @@ $tipo_homepage = get_field('tipo-homepage');
                             $class = esc_attr( implode( ' ', $item['class']));
                           }
                           $menu_governanca .= '<li class="menu-item '.$class.'">'."\n";
-                          $menu_governanca .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
+                          $menu_governanca .= '<a href="'. esc_html($item['link']) .'">'. esc_html($item['title']) .'</a>'."\n";              
                           $menu_governanca .= '</li>'."\n";
                         }
                         echo $menu_governanca;
@@ -67,7 +69,7 @@ $tipo_homepage = get_field('tipo-homepage');
                             $class = esc_attr( implode( ' ', $item['class']));
                           }
                           $menu_fique_por_dentro .= '<li class="menu-item '.$class.'">'."\n";
-                          $menu_fique_por_dentro .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
+                          $menu_fique_por_dentro .= '<a href="'. esc_html($item['link']) .'">'. esc_html($item['title']) .'</a>'."\n";              
                           $menu_fique_por_dentro .= '</li>'."\n";
                         }
                         echo $menu_fique_por_dentro;
@@ -121,7 +123,7 @@ $tipo_homepage = get_field('tipo-homepage');
                         }
                         $menu_atendimento .= '<div class="col-6 menu-subitem '.$class.'">'."\n";
                         $menu_atendimento .= '<li class="menu-item '.$class.'">'."\n";
-                        $menu_atendimento .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
+                        $menu_atendimento .= '<a href="'. esc_html($item['link']) .'">'. esc_html($item['title']) .'</a>'."\n";              
                         $menu_atendimento .= '</li>'."\n";
                         $menu_atendimento .= '</div>'."\n";
                       }
@@ -173,7 +175,9 @@ $tipo_homepage = get_field('tipo-homepage');
             <div class="d-flex flex-column">
               <div class="header-menu-mobile d-flex">
                 <div class="logo-menu-mobile col">
-                  <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" alt="Logo Uniprime">
+                <a href="/" class="link-logo">
+                  <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" id="logo-black" alt="Logo Uniprime">
+                </a>
                 </div>
                 <div class="col-right-menu-mobile col d-flex justify-content-end">
                   <a href="#" class="search">
@@ -194,7 +198,9 @@ $tipo_homepage = get_field('tipo-homepage');
                     <div class="dropdown-content a-uniprime">
                       <div class="header-menu-mobile d-flex">
                         <div class="logo-menu-mobile col">
-                          <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" alt="Logo Uniprime">
+                          <a href="/" class="link-logo">
+                            <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" id="logo-black" alt="Logo Uniprime">
+                          </a>
                         </div>
                         <div class="col-right-menu-mobile col d-flex justify-content-end">
                           <a href="#" class="search">
@@ -222,7 +228,7 @@ $tipo_homepage = get_field('tipo-homepage');
                               $class = esc_attr( implode( ' ', $item['class']));
                             }
                             $menu_a_uniprime .= '<div class="menu-subitem '.$class.'">'."\n";
-                            $menu_a_uniprime .= '<a href="#" class="icon-menu icon-'.$class.'">'. esc_html($item['title']) ."\n";
+                            $menu_a_uniprime .= '<a href="'. esc_html($item['link']) .'" class="icon-menu icon-'.$class.'">'. esc_html($item['title']) ."\n";
                             $menu_a_uniprime .= '<i class="arrow right"></i></a>'."\n";
                             $menu_a_uniprime .= '</div>'."\n";
                           }
@@ -236,7 +242,9 @@ $tipo_homepage = get_field('tipo-homepage');
                     <div class="dropdown-content solucoes">
                       <div class="header-menu-mobile d-flex">
                         <div class="logo-menu-mobile">
-                          <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" alt="Logo Uniprime">
+                          <a href="/" class="link-logo">
+                            <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" id="logo-black" alt="Logo Uniprime">
+                          </a>
                         </div>
                         <div class="col-right-menu-mobile col d-flex justify-content-end">
                           <a href="#" class="search">
@@ -267,7 +275,7 @@ $tipo_homepage = get_field('tipo-homepage');
                               $class = esc_attr( implode( ' ', $item['class']));
                             }
                             $menu_solucoes .= '<div class="menu-subitem '.$class.'">'."\n";
-                            $menu_solucoes .= '<a href="#" class="icon-menu icon-'.$class.'-gold">'. esc_html($item['title']) ."\n";
+                            $menu_solucoes .= '<a href="'. esc_html($item['link']) .'" class="icon-menu icon-'.$class.'-gold">'. esc_html($item['title']) ."\n";
                             $menu_solucoes .= '<i class="arrow right"></i></a>'."\n";
                             $menu_solucoes .= '</div>'."\n";
                           }
@@ -281,7 +289,9 @@ $tipo_homepage = get_field('tipo-homepage');
                     <div class="dropdown-content atendimento">
                       <div class="header-menu-mobile d-flex">
                         <div class="logo-menu-mobile">
-                          <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" alt="Logo Uniprime">
+                          <a href="/" class="link-logo">
+                            <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" id="logo-black" alt="Logo Uniprime">
+                          </a>
                         </div>
                         <div class="col-right-menu-mobile col d-flex justify-content-end">
                           <a href="#" class="search">
@@ -309,7 +319,7 @@ $tipo_homepage = get_field('tipo-homepage');
                               $class = esc_attr( implode( ' ', $item['class']));
                             }
                             $menu_atendimento .= '<div class="menu-subitem '.$class.'">'."\n";
-                            $menu_atendimento .= '<a href="#" class="icon-menu icon-'.$class.'-gold">'. esc_html($item['title']) ."\n";
+                            $menu_atendimento .= '<a href="'. esc_html($item['link']) .'" class="icon-menu icon-'.$class.'-gold">'. esc_html($item['title']) ."\n";
                             $menu_atendimento .= '<i class="arrow right"></i></a>'."\n";
                             $menu_atendimento .= '</div>'."\n";
                           }

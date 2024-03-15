@@ -7,7 +7,7 @@
   --primary-color-para-cooperativa: #004F71;
   --color-actived: #B78B20;
   --color-neutral: #6C6C6C;
-  --color-neutral-alpha: #B7C9d3;
+  --color-neutral-2: #B7C9d3;
   --color-neutral-alpha: rgba(183, 201, 211, 0.3);
   --color-footer: #EFF1F2;
   --bs-font-sans-serif: 'Calibri';
@@ -41,20 +41,20 @@ a {
   height: 6px;
   position: relative;
 }
-.right {
+.arrow.right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
 }
-.left {
+.arrow.left {
   transform: rotate(135deg);
   -webkit-transform: rotate(135deg);
 }
-.up {
+.arrow.up {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg);
   margin: 1px 15px;
 }
-.down {
+.arrow.down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }
@@ -396,7 +396,21 @@ a {
 .icon-tag-white {
   background: url('../images/icons/icon-tag-white.png') no-repeat 0px 0px;
 }
-
+.icon-missao {
+  background: url('../images/icons/icon-missao.svg') no-repeat 0px 0px;
+  width: 64px;
+  height: 64px;
+}
+.icon-valores {
+  background: url('../images/icons/icon-valores.svg') no-repeat 0px 0px;
+  width: 64px;
+  height: 64px;
+}
+.icon-visao {
+  background: url('../images/icons/icon-visao.svg') no-repeat 0px 0px;
+  width: 64px;
+  height: 64px;
+}
 
 .slick-arrow {
   background: url('../images/icons/icon-right-arrow-white.png') no-repeat;
@@ -1387,6 +1401,11 @@ a {
   max-width: 50%;
   padding-bottom: 50px;
 }
+@media (max-width: 991.98px) {
+  .banner-internas .hero-image .copy {
+    padding-bottom: 70px;
+  }
+}
 .banner-internas .hero-image .copy .title{
   font-size: 48px;
   font-family: 'SwitzerlandLight';
@@ -1465,12 +1484,151 @@ a {
 /* BLOCO MVV */
 .bloco-mvv {
   background-color: var(--primary-color-brand);
+  height: 400px;
+  margin-bottom: 400px;
 }
+
 .bloco-mvv .card-mvv {
   background-image: linear-gradient(#004F71, #007D79);
-  padding: 96px 52px;
+  padding: 76px 40px 20px;
   margin: 0 12px;
   border-radius: 16px;
+}
+.bloco-mvv .card-mvv .title {
+  font-size: 40px;
+  font-family: 'SwitzerlandLight';
+  line-height: 62px;
+  color: white;
+  padding: 48px 0 24px;
+}
+.bloco-mvv .card-mvv .description {
+  font-size: 20px;
+  font-family: 'Calibri';
+  line-height: 34px;
+  color: white;
+}
+/* BENEFICIOS */
+.beneficios-institucional {
+  padding: 128px 0;
+}
+.beneficios-institucional .slide-beneficios,
+.beneficios-institucional .slick-list {
+  width: 100%;
+}
+.beneficios-institucional .slide-beneficios .copy {
+  bottom: 0;
+  color: white;
+  max-width: 85%;
+  padding: 104px;
+}
+.beneficios-institucional .slide-beneficios .image {
+  width: 100%;
+}
+
+.beneficios-institucional .slide-beneficios .title {
+  font-size: 64px;
+  font-family: 'SwitzerlandLight';
+  line-height: 80px;
+  color: white;
+  padding-bottom: 8px;
+}
+.beneficios-institucional .slide-beneficios .description {
+  font-size: 20px;
+  font-family: 'Switzerland';
+  line-height: 26px;
+  color: white;
+}
+/* DIRETORIA */
+.diretoria-e-conselhos {
+  padding: 128px 0 96px;
+}
+.diretoria-e-conselhos .content-diretoria {
+  background-color: var(--primary-color-brand);
+  border-radius: 16px;
+  color: white;
+  padding: 64px 106px;
+  margin-bottom: 24px;
+}
+.diretoria-e-conselhos .content-diretoria .title-block {
+  font-size: 28px;
+  font-family: 'Switzerland';
+  line-height: 36px;
+  color: white;
+  padding-bottom: 24px;  
+}
+.diretoria-e-conselhos .content-diretoria .description-block {
+  font-size: 16px;
+  font-family: 'Calibri';
+  line-height: 27px;
+  color: var(--color-neutral-2);
+  padding-bottom: 24px;  
+}
+.diretoria-e-conselhos .content-diretoria .diretoria-card {
+  font-size: 20px;
+  font-family: 'Switzerland';
+  line-height: 26px;
+  padding: 24px 0;  
+  border-bottom: 1px solid var(--color-neutral-alpha);
+  width: 100%;
+}
+.diretoria-e-conselhos .content-diretoria .diretoria-card.diretoria {
+  width: 80%;
+}
+.diretoria-e-conselhos .content-diretoria .diretoria-card:last-child {
+  border-bottom: 0px;
+}
+.diretoria-e-conselhos .content-diretoria .diretoria-card .nome{
+  color: var(--color-neutral-2);
+}
+.diretoria-e-conselhos .content-diretoria .diretoria-card .cargo{
+  color: var(--color-actived);
+  text-align: right;
+}
+/* @TODO -> fix */
+.diretoria-e-conselhos .conselhos .container-diretoria {
+  width: 49%;
+  /*gap: 24px;*/
+}
+/* BNLOCO CANAIS DIGITAIS */
+.blocos-canais-digitais {
+  gap: 0 !important;
+}
+.blocos-canais-digitais .canais-digitais-col {
+  width: 50%;
+  background-size: cover !important;
+  height: 548px;
+  padding: 64px 20px 0px 109px;
+}
+.blocos-canais-digitais .canais-digitais-col:nth-child(even) .canais-digitais-image {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  
+}
+.blocos-canais-digitais .canais-digitais-col .container, 
+.blocos-canais-digitais .canais-digitais-col .container > .row{
+  height: 100%;
+}
+.blocos-canais-digitais .canais-digitais-col .title-block {
+  color: white;
+  font-size: 28px;
+  font-family: 'Switzerland';
+  line-height: 36px;
+  padding: 8px 0;  
+}
+.blocos-canais-digitais .canais-digitais-col .description-block {
+  color: var(--color-neutral-2);
+  padding-left: 0;
+}
+.blocos-canais-digitais .canais-digitais-col .content-bts {
+  padding-top: 29px;  
+  padding-left: 0;
+}
+.blocos-canais-digitais .canais-digitais-col .card-canais-digitais {
+  padding-bottom: 24px;  
+}
+.blocos-canais-digitais .canais-digitais-col .canais-digitais-image {
+
 }
 /* FOOTER */
 footer {

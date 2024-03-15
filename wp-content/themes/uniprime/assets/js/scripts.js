@@ -124,11 +124,10 @@
       if($('.slide-beneficios')) {
         $('.slide-beneficios').slick({
           dots: false,
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 1,
+          slidesToScroll: 1,
           infinite: false,
           appendArrows: '.arrows-beneficios-desktop',
-          rows: 3,
           responsive: [
             {
               breakpoint: 992,

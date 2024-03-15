@@ -67,7 +67,7 @@
   if ($layout == 'layout2') { ?>
     <div class="canais-digitais-col col-6 z-13" <?php echo $bg_image;?>>
       <div class="container">
-        <div class="row d-flex justify-content-between flex-column flex-lg-row">
+        <div class="row d-flex flex-column flex-lg-column align-items-start">
           <div class="label-block">
             <?php echo esc_html($label); ?>
           </div>
@@ -77,7 +77,7 @@
           <div class="description-block">
             <?php echo esc_html($descricao); ?>
           </div>
-          <div class="d-flex">
+          <div class="d-flex content-bts">
             <div class="col-6">
               <div class="d-flex justify-content-center justify-content-md-between gap-2 flex-column">
                 <?php 
@@ -92,7 +92,7 @@
                           <a class="button" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_html( $link['target'] ); ?>">
                             <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
                         <?php } else { ?>
-                          <a class="button btn-actived" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_html( $link['target'] ); ?>">
+                          <a class="button btn-actived btn-secondary btn" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_html( $link['target'] ); ?>">
                             <?php echo esc_html( $link['title'] ); ?>
                         <?php } ?>
                         </a>
@@ -109,7 +109,7 @@
                 ?>
               </div>
             </div>
-            <div class="col-6 canais-digitais-image">
+            <div class="col-6 canais-digitais-image d-flex align-items-end">
               <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" >
             </div>
           </div>
