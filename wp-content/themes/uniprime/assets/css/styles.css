@@ -975,7 +975,7 @@ a {
   color: var(--color-actived);
   text-transform: uppercase;
   position: relative;
-  padding-left: 41px;
+  padding-left: 41px !important;
 }
 .label-block:before {
   content: '';
@@ -1684,6 +1684,113 @@ a {
   font-size: 16px;
   padding-top: 0px;
   line-height: 27px;
+}
+/* SINGLE POLITICA */
+.single-politica {
+  padding: 190px 0px;
+}
+.single-politica .cols-politica {
+  grid-template-columns: auto auto;
+}
+.single-politica .col-nav {
+  width: 391px;
+  margin-right: 24px;
+}
+.single-politica .nav-pills .nav-item {
+  margin-bottom: 16px;
+  width: 100%;
+}
+.single-politica .nav-pills .nav-item .nav-link{
+  background-color: var(--primary-color-para-voce);
+  border-radius: 16px;
+  padding: 32px 24px;
+  width: 100%;
+  color: var(--primary-color);
+  font-family: 'Calibri';
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: bold;
+}
+.single-politica .nav-pills .nav-item .nav-link.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+.single-politica .nav-pills .nav-item .nav-link .arrow.right {
+  right: 20px;
+  position: absolute;
+  top: 56px;
+}
+.single-politica .title-block {
+  padding: 0 0;
+}
+.single-politica .title-block h1{
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: bold;
+  font-family: 'Switzerland';
+  color: var(--primary-color-brand);
+  margin-bottom: 24px;
+}
+.single-politica .content {
+  counter-reset: n;
+}
+.single-politica .content h2 {
+  font-size: 24px;
+  line-height: 31px;
+  font-weight: bold;
+  font-family: 'Switzerland';
+  color: var(--primary-color-brand);
+  padding-left: 104px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.single-politica .content h2:before {
+  counter-increment: n;
+  content: counter(n);
+  display: block;
+  height: 44px; 
+  width: 44px; 
+  position: absolute;
+  top: -5px;
+  left: 37px;
+  background-color: var(--color-actived);
+  border-top: 0px;
+  border-radius: 50%;
+  color: white;
+  font-family: 'Calibri';
+  font-size: 16px;
+  font-weight: bold;
+  padding: 6px 14px;
+  text-align: center;
+}
+.single-politica .content h2 + div,
+.single-politica .content h3 + div {
+  margin-bottom: 50px;
+}
+.single-politica .content h3 {
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: bold;
+  font-family: 'Switzerland';
+  color: var(--primary-color-brand);
+  margin-left: 104px;
+  margin-bottom: 14px;
+}
+.single-politica .content h2 + div p,
+.single-politica .content h3 + div p,
+.single-politica .content h3,
+.single-politica .content ul {
+  margin-left: 104px !important;
+  margin-right: 0 !important;
+}
+.single-politica .content p,
+.single-politica .content h3 {
+  margin-left: 0px;
+}
+.single-politica .content p {
+  font-family: 'Calibri';
+  font-size: 16px;
+  color: var(--color-neutral);
 }
 /* FOOTER */
 footer {

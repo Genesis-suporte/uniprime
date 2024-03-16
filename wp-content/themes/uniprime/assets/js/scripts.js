@@ -292,8 +292,6 @@
           //console.log('voltando para o primeiro nível menu mobile')
         }); 
       }
-    }
-
-    
+    }   
   });
 })(jQuery); 

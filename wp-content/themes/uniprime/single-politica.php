@@ -28,10 +28,10 @@ $get_politicas = get_posts( $array_politica );
     </div>
   </div>
 </div>
-<section class="nossos-produtos mw-100">
+<section class="single-politica mw-100">
   <div class="container">
-    <div class="d-flex">
-      <div class="col-3">
+    <div class="d-grid cols-politica">
+      <div class="col-nav ">
         <ul class="nav nav-pills" id="tabs-politicas">
           <?php
           //print_r($get_politicas); guid post_name
@@ -45,13 +45,20 @@ $get_politicas = get_posts( $array_politica );
           <?php } ?>
         </ul>
       </div>
-      <div class="content col-9">
-        <div class="tab-content" id="myTabContent">
+      <div class="content">
+        <div class="tab-content" id="tab-content">
           <?php while ( have_posts() ) : the_post(); ?>
-
-            <h1><?php the_field('custom_title'); ?></h1>
-
-            <p><?php the_content(); ?></p>
+            <div class="">
+              <div class="label-block">
+                POLÍTICAS UNIPRIME
+              </div>
+              <div class="title-block">
+                <h1><?php the_title(); ?></h1>
+              </div>
+              <div class="content">
+                <?php the_content(); ?>
+              </div>
+            </div>
 
             <?php endwhile; // end of the loop. ?>
         </div>
