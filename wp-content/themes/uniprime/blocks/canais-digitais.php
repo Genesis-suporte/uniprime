@@ -146,13 +146,13 @@
                     ?>
                     
                     <div class="card-canais-digitais">
-                      <?php /*if($imagem_cta) { ?>
+                      <?php if($imagem_cta) { ?>
                         <a class="button" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_html( $link['target'] ); ?>">
                           <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
                       <?php } else { ?>
-                        <a class="button btn-actived" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_html( $link['target'] ); ?>">
+                        <a class="button btn-actived btn-secondary btn" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_html( $link['target'] ); ?>">
                           <?php echo esc_html( $link['title'] ); ?>
-                      <?php } */?>
+                      <?php } ?>
                       </a>
                     </div>
                     <?php

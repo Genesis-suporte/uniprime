@@ -1630,6 +1630,61 @@ a {
 .blocos-canais-digitais .canais-digitais-col .canais-digitais-image {
 
 }
+.canais-digitais.layout-3 {
+  height: 505px;
+  background-size: cover !important;
+}
+.canais-digitais.layout-3 .canais-digitais-image img {
+  width: auto;
+  margin: -112px 0 0px;
+}
+.canais-digitais.layout-3 .title-block,
+.canais-digitais.layout-3 .description-block {
+  color: white;
+}
+/* BLOCO BENEFÍCIOS COOP */
+.bloco-beneficios-coop {
+  padding: 128px 0 96px;
+}
+.bloco-beneficios-coop .title-block {
+  font-size: 62px;
+  font-family: 'SwitzerlandLight';
+  line-height: 80px;
+  color: var(--primary-color-brand);
+  padding-bottom: 52px;
+}
+.bloco-beneficios-coop .cards-bbc {
+  grid-template-columns: auto auto auto;
+  grid-row-gap: 24px;
+  grid-column-gap: 24px;
+}
+.bloco-beneficios-coop .card-bbc {
+  background-color: var(--primary-color-para-voce);
+  border-radius: 16px;
+  padding: 48px 32px;
+}
+.bloco-beneficios-coop .content-card {
+  border-top: 1px solid var(--color-actived);
+}
+
+.bloco-beneficios-coop .card-bbc .title {
+  font-family: 'Calibri';
+  font-size: 14px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  position: relative;
+  padding: 17px 0 8px 30px !important;
+}
+.bloco-beneficios-coop .card-bbc .title .icon-logo {
+  margin: 3px 7px 0 0px;
+}
+.bloco-beneficios-coop .card-bbc .description {
+  color: var(--color-neutral);
+  font-family: 'Calibri';
+  font-size: 16px;
+  padding-top: 0px;
+  line-height: 27px;
+}
 /* FOOTER */
 footer {
   z-index: 12;
@@ -2156,6 +2211,9 @@ footer {
   .canais-digitais .card-canais-digitais {
     width: 48%;
   }
+
+  
+  /* ONDE ENCONTRAR */
   .onde-encontrar {
     padding: 66px 0 30px;
   }
