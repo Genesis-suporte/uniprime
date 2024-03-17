@@ -9,14 +9,9 @@
   $descricao_proximas = get_field('descricao_proximas', $block['id']);
   $descricao_pos_proximas = get_field('descricao_pos_proximas', $block['id']);
   
-/*titulo
-descricao
 
-data_da_publicacao
-unidade
-link_download*/
 ?>
-<section class="assembleias mw-100">
+<section class="assembleias mw-100 z-13">
   <div class="container">
     <div class="row d-flex justify-content-between">
       <div class="col">
@@ -26,59 +21,118 @@ link_download*/
         <div class="title-block">
           <?php echo esc_html($titulo_ultimas); ?>
         </div>
-        <div class="description-block">
-          <div class="d-flex">
-            <div class="description-block flex-grow-1">
-              <?php echo esc_html($descricao_ultimas_assembleias); ?>
-            </div>
-            <div class="arrows-assembleias-desktop d-none d-md-flex"></div>
+        <div class="d-flex">
+          <div class="description-block flex-grow-1">
+            <?php echo esc_html($descricao_ultimas_assembleias); ?>
           </div>
+          <div class="arrows-assembleias-desktop d-none d-md-flex"></div>
         </div>
         <div class="artigos">
-          <div class="slide-assembleias d-flex justify-content-between">
+          <div class="slide-assembleias row">
             <?php 
-            $get_assembleias_id = array(
-              'post_type'   => 'assembleia'
-            );
-            $get_assembleias = get_posts( $get_assembleias_id );           
-            
-            //var_dump($get_assembleias);
-            if ( $get_assembleias ) {
-              foreach ( $get_assembleias as $post ) : 
-                echo get_sub_field('data_assembleia');
-              /*?>
-                <div class="card-post">
-                  <div class="img-post">
-                    <a href="<?php echo esc_url($post->guid); ?>" target="_SELF">
-                      <?php echo get_the_post_thumbnail( $post->ID);?>
-                    </a>
-                  </div>
-                  <div class="container-post">
-                    <div class="content-post">
-                      <div class="category">
-                        <a href="<?php echo esc_url($link_cat); ?>" target="_SELF" class="icon-menu icon-logo">
-                          <?php echo esc_html($text_label); ?>
-                        </a>
+            $assembleias = get_posts( array(
+              'post_type' => 'assembleia',
+              'posts_per_page' => -1, // Obter todos os posts
+            ) );
+            $prox_assembleias = "";
+            date_default_timezone_set('America/Sao_Paulo');
+            if ( $assembleias ) {
+              // Loop pelos posts
+              foreach ( $assembleias as $assembleia ) {
+                // Obtém os campos personalizados específicos da assembleia
+                $titulo = get_field( 'titulo', $assembleia->ID );
+                $descricao = get_field( 'descricao', $assembleia->ID );
+                $data_assembleia = (get_field( 'data_assembleia', $assembleia->ID ));
+                $data_inicio_timestamp = DateTime::createFromFormat( 'd/m/Y', $data_assembleia )->format('Y-m-d');
+                $data_inicio_ano = DateTime::createFromFormat( 'd/m/Y', $data_assembleia )->format('Y');
+                $data_atual = date('Y-m-d');
+                $data_da_publicacao = get_field( 'data_da_publicacao', $assembleia->ID );
+                $unidade = get_field( 'unidade', $assembleia->ID );
+                $link_download = get_field( 'link_download', $assembleia->ID );
+                
+                if ( $data_inicio_timestamp < $data_atual ) { ?>
+                  <div class="card-assembleias">
+                    <div class="content-card d-flex flex-column justify-content-start">
+                      <div class="ano icon-menu icon-logo">
+                        <?php echo esc_html($data_inicio_ano); ?>
                       </div>
-                      <div class="title-block">
-                        <a href="<?php echo esc_url($post->guid); ?>" target="_SELF">
-                          <?php echo esc_html($post->post_title); ?>
-                        </a>
+                      <div class="title flex-grow-1">
+                        <h2><?php echo esc_html($titulo); ?></h2>
                       </div>
-                      <div class="cta">
-                        <a href="<?php echo esc_url($post->guid); ?>" target="_SELF" class="leia_mais">Leia mais <i class="arrow right"></i></a>
+                      <div class="d-flex justify-content-between align-items-end">
+                        <div class="description flex-grow-1">
+                          <div class="unidade"><?php echo esc_html($unidade); ?></div>
+                          <?php 
+                            echo esc_html($link_download['title']). "<br>";
+                            echo esc_html('Data da assembleia: '.$data_assembleia). "<br>";
+                            echo esc_html('Data da publicação: '.$data_da_publicacao). "<br>";
+                          ?>
+                        </div>
+                        <div class="linkpdf">
+                          <a href="<?php echo esc_html($link_download['url']); ?>" class="btn btn-download">Baixar edital<i class="icon-download right"></i></a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              <?php */
-              endforeach;
-              wp_reset_postdata();
-            }
+                <?php
+                } else {
+                  $prox_assembleias .= '<div class="card-assembleias">';
+                  $prox_assembleias .= '<div class="content-card d-flex flex-column justify-content-start">';
+                  $prox_assembleias .= '<div class="ano icon-menu icon-logo">PRÓXIMA ASSEMBLEIA</div>';
+                  $prox_assembleias .= '<div class="title flex-grow-1"><h2>'. esc_html($data_assembleia) .'</h2></div>';
+                  $prox_assembleias .= '<div class="d-flex justify-content-between align-items-end">';
+                  $prox_assembleias .= '<div class="description flex-grow-1">';
+                  $prox_assembleias .= '<div class="unidade"><strong>'. esc_html($unidade) .'</strong></div>';
+                  $prox_assembleias .= ''. esc_html($link_download['title']). '<br>';
+                  $prox_assembleias .= '</div>';
+                  $prox_assembleias .= '<div class="linkpdf">';
+                  $prox_assembleias .= '<a href="'. esc_html($link_download['url']). '" class="btn btn-download">Baixar edital <i class="icon-download right"></i></a>';
+                  $prox_assembleias .= '</div>';
+                  $prox_assembleias .= '</div>';
+                  $prox_assembleias .= '</div>';
+                  $prox_assembleias .= '</div>';
+                }
+              }
+            } else {
+                //echo 'Nenhuma assembleia encontrada.';
+            } 
+            
+            //wp_reset_postdata();
+            //}
             ?>
           </div>
         </div>
         <div class="arrows-novidades-mobile d-flex d-md-none justify-content-center"></div>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-between">
+      <div class="col">
+        <div class="label-block">
+          <?php echo esc_html($label_proximas); ?>
+        </div>
+        <div class="title-block">
+          <?php echo esc_html($titulo_proximas); ?>
+        </div>
+        <div class="d-flex">
+          <div class="description-block flex-grow-1">
+            <?php echo esc_html($descricao_proximas); ?>
+          </div>
+          <div class="arrows-proximas-assembleias-desktop d-none d-md-flex"></div>
+        </div>
+        <div class="artigos">
+          <div class="slide-proximas-assembleias row">
+            <?php 
+            echo $prox_assembleias
+            ?>
+          </div>
+        </div>
+        <div class="arrows-proximas-novidades-mobile d-flex d-md-none justify-content-center"></div>
+        
+        <div class="d-flex">
+          <div class="description-block flex-grow-1">
+            <?php echo esc_html($descricao_pos_proximas); ?>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -119,6 +119,19 @@
             }
           ]
         });
+        
+        var cards = $('.slide-nossa-historia .slick-slide .content-card');
+        var maxHeight = 0;
+        for (var i = 0; i < cards.length; i++) {
+          if (maxHeight < $(cards[i]).outerHeight()) {
+            maxHeight = $(cards[i]).outerHeight();
+            console.log(maxHeight);
+          }
+        }
+        // Set ALL card bodies to this height
+        for (var i = 0; i < cards.length; i++) {
+          $(cards[i]).height(maxHeight);
+        }
       }
       /* SLICK Benefícios Institucional */
       if($('.slide-beneficios')) {
@@ -292,6 +305,91 @@
           //console.log('voltando para o primeiro nível menu mobile')
         }); 
       }
-    }   
+    }  
+    if($('.slide-assembleias')) {
+      $('.slide-assembleias').slick({
+        dots: false,
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: false,
+        appendArrows: '.arrows-assembleias-desktop',
+        rows: 3,
+        responsive: [
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              rows: 4,
+              appendArrows: '.arrows-assembleias-desktop',
+            }
+          },
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              rows: 4,
+              appendArrows: '.arrows-assembleias-mobile',
+            }
+          }
+        ]
+      });
+      var cards = $('.slide-assembleias .slick-slide .content-card');
+      var maxHeight = 0;
+      for (var i = 0; i < cards.length; i++) {
+        if (maxHeight < $(cards[i]).outerHeight()) {
+          maxHeight = $(cards[i]).outerHeight();
+          console.log(maxHeight);
+        }
+      }
+      // Set ALL card bodies to this height
+      for (var i = 0; i < cards.length; i++) {
+        $(cards[i]).height(maxHeight);
+      }
+    } 
+    if($('.slide-proximas-assembleias')) {
+      $('.slide-proximas-assembleias').slick({
+        dots: false,
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: false,
+        appendArrows: '.arrows-proximas-assembleias-desktop',
+        responsive: [
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              rows: 4,
+              appendArrows: '.arrows-proximas-assembleias-desktop',
+            }
+          },
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              rows: 4,
+              appendArrows: '.arrows-proximas-assembleias-mobile',
+            }
+          }
+        ]
+      });
+      var cards = $('.slide-proximas-assembleias .slick-slide .content-card');
+      var maxHeight = 0;
+      for (var i = 0; i < cards.length; i++) {
+        if (maxHeight < $(cards[i]).outerHeight()) {
+          maxHeight = $(cards[i]).outerHeight();
+          console.log(maxHeight);
+        }
+      }
+      // Set ALL card bodies to this height
+      for (var i = 0; i < cards.length; i++) {
+        $(cards[i]).height(maxHeight);
+      }
+    } 
+
+    
   });
 })(jQuery); 

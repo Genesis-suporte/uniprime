@@ -80,6 +80,12 @@ a {
   background-color: var(--color-actived)  !important;
   border: 0px !important;
 }
+.btn-download {  
+  color: white !important;
+  font-size: 14px;
+  background-color: transparent !important;
+  border: 1px solid white !important;
+}
 /* ICONS */
 .dashicons-uniprime {
   background-image: url('../images/icons/icon-logo.png');
@@ -410,6 +416,13 @@ a {
   background: url('../images/icons/icon-visao.svg') no-repeat 0px 0px;
   width: 64px;
   height: 64px;
+}
+.icon-download {
+  background: url('../images/icons/icon-download.svg') no-repeat 0px 0px;
+  width: 16px;
+  height: 16px;
+  display: block;
+  margin: 4px 0px 0 10px;
 }
 
 .slick-arrow {
@@ -1791,6 +1804,83 @@ a {
   font-family: 'Calibri';
   font-size: 16px;
   color: var(--color-neutral);
+}
+/* ASSEMBLEIAS */
+.assembleias {
+  padding: 120px 0;
+}
+.assembleias .description-block {
+  padding-bottom: 32px;
+  width: 65%;
+}
+.assembleias .slide-assembleias {
+  padding-bottom: 250px;
+  /*grid-template-columns: auto auto auto;
+  grid-row-gap: 24px;
+  grid-column-gap: 24px;*/
+}
+.assembleias .slide-proximas-assembleias { 
+  padding-bottom: 40px;
+}
+.assembleias .arrows-assembleias-desktop .slick-arrow,
+.assembleias .arrows-assembleias-mobile .slick-arrow,
+.assembleias .arrows-proximas-assembleias-desktop .slick-arrow,
+.assembleias .arrows-proximas-assembleias-mobile .slick-arrow  {
+  background: url('../images/icons/icon-right-arrow.png') no-repeat 10px 10px rgb(255,255,255,0.7);
+  border: 1px solid var(--primary-color);
+  padding: 0;
+  margin: 0 0px 0px 24px;
+  position: relative;
+  z-index: 12;
+}
+.assembleias .slick-track {
+  display: flex !important;
+}
+.assembleias .slick-slide {
+  height: inherit !important;
+}
+.assembleias .slick-list {
+  width: 100%;
+  margin: 0 -12px;
+  position: relative;
+  z-index: 12;
+}
+.assembleias .slick-slide > div,
+.assembleias .slide-proximas-assembleias .slick-slide {
+  margin: 0px 0px 30px 25px;
+  height: inherit !important;
+}
+.assembleias .card-assembleias  {
+  background-color: var(--primary-color-brand);
+  border-radius: 16px;
+  padding: 40px 32px;
+}
+.assembleias .card-assembleias .content-card {
+  border-top: 1px solid var(--color-actived);
+}
+.assembleias .card-assembleias .content-card .ano {
+  color: var(--color-actived);
+  font-family: 'Calibri';
+  font-size: 14px;
+  padding: 16px 0;
+}
+.assembleias .card-assembleias .content-card .title {
+  color: white;
+  font-family: 'SwitzerlandLight';
+  font-size: 36px;
+  line-height: 46px;
+  padding-bottom: 24px;
+}
+.assembleias .card-assembleias .content-card .description {
+  color: white;
+  font-size: 16px;
+  line-height: 27px;
+}
+.assembleias .card-assembleias .content-card .linkpdf a {
+  display: flex;
+  flex-direction: row;
+  padding: 3px 15px !important;
+  height: 32px;
 }
 /* FOOTER */
 footer {

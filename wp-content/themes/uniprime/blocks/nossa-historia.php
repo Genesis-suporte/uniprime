@@ -29,7 +29,7 @@
                 //->filename url alt
                 //print_r( $destaque);?>
                 <div class="card-nossa-historia">
-                  <div class="content-card">
+                  <div class="content-card d-flex flex-column justify-content-start">
                     <div class="title icon-menu icon-logo">
                       <?php echo esc_html($titulo); ?>
                     </div>
