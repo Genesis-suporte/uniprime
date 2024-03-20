@@ -33,7 +33,7 @@ $get_politicas = get_posts( $array_politicas );
     </div>
   </div>
 </div>
-<section class="single-politica mw-100">
+<section class="mw-100">
   <div class="container">
     <div class="d-grid cols-politica">
       <div class="col-nav ">

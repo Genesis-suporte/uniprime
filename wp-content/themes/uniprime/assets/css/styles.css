@@ -1192,14 +1192,21 @@ a {
 }
 
 /* CANAIS DIGITAIS */
-.canais-digitais {
-  padding: 0px;
+section.canais-digitais {
+  padding: 0px 0 200px 0;
   z-index: 12;
   background-color: white;
   position: relative;
   font-family: 'Calibri' !important;
 }
+.wp-admin section.canais-digitais,
+.page-id-55 section.canais-digitais {
+  padding: 120px 0 200px 0;
+}
 
+.home .canais-digitais {
+  padding: 0px !important;
+}
 .canais-digitais .container {
   /*height: 472px;*/
 }
@@ -1647,14 +1654,29 @@ a {
 .canais-digitais.layout-3 {
   height: 505px;
   background-size: cover !important;
+  padding: 0px 0 200px 0 !important;
 }
 .canais-digitais.layout-3 .canais-digitais-image img {
   width: auto;
-  margin: -112px 0 0px;
+  margin: -32px 0 0px;
 }
 .canais-digitais.layout-3 .title-block,
 .canais-digitais.layout-3 .description-block {
   color: white;
+}
+
+.canais-digitais.layout-4 {
+  background-color: var(--primary-color-para-voce);
+  padding: 120px 0 !important;
+}
+.canais-digitais.layout-4 .canais-digitais-image img {
+  margin: 0px 0px 0px 110px;
+}
+.canais-digitais.layout-4 .col-right {
+  padding: 129px 0 100px 0px;
+}
+.canais-digitais.layout-4 .col-right div{
+  margin-left: 104px;
 }
 /* BLOCO BENEFÍCIOS COOP */
 .bloco-beneficios-coop {
@@ -1700,7 +1722,7 @@ a {
   line-height: 27px;
 }
 /* SINGLE POLITICA */
-.single-politica {
+section.single-politica {
   padding: 190px 0px;
 }
 .single-politica .cols-politica {
@@ -2003,7 +2025,9 @@ a {
   font-size: 36px;
   line-height: 46px;
 }
-
+.bloco-relatorios .container-quarto-grupo-relatorios {
+  padding: 120px 0 60px;
+}
 .bloco-relatorios .cards-quarto-grupo-relatorios {
   padding: 32px 0 0px;
 }
