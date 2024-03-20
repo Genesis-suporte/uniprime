@@ -172,6 +172,15 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'institucional' )
 		));	
+		acf_register_block_type(array(
+			'name'      			=> 'bloco-relatorios',
+			'title' 					=> __('Bloco Relatórios'),
+			'description' 		=> __('Bloco que lista os Relatórios'),
+			"render_template"	=> "blocks/bloco-relatorios.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'institucional' )
+		));	
 		
 		
 		add_theme_support( 'wp-block-styles' );

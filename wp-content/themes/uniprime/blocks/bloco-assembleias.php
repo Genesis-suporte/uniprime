@@ -102,7 +102,7 @@
             ?>
           </div>
         </div>
-        <div class="arrows-novidades-mobile d-flex d-md-none justify-content-center"></div>
+        <div class="arrows-assembleias-mobile d-flex d-md-none justify-content-center"></div>
       </div>
     </div>
     <div class="row d-flex justify-content-between">
@@ -126,7 +126,7 @@
             ?>
           </div>
         </div>
-        <div class="arrows-proximas-novidades-mobile d-flex d-md-none justify-content-center"></div>
+        <div class="arrows-proximas-assembleias-mobile d-flex d-md-none justify-content-center"></div>
         
         <div class="d-flex">
           <div class="description-block flex-grow-1">

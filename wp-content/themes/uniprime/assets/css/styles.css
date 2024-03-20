@@ -9,6 +9,7 @@
   --color-neutral: #6C6C6C;
   --color-neutral-2: #B7C9d3;
   --color-neutral-alpha: rgba(183, 201, 211, 0.3);
+  --color-neutral-alpha-2: rgba(183, 201, 211, 0.7);
   --color-footer: #EFF1F2;
   --bs-font-sans-serif: 'Calibri';
 }
@@ -1882,6 +1883,164 @@ a {
   padding: 3px 15px !important;
   height: 32px;
 }
+/* RELATÓRIOS */
+.bloco-relatorios {
+  padding: 120px 0;
+}
+.bloco-relatorios .container-relatorios {
+  background-color: var(--primary-color-para-voce);
+  border-radius: 16px;
+  padding: 64px 104px;
+}
+.bloco-relatorios .title {
+  color: var(--primary-color-brand);
+  font-family: 'Switzerland';
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 36px;
+  padding-bottom: 24px;
+}
+.bloco-relatorios .relatorio-card {
+  border-bottom: 1px solid var(--color-neutral-alpha-2);
+  font-family: 'Switzerland';
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 26px;
+  padding: 32px 0;
+}
+
+.bloco-relatorios .cards-relatorios {
+  grid-template-columns: auto auto;
+  grid-row-gap: 0px;
+  grid-column-gap: 150px;
+  padding-top: 50px;
+}
+.bloco-relatorios .cards-relatorios .relatorio-card:last-child {
+  border-bottom: 0px;
+}
+.bloco-relatorios .cards-relatorios .relatorio-card .nome{
+  color: var(--primary-color-brand);
+}
+.bloco-relatorios .cards-relatorios .relatorio-card .valor{
+  color: var(--color-actived);
+  text-align: right;
+}
+.bloco-relatorios .container-segundo-grupo-relatorios {
+  padding: 120px 0;
+}
+
+.bloco-relatorios .cards-segundo-grupo-relatorios {
+  padding: 32px 0 0px;
+}
+.bloco-relatorios .slick-arrow  {
+  background: url('../images/icons/icon-right-arrow.png') no-repeat 10px 10px rgb(255,255,255,0.7);
+  border: 1px solid var(--primary-color);
+  padding: 0;
+  margin: 0 0px 0px 24px;
+  position: relative;
+  z-index: 12;
+}
+
+.bloco-relatorios .slick-list {
+  width: 100%;
+  margin: 0 -12px;
+  position: relative;
+  z-index: 12;
+}
+.bloco-relatorios .slick-track {
+  display: flex !important;
+}
+
+.bloco-relatorios .slick-slide {
+  margin: 0px 0px 15px 25px;
+  height: inherit !important;
+}
+.bloco-relatorios .card-relatorio  {
+  background-color: var(--primary-color-brand);
+  border-radius: 16px;
+  padding: 40px 32px 22px;
+}
+.bloco-relatorios .card-relatorio .content-card {
+  border-top: 1px solid var(--color-actived);
+}
+.bloco-relatorios .card-relatorio .content-card .label {
+  color: var(--color-actived);
+  font-family: 'Calibri';
+  font-size: 14px;
+  padding: 16px 0;
+}
+.bloco-relatorios .card-relatorio .content-card .ano {
+  color: white;
+  font-family: 'SwitzerlandLight';
+  font-size: 62px;
+  line-height: 80px;
+}
+.bloco-relatorios .card-relatorio .content-card .linkpdf {
+  padding-bottom: 15px;
+}
+.bloco-relatorios .card-relatorio .content-card .linkpdf a {
+  display: flex;
+  flex-direction: row;
+  padding: 3px 15px !important;
+  height: 32px;
+}
+
+.bloco-relatorios .container-terceiro-grupo-relatorios {
+  padding: 120px 0;
+  background-color: var(--primary-color-para-voce);
+}
+.bloco-relatorios .cards-terceiro-grupo-relatorios {
+  padding: 32px 0 0px;
+}
+.bloco-relatorios .cards-terceiro-grupo-relatorios .slick-slide > div {
+  margin: 0px 0px 24px 0px;
+  height: inherit !important;
+}
+.bloco-relatorios .cards-terceiro-grupo-relatorios .card-relatorio  {
+  background-color: var(--primary-color);
+}
+.bloco-relatorios .card-relatorio .content-card .ano {
+  font-size: 36px;
+  line-height: 46px;
+}
+
+.bloco-relatorios .cards-quarto-grupo-relatorios {
+  padding: 32px 0 0px;
+}
+
+.bloco-relatorios .cards-quarto-grupo-relatorios {
+  padding: 32px 0 0px;
+}
+.bloco-relatorios .cards-quarto-grupo-relatorios .title_subcategory {
+  color: var(--primary-color-brand);
+  font-family: 'Switzerland';
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 36px;
+  padding: 32px 0 24px;
+
+}
+.bloco-relatorios .cards-quarto-grupo-relatorios .relatorios-riscos {
+  grid-template-columns: auto auto;
+  grid-row-gap: 24px;
+  grid-column-gap: 24px;
+  padding-bottom: 30px;
+}
+.bloco-relatorios .cards-quarto-grupo-relatorios .linkpdf_riscos {
+  width: 100%;
+  border: 1px solid var(--primary-color-brand) !important;
+  border-radius: 59px !important;
+}
+.bloco-relatorios .cards-quarto-grupo-relatorios .linkpdf_riscos a {
+  border: 0px !important;
+  color: var(--primary-color-brand) !important;
+  display: flex;
+  font-family: "Calibri";
+  padding: 12px !important;
+  width: 100% !important;
+  font-size: 16px;
+}
+
 /* FOOTER */
 footer {
   z-index: 12;

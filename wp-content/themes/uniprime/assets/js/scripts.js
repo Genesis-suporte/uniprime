@@ -381,7 +381,6 @@
       for (var i = 0; i < cards.length; i++) {
         if (maxHeight < $(cards[i]).outerHeight()) {
           maxHeight = $(cards[i]).outerHeight();
-          console.log(maxHeight);
         }
       }
       // Set ALL card bodies to this height
@@ -389,7 +388,28 @@
         $(cards[i]).height(maxHeight);
       }
     } 
-
+    
+    if($('.slide-relatorios-transparencia')) {
+      $('.slide-relatorios-transparencia').slick({
+        dots: false,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: false,
+        appendArrows: '.arrows-relatorios-transparencia-desktop',
+        
+      });
+    }
+    if($('.slide-relatorios-balanco')) {
+      $('.slide-relatorios-balanco').slick({
+        dots: false,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: false,
+        rows: 2,
+        appendArrows: '.arrows-relatorios-balanco-desktop',
+        
+      });
+    }
     
   });
 })(jQuery); 
