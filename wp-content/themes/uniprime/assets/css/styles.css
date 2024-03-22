@@ -425,6 +425,13 @@ a {
   display: block;
   margin: 4px 0px 0 10px;
 }
+.icon-sucesso {
+  background: url('../images/icons/icon-sucesso.svg') no-repeat 0px 0px;
+  width: 56px;
+  height: 56px;
+  display: block;
+  margin: 4px 0px 0 10px;
+}
 
 .slick-arrow {
   background: url('../images/icons/icon-right-arrow-white.png') no-repeat;
@@ -451,6 +458,12 @@ a {
 .z-14 {
   z-index: 14;
   position: relative;
+}
+.type-upper-roman {
+  list-style: upper-roman;
+}
+.type-lower-alpha {
+  list-style: lower-alpha;
 }
 /* HEADER */
 .top-bar {
@@ -2060,11 +2073,125 @@ section.single-politica {
   color: var(--primary-color-brand) !important;
   display: flex;
   font-family: "Calibri";
+  font-size: 16px;
   padding: 12px !important;
   width: 100% !important;
-  font-size: 16px;
+}
+/* FALE CONOSCO */ 
+section.fale-conosco {
+  padding: 120px 0 60px;
+}
+.container-fale-conosco {
+  padding: 32px 50px 32px 0;
+}
+.fale-conosco .gform_heading {
+  display: none;
+}
+.fale-conosco label,
+.fale-conosco legend {
+  color: var(--primary-color);
+  font-family: "Calibri";
+  font-weight: bold !important;
+  font-size: 14px;
+}
+.fale-conosco input, 
+.fale-conosco textarea,
+.fale-conosco select {
+  color: var(--primary-color);
+  border: 1px solid #D5D4DC;
+  font-family: "Calibri" !important;
+  font-size: 14px !important;
+  border-radius: 50px;
+  padding: 14px 24px !important;
 }
 
+.fale-conosco input:focus-visible, 
+.fale-conosco textarea:focus-visible,
+.fale-conosco select:focus-visible {
+  border: 2px solid var(--primary-color);
+  outline-color: var(--primary-color);
+  font-weight: bold !important;
+}
+.fale-conosco textarea {
+  border-radius: 16px;
+}
+.fale-conosco .cards-fale-conosco {
+  padding: 22px 50px 32px 100px;
+}
+.fale-conosco .bloco-contato {
+  background-color: rgba(248,248,248,.8);
+  border-radius: 16px;
+  padding: 36px;
+  margin-bottom: 16px;
+}
+.fale-conosco .bloco-contato.bc-last {
+  margin-bottom: 32px;
+}
+.fale-conosco .bloco-contato .telefone-contato {
+  color: var(--color-actived);
+  font-family: 'Switzerland';
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 26px; 
+}
+.fale-conosco .label-contato {
+  color: var(--primary-color);
+  font-family: 'Calibri' !important;
+  font-size: 16px;
+  line-height: 27px; 
+  padding-bottom: 16px;
+}
+.fale-conosco .description-contato {
+  color: var(--color-neutral);
+  font-family: 'Calibri' !important;
+  font-size: 14px;
+  line-height: 24px; 
+}
+.fale-conosco .description-contato p {
+  margin: 0px !important;
+}
+.fale-conosco .desc-fbc {
+  padding-bottom: 16px;
+}
+.fale-conosco .descricao-pos-ouvidoria {
+  padding-bottom: 32px;
+  padding-right: 160px;
+}
+.msg-sucess {
+  background:  url(../images/bg-sucesso-form.png) no-repeat 0px 0px;
+  position: relative;
+  width: 496px;
+  height: 526px;
+}
+.msg-sucess .container {
+  padding: 128px 41px;
+}
+.msg-sucess .titulo {
+  color: white;
+  font-family: 'Switzerland';
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 26px; 
+  padding: 32px 0 16px;
+}
+.msg-sucess .msg {
+  color: white;
+  font-family: 'Calibri' !important;
+  font-size: 16px;
+  line-height: 27px; 
+  padding-bottom: 32px;
+}
+.msg-sucess .msg a {
+  color: var(--color-actived);
+}
+.msg-sucess .msg a {
+  color: var(--color-actived);
+}
+.msg-sucess .btn {
+  width: 217px;
+  text-align: center;
+  margin: 0 auto;
+}
 /* FOOTER */
 footer {
   z-index: 12;

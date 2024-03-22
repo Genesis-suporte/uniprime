@@ -182,6 +182,20 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'keywords' => 		array( 'institucional' )
 		));	
 		
+		acf_register_block_type(array(
+			'name'      			=> 'bloco-fale-conosco',
+			'title' 					=> __('Bloco Fale conosco'),
+			'description' 		=> __('Bloco com o formulário Fale conosco'),
+			"render_template"	=> "blocks/bloco-fale-conosco.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'institucional' )
+		));	
+		/* FUNÇÃO PRO GRAVITY FORMS RETORNAR CAMPO ASSUNTO */
+		/*add_filter( 'gform_field_value_assuntos', 'pre_select_assuntos' );
+		function pre_select_assuntos( $value ) {
+			return 'assunto_2';
+		}*/
 		
 		add_theme_support( 'wp-block-styles' );
 		add_theme_support( 'align-wide' );
