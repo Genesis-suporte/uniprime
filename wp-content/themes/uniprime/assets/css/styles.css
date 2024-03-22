@@ -613,7 +613,8 @@ a {
 .header-menu-banner.para-voce .menu-inicial-mobile,
 .header-menu-banner.para-voce .menu-inicial-mobile .dropdown-content .content-dropdown-mobile,
 .header-menu-banner.para-voce .menu-inicial-mobile .dropdown-content.a-uniprime .menu-subitem,
-.header-menu-banner.para-voce .menu-inicial-mobile .dropdown-content.atendimento .menu-subitem
+.header-menu-banner.para-voce .menu-inicial-mobile .dropdown-content.atendimento .menu-subitem,
+.banner-internas
 {
   background-color: var(--primary-color-para-voce);
 }
@@ -879,12 +880,13 @@ a {
 }
 .main-menu .bts-externos .seja-um-cooperado {
   background-color: white !important;
-  color: var(--primary-color-brand) !important;
-  margin-left: 24px;
-  transition: all .2s ease-in-out;
   border: 1px solid transparent !important;
-  padding: 9px 24px 9px 20px !important;
+  color: var(--primary-color-brand) !important;
+  display: block;
   font-size: 16px !important;  
+  margin-left: 24px;
+  padding: 9px 24px 9px 20px !important;
+  transition: all .2s ease-in-out;
 }
 
 .main-menu .bts-externos .seja-um-cooperado img{
@@ -1466,9 +1468,6 @@ section.canais-digitais {
   background-size: cover;
   background-position: center;
   overflow: hidden !important;
-}
-.banner-internas .hero-image .image img {
-  width:100%; 
 }
 
 .banner-internas .slick-arrow {
@@ -2079,10 +2078,13 @@ section.single-politica {
 }
 /* FALE CONOSCO */ 
 section.fale-conosco {
-  padding: 120px 0 60px;
+  padding: 160px 0 90px;
 }
-.container-fale-conosco {
-  padding: 32px 50px 32px 0;
+.fale-conosco .container-fale-conosco {
+  padding: 0px 0px 32px 104px;
+}
+.fale-conosco .container-fale-conosco .description-block {
+  padding-bottom: 32px;
 }
 .fale-conosco .gform_heading {
   display: none;
@@ -2114,18 +2116,35 @@ section.fale-conosco {
 }
 .fale-conosco textarea {
   border-radius: 16px;
+  height: 160px !important;
+}
+.fale-conosco input[type="submit"] {
+  background-color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
+  border-radius: 50px !important;
+  color: white !important;
+  font-family: 'Calibri' !important;
+  font-size: 18px !important;
+  height: 52px;
+  padding: 9px 23px !important;
+  transition: all .2s ease-in-out;
+}
+.gform_wrapper.gravity-theme .gfield_validation_message, .gform_wrapper.gravity-theme .validation_message {
+  border: 0px !important;
+  background: transparent !important;
+  font-weight: bold !important;
+}
+.gform_wrapper.gravity-theme .gform_validation_errors {
+  display: none !important;
 }
 .fale-conosco .cards-fale-conosco {
-  padding: 22px 50px 32px 100px;
+  padding: 0px 80px 32px 127px;
 }
 .fale-conosco .bloco-contato {
   background-color: rgba(248,248,248,.8);
   border-radius: 16px;
-  padding: 36px;
-  margin-bottom: 16px;
-}
-.fale-conosco .bloco-contato.bc-last {
-  margin-bottom: 32px;
+  padding: 46px 36px 16px;
+  margin-bottom: 25px;
 }
 .fale-conosco .bloco-contato .telefone-contato {
   color: var(--color-actived);
@@ -2139,7 +2158,13 @@ section.fale-conosco {
   font-family: 'Calibri' !important;
   font-size: 16px;
   line-height: 27px; 
-  padding-bottom: 16px;
+  padding-bottom: 10px;
+}
+.bloco-interno-contato {
+  padding-bottom: 32px;
+}
+.fale-conosco .label-contato + .description-contato {
+  padding-bottom: 20px;
 }
 .fale-conosco .description-contato {
   color: var(--color-neutral);
@@ -2155,16 +2180,16 @@ section.fale-conosco {
 }
 .fale-conosco .descricao-pos-ouvidoria {
   padding-bottom: 32px;
-  padding-right: 160px;
 }
 .msg-sucess {
   background:  url(../images/bg-sucesso-form.png) no-repeat 0px 0px;
   position: relative;
   width: 496px;
   height: 526px;
+  border-radius: 16px;
 }
 .msg-sucess .container {
-  padding: 128px 41px;
+  padding: 51px 41px;
 }
 .msg-sucess .titulo {
   color: white;
@@ -2365,6 +2390,9 @@ footer {
   }
   .main-menu .bts-externos {
     padding: 24px 0px;
+  }  
+  .main-menu .bts-externos .seja-um-cooperado {
+    display: none !important;
   }
   .main-menu .bts-externos a {
     padding: 10px 23px !important;
@@ -2775,6 +2803,37 @@ footer {
   .atendimento .col-redes {
     padding: 0px 0 64px;
   }
+  .banner-internas .hero-image .image {
+    height: 320px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  .banner-internas .hero-image .copy .title {
+    font-size: 44px;
+    line-height: 52px;
+  }
+  .banner-internas .hero-image .copy {
+    max-width: 93%;
+    padding-bottom: 24px;
+  }
+  .banner-internas .hero-image .copy .description {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  /* FALE CONOSCO */
+  section.fale-conosco {
+    padding: 28px 0 90px;
+  }
+  .fale-conosco .container-fale-conosco {
+    padding: 0px 0px 32px 12px;
+  }
+  .fale-conosco .cards-fale-conosco {
+    padding: 0px 0px 32px 0px;
+  }
+  .msg-sucess {
+    width: 97%;
+  }
+  /* FOOTER */
   .footer-top {
     padding: 129px 0px 4px 43px;
   }

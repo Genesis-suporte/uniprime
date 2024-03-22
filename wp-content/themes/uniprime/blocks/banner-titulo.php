@@ -5,8 +5,8 @@
 ?>
 <div class="banner-internas position-relative">
   <div class="hero-image">
-    <div class="image">
-      <img src="<?php echo esc_url($image_banner['url']); ?>" alt="<?php echo esc_html($image_banner['alt']); ?>" >
+    <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);">
+      <!--<img src="<?php echo esc_url($image_banner['url']); ?>" alt="<?php echo esc_html($image_banner['alt']); ?>" >-->
     </div>
     <div class="container">
       <div class="position-absolute copy">
