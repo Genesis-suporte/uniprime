@@ -40,7 +40,7 @@
     // Verificar se há conteúdo antes de renderizar
     //if ($top_bar_localization && $a_uniprime_menu && $atendimento_menu) { ?>
     <div class="top-bar mw-100 <?php echo $currentSlug; ?>">
-      <div class="container">
+      <div class="container" id="top-bar-container">
         <div class="d-flex justify-content-center justify-content-lg-between">
           <div class="first-col d-none d-lg-block">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-localization.png"

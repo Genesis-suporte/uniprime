@@ -1216,7 +1216,7 @@ section.canais-digitais {
 }
 .wp-admin section.canais-digitais,
 .page-id-55 section.canais-digitais {
-  padding: 120px 0 200px 0;
+  padding: 97px 0 200px 100px;
 }
 
 .home .canais-digitais {
@@ -1234,8 +1234,11 @@ section.canais-digitais {
   width: 100%;
   margin: -108px 0 -205px;
 }
+.home .canais-digitais .col-right{
+  padding: 129px 0 100px 10px;
+}
 .canais-digitais .col-right{
-  padding: 129px 0 100px;
+  padding: 138px 0px 100px 65px;
 }
 .canais-digitais .description-block {
   padding-bottom: 34px;
@@ -1660,13 +1663,13 @@ section.canais-digitais {
 .blocos-canais-digitais .canais-digitais-col .card-canais-digitais {
   padding-bottom: 24px;  
 }
-.blocos-canais-digitais .canais-digitais-col .canais-digitais-image {
-
-}
 .canais-digitais.layout-3 {
   height: 505px;
   background-size: cover !important;
   padding: 0px 0 200px 0 !important;
+}
+.canais-digitais.layout-3 .col-right {
+  padding: 148px 0px 100px 5px;
 }
 .canais-digitais.layout-3 .canais-digitais-image img {
   width: auto;
@@ -1675,20 +1678,38 @@ section.canais-digitais {
 .canais-digitais.layout-3 .title-block,
 .canais-digitais.layout-3 .description-block {
   color: white;
+  padding-right: 190px;
+}
+.canais-digitais.layout-3 .btn {
+  padding: 11px 23px !important;
+  height: 52px;
+  font-size: 18px !important;
 }
 
 .canais-digitais.layout-4 {
   background-color: var(--primary-color-para-voce);
-  padding: 120px 0 !important;
+  padding: 120px 0 12px !important;
 }
 .canais-digitais.layout-4 .canais-digitais-image img {
-  margin: 0px 0px 0px 110px;
+  margin: -117px 0px 97px 0px;
 }
 .canais-digitais.layout-4 .col-right {
-  padding: 129px 0 100px 0px;
+  padding: 14px 0 100px 0px;
 }
-.canais-digitais.layout-4 .col-right div{
-  margin-left: 104px;
+.canais-digitais.layout-4 .col-right > div{
+  margin-left: 114px;
+}
+.canais-digitais.layout-4 .title-block {
+  font-size: 48px;
+  font-family: 'SwitzerlandLight';
+  font-weight: lighter;
+  line-height: 62px;
+  padding: 13px 0 6px;
+}
+.canais-digitais.layout-4 .btn {
+  padding: 11px 23px !important;
+  height: 52px;
+  font-size: 18px !important;
 }
 /* BLOCO BENEFÍCIOS COOP */
 .bloco-beneficios-coop {
@@ -2722,13 +2743,67 @@ footer {
   .canais-digitais {
     padding: 0px;
   }
+  /* FIX PRA PÁGINA CANAIS DIGITAIS */
+  .canais-digitais.layout-3 {
+  padding: 55px 0 0px 0 !important
+  }
+  .canais-digitais.layout-3 .container {
+    height: auto;
+  }
+  .canais-digitais.layout-3 .col-right {
+    padding: 148px 24px 100px;
+  }
+  .canais-digitais.layout-3 .title-block, 
+  .canais-digitais.layout-3 .description-block {
+    padding-right: 0px;
+    width: 100%;
+  }
+  .canais-digitais.layout-3 .card-canais-digitais,  
+  .canais-digitais.layout-4 .card-canais-digitais {
+    width: 100%;
+  }
+  .page-id-55 section.canais-digitais {
+    padding: 57px 0 0px 0px;
+  }
+  .page-id-55 .canais-digitais.layout-4 .canais-digitais-image {
+    text-align: right;
+  }
+  .page-id-55 .canais-digitais .canais-digitais-image img {
+    margin: 0px !important;
+    width: auto;
+    padding: 0 0 0 20px;
+  }
+  .page-id-55 .canais-digitais.layout-4 .canais-digitais-image img {
+    width: 100%;
+    height: auto !important;
+    max-height: none;
+  }
+  .page-id-55 .canais-digitais.layout-4 {
+    padding: 76px 0 12px !important;
+  }
+  .page-id-55 .canais-digitais.layout-4 .col-right {
+    margin-left: 0px;
+    padding: 125px 0 40px 0px;
+  }
+  .page-id-55 .canais-digitais.layout-4 .col-right > div {
+    margin-left: 24px;
+    padding-top: 0px;
+    padding-bottom: 11px;
+  }
+  .page-id-55 .canais-digitais.layout-4  .description-block {
+    padding-bottom: 37px !important;
+  }
+  .page-id-55 .canais-digitais.layout-4 .title-block {
+    font-size: 36px;
+    line-height: 47px;
+  }
   .canais-digitais .container {
     height: 666px;
     justify-content: center;
     display: flex;
   }
   .canais-digitais .canais-digitais-image {
-    position: relative;
+    text-align: center;
   }
   .canais-digitais .canais-digitais-image img {
     position: relative;

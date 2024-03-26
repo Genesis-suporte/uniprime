@@ -43,6 +43,18 @@
           $('.dots-hero').css('top',((height_hero/2)-(height_dots/2))).height(height_dots);
         }
       }
+      topBarContainer = document.querySelector('#top-bar-container');
+      if(topBarContainer) {
+        var width_screen = topBarContainer.parentNode.offsetWidth
+        var width_topBarContainer = topBarContainer.offsetWidth;
+        var calculo = ( width_screen - width_topBarContainer ) / 2;
+        var fixPL = document.getElementsByClassName('fix-padding-left');
+        for (var i = 0; i < fixPL.length; i++) {
+          fixPL[i].style.paddingLeft = calculo +'px';
+          //console.log(maxHeight);
+          
+        }
+      }      
     }
     
     var initializeBlock = function( $block ) {
@@ -155,23 +167,23 @@
         });
       }
       
-     }
-     initializeBlock();
-      
-      // Initialize dynamic block preview (editor).
-      if( window.acf ) {
-          window.acf.addAction( 'render_block_preview', initializeBlock );
-      }
+    }
+    initializeBlock();
+    
+    // Initialize dynamic block preview (editor).
+    if( window.acf ) {
+        window.acf.addAction( 'render_block_preview', initializeBlock );
+    }
 
-      const triggerTabList = document.querySelectorAll('#tabs-politicas button')
-      triggerTabList.forEach(triggerEl => {
-        const tabTrigger = new bootstrap.Tab(triggerEl)
-        triggerEl.addEventListener('click', event => {
-          /*console.log(event);*/
-          event.preventDefault()
-          tabTrigger.show()
-        })
+    const triggerTabList = document.querySelectorAll('#tabs-politicas button')
+    triggerTabList.forEach(triggerEl => {
+      const tabTrigger = new bootstrap.Tab(triggerEl)
+      triggerEl.addEventListener('click', event => {
+        /*console.log(event);*/
+        event.preventDefault()
+        tabTrigger.show()
       })
+    })
     
     // CLICK OR MOUSEOVER EVENT FOR MENU DROP DOWN
     /*
@@ -185,12 +197,15 @@
     logoblack = document.getElementById('logo-black'); 
     logowhite = document.getElementById('logo-white');
     const menuInicialItem = document.getElementsByClassName("menu-inicial-item");
+    // função pra mudar comportamento dos elementos do menu quando um item estiver ativo
     if(menuInicialItem) {
       for (let i = 0; i < menuInicialItem.length; i++) {
         
         menuInicialItem[i].addEventListener('click', (e) => {
           for (let j = 0; j < menuInicialItem.length; j++) {
+            //remove class actived dos elementos do menu, pra lá embaixo ativar o selecionado
             menuInicialItem[j].classList.remove('actived');
+            // muda direção das arrows quando desselecionado
             menuInicialItem[j].childNodes[1].childNodes[1].classList.add('down');
             menuInicialItem[j].childNodes[1].childNodes[1].classList.remove('up');
             //console.log(menuInicialItem[j].childNodes[1]);
@@ -207,9 +222,10 @@
             e.target.childNodes[1].classList.remove('down');
             e.target.childNodes[1].classList.add('up');
           }
-          
+          //ajusta comportamento da fiv de modal (com fundo escuro e transparente)
           modalMenu.classList.remove('d-none');
           modalMenu.classList.add('d-block');
+          // troca as logos 
           logoblack.classList.remove('d-none');  
           logoblack.classList.add('d-block');
           logowhite.classList.add('d-none');
