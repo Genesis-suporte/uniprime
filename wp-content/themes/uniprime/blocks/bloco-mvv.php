@@ -1,6 +1,6 @@
 <div class="bloco-mvv z-13">
   <div class="container">
-    <div class="row d-flex justify-content-between flex-column flex-lg-row">
+    <div class="d-flex justify-content-between flex-column flex-lg-row">
       <?php 
         if( have_rows('bloco-mvv') ) {
           while ( have_rows('bloco-mvv') ) : the_row();
@@ -29,4 +29,5 @@
       ?>
     </div>
   </div>
+  <div class="bg-blue position-absolute"></div>
 </div>

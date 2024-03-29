@@ -18,10 +18,14 @@
           </div>
           <div class="description-block">
             <?php if ($posicao_imagem != 'nenhuma') { ?>
-              <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" class="img <?php echo $posicao_imagem;?>">
+              <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" class="img <?php echo $posicao_imagem;?> d-none d-lg-block">
             <?php } ?>
             <h1 class="title-block"><?php echo esc_html($titulo); ?></h1>
             <?php echo __($descricao); ?>
+            
+            <?php if ($posicao_imagem != 'nenhuma') { ?>
+              <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" class="img <?php echo $posicao_imagem;?> d-flex d-lg-none">
+            <?php } ?>
           </div>
           
           

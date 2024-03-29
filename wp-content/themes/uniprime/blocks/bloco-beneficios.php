@@ -6,24 +6,24 @@
 
 <section class="beneficios-institucional mw-100 z-13">
   <div class="container">
-    <div class="row d-flex flex-row flex-lg-row">
-      <div class="d-flex">
-        <div class="col-md-10">
-          <div class="label-block">
-            <?php echo esc_html($label); ?>
-          </div>
-          <div class="title-block">
-            <?php echo esc_html($titulo); ?>
-          </div>
-          <div class="description-block">
-            <?php echo esc_html($descricao); ?>
-          </div>
+    <div class="row d-flex justify-content-between">
+      <div class="col">
+        <div class="label-block">
+          <?php echo esc_html($label); ?>
         </div>
-        <div class="col-md-2 d-none d-md-flex">
-          <div class="arrows-beneficios-desktop d-none d-lg-flex"></div>
+        <div class="title-block">
+          <?php echo esc_html($titulo); ?>
+        </div>
+        <div class="description-block">
+          <div class="d-flex">
+            <div class="flex-grow-1">
+              <?php echo esc_html($descricao); ?>
+            </div>
+            <div class="arrows-beneficios-desktop d-none d-lg-flex"></div>
+          </div>
         </div>
       </div>
-      <div class="">
+      <div class="container-">
         <div class="d-flex justify-content-between slide-beneficios">
           <?php 
           if( have_rows('beneficios') ){
@@ -36,7 +36,7 @@
                 //->filename url alt
                 //print_r( $destaque);?>
                 <div class="card-beneficios position-relative">
-                  <div class="image">
+                  <div class="image d-flex justify-content-center">
                     <img src="<?php echo esc_url($imagem_card['url']); ?>" alt="<?php echo esc_html($imagem_card['alt']); ?>" >
                   </div>
                   <div class="position-absolute copy">

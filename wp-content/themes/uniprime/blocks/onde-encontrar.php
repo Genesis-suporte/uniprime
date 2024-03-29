@@ -6,7 +6,7 @@
 ?>
 <section class="onde-encontrar mw-100" style="background: url(<?php echo esc_html($imagem_de_fundo); ?>) no-repeat;">
   <div class="container">
-    <div class="row d-flex justify-content-between flex-column flex-lg-row">
+    <div class="row d-flex justify-content-between flex-column flex-lg-row z-13">
       <div class="col">
         <div class="block-left">
           <div class="label-block">

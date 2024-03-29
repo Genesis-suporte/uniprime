@@ -159,7 +159,6 @@
               settings: {
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                rows: 4,
                 appendArrows: '.arrows-beneficios-mobile',
               }
             }

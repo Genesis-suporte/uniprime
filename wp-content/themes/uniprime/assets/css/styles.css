@@ -434,16 +434,22 @@ a {
 }
 
 .slick-arrow {
-  background: url('../images/icons/icon-right-arrow-white.png') no-repeat;
+  background: url('../images/icons/icon-right-arrow.png') no-repeat 10px 10px;
   background-color: transparent;
   background-position: center;
   border-radius: 50%;
   display: inline-block;
   height: 44px;
   width: 44px;
-  border: 1px solid var(--color-neutral-alpha);
+  border: 1px solid var(--primary-color);
   text-indent: -10000px;
   padding: 0;
+  margin: 0 0px 0px 24px;
+}
+
+.slick-arrow-white {
+  background: url('../images/icons/icon-right-arrow-white.png') no-repeat;
+  border: 1px solid var(--color-neutral-alpha);
 }
 .slick-arrow.slick-prev {
   transform: rotate(180deg);
@@ -1080,9 +1086,6 @@ a {
 }
 .nossos-produtos .arrows-nossos-produtos-desktop .slick-arrow,
 .nossos-produtos .arrows-nossos-produtos-mobile .slick-arrow  {
-  background: url('../images/icons/icon-right-arrow.png') no-repeat 10px 10px rgb(255,255,255,0.7);
-  border: 1px solid var(--primary-color);
-  padding: 0;
   margin: 0 0px 0px 24px;
   position: relative;
   z-index: 12;
@@ -1104,7 +1107,7 @@ a {
   transition: all .2s ease-in-out .2s;*/
 }
 .nossos-produtos .card-nossos-produtos:hover {
-  background: url('../images/bg-solucoes.png') no-repeat 0 0px;
+  background: url('../images/bg-solucoes.png') no-repeat 0px center ;
   border-radius: 16px;
   background-size: cover;
 }
@@ -1166,6 +1169,8 @@ a {
 .nossa-historia .arrows-nossa-historia-mobile .slick-arrow {
   padding: 0;
   margin: 0 21px 0px 0px;
+  border-color: white;
+  background: url(../images/icons/icon-right-arrow-white.png) no-repeat 10px 10px
 }
 .nossa-historia .slide-nossa-historia .slick-list{
   padding:0 10% 0 0 !important; 
@@ -1319,13 +1324,6 @@ section.canais-digitais {
 }
 .novidades .description-block .arrows-novidades-desktop {
   margin-top: -14px;
-}
-.novidades .arrows-novidades-desktop .slick-arrow,
-.novidades .arrows-novidades-mobile .slick-arrow  {
-  background: url('../images/icons/icon-right-arrow.png') no-repeat 10px 10px;
-  border: 1px solid var(--primary-color);
-  padding: 0;
-  margin: 0 0px 0px 24px;
 }
 .novidades .arrows-novidades-desktop .slick-arrow.slick-prev {
   transform: rotate(180deg);
@@ -1518,12 +1516,14 @@ section.canais-digitais {
   padding: 93px 0 96px;
 }
 /* BLOCO MVV */
-.bloco-mvv {
+.bloco-mvv .bg-blue {
   background-color: var(--primary-color-brand);
-  height: 400px;
-  margin-bottom: 400px;
+  height: 210px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
 }
-
 .bloco-mvv .card-mvv {
   background-image: linear-gradient(#004F71, #007D79);
   padding: 76px 40px 20px;
@@ -1535,7 +1535,7 @@ section.canais-digitais {
   font-family: 'SwitzerlandLight';
   line-height: 62px;
   color: white;
-  padding: 48px 0 24px;
+  padding: 40px 0 21px;
 }
 .bloco-mvv .card-mvv .description {
   font-size: 20px;
@@ -1543,9 +1543,25 @@ section.canais-digitais {
   line-height: 34px;
   color: white;
 }
+.bloco-mvv .card-mvv .description ul {
+  padding-left: 20px;
+}
+.bloco-mvv .card-mvv .description ul li::marker {
+  color: var(--color-actived);
+}
+.bloco-mvv .card-mvv .description ul li {
+  padding-bottom: 8px;
+}
 /* BENEFICIOS */
 .beneficios-institucional {
   padding: 128px 0;
+  overflow: hidden;
+}
+.beneficios-institucional .description-block {
+  padding-bottom: 32px;
+}
+.beneficios-institucional .arrows-beneficios-desktop {
+  margin-top: -14px;
 }
 .beneficios-institucional .slide-beneficios,
 .beneficios-institucional .slick-list {
@@ -1559,6 +1575,8 @@ section.canais-digitais {
 }
 .beneficios-institucional .slide-beneficios .image {
   width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .beneficios-institucional .slide-beneficios .title {
@@ -1576,13 +1594,16 @@ section.canais-digitais {
 }
 /* DIRETORIA */
 .diretoria-e-conselhos {
-  padding: 128px 0 96px;
+  padding: 128px 0 106px;
+}
+.diretoria-e-conselhos .description-block {
+  padding-bottom: 32px;
 }
 .diretoria-e-conselhos .content-diretoria {
   background-color: var(--primary-color-brand);
   border-radius: 16px;
   color: white;
-  padding: 64px 106px;
+  padding: 64px 106px 34px;
   margin-bottom: 24px;
 }
 .diretoria-e-conselhos .content-diretoria .title-block {
@@ -1590,25 +1611,25 @@ section.canais-digitais {
   font-family: 'Switzerland';
   line-height: 36px;
   color: white;
-  padding-bottom: 24px;  
+  padding: 7px 0 22px;
 }
 .diretoria-e-conselhos .content-diretoria .description-block {
   font-size: 16px;
   font-family: 'Calibri';
   line-height: 27px;
   color: var(--color-neutral-2);
-  padding-bottom: 24px;  
+  padding-bottom: 32px;  
 }
 .diretoria-e-conselhos .content-diretoria .diretoria-card {
   font-size: 20px;
   font-family: 'Switzerland';
   line-height: 26px;
-  padding: 24px 0;  
+  padding: 32px 0;  
   border-bottom: 1px solid var(--color-neutral-alpha);
   width: 100%;
 }
 .diretoria-e-conselhos .content-diretoria .diretoria-card.diretoria {
-  width: 80%;
+  width: 69%;
 }
 .diretoria-e-conselhos .content-diretoria .diretoria-card:last-child {
   border-bottom: 0px;
@@ -1634,6 +1655,10 @@ section.canais-digitais {
   background-size: cover !important;
   height: 548px;
   padding: 64px 20px 0px 109px;
+  overflow: hidden;
+}
+.blocos-canais-digitais .acf-block-preview .canais-digitais-col {
+  width: 100%;
 }
 .blocos-canais-digitais .canais-digitais-col:nth-child(even) .canais-digitais-image {
   bottom: 0;
@@ -2386,6 +2411,12 @@ footer {
   }
 }
 @media (max-width: 1199.98px) { 
+  .main-menu .logo {
+    padding: 39px 30px 0 0;
+  }
+  .main-menu .bts-externos .seja-um-cooperado {
+    margin-left: 12px;
+  }
   .menu-inicial .menu-item .menu-dropdown {
     padding: 50px 5px 49px;
     font-size: 14px !important;
@@ -2892,8 +2923,114 @@ footer {
     padding-bottom: 24px;
   }
   .banner-internas .hero-image .copy .description {
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 30px;
+    line-height: 34px;
+  }
+  .content-internas {
+    padding: 36px 0 65px;
+  }
+  .content-internas .copy {
+    padding: 0 24px;
+  }
+  .content-internas .copy .description-block p {
+    max-width: 100%;
+  }
+  .content-internas .img {
+    float: none !important;
+    margin-top: 32px;
+    width: 100%;
+    padding: 0 !important;
+  }
+  /* BLOCO MVV */
+  .beneficios-institucional {
+    padding: 42px 12px 64px;
+  }
+  .bloco-mvv .card-mvv {
+    padding: 46px 40px 34px;
+    margin: 0 12px 24px;
+  }
+  .bloco-mvv .bg-blue {
+    height: 80px;
+  }
+  /* BENEFÍCIOS */
+  .beneficios-institucional {
+    padding: 42px 12px;
+  }
+  .beneficios-institucional .slide-beneficios .copy {
+    max-width: 100%;
+    padding: 32px;
+  }
+  .beneficios-institucional .slide-beneficios .title {
+    font-size: 36px;
+    line-height: 47px;
+    padding-bottom: 28px;
+  }
+  .beneficios-institucional .arrows-beneficios-mobile {
+    padding-top: 34px;
+    margin-left: -14px;
+  }
+  /* DIRETORIA */
+  .diretoria-e-conselhos {
+    padding: 66px 12px 48px;
+  }
+  .diretoria-e-conselhos .title-block {
+    width: 100%;
+  }
+  .diretoria-e-conselhos .content-diretoria {
+    padding: 69px 32px 30px;
+    margin-bottom: 16px;
+  }
+  .diretoria-e-conselhos .content-diretoria .description-block {
+    padding-bottom: 0px;
+    padding-top: 5px;
+  }
+  .diretoria-e-conselhos .content-diretoria .diretoria-card.diretoria {
+    width: 100%;
+  }
+  .diretoria-e-conselhos .content-diretoria .diretoria-card {
+    font-size: 21px;
+    font-weight: bold;
+    padding: 32px 16px 32px 0px;
+  }
+  .diretoria-e-conselhos .content-diretoria .diretoria-card .cargo {
+    text-align: left;
+    padding: 6px 0 3px;
+  }
+  .diretoria-e-conselhos .conselhos .container-diretoria {
+    width: 100%;
+  }
+  .diretoria-e-conselhos .conselhos .content-diretoria .diretoria-card {
+    padding: 32px 16px 32px 0px;
+  }
+  .diretoria-e-conselhos .conselhos .content-diretoria .title-block {
+    padding: 7px 0 2px;
+  }
+  /* CANAIS DIGITAIS */
+  .wp-container-core-group-layout-2.wp-container-core-group-layout-2 {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .blocos-canais-digitais .canais-digitais-col {
+    width: 100%;
+    padding: 64px 20px 0px 24px;
+  }
+  .blocos-canais-digitais .canais-digitais-col .title-block {
+    padding: 8px 0 2px;
+  }
+  .blocos-canais-digitais .canais-digitais-col .container, .blocos-canais-digitais .canais-digitais-col .container > .row {
+    height: unset;
+  }
+  .blocos-canais-digitais .content-bts-desc {
+    padding: 0 !important;
+  }
+  .blocos-canais-digitais .btn {
+    font-size: 17px !important;
+    padding: 14px 23px !important;
+    height: 53px;
+  }
+  .canais-digitais-col.layout2 .canais-digitais-image.align-items-end img {
+    width: 220%;
+    margin: 0 0px 0 -120px;
   }
   /* FALE CONOSCO */
   section.fale-conosco {

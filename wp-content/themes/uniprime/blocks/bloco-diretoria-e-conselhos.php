@@ -45,7 +45,7 @@
                 if( get_row_layout() == 'diretoria_cards' ) {
                   $nome = get_sub_field('nome');
                   $cargo = get_sub_field('cargo');?>
-                    <div class="diretoria-card d-flex flex-row diretoria">
+                    <div class="diretoria-card d-flex flex-column flex-lg-row diretoria">
                       <div class="nome col">
                         <?php echo esc_html($nome); ?>
                       </div>

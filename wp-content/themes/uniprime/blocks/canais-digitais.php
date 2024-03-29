@@ -5,6 +5,7 @@
   $img = get_field('imagem_do_bloco', $block['id']);
   $layout = get_field('layout', $block['id']);
   $imagem_de_fundo = get_field('imagem_de_fundo', $block['id']);
+  $posicao_imagem = get_field('posicao_imagem', $block['id']);
   if($imagem_de_fundo) {
     $bg_image = 'style="background: url('.esc_html($imagem_de_fundo).') no-repeat;"';
   } else {
@@ -64,8 +65,15 @@
       </div>
     </section>
   <?php }
-  if ($layout == 'layout2') { ?>
-    <div class="canais-digitais-col col-6 z-13" <?php echo $bg_image;?>>
+  if ($layout == 'layout2') { 
+    if ($posicao_imagem == 'left') { 
+      $pos = 'align-items-start';
+    } if ($posicao_imagem == 'right') { 
+      $pos = 'align-items-end';
+    } if ($posicao_imagem == 'center') { 
+      $pos = 'align-items-center';
+    }?>
+    <div class="canais-digitais-col col-6 z-13 layout2" <?php echo $bg_image;?>>
       <div class="container">
         <div class="row d-flex flex-column flex-lg-column align-items-start">
           <div class="label-block">
@@ -74,13 +82,21 @@
           <div class="title-block">
             <?php echo esc_html($titulo); ?>
           </div>
-          <div class="description-block">
-            <?php echo esc_html($descricao); ?>
-          </div>
-          <div class="d-flex content-bts">
-            <div class="col-6">
-              <div class="d-flex justify-content-center justify-content-md-between gap-2 flex-column">
+          <?php if ($posicao_imagem != 'right') { ?>
+            <div class="description-block">
+              <?php echo esc_html($descricao); ?>
+            </div>
+          <?php } ?>
+          <div class="d-flex <?php echo ($posicao_imagem != 'right') ? 'content-bts' : 'content-bts-desc'; ?>">
+            <div class="col-8 col-lg-6">
+              <?php if ($posicao_imagem == 'right') { ?>
+                <div class="description-block">
+                  <?php echo esc_html($descricao); ?>
+                </div>
+              <?php } ?>
+              <div class="d-flex justify-content-center justify-content-md-between gap-2 flex-column <?php if ($posicao_imagem == 'right') { echo 'content-bts'; }?>">
                 <?php 
+                
                 if( have_rows('botoes') ) {
                   while ( have_rows('botoes') ) : the_row();
                     if( get_row_layout() == 'botao' ) {
@@ -109,7 +125,8 @@
                 ?>
               </div>
             </div>
-            <div class="col-6 canais-digitais-image d-flex align-items-end">
+            
+            <div class="col-4 col-lg-6 canais-digitais-image d-flex <?php echo __( $pos ); ?>">
               <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" >
             </div>
           </div>
