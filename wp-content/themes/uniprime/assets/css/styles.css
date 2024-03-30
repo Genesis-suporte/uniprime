@@ -2433,6 +2433,10 @@ footer {
   .atendimento .col-left .img {
     padding-left: 0px;
   }
+  
+  .bloco-beneficios-coop .cards-bbc {
+    grid-template-columns: auto auto;
+  }
 }
 @media (max-width: 991.98px) { 
   .main-menu .logo {
@@ -3097,6 +3101,9 @@ footer {
   .footer-copyrigth {
     padding: 4px 36px 95px;
   }
-}/*
+}
 @media (max-width: 767.98px) { 
-*/
+  .bloco-beneficios-coop .cards-bbc {
+    grid-template-columns: auto;
+  }
+}
