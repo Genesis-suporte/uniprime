@@ -1475,7 +1475,7 @@ section.canais-digitais {
   display: none !important;
 }
 .content-internas  {
-  padding: 163px 0 184px;
+  padding: 163px 0 114px;
 }
 .content-internas .copy {
   padding: 0 115px;
@@ -1738,7 +1738,7 @@ section.canais-digitais {
 }
 /* BLOCO BENEFÍCIOS COOP */
 .bloco-beneficios-coop {
-  padding: 128px 0 96px;
+  padding: 0px 0 132px;
 }
 .bloco-beneficios-coop .title-block {
   font-size: 62px;
@@ -1746,6 +1746,8 @@ section.canais-digitais {
   line-height: 80px;
   color: var(--primary-color-brand);
   padding-bottom: 52px;
+  font-weight: lighter;
+  width: 100%;
 }
 .bloco-beneficios-coop .cards-bbc {
   grid-template-columns: auto auto auto;
@@ -1755,7 +1757,7 @@ section.canais-digitais {
 .bloco-beneficios-coop .card-bbc {
   background-color: var(--primary-color-para-voce);
   border-radius: 16px;
-  padding: 48px 32px;
+  padding: 52px 52px 45px 32px;
 }
 .bloco-beneficios-coop .content-card {
   border-top: 1px solid var(--color-actived);
@@ -1767,7 +1769,7 @@ section.canais-digitais {
   color: var(--primary-color);
   text-transform: uppercase;
   position: relative;
-  padding: 17px 0 8px 30px !important;
+  padding: 17px 0 25px 30px !important;
 }
 .bloco-beneficios-coop .card-bbc .title .icon-logo {
   margin: 3px 7px 0 0px;
@@ -3031,6 +3033,22 @@ footer {
   .canais-digitais-col.layout2 .canais-digitais-image.align-items-end img {
     width: 220%;
     margin: 0 0px 0 -120px;
+  }
+  /* COOP */
+  .content-internas .copy .description-block .title-block {
+    width: 100%;
+  }
+  .bloco-beneficios-coop {
+    padding: 0px 0 68px;
+  }
+  .bloco-beneficios-coop .content-beneficios-coop {
+    padding: 0 24px;
+  }
+  .bloco-beneficios-coop .content-beneficios-coop .container {
+    padding: 0;
+  }
+  .bloco-beneficios-coop .card-bbc {
+    padding: 35px 30px 44px 32px;
   }
   /* FALE CONOSCO */
   section.fale-conosco {
