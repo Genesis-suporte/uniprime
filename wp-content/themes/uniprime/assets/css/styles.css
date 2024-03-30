@@ -1890,20 +1890,39 @@ section.single-politica {
 }
 /* ASSEMBLEIAS */
 .assembleias {
-  padding: 120px 0;
+  padding: 113px 0;
+  overflow: hidden;
+}
+.assembleias .search-by-units {
+  padding-bottom: 197px;
+}
+.assembleias .search-by-units .title-block{
+  font-family: 'SwitzerlandBold';
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 37px;
+  text-align: center;
+  padding: 0px 0 28px 0;
+}
+.assembleias .search-by-units #search_by_units {
+  width: 66%;
 }
 .assembleias .description-block {
   padding-bottom: 32px;
   width: 65%;
 }
 .assembleias .slide-assembleias {
-  padding-bottom: 250px;
-  /*grid-template-columns: auto auto auto;
-  grid-row-gap: 24px;
-  grid-column-gap: 24px;*/
+  padding-bottom: 229px;
+}
+.assembleias .title-block{
+  font-family: 'SwitzerlandLight';
+  font-size: 40px;
+  font-weight: lighter;
+  line-height: 52px;
+  padding: 4px 0 7px;
 }
 .assembleias .slide-proximas-assembleias { 
-  padding-bottom: 40px;
+  padding-bottom: 29px;
 }
 .assembleias .arrows-assembleias-desktop .slick-arrow,
 .assembleias .arrows-assembleias-mobile .slick-arrow,
@@ -1928,7 +1947,6 @@ section.single-politica {
   position: relative;
   z-index: 12;
 }
-.assembleias .slick-slide > div,
 .assembleias .slide-proximas-assembleias .slick-slide {
   margin: 0px 0px 30px 25px;
   height: inherit !important;
@@ -1937,9 +1955,16 @@ section.single-politica {
   background-color: var(--primary-color-brand);
   border-radius: 16px;
   padding: 40px 32px;
+  margin: 0px 0px 30px 25px;
+  width: calc( 50% - 25px ) !important;
+}
+.assembleias .proximas-assembleias .card-assembleias  {
+  width: 100% !important;
+  margin: 0;
 }
 .assembleias .card-assembleias .content-card {
   border-top: 1px solid var(--color-actived);
+  margin-left: 0;
 }
 .assembleias .card-assembleias .content-card .ano {
   color: var(--color-actived);
@@ -1947,11 +1972,14 @@ section.single-politica {
   font-size: 14px;
   padding: 16px 0;
 }
-.assembleias .card-assembleias .content-card .title {
+.assembleias .card-assembleias .content-card .title,
+.assembleias .card-assembleias .content-card .title h2 {
   color: white;
   font-family: 'SwitzerlandLight';
-  font-size: 36px;
-  line-height: 46px;
+  font-size: 36px !important;
+  line-height: 46px !important;
+}
+.assembleias .card-assembleias .content-card .title {
   padding-bottom: 24px;
 }
 .assembleias .card-assembleias .content-card .description {
@@ -1964,6 +1992,9 @@ section.single-politica {
   flex-direction: row;
   padding: 3px 15px !important;
   height: 32px;
+}
+.assembleias .proximas-assembleias {
+  padding-bottom: 160px;
 }
 /* RELATÓRIOS */
 .bloco-relatorios {
@@ -2146,7 +2177,8 @@ section.fale-conosco {
 }
 .fale-conosco input, 
 .fale-conosco textarea,
-.fale-conosco select {
+.fale-conosco select,
+.search-block select {
   color: var(--primary-color);
   border: 1px solid #D5D4DC;
   font-family: "Calibri" !important;
@@ -2157,7 +2189,8 @@ section.fale-conosco {
 
 .fale-conosco input:focus-visible, 
 .fale-conosco textarea:focus-visible,
-.fale-conosco select:focus-visible {
+.fale-conosco select:focus-visible,
+.search-block select:focus-visible {
   border: 2px solid var(--primary-color);
   outline-color: var(--primary-color);
   font-weight: bold !important;
@@ -3066,6 +3099,61 @@ footer {
   }
   .msg-sucess {
     width: 97%;
+  }
+  /* ASSEMBLEIAS */
+  .assembleias {
+    padding: 0px 0;
+  }
+  .assembleias .title-block {
+    width: 100%;
+  }
+  .assembleias .search-by-units .title-block {
+    padding: 0px 0 15px 0;
+  }
+  .assembleias .title-block {
+    font-size: 36px;
+    line-height: 47px;
+    padding: 6px 0 3px;
+  }
+  .assembleias .search-by-units #search_by_units {
+    width: 100%;
+  }
+  .assembleias .search-by-units {
+    padding-bottom: 111px;
+  }
+  .assembleias .results {
+    padding: 0 12px;
+  }
+  .assembleias .slick-list {
+    margin: 0 0px;
+  }
+  .assembleias .slick-slide {
+    margin: 0 12px;
+  }
+  .assembleias .slide-assembleias {
+    padding-bottom: 2px;
+  }
+  .assembleias .card-assembleias  {
+    margin: 0px 0px 30px 0px;
+    width: 100% !important;
+  }
+  .assembleias .card-assembleias .content-card .linkpdf {
+    padding-top: 27px;
+  }
+  .assembleias .arrows-assembleias-mobile .slick-arrow {
+    margin: 0 12px;
+  }
+  .assembleias .proximas-assembleias {
+    padding: 130px 12px 160px;
+  }
+  .assembleias .slide-proximas-assembleias .slick-slide {
+    margin: 0px 12px 30px 12px;
+  }
+  .assembleias .slide-proximas-assembleias {
+    padding-bottom: 0;
+  }
+  .arrows-proximas-assembleias-mobile {
+    padding-bottom: 23px;
   }
   /* FOOTER */
   .footer-top {

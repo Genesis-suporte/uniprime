@@ -14,6 +14,19 @@
 <section class="assembleias mw-100 z-13">
   <div class="container">
     <div class="row d-flex justify-content-between">
+      <div class="search-by-units">          
+        <div class="title-block">
+          <?php echo __('Editais de Convocação'); ?>
+        </div>       
+        <div class="search-block d-flex justify-content-center">
+          <select class="form-control" name="search_by_units" id="search_by_units">
+            <option value="0">Selecione uma cooperativa</option>
+            <option value="1">Central</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-between results">
       <div class="col">
         <div class="label-block">
           <?php echo esc_html($label_ultimas); ?>
@@ -31,8 +44,11 @@
           <div class="slide-assembleias row">
             <?php 
             $assembleias = get_posts( array(
-              'post_type' => 'assembleia',
-              'posts_per_page' => -1, // Obter todos os posts
+              'post_type'      => 'assembleia',
+              'posts_per_page' => -1,
+              'meta_key'       => 'data_assembleia',
+              'orderby'        => 'meta_value',
+              'order'          => 'DESC'
             ) );
             $prox_assembleias = "";
             date_default_timezone_set('America/Sao_Paulo');
@@ -59,7 +75,7 @@
                       <div class="title flex-grow-1">
                         <h2><?php echo esc_html($titulo); ?></h2>
                       </div>
-                      <div class="d-flex justify-content-between align-items-end">
+                      <div class="d-flex justify-content-between align-items-start align-items-lg-end flex-column flex-lg-row">
                         <div class="description flex-grow-1">
                           <div class="unidade"><?php echo esc_html($unidade); ?></div>
                           <?php 
@@ -80,7 +96,7 @@
                   $prox_assembleias .= '<div class="content-card d-flex flex-column justify-content-start">';
                   $prox_assembleias .= '<div class="ano icon-menu icon-logo">PRÓXIMA ASSEMBLEIA</div>';
                   $prox_assembleias .= '<div class="title flex-grow-1"><h2>'. esc_html($data_assembleia) .'</h2></div>';
-                  $prox_assembleias .= '<div class="d-flex justify-content-between align-items-end">';
+                  $prox_assembleias .= '<div class="d-flex justify-content-between align-items-start align-items-lg-end flex-column flex-lg-row">';
                   $prox_assembleias .= '<div class="description flex-grow-1">';
                   $prox_assembleias .= '<div class="unidade"><strong>'. esc_html($unidade) .'</strong></div>';
                   $prox_assembleias .= ''. esc_html($link_download['title']). '<br>';
@@ -105,7 +121,7 @@
         <div class="arrows-assembleias-mobile d-flex d-md-none justify-content-center"></div>
       </div>
     </div>
-    <div class="row d-flex justify-content-between">
+    <div class="row d-flex justify-content-between proximas-assembleias">
       <div class="col">
         <div class="label-block">
           <?php echo esc_html($label_proximas); ?>

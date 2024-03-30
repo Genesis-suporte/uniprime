@@ -219,7 +219,7 @@ function my_block_plugin_editor_scripts() {
 	$dependencies = array('jquery','wp-blocks', 'wp-element' );
 	$dependencies2 = array('jquery','wp-blocks', 'wp-element','slick' );
 	wp_enqueue_script('bootstrap', get_template_directory_uri().'/assets/js/bootstrap.bundle.min.js', $dependencies );
-	wp_enqueue_script('slick', get_template_directory_uri().'/assets/js/slick.min.js', $dependencies );
+	wp_enqueue_script('slick', get_template_directory_uri().'/assets/js/slick.js', $dependencies );
 	wp_enqueue_script('scripts', get_template_directory_uri().'/assets/js/scripts.js', $dependencies2 );
 
 }

@@ -324,27 +324,17 @@
     if($('.slide-assembleias')) {
       $('.slide-assembleias').slick({
         dots: false,
-        slidesToShow: 2,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
         infinite: false,
         appendArrows: '.arrows-assembleias-desktop',
+        slidesPerRow:2 ,
         rows: 3,
         responsive: [
           {
-            breakpoint: 1200,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              rows: 4,
-              appendArrows: '.arrows-assembleias-desktop',
-            }
-          },
-          {
             breakpoint: 992,
             settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              rows: 4,
+              slidesPerRow: 1,
+              rows: 1,
               appendArrows: '.arrows-assembleias-mobile',
             }
           }
@@ -376,7 +366,6 @@
             settings: {
               slidesToShow: 2,
               slidesToScroll: 2,
-              rows: 4,
               appendArrows: '.arrows-proximas-assembleias-desktop',
             }
           },
@@ -385,7 +374,6 @@
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
-              rows: 4,
               appendArrows: '.arrows-proximas-assembleias-mobile',
             }
           }
