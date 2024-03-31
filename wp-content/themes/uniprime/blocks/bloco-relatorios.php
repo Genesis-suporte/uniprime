@@ -38,11 +38,11 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
               if( get_row_layout() == 'resultado' ) {
                 $titulo = get_sub_field('titulo');
                 $valor = get_sub_field('valor');?>
-                  <div class="relatorio-card d-flex flex-row relatorio">
-                    <div class="nome col">
+                  <div class="relatorio-card d-flex flex-column flex-lg-row relatorio">
+                    <div class="nome flex-grow col-7">
                       <?php echo esc_html($titulo); ?>
                     </div>
-                    <div class="valor col">
+                    <div class="valor col-5">
                       <?php echo esc_html($valor); ?>
                     </div>
                   </div>
@@ -63,7 +63,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
           <?php echo esc_html($label_segundo_grupo); ?>
         </div>
         <div class="title-block">
-          <?php echo esc_html($titulo_segundo_grupo); ?>
+          <h2><?php echo esc_html($titulo_segundo_grupo); ?></h2>
         </div>
         <div class="d-flex">
           <div class="description-block flex-grow-1">
@@ -109,7 +109,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
                                   <?php echo esc_html($ano_transparencia); ?>
                                 </div>
                                 <div class="linkpdf">
-                                  <a href="<?php echo esc_html($link_download_transparencia['url']); ?>" class="btn btn-download">Baixar relatório<i class="icon-download right"></i></a>
+                                  <a href="<?php echo esc_html($link_download_transparencia['url']); ?>" class="btn btn-download">Baixar relatório<i class="icon-download-white right"></i></a>
                                 </div>
                               </div>
                             </div>
@@ -126,7 +126,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
             </div>
           </div>
         </div>
-        <div class="arrows-relatorios-transparencia-mobile d-flex d-md-none justify-content-center"></div>
+        <div class="arrows-relatorios-transparencia-mobile arrows-mobile d-flex d-lg-none justify-content-center"></div>
       </div>
     </div>
   </div>
@@ -138,7 +138,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
           <?php echo esc_html($label_terceiro_grupo); ?>
         </div>
         <div class="title-block">
-          <?php echo esc_html($titulo_terceiro_grupo); ?>
+          <h2><?php echo esc_html($titulo_terceiro_grupo); ?></h2>
         </div>
         <div class="d-flex">
           <div class="description-block flex-grow-1">
@@ -176,7 +176,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
                                   <?php echo esc_html($ano_balanco); ?>
                                 </div>
                                 <div class="linkpdf">
-                                  <a href="<?php echo esc_html($link_download_balanco['url']); ?>" class="btn btn-download">Baixar <i class="icon-download right"></i></a>
+                                  <a href="<?php echo esc_html($link_download_balanco['url']); ?>" class="btn btn-download">Baixar <i class="icon-download-white right"></i></a>
                                 </div>
                               </div>
                             </div>
@@ -193,7 +193,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
             </div>
           </div>
         </div>
-        <div class="arrows-relatorios-transparencia-mobile d-flex d-md-none justify-content-center"></div>
+        <div class="arrows-relatorios-balanco-mobile arrows-mobile d-flex d-md-none justify-content-center"></div>
       </div>
     </div>
   </div>
@@ -205,7 +205,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
           <?php echo esc_html($label_quarto_grupo); ?>
         </div>
         <div class="title-block">
-          <?php echo esc_html($titulo_quarto_grupo); ?>
+          <h2><?php echo esc_html($titulo_quarto_grupo); ?></h2>
         </div>
         <div class="d-flex">
           <div class="description-block flex-grow-1">

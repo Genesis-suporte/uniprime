@@ -52,6 +52,6 @@
       </div>
     </div>
     
-    <div class="arrows-nossos-produtos-mobile d-flex d-lg-none justify-content-center"></div>
+    <div class="arrows-nossos-produtos-mobile arrows-mobile d-flex d-lg-none justify-content-center"></div>
   </div>
 </section>

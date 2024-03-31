@@ -64,7 +64,7 @@
           ?>
         </div>
       </div>
-      <div class="arrows-beneficios-mobile d-flex d-lg-none justify-content-center">
+      <div class="arrows-beneficios-mobile arrows-mobile d-flex d-lg-none justify-content-center">
     </div>
   </div>
 </section>

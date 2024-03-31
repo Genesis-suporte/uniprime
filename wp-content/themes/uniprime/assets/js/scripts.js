@@ -274,6 +274,18 @@
           }
         ]
       });
+      var cardsNovidades = $('.slide-novidades .slick-slide .card-post .title-block');
+      var maxHeight = 0;
+      for (var i = 0; i < cardsNovidades.length; i++) {
+        if (maxHeight < $(cardsNovidades[i]).outerHeight()) {
+          maxHeight = $(cardsNovidades[i]).outerHeight();
+        }
+        console.log(maxHeight);
+      }
+      // Set ALL card bodies to this height
+      for (var i = 0; i < cardsNovidades.length; i++) {
+        $(cardsNovidades[i]).height(maxHeight -30);
+      }
     }
     
     btn_mobile = document.getElementById('button-mobile');
@@ -399,6 +411,27 @@
         slidesToScroll: 3,
         infinite: false,
         appendArrows: '.arrows-relatorios-transparencia-desktop',
+        rows: 1,
+        responsive: [
+          {
+            breakpoint: 1400,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              rows: 1,
+              appendArrows: '.arrows-relatorios-transparencia-desktop',
+            }
+          },
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              rows: 3,
+              appendArrows: '.arrows-relatorios-transparencia-mobile',
+            }
+          }
+        ]
         
       });
     }
@@ -408,9 +441,28 @@
         slidesToShow: 4,
         slidesToScroll: 4,
         infinite: false,
-        rows: 2,
+        rows: 3,
         appendArrows: '.arrows-relatorios-balanco-desktop',
-        
+        responsive: [
+          {
+            breakpoint: 1400,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              rows: 3,
+              appendArrows: '.arrows-relatorios-balanco-desktop',
+            }
+          },
+          {
+            breakpoint: 992,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              rows: 4,
+              appendArrows: '.arrows-relatorios-balanco-mobile',
+            }
+          }
+        ]
       });
     }
     

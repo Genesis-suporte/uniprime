@@ -103,7 +103,7 @@
             ?>
           </div>
         </div>
-        <div class="arrows-novidades-mobile d-flex d-md-none justify-content-center"></div>
+        <div class="arrows-novidades-mobile arrows-mobile d-flex d-md-none justify-content-center"></div>
       </div>
     </div>
   </div>

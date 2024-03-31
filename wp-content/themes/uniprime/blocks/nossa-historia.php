@@ -4,7 +4,7 @@
   ?>
 <section class="nossa-historia mw-100">
   <div class="">
-    <div class="row d-flex flex-column flex-lg-row">
+    <div class="d-flex flex-column flex-lg-row">
       <div class="col-left col-12 col-lg-5 col-xl-4">
         <div class="label-block">
           <?php echo esc_html($label); ?>
@@ -53,7 +53,7 @@
           ?>
         </div>
       </div>
-      <div class="arrows-nossa-historia-mobile d-flex d-lg-none justify-content-center">
+      <div class="arrows-nossa-historia-mobile arrows-mobile d-flex d-lg-none justify-content-center">
     </div>
   </div>
 </section>

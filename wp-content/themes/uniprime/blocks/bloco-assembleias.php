@@ -32,7 +32,7 @@
           <?php echo esc_html($label_ultimas); ?>
         </div>
         <div class="title-block">
-          <?php echo esc_html($titulo_ultimas); ?>
+          <h2><?php echo esc_html($titulo_ultimas); ?></h2>
         </div>
         <div class="d-flex">
           <div class="description-block flex-grow-1">
@@ -85,7 +85,7 @@
                           ?>
                         </div>
                         <div class="linkpdf">
-                          <a href="<?php echo esc_html($link_download['url']); ?>" class="btn btn-download">Baixar edital<i class="icon-download right"></i></a>
+                          <a href="<?php echo esc_html($link_download['url']); ?>" class="btn btn-download">Baixar edital<i class="icon-download-white right"></i></a>
                         </div>
                       </div>
                     </div>
@@ -102,7 +102,7 @@
                   $prox_assembleias .= ''. esc_html($link_download['title']). '<br>';
                   $prox_assembleias .= '</div>';
                   $prox_assembleias .= '<div class="linkpdf">';
-                  $prox_assembleias .= '<a href="'. esc_html($link_download['url']). '" class="btn btn-download">Baixar edital <i class="icon-download right"></i></a>';
+                  $prox_assembleias .= '<a href="'. esc_html($link_download['url']). '" class="btn btn-download">Baixar edital <i class="icon-download-white right"></i></a>';
                   $prox_assembleias .= '</div>';
                   $prox_assembleias .= '</div>';
                   $prox_assembleias .= '</div>';
@@ -118,7 +118,7 @@
             ?>
           </div>
         </div>
-        <div class="arrows-assembleias-mobile d-flex d-md-none justify-content-center"></div>
+        <div class="arrows-assembleias-mobile arrows-mobile d-flex d-md-none justify-content-center"></div>
       </div>
     </div>
     <div class="row d-flex justify-content-between proximas-assembleias">
@@ -127,7 +127,7 @@
           <?php echo esc_html($label_proximas); ?>
         </div>
         <div class="title-block">
-          <?php echo esc_html($titulo_proximas); ?>
+          <h2><?php echo esc_html($titulo_proximas); ?></h2>
         </div>
         <div class="d-flex">
           <div class="description-block flex-grow-1">
@@ -142,7 +142,7 @@
             ?>
           </div>
         </div>
-        <div class="arrows-proximas-assembleias-mobile d-flex d-md-none justify-content-center"></div>
+        <div class="arrows-proximas-assembleias-mobile arrows-mobile d-flex d-md-none justify-content-center"></div>
         
         <div class="d-flex">
           <div class="description-block flex-grow-1">

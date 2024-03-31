@@ -11,9 +11,9 @@
     <div class="container">
       <div class="position-absolute copy">
         <?php if($title_banner) { ?>
-          <div class="title">
+          <h1 class="title">
             <?php echo esc_html($title_banner); ?>
-          </div>
+          </h1>
         <?php } ?>
         <?php if($description_banner) { ?>
           <div class="description">

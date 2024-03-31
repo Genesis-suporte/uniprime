@@ -420,7 +420,14 @@ a {
 }
 .icon-download {
   background: url('../images/icons/icon-download.svg') no-repeat 0px 0px;
-  width: 16px;
+  width: 18px;
+  height: 16px;
+  display: block;
+  margin: 4px 0px 0 10px;
+}
+.icon-download-white {
+  background: url('../images/icons/icon-download-white.svg') no-repeat 0px 0px;
+  width: 18px;
   height: 16px;
   display: block;
   margin: 4px 0px 0 10px;
@@ -435,7 +442,7 @@ a {
 
 .slick-arrow {
   background: url('../images/icons/icon-right-arrow.png') no-repeat 10px 10px;
-  background-color: transparent;
+  background-color: white;
   background-position: center;
   border-radius: 50%;
   display: inline-block;
@@ -456,6 +463,9 @@ a {
 }
 .slick-arrow.slick-disabled {
   opacity: 0.3;
+}
+.arrows-mobile .slick-arrow {
+  margin: 0 12px !important;
 }
 .z-13 {
   z-index: 13;
@@ -733,12 +743,12 @@ a {
 .menu-item .dropdown-content .container .menu-subitem a,
 .menu-inicial-mobile .menu-item .dropdown-content .content-dropdown-mobile a { 
   color: var(--primary-color-para-cooperativa);
+  display: block;
+  font-family: "Calibri";
   font-size: 17px;
   font-weight: bold;
   padding: 8px 0px 8px 53px !important;
-  display: block;
   position: relative;
-  font-family: "Calibri";
   transition: all .2s ease-in-out;
 }
 .menu-item .dropdown-content .container .menu-subitem a:hover {
@@ -1025,10 +1035,17 @@ a {
 }
 .title-block {
   color: var(--primary-color-brand);
-  font-size: 30px;
-  font-family: 'Switzerland';
+  font-size: 29px;
+  font-family: 'SwitzerlandBold';
   font-weight: bold;
   padding-top: 2px;
+}
+.title-block h2{
+  font-family: 'SwitzerlandLight';
+  font-size: 40px;
+  font-weight: lighter;
+  line-height: 52px;
+  padding: 4px 0 2px;
 }
 .description-block {
   color: var(--color-neutral);
@@ -1112,15 +1129,15 @@ a {
   background-size: cover;
 }
 .nossos-produtos .card-nossos-produtos a {
+  background-position: 32px 45px;
   color: var(--primary-color-para-cooperativa);
+  display: block;
   font-size: 17px;
   font-weight: bold;
   padding: 46px 30px 48px 86px !important;
-  display: block;
   position: relative;
-  background-position: 32px 45px;
-  -webkit-transition: all .2s ease-in-out .2s;
   transition: all .2s ease-in-out .2s;
+  -webkit-transition: all .2s ease-in-out .2s;
 }
 
 .nossos-produtos .card-nossos-produtos a .arrow.right{
@@ -1168,7 +1185,6 @@ a {
 .nossa-historia .arrows-nossa-historia-desktop .slick-arrow,
 .nossa-historia .arrows-nossa-historia-mobile .slick-arrow {
   padding: 0;
-  margin: 0 21px 0px 0px;
   border-color: white;
   background: url(../images/icons/icon-right-arrow-white.png) no-repeat 10px 10px
 }
@@ -1179,8 +1195,10 @@ a {
 .nossa-historia .card-nossa-historia {
   background-color: var(--secondary-color-brand);
   padding: 96px 52px;
-  margin: 0 12px;
   border-radius: 16px;
+}
+.nossa-historia .slick-slide > div{
+  margin: 0 12px;
 }
 .nossa-historia .card-nossa-historia .content-card {
   border-top: 1px solid var(--color-actived);
@@ -1331,8 +1349,10 @@ section.canais-digitais {
 .novidades .slide-novidades .slick-list{
   margin: 0 -12px;
 }
-.novidades .artigos .card-post {
+.novidades .artigos .slick-slide > div {
   margin: 0 12px;
+}
+.novidades .artigos .card-post {
   height: 100%;
 }
 .novidades .artigos .card-post .img-post {
@@ -1410,7 +1430,7 @@ section.canais-digitais {
 .atendimento .col-right .subtitle-block {
   color: var(--primary-color-brand);
   font-size: 30px;
-  font-family: 'Switzerland';
+  font-family: 'SwitzerlandBold';
   font-weight: bold;
   padding: 6px 0px;
 }
@@ -1448,11 +1468,13 @@ section.canais-digitais {
   font-family: 'SwitzerlandLight';
   line-height: 62px;
   padding-bottom: 10px;
+  margin: 0;
 }
 .banner-internas .hero-image .copy .description{
-  font-size: 28px;
-  font-family: 'Calibri';
-  line-height: 34px;
+  font-size: 24px;
+  font-family: 'SwitzerlandBold';
+  font-weight: bold;
+  line-height: 32px;
 }
 .banner-internas .hero-image .copy .cta a{
   font-size: 18px !important;
@@ -1799,13 +1821,13 @@ section.single-politica {
 .single-politica .nav-pills .nav-item .nav-link{
   background-color: var(--primary-color-para-voce);
   border-radius: 16px;
-  padding: 32px 24px;
-  width: 100%;
   color: var(--primary-color);
   font-family: 'Calibri';
   font-size: 18px;
-  line-height: 30px;
   font-weight: bold;
+  line-height: 30px;
+  padding: 32px 24px;
+  width: 100%;
 }
 .single-politica .nav-pills .nav-item .nav-link.active {
   background-color: var(--primary-color);
@@ -1823,7 +1845,7 @@ section.single-politica {
   font-size: 28px;
   line-height: 36px;
   font-weight: bold;
-  font-family: 'Switzerland';
+  font-family: 'SwitzerlandBold';
   color: var(--primary-color-brand);
   margin-bottom: 24px;
 }
@@ -1834,7 +1856,7 @@ section.single-politica {
   font-size: 24px;
   line-height: 31px;
   font-weight: bold;
-  font-family: 'Switzerland';
+  font-family: 'SwitzerlandBold';
   color: var(--primary-color-brand);
   padding-left: 104px;
   margin-bottom: 20px;
@@ -1867,7 +1889,7 @@ section.single-politica {
   font-size: 18px;
   line-height: 28px;
   font-weight: bold;
-  font-family: 'Switzerland';
+  font-family: 'SwitzerlandBold';
   color: var(--primary-color-brand);
   margin-left: 104px;
   margin-bottom: 14px;
@@ -1914,26 +1936,8 @@ section.single-politica {
 .assembleias .slide-assembleias {
   padding-bottom: 229px;
 }
-.assembleias .title-block{
-  font-family: 'SwitzerlandLight';
-  font-size: 40px;
-  font-weight: lighter;
-  line-height: 52px;
-  padding: 4px 0 7px;
-}
 .assembleias .slide-proximas-assembleias { 
   padding-bottom: 29px;
-}
-.assembleias .arrows-assembleias-desktop .slick-arrow,
-.assembleias .arrows-assembleias-mobile .slick-arrow,
-.assembleias .arrows-proximas-assembleias-desktop .slick-arrow,
-.assembleias .arrows-proximas-assembleias-mobile .slick-arrow  {
-  background: url('../images/icons/icon-right-arrow.png') no-repeat 10px 10px rgb(255,255,255,0.7);
-  border: 1px solid var(--primary-color);
-  padding: 0;
-  margin: 0 0px 0px 24px;
-  position: relative;
-  z-index: 12;
 }
 .assembleias .slick-track {
   display: flex !important;
@@ -1998,16 +2002,19 @@ section.single-politica {
 }
 /* RELATÓRIOS */
 .bloco-relatorios {
-  padding: 120px 0;
+  padding: 158px 0;
+}
+.bloco-relatorios .container-relatorios .description-block{
+  padding-top: 23px;
 }
 .bloco-relatorios .container-relatorios {
   background-color: var(--primary-color-para-voce);
   border-radius: 16px;
-  padding: 64px 104px;
+  padding: 64px 104px 45px;
 }
 .bloco-relatorios .title {
   color: var(--primary-color-brand);
-  font-family: 'Switzerland';
+  font-family: 'SwitzerlandBold';
   font-size: 28px;
   font-weight: bold;
   line-height: 36px;
@@ -2015,7 +2022,7 @@ section.single-politica {
 }
 .bloco-relatorios .relatorio-card {
   border-bottom: 1px solid var(--color-neutral-alpha-2);
-  font-family: 'Switzerland';
+  font-family: 'SwitzerlandBold';
   font-size: 20px;
   font-weight: bold;
   line-height: 26px;
@@ -2026,7 +2033,7 @@ section.single-politica {
   grid-template-columns: auto auto;
   grid-row-gap: 0px;
   grid-column-gap: 150px;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 .bloco-relatorios .cards-relatorios .relatorio-card:last-child {
   border-bottom: 0px;
@@ -2039,7 +2046,16 @@ section.single-politica {
   text-align: right;
 }
 .bloco-relatorios .container-segundo-grupo-relatorios {
-  padding: 120px 0;
+  padding: 120px 0 125px;
+}
+.bloco-relatorios .description-block {
+  padding: 0;
+}
+
+.bloco-relatorios .container-segundo-grupo-relatorios .card-relatorio .content-card .ano {
+  font-size: 60px;
+  line-height: 80px;
+  padding-top: 3px;
 }
 
 .bloco-relatorios .cards-segundo-grupo-relatorios {
@@ -2071,7 +2087,7 @@ section.single-politica {
 .bloco-relatorios .card-relatorio  {
   background-color: var(--primary-color-brand);
   border-radius: 16px;
-  padding: 40px 32px 22px;
+  padding: 40px 32px 23px;
 }
 .bloco-relatorios .card-relatorio .content-card {
   border-top: 1px solid var(--color-actived);
@@ -2080,7 +2096,7 @@ section.single-politica {
   color: var(--color-actived);
   font-family: 'Calibri';
   font-size: 14px;
-  padding: 16px 0;
+  padding: 16px 0 19px;
 }
 .bloco-relatorios .card-relatorio .content-card .ano {
   color: white;
@@ -2089,17 +2105,18 @@ section.single-politica {
   line-height: 80px;
 }
 .bloco-relatorios .card-relatorio .content-card .linkpdf {
-  padding-bottom: 15px;
+  padding: 7px 0 16px;
 }
 .bloco-relatorios .card-relatorio .content-card .linkpdf a {
   display: flex;
   flex-direction: row;
-  padding: 3px 15px !important;
+  padding: 3px 22px !important;
   height: 32px;
+  font-size: 13px !important;
 }
 
 .bloco-relatorios .container-terceiro-grupo-relatorios {
-  padding: 120px 0;
+  padding: 120px 0 87px;
   background-color: var(--primary-color-para-voce);
 }
 .bloco-relatorios .cards-terceiro-grupo-relatorios {
@@ -2117,22 +2134,22 @@ section.single-politica {
   line-height: 46px;
 }
 .bloco-relatorios .container-quarto-grupo-relatorios {
-  padding: 120px 0 60px;
+  padding: 130px 0 60px;
 }
 .bloco-relatorios .cards-quarto-grupo-relatorios {
   padding: 32px 0 0px;
 }
 
 .bloco-relatorios .cards-quarto-grupo-relatorios {
-  padding: 32px 0 0px;
+  padding: 0 0px;
 }
 .bloco-relatorios .cards-quarto-grupo-relatorios .title_subcategory {
   color: var(--primary-color-brand);
-  font-family: 'Switzerland';
+  font-family: 'SwitzerlandBold';
   font-size: 28px;
   font-weight: bold;
   line-height: 36px;
-  padding: 32px 0 24px;
+  padding: 32px 0 26px;
 
 }
 .bloco-relatorios .cards-quarto-grupo-relatorios .relatorios-riscos {
@@ -2152,8 +2169,13 @@ section.single-politica {
   display: flex;
   font-family: "Calibri";
   font-size: 16px;
-  padding: 12px !important;
+  padding: 10px !important;
   width: 100% !important;
+  height: 42px;
+  background-color: white !important;
+}
+.bloco-relatorios .cards-quarto-grupo-relatorios .linkpdf_riscos a .icon-download {
+  margin: 4px 12px 0 10px;
 }
 /* FALE CONOSCO */ 
 section.fale-conosco {
@@ -2229,7 +2251,7 @@ section.fale-conosco {
 }
 .fale-conosco .bloco-contato .telefone-contato {
   color: var(--color-actived);
-  font-family: 'Switzerland';
+  font-family: 'SwitzerlandBold';
   font-size: 20px;
   font-weight: bold;
   line-height: 26px; 
@@ -2274,7 +2296,7 @@ section.fale-conosco {
 }
 .msg-sucess .titulo {
   color: white;
-  font-family: 'Switzerland';
+  font-family: 'SwitzerlandBold';
   font-size: 20px;
   font-weight: bold;
   line-height: 26px; 
@@ -2322,7 +2344,7 @@ footer {
   font-size: 15px;
   color: var(--color-actived);
   font-size: 20px;
-  font-family: 'Switzerland';
+  font-family: 'SwitzerlandBold';
   font-weight: bold;
   padding-top: 16px;
 }
@@ -2341,7 +2363,7 @@ footer {
 .footer-menu .label-footer-menu {
   color: var(--primary-color-brand);
   font-size: 20px;
-  font-family: 'Switzerland';
+  font-family: 'SwitzerlandBold';
   font-weight: bold;
   padding: 0px 0px 30px;
 }
@@ -2469,6 +2491,9 @@ footer {
   
   .bloco-beneficios-coop .cards-bbc {
     grid-template-columns: auto auto;
+  }
+  .bloco-relatorios .cards-relatorios {
+    grid-column-gap: 60px;
   }
 }
 @media (max-width: 991.98px) { 
@@ -2750,7 +2775,12 @@ footer {
   .title-block {
     padding-top: 5px;
     line-height: 37px;
-    width: 74%;
+    width: 100%;
+  }
+  .title-block h2 {
+    font-size: 36px;
+    line-height: 47px;
+    padding: 0px 0 2px;
   }
   .description-block {
     padding-top: 8px;
@@ -2787,9 +2817,7 @@ footer {
     padding: 23px 0 135px;
   }
   .nossa-historia .col-left{
-    padding-top: 42px;
-    /* @TODO: Remover padding e ajustar padding real */
-    padding-left: 35px;
+    padding: 42px 24px 0;
   }
   .nossa-historia .title-block {
     font-size: 36px;
@@ -2805,9 +2833,6 @@ footer {
   }
   .nossa-historia .card-nossa-historia {
     padding: 95px 27px;
-  }
-  .arrows-nossa-historia-mobile {
-    margin-left: 12px;
   }
 
   .canais-digitais {
@@ -2962,8 +2987,8 @@ footer {
     padding-bottom: 24px;
   }
   .banner-internas .hero-image .copy .description {
-    font-size: 30px;
-    line-height: 34px;
+    font-size: 24px;
+    line-height: 30px;
   }
   .content-internas {
     padding: 36px 0 65px;
@@ -3006,7 +3031,6 @@ footer {
   }
   .beneficios-institucional .arrows-beneficios-mobile {
     padding-top: 34px;
-    margin-left: -14px;
   }
   /* DIRETORIA */
   .diretoria-e-conselhos {
@@ -3089,10 +3113,10 @@ footer {
   }
   /* FALE CONOSCO */
   section.fale-conosco {
-    padding: 28px 0 90px;
+    padding: 35px 0 90px;
   }
   .fale-conosco .container-fale-conosco {
-    padding: 0px 0px 32px 12px;
+    padding: 0px 12px 32px 12px;
   }
   .fale-conosco .cards-fale-conosco {
     padding: 0px 0px 32px 0px;
@@ -3140,9 +3164,6 @@ footer {
   .assembleias .card-assembleias .content-card .linkpdf {
     padding-top: 27px;
   }
-  .assembleias .arrows-assembleias-mobile .slick-arrow {
-    margin: 0 12px;
-  }
   .assembleias .proximas-assembleias {
     padding: 130px 12px 160px;
   }
@@ -3155,6 +3176,57 @@ footer {
   .arrows-proximas-assembleias-mobile {
     padding-bottom: 23px;
   }
+  /* RELATÓRIOS */
+  .bloco-relatorios {
+    padding: 34px 0;
+  }
+  .bloco-relatorios .container-relatorios {
+    padding: 64px 24px 45px;
+    margin: 0 12px;
+  }
+  .bloco-relatorios .container-relatorios .description-block {
+    padding-top: 17px;
+  }
+  .bloco-relatorios .cards-relatorios {
+    grid-template-columns: auto;
+    padding-top: 6px;
+  }
+  .bloco-relatorios .cards-relatorios .relatorio-card .valor {
+    text-align: left;
+  }
+  
+  .bloco-relatorios .card-relatorio {
+    padding: 40px 24px 27px;
+  }
+  .bloco-relatorios .relatorio-card {
+    padding: 24px 0;
+  }
+  .bloco-relatorios .container-segundo-grupo-relatorios {
+    padding: 64px 12px 10px;
+  } 
+  .bloco-relatorios .slick-slide > div {
+    margin: 0px 0px 16px 0px !important;
+    height: inherit !important;
+  }
+  .bloco-relatorios .card-relatorio .content-card .ano {
+    font-size: 48px !important;
+    line-height: 62px !important;
+    padding-top: 16px !important;
+  }
+  .bloco-relatorios .container-terceiro-grupo-relatorios {
+    padding: 120px 0 77px;
+  }
+  .bloco-relatorios .container-terceiro-grupo-relatorios .container{
+    padding: 0 24px;
+  }
+  .bloco-relatorios .container-quarto-grupo-relatorios {
+    padding: 130px 12px 60px;
+  }
+  .bloco-relatorios .cards-quarto-grupo-relatorios .relatorios-riscos {
+    grid-template-columns: auto;
+    grid-row-gap: 16px;
+  }
+
   /* FOOTER */
   .footer-top {
     padding: 129px 0px 4px 43px;
