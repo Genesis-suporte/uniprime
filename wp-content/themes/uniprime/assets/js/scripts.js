@@ -183,7 +183,15 @@
         tabTrigger.show()
       })
     })
-    
+    btn_select_politica = document.getElementById('select-politica');
+    if(btn_select_politica) {
+      navPoliticasMobile  = document.getElementById('nav-politicas-mobile');
+      btn_select_politica.addEventListener('click', (e) => {
+        /*navPoliticasMobile .style.display = (navPoliticasMobile .style.display === 'none') ? 'block' : 'none';   */
+        navPoliticasMobile .classList.add('actived'); 
+        //console.log('abrindo primeiro nível menu mobile')
+      }); 
+    }
     // CLICK OR MOUSEOVER EVENT FOR MENU DROP DOWN
     /*
     // - THIS IS FOR DEMO, TO CHECK IF mainMenu WAS HOVERED -
@@ -327,6 +335,7 @@
       for (let v = 0; v < voltar.length; v++) {
         voltar[v].addEventListener('click', (e) => {
           menuIicialItem = e.currentTarget.parentNode.parentNode.parentNode.parentNode;
+          console.log(e.currentTarget.parentNode.parentNode.parentNode)
           menuIicialItem.classList.remove('actived')
           //e.currentTarget.classList.remove('actived'); 
           //console.log('voltando para o primeiro nível menu mobile')

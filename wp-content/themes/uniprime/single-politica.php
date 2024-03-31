@@ -13,8 +13,8 @@ $get_politicas = get_posts( $array_politica );
 ?>
 <div class="banner-internas position-relative">
   <div class="hero-image">
-    <div class="image">
-      <img src="http://uniprime.local/wp-content/uploads/2024/03/img-politicas.jpg" alt="Foto de capa de políticas" >
+    <div class="image"  style="background-image: url('http://uniprime.local/wp-content/uploads/2024/03/img-politicas.jpg');">
+      <!-- <img src="http://uniprime.local/wp-content/uploads/2024/03/img-politicas.jpg" alt="Foto de capa de políticas" > -->
     </div>
     <div class="container">
       <div class="position-absolute copy">
@@ -28,10 +28,40 @@ $get_politicas = get_posts( $array_politica );
     </div>
   </div>
 </div>
+<div class="politicas-mobile d-flex d-lg-none flex-column">
+  <div class="select-politica" id="select-politica">
+    <?php echo the_title().'<i class="arrow down"></i>'; ?>
+  </div>
+  <div class="nav-politicas-mobile" id="nav-politicas-mobile">
+    <div class="container-menu-politicas-mobile d-flex flex-column">
+      <div>
+        <div class="header-content-mobile d-flex flex-column">
+          <button class="slick-next slick-arrow voltar" aria-label="Next" type="button" style="" aria-disabled="false"></button>
+          <div class="title-menu-mobile">Nossas Políticas</div>
+        </div>
+        <div class="content-menu-mobile">
+          <div class="option-politicas" id="option-politicas">
+            <?php 
+              //print_r($get_politicas); guid post_name
+              foreach($get_politicas as $key=>$get_politica) {
+                //echo get_post_permalink($get_politica->ID);
+                //echo get_permalink();
+                ?>
+                <div class="nav-item  <?php echo (get_permalink()===get_post_permalink($get_politica->ID)) ? 'active': '';?>">
+                  <a href="<?php echo get_post_permalink($get_politica->ID);?>"class="nav-link d-flex align-items-center" id="tab-<?php echo $key;?>"><?php echo $get_politica->post_title; ?><i class="arrow right"></i></a>
+                </div>
+            <?php } ?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
 <section class="single-politica mw-100">
   <div class="container">
     <div class="d-grid cols-politica">
-      <div class="col-nav ">
+      <div class="col-nav d-none d-lg-block">
         <ul class="nav nav-pills" id="tabs-politicas">
           <?php
           //print_r($get_politicas); guid post_name

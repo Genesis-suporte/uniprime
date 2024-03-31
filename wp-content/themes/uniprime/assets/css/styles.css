@@ -1805,14 +1805,14 @@ section.canais-digitais {
 }
 /* SINGLE POLITICA */
 section.single-politica {
-  padding: 190px 0px;
+  padding: 244px 0px;
 }
 .single-politica .cols-politica {
   grid-template-columns: auto auto;
+  grid-column-gap: 24px;
 }
 .single-politica .col-nav {
   width: 391px;
-  margin-right: 24px;
 }
 .single-politica .nav-pills .nav-item {
   margin-bottom: 16px;
@@ -3226,7 +3226,134 @@ footer {
     grid-template-columns: auto;
     grid-row-gap: 16px;
   }
+  /* POLITICAS */
+  section.single-politica {
+    padding: 115px 12px;
+  }
+  .single-politica .cols-politica {
+    grid-template-columns: auto;
+  }
+  .politicas-mobile {
 
+  }
+  .politicas-mobile .select-politica {
+    width: 100%;
+    padding: 32px 64px 32px 24px;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    color: white;
+    font-family: 'Calibri';
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 30px;
+    position: relative;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    height: 124px;
+    align-items: center;
+    display: flex;
+  }
+  .politicas-mobile .select-politica .arrow.down {
+    border-color: var(--color-actived);
+    right: 26px;
+    position: absolute;
+  }
+  .nav-politicas-mobile {
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 100vh;
+    transition: all .3s ease-in-out;
+    z-index: 124;
+  }
+  .nav-politicas-mobile.actived {
+    top: 0px;
+  }
+  .container-menu-politicas-mobile {
+    margin-top: 114px;
+  }
+  .nav-politicas-mobile .content-menu-mobile {
+    height: 80vh;
+  }
+  .nav-politicas-mobile .header-content-mobile {
+    background-color: white;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 0px 22px 30px;
+  }
+  .nav-politicas-mobile .slick-arrow {
+    background: url(../images/icons/icon-right-arrow.png) no-repeat 24px 10px transparent;
+    border: 0px;
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    margin: 10px -10px 0;
+  }
+  .nav-politicas-mobile .title-menu-mobile {
+    color: var(--primary-color);
+    font-size: 28px;
+    font-family: 'SwitzerlandBold';
+    line-height: 36px;
+    padding-top: 13px;
+  }
+  
+  .nav-politicas-mobile .nav-item {
+    border-radius: 16px;
+    background-color: var(--primary-color-para-voce);
+    margin: 0px 24px 16px;
+  }
+  .nav-politicas-mobile .nav-item.active {
+    background-color: var(--primary-color);
+  }
+  .nav-politicas-mobile .nav-item a {
+    color: var(--primary-color);
+    padding: 0px 60px 0px 24px !important;
+    font-family: "Calibri";
+    font-size: 18px;
+    font-weight: bold;
+    height: 92px;
+    line-height: 30px;
+    position: relative;
+  }
+  .nav-politicas-mobile .nav-item.active a {
+    color: var(--primary-color-para-voce);
+  }  
+  .nav-politicas-mobile .nav-item a .arrow.right {
+    right: 20px;
+    top: 40px;
+    position: absolute;
+  }
+  .nav-politicas-mobile .nav-item.active a .arrow.right {
+    border-color: var(--color-actived);
+  }
+  .single-politica .content {
+    margin: 0 0px;
+  }
+  .single-politica .content h2:before {
+    left: 0px;
+  }
+  .single-politica .content h2 {
+    padding-left: 68px;
+  }
+  
+  .single-politica .content h1,
+  .single-politica .content h2,
+  .single-politica .content h3 {
+    text-transform:lowercase;
+  }
+  .single-politica .content h1:first-letter,
+  .single-politica .content h2:first-letter,
+  .single-politica .content h3:first-letter {
+    text-transform: capitalize;
+  }
+  .single-politica .content h2 + div p, 
+  .single-politica .content h3 + div p, 
+  .single-politica .content h3, 
+  .single-politica .content ul {
+    margin-left: 0px !important;
+    margin-right: 0 !important;
+  }
   /* FOOTER */
   .footer-top {
     padding: 129px 0px 4px 43px;
