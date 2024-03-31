@@ -42,6 +42,19 @@
           }
           $('.dots-hero').css('top',((height_hero/2)-(height_dots/2))).height(height_dots);
         }
+        var cardInvestimentos = $('.bloco-investimentos .card-bbc .description');
+        if(cardInvestimentos) {
+          var maxHeight = 0;
+          for (var i = 0; i < cardInvestimentos.length; i++) {
+            if (maxHeight < $(cardInvestimentos[i]).outerHeight()) {
+              maxHeight = $(cardInvestimentos[i]).outerHeight();
+            }
+          }
+          // Set ALL card bodies to this height
+          for (var i = 0; i < cardInvestimentos.length; i++) {
+            $(cardInvestimentos[i]).height(maxHeight);
+          }
+        }
       }
       topBarContainer = document.querySelector('#top-bar-container');
       if(topBarContainer) {
@@ -96,6 +109,36 @@
           ]
         });
       }
+      
+      if($('.slide-nossos-produtos-short')) {
+        $('.slide-nossos-produtos-short').slick({
+          dots: false,
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: false,
+          appendArrows: '.arrows-nossos-produtos-desktop',
+          rows: 1,
+          responsive: [
+            {
+              breakpoint: 1200,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                appendArrows: '.arrows-nossos-produtos-desktop',
+              }
+            },
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                appendArrows: '.arrows-nossos-produtos-mobile',
+              }
+            }
+          ]
+        });
+      }
+       
       
       if($('.slide-nossa-historia')) {
         $('.slide-nossa-historia').slick({
@@ -473,7 +516,6 @@
           }
         ]
       });
-    }
-    
+    }    
   });
 })(jQuery); 

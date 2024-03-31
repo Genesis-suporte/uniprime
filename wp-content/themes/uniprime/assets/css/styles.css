@@ -1014,6 +1014,10 @@ a {
   right: 0;
   top: -45px;
 }
+.div-logo-uniprime .logo-uniprime-background.investimentos {
+  height: 823px;
+  width: 811px;
+}
 .label-block {
   font-family: 'Calibri';
   font-size: 14px;
@@ -1056,7 +1060,7 @@ a {
 }
 .breadcrumbs {
   width: 100%;
-  padding: 31px 0;
+  padding: 25px 12px;
   font-family: "Calibri";
   font-size: 14px;
   color: var(--color-neutral);
@@ -1136,8 +1140,8 @@ a {
   font-weight: bold;
   padding: 46px 30px 48px 86px !important;
   position: relative;
-  transition: all .2s ease-in-out .2s;
-  -webkit-transition: all .2s ease-in-out .2s;
+  transition: all .2s ease-in-out;
+  -webkit-transition: all .2s ease-in-out;
 }
 
 .nossos-produtos .card-nossos-produtos a .arrow.right{
@@ -1151,7 +1155,26 @@ a {
 .nossos-produtos .card-nossos-produtos:hover a .arrow.right{
   border-color: var(--color-actived);
 }
-
+/* NOSSOS PRODUTOS INTERNAS */
+.nossos-produtos-shorts {
+  padding: 130px 0 130px;
+}
+.nossos-produtos-shorts .title-block h2 {
+  font-family: 'SwitzerlandLight';
+  font-size: 48px;
+  font-weight: lighter;
+  line-height: 52px;
+  padding: 10px 0 12px;
+}
+.nossos-produtos-shorts .block-content {
+}
+.nossos-produtos .description-block .col-left {
+  padding: 0 70px 34px 0;
+}
+.nossos-produtos-shorts .card-nossos-produtos {
+  background-color: rgba(248, 250, 251, .9);
+  border-radius: 16px;
+}
 /* NOSSA HISTÓRIA */
 .nossa-historia {
   padding: 93px 0 147px;
@@ -1502,6 +1525,11 @@ section.canais-digitais {
 .content-internas .copy {
   padding: 0 115px;
 }
+.content-internas .copy.no-image {
+  padding: 0 80px 0 115px;
+  width: 50%;
+}
+
 .content-internas .copy .description-block {
   float:none;
   padding-top: 4px;
@@ -1527,6 +1555,9 @@ section.canais-digitais {
 }
 .content-internas .copy .description-block p {
   max-width: 57%;
+}
+.content-internas .copy.no-image .description-block p {
+  max-width: 90%;
 }
 .mce-content-body,
 .mce-content-body p,
@@ -1771,21 +1802,21 @@ section.canais-digitais {
   font-weight: lighter;
   width: 100%;
 }
-.bloco-beneficios-coop .cards-bbc {
+.cards-bbc {
   grid-template-columns: auto auto auto;
   grid-row-gap: 24px;
   grid-column-gap: 24px;
 }
-.bloco-beneficios-coop .card-bbc {
+.card-bbc {
   background-color: var(--primary-color-para-voce);
   border-radius: 16px;
   padding: 52px 52px 45px 32px;
 }
-.bloco-beneficios-coop .content-card {
+.content-card {
   border-top: 1px solid var(--color-actived);
 }
 
-.bloco-beneficios-coop .card-bbc .title {
+.card-bbc .title {
   font-family: 'Calibri';
   font-size: 14px;
   color: var(--primary-color);
@@ -1793,10 +1824,10 @@ section.canais-digitais {
   position: relative;
   padding: 17px 0 25px 30px !important;
 }
-.bloco-beneficios-coop .card-bbc .title .icon-logo {
+.card-bbc .title .icon-logo {
   margin: 3px 7px 0 0px;
 }
-.bloco-beneficios-coop .card-bbc .description {
+.card-bbc .description {
   color: var(--color-neutral);
   font-family: 'Calibri';
   font-size: 16px;
@@ -2320,6 +2351,34 @@ section.fale-conosco {
   text-align: center;
   margin: 0 auto;
 }
+/* INVESTIMENTOS */
+.bloco-investimentos {
+  padding: 0px 0 132px;
+}
+.bloco-investimentos .title-block {
+  font-family: 'SwitzerlandLight';
+  font-size: 48px;
+  font-weight: lighter;
+  line-height: 52px;
+  padding: 10px 0 12px;
+}
+.bloco-investimentos .cards-bbc {
+  grid-template-columns: auto auto;
+  padding: 29px 0 0;
+}
+.bloco-investimentos .card-bbc {
+  padding: 52px 24px 50px 32px;
+}
+.bloco-investimentos .card-bbc .link {
+  padding-top: 23px;
+}
+.bloco-investimentos .card-bbc .link a {
+  color: var(--primary-color);
+  font-family: 'Calibri' !important;
+  font-size: 14px;
+  line-height: 24px; 
+}
+
 /* FOOTER */
 footer {
   z-index: 12;
@@ -2813,6 +2872,27 @@ footer {
   .arrows-nossos-produtos-mobile {
     margin-left: -24px;
   }
+  /* NOSSOS PRODUTOS INTERNAS */
+  .nossos-produtos-shorts .title-block h2 {
+    font-family: 'SwitzerlandLight';
+    font-size: 36px;
+    font-weight: lighter;
+    line-height: 47px;
+    padding: 13px 0 19px;
+  }
+  .nossos-produtos .slick-slide > div {
+    margin: 0px 0px 30px 25px;
+  }
+  .nossos-produtos .card-nossos-produtos a {
+    font-size: 17px;
+    padding: 46px 30px 48px 86px !important;
+    background-position: 32px 45px;
+  }
+  .nossos-produtos .card-nossos-produtos a .arrow.right {
+    right: 20px;
+    top: 56px;
+  }
+  /* NOSSA HISTÓRIA */
   .nossa-historia {
     padding: 23px 0 135px;
   }
@@ -2991,10 +3071,14 @@ footer {
     line-height: 30px;
   }
   .content-internas {
-    padding: 36px 0 65px;
+    padding: 40px 0 65px;
   }
   .content-internas .copy {
     padding: 0 24px;
+  }
+  .content-internas .copy.no-image {
+    padding: 0 24px 0 24px;
+    width: 100%;
   }
   .content-internas .copy .description-block p {
     max-width: 100%;
@@ -3354,6 +3438,21 @@ footer {
     margin-left: 0px !important;
     margin-right: 0 !important;
   }
+  /* INVESTIMENTOS */
+  .bloco-investimentos {
+    padding: 0px 12px 62px;
+  }
+  .bloco-investimentos .title-block {
+    font-family: 'SwitzerlandLight';
+    font-size: 36px;
+    font-weight: lighter;
+    line-height: 47px;
+    padding: 13px 0 19px;
+  }
+  .bloco-investimentos .cards-bbc {
+    grid-template-columns: auto;
+    padding: 29px 0 0;
+}
   /* FOOTER */
   .footer-top {
     padding: 129px 0px 4px 43px;

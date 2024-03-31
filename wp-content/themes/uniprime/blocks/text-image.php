@@ -10,7 +10,7 @@
 <section class="content-internas z-13 mw-100">
   <div class="container">
     <div class="row">
-      <div class="copy">
+      <div class="copy <?php echo ($posicao_imagem == 'nenhuma') ? 'no-image' : '';?>">
         <div class="position-relative">
           
           <div class="label-block">

@@ -51,6 +51,15 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'keywords' => 		array( 'list', 'categories' )
 		));
 		acf_register_block_type(array(
+			'name'      			=> 'Bloco nossos produtos curto',
+			'title' 					=> __('Nossos produtos short'),
+			'description' 		=> __('Um bloco onde lista 3 produtos/serviços pras páginas internas'),
+			"render_template"	=> "blocks/nossos-produtos-short.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'list', 'categories' )
+		));
+		acf_register_block_type(array(
 			'name'      			=> 'Bloco nossa história',
 			'title' 					=> __('nossa-historia'),
 			'description' 		=> __('Quarto bloco da Homepage, onde mostra os cards'),
@@ -180,13 +189,21 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'category' 				=> 'layout',
 			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'institucional' )
-		));	
-		
+		));			
 		acf_register_block_type(array(
 			'name'      			=> 'bloco-fale-conosco',
 			'title' 					=> __('Bloco Fale conosco'),
 			'description' 		=> __('Bloco com o formulário Fale conosco'),
 			"render_template"	=> "blocks/bloco-fale-conosco.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'institucional' )
+		));			
+		acf_register_block_type(array(
+			'name'      			=> 'bloco-investimentos',
+			'title' 					=> __('Bloco Investimentos'),
+			'description' 		=> __('Bloco com o conteúdo de investimentos e links pras páginas'),
+			"render_template"	=> "blocks/bloco-investimentos.php",
 			'category' 				=> 'layout',
 			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'institucional' )

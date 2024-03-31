@@ -85,7 +85,7 @@
                           ?>
                         </div>
                         <div class="linkpdf">
-                          <a href="<?php echo esc_html($link_download['url']); ?>" class="btn btn-download">Baixar edital<i class="icon-download-white right"></i></a>
+                          <a href="<?php echo esc_html($link_download['url']); ?>" class="btn btn-download"><?php echo __('Baixar edital');?><i class="icon-download-white right"></i></a>
                         </div>
                       </div>
                     </div>
@@ -102,7 +102,7 @@
                   $prox_assembleias .= ''. esc_html($link_download['title']). '<br>';
                   $prox_assembleias .= '</div>';
                   $prox_assembleias .= '<div class="linkpdf">';
-                  $prox_assembleias .= '<a href="'. esc_html($link_download['url']). '" class="btn btn-download">Baixar edital <i class="icon-download-white right"></i></a>';
+                  $prox_assembleias .= '<a href="'. esc_html($link_download['url']). '" class="btn btn-download">'.__('Baixar edital').' <i class="icon-download-white right"></i></a>';
                   $prox_assembleias .= '</div>';
                   $prox_assembleias .= '</div>';
                   $prox_assembleias .= '</div>';
