@@ -244,7 +244,67 @@ add_action( 'wp_enqueue_scripts', 'my_block_plugin_editor_scripts' );
 add_action( 'enqueue_block_editor_assets', 'my_block_plugin_editor_scripts' );
 add_action( 'admin_enqueue_scripts', 'my_block_plugin_editor_scripts' );
 
+/* ADICIONANDO COLUNA TAXONOMIA NAS POST-LIST DOS CUSTOM POST TYPE */
+function custom_taxonomy_column($columns) {
+	$new_columns = array();
+	// Move a coluna do título para o início do array
+	$title = $columns['title'];
+	unset($columns['title']);
+	// Adiciona a coluna do título no início do array
+	$new_columns['title'] = $title;
+	// Adiciona a nova coluna 'Taxonomia' após a coluna do título
+	$new_columns['taxonomy'] = 'Taxonomia';
+	// Adiciona as demais colunas após a coluna 'Taxonomia'
+	foreach ($columns as $key => $value) {
+			$new_columns[$key] = $value;
+	}
 
+	return $new_columns;
+}
+add_filter('manage_solucoes_posts_columns', 'custom_taxonomy_column');
+add_filter('manage_relatorio_posts_columns', 'custom_taxonomy_column');
+/*
+custom_taxonomy_column_content($column, $post_id, 'tipo-relatorio');
+custom_taxonomy_column_content($column, $post_id, 'tipo-solucoes');*/
+// Mostra o conteúdo da nova coluna
+function custom_taxonomy_column_content($column, $post_id) {
+
+	if ($column === 'taxonomy') {
+        // Obtém todas as taxonomias associadas ao tipo de post
+        $taxonomies = get_object_taxonomies(get_post_type($post_id), 'objects');
+        
+        // Verifica se há taxonomias
+        if ($taxonomies) {
+            foreach ($taxonomies as $taxonomy) {
+                // Verifica se o post tem termos associados à taxonomia atual
+                $terms = get_the_terms($post_id, $taxonomy->name);
+                
+                if ($terms && !is_wp_error($terms)) {
+                    $taxonomy_names = array();
+                    foreach ($terms as $term) {
+                        $taxonomy_names[] = $term->name;
+                    }
+                    echo implode(', ', $taxonomy_names);
+                    return; // Termina a função após encontrar a primeira taxonomia com termos associados
+                }
+            }
+        }
+        
+        // Se não houver taxonomias ou termos associados
+        echo 'N/A';
+    }
+}
+add_action('manage_relatorio_posts_custom_column', 'custom_taxonomy_column_content', 10, 3);
+add_action('manage_solucoes_posts_custom_column', 'custom_taxonomy_column_content', 10, 3); 
+
+
+// Torna a coluna "Taxonomia" filtrável
+function custom_taxonomy_column_sortable($columns) {
+	$columns['taxonomy'] = 'taxonomy'; // Define o nome do campo usado para ordenação
+	return $columns;
+}
+add_filter('manage_edit-relatorio_sortable_columns', 'custom_taxonomy_column_sortable');
+add_filter('manage_edit-solucoes_sortable_columns', 'custom_taxonomy_column_sortable');
 /*
 function my_acf_editor( $mceInit, $editor_id ) {
 	$mceInit['setup'] = 'editShortcut_tiny_mce_init';
