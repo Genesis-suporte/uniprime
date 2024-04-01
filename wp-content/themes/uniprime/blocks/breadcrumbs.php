@@ -1,62 +1,88 @@
 <?php
 //function display_breadcrumbs() {
-  // Get the post information and the query
   global $post, $wp_query;
-  // Define a separator character.
   $separator = ' <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-separator"><path d="M9.1665 7.5L11.6665 10L9.1665 12.5" stroke="#6C6C6C" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/></svg> ';
-  // What is the title & URL of the Home Page that you want to display?
   $home_title = 'Home';
   $home_url = get_home_url();
-  $creadcrumb_content = '';
-  // You probably don't want to display this on your home page.
-  if (!is_front_page()) {
-    /*
-    
+  $breadcrumb_content = '';
   
-    
-      <?php echo esc_html($label); ?>
-    </div>*/
-    // Start the div and the unordered list
-    $creadcrumb_content .= "<section class='breadcrumbs mw-100'>\n";
-    $creadcrumb_content .= "<div class='container'>\n";
-    $creadcrumb_content .= "<div class='content-breadcrumbs'>\n<ul>\n";
-    // Add the home page and a separator
-    $creadcrumb_content .= "<li><a href='$home_url'>$home_title</a></li>\n";
-    $creadcrumb_content .= "<li class='separator'>$separator</li>\n";
+  if (!is_front_page()) {
+      $breadcrumb_content .= "<section class='breadcrumbs mw-100'>\n";
+      $breadcrumb_content .= "<div class='container'>\n";
+      $breadcrumb_content .= "<div class='content-breadcrumbs'>\n<ul>\n";
+  
+      // Home link
+      $breadcrumb_content .= "<li><a href='$home_url'>$home_title</a></li>\n";
+      $breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+  
+      // Check if the post has parents
+      if ($post->post_parent) {
+        // Get the ancestors
+        $ancestors = array_reverse(get_post_ancestors($post->ID));
 
-    // Check to see if the post has parents
-    if ($post->post_parent) {
-      // Get the ancestors
-      $ancArray = array_reverse(get_post_ancestors($post->ID));
-      // Set the parents to null, if necessary
-      $parents = (!isset($parents)) ? null : $parents;
-      // Loop through the ancestors
-      foreach ($ancArray as $ancestor) {
-        $anc_permalink = get_permalink($ancestor);
-        $anc_title = get_the_title($ancestor);
-        // This uses a custom field called "short_title" created
-        // with the Advanced Custom Fields plugin!
-        $anc_short = get_field('short_title', $ancestor);
-        $anc_title = ($anc_short) ? $anc_short : $anc_title;
-        $parents .= "<li><a href='$anc_permalink'>$anc_title</a></li>\n";
-        $parents .= "<li class='separator'>$separator</li>\n";
+        foreach ($ancestors as $ancestor) {
+          $anc_permalink = get_permalink($ancestor);
+          $anc_title = get_the_title($ancestor);
+          $breadcrumb_content .= "<li><a href='$anc_permalink'>$anc_title</a></li>\n";
+          $breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+        }
       }
-      // Display the partial list we've created.
-      $creadcrumb_content .= "$parents";
+  
+      // If the post belongs to 'solucoes' post type
+      //var_dump($post);
+      if ($post->post_name == 'relatorio-do-sistema' || $post->post_name == 'assembleias-ago-e-age'  || $post->post_name == 'cooperativismo-financeiro' || $post->post_name == 'sobre-a-uniprime' || $post->post_type == 'politica' ) {
+        $breadcrumb_content .= "<li>" . __("A Uniprime") . "</li>\n";
+        $breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+      }
+      if ($post->post_name == 'canais-digitais' || $post->post_name == 'fale-conosco') {
+        $breadcrumb_content .= "<li>" . __("Atendimento") . "</li>\n";
+        $breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+      }
 
-      // Get information for the current page
-      $short_title = get_field('short_title');
-      $curr_title = ($short_title) ? $short_title : get_the_title();
-      // Display it
-      $creadcrumb_content .= "<li><b>$curr_title</b></li>\n";
+      
+      if ($post->post_type == 'solucoes') {
+        // Add link to 'Soluções'
+        //$solucoes_url = site_url('/solucoes/'); // Adjust this to the correct URL for your 'Soluções' page
+        //$breadcrumb_content .= "<li>Soluções</li>\n";
+        //$breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+        $taxonomy = 'tipo-solucao';
+        
+        $terms = wp_get_post_terms($post->ID, $taxonomy);
+        
+        if ($terms) {
+          foreach ($terms as $term) {
+            // Get the term ancestors
+            $term_ancestors = get_ancestors($term->term_id, $taxonomy, 'taxonomy');
+            $term_ancestors = array_reverse($term_ancestors);
+            //var_dump ($terms);
+            foreach ($term_ancestors as $term_ancestor) {
+              $term_ancestor_obj = get_term($term_ancestor, $taxonomy);
+              //var_dump($term_ancestor_obj);
+              $breadcrumb_content .= "<li>" . $term_ancestor_obj->name . "</li>\n";
+              $breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+            }
 
-    } else {
-      // If there are no parents, then just display the current page
-      $short_title = get_field('short_title');
-      $curr_title = ($short_title) ? $short_title : get_the_title();
-      $creadcrumb_content .= "<li><b>$curr_title</b></li>\n";
-    }
+            // Current term
+            
+            if($term->slug == 'investimentos' ) {
+              $link_url = site_url('/investimentos/');
+            } else {
+              $link_url = "#";
+            }
+            
+            $breadcrumb_content .= "<li><a href='" . $link_url . "'>" . $term->name . "</a></li>\n";
+            $breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+          }
+        }
+      }
+  
+      // Display the current post
+      if ($post->post_type != 'politica' ) {
+        $breadcrumb_content .= "<li><b>" . get_the_title() . "</b></li>\n";
+      } else {
+        $breadcrumb_content .= "<li><b>Políticas</b></li>\n";
+      }
+      $breadcrumb_content .= "</ul>\n</div>\n</div>\n</section>\n";
+      echo $breadcrumb_content;
   }
-  $creadcrumb_content .= "</ul>\n</div>\n</div>\n</section>\n";
-  echo $creadcrumb_content;
-//}
+  //}

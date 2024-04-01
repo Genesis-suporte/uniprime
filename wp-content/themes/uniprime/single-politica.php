@@ -10,10 +10,12 @@ $array_politica = array(
 );
 
 $get_politicas = get_posts( $array_politica );
+$upload_dir = wp_upload_dir();
+$upload_url = $upload_dir['baseurl']; 
 ?>
 <div class="banner-internas position-relative">
   <div class="hero-image">
-    <div class="image"  style="background-image: url('http://uniprime.local/wp-content/uploads/2024/03/img-politicas.jpg');">
+    <div class="image"  style="background-image: url('<?php echo $upload_url;?>/2024/03/img-politicas.jpg');">
       <!-- <img src="http://uniprime.local/wp-content/uploads/2024/03/img-politicas.jpg" alt="Foto de capa de políticas" > -->
     </div>
     <div class="container">
@@ -56,8 +58,12 @@ $get_politicas = get_posts( $array_politica );
       </div>
     </div>
   </div>
-
 </div>
+<?php
+if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
+  include(get_template_directory() . '/blocks/breadcrumbs.php');
+}
+?>
 <section class="single-politica mw-100">
   <div class="container">
     <div class="d-grid cols-politica">

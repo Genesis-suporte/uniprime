@@ -1060,7 +1060,7 @@ a {
 }
 .breadcrumbs {
   width: 100%;
-  padding: 25px 12px;
+  padding: 32px 12px;
   font-family: "Calibri";
   font-size: 14px;
   color: var(--color-neutral);
@@ -1836,7 +1836,7 @@ section.canais-digitais {
 }
 /* SINGLE POLITICA */
 section.single-politica {
-  padding: 244px 0px;
+  padding: 156px 0px;
 }
 .single-politica .cols-politica {
   grid-template-columns: auto auto;
@@ -3312,7 +3312,7 @@ footer {
   }
   /* POLITICAS */
   section.single-politica {
-    padding: 115px 12px;
+    padding: 34px 12px;
   }
   .single-politica .cols-politica {
     grid-template-columns: auto;

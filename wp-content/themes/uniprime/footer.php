@@ -1,11 +1,14 @@
     </div><!-- #main -->
-
+    <?php 
+    $upload_dir = wp_upload_dir();
+    $upload_url = $upload_dir['baseurl'];
+    ?>
     <footer class="footer mw-100">
       <div class="footer-top">
         <div class="container">
           <div class="row d-flex flex-column flex-md-row">
             <div class="col-12 col-lg-4 logo-footer">
-              <img src="http://uniprime.local/wp-content/uploads/2024/02/UniPrime-logo-footer.png" alt="logo UniPrime footer" />
+              <img src="<?php echo $upload_url;?>/2024/02/UniPrime-logo-footer.png" alt="logo UniPrime footer" />
             </div>
             <div class="col-12 col-lg-3 ouvidoria">
               <div class="label-footer bloco-central icon-phone icon-menu">

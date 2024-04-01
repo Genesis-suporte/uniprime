@@ -24,7 +24,7 @@
 			<footer id="colophon" class="site-footer">
 				<?php if ( get_theme_mod( 'blank_show_copyright', true ) ) : ?>
 				<div class="site-info">
-					<?php echo wp_kses_post( get_theme_mod( 'blank_copyright', __( 'Intentionally Blank - Proudly powered by WordPress', 'intentionally-blank' ) ) ); ?>
+					<?php echo wp_kses_post( get_theme_mod( 'blank_copyright', __( 'Uniprime', 'uniprime' ) ) ); ?>
 				</div>
 				<?php endif; ?>
 			</footer>

@@ -7,7 +7,8 @@ $array_politicas = array(
   'post_type'   => 'relatorio'
 );
 
-
+$upload_dir = wp_upload_dir();
+$upload_url = $upload_dir['baseurl'];
 //relatorios-transparencia
 //balanco-uniprime
 //gerenciamento-risco
@@ -19,7 +20,7 @@ $get_politicas = get_posts( $array_politicas );
 <div class="banner-internas position-relative">
   <div class="hero-image">
     <div class="image">
-      <img src="http://uniprime.local/wp-content/uploads/2024/03/relatorios-sistema.jpg" alt="Foto de capa de políticas" >
+      <img src="<?php echo $upload_url;?>/2024/03/relatorios-sistema.jpg" alt="Foto de capa de políticas" >
     </div>
     <div class="container">
       <div class="position-absolute copy">
