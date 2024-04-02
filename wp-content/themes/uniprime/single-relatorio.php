@@ -24,10 +24,10 @@ $get_politicas = get_posts( $array_politicas );
     </div>
     <div class="container">
       <div class="position-absolute copy">
-        <div class="title">
+        <div class="title title-48 switzerlandLight">
           Relatórios do sistema
         </div>
-        <div class="description">
+        <div class="description title-24 switzerlandBold">
           Esteja sempre informado sobre nossos resultados e siga de perto o progresso da Uniprime
         </div>
       </div>
@@ -60,7 +60,7 @@ $get_politicas = get_posts( $array_politicas );
               <div class="label-block">
                 POLÍTICAS UNIPRIME
               </div>
-              <div class="title-block">
+              <div class="title-block title-28 switzerlandBold">
                 <h1><?php the_title(); ?></h1>
               </div>
               <div class="content">

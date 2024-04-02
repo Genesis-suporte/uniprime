@@ -19,7 +19,7 @@
         <div class="label-block">
           <?php echo esc_html($label); ?>
         </div>
-        <div class="title-block">
+        <div class="title-block title-28 switzerlandBold">
           <?php echo esc_html($titulo); ?>
         </div>
         <div class="description-block">
@@ -32,13 +32,13 @@
         <div class="label-block">
           <?php echo esc_html($label_diretoria); ?>
         </div>
-        <div class="title-block">
+        <div class="title-block title-28 switzerlandBold">
           <?php echo esc_html($titulo_diretoria); ?>
         </div>
         <div class="description-block">
           <?php echo esc_html($descricao_diretoria); ?>
         </div>
-        <div class="diretorias-card">
+        <div class="diretorias-card title-19 switzerlandBold">
           <?php 
             if( have_rows('diretoria') ) {
               while ( have_rows('diretoria') ) : the_row();
@@ -46,10 +46,10 @@
                   $nome = get_sub_field('nome');
                   $cargo = get_sub_field('cargo');?>
                     <div class="diretoria-card d-flex flex-column flex-lg-row diretoria">
-                      <div class="nome col">
+                      <div class="nome col-lg-7">
                         <?php echo esc_html($nome); ?>
                       </div>
-                      <div class="cargo col">
+                      <div class="cargo col-lg-5">
                         <?php echo esc_html($cargo); ?>
                       </div>
                     </div>
@@ -68,10 +68,10 @@
               <div class="label-block">
                 <?php echo esc_html($label_conselho_fiscal); ?>
               </div>
-              <div class="title-block">
+              <div class="title-block title-28 switzerlandBold">
                 <?php echo esc_html($titulo_conselho_fiscal); ?>
               </div>
-              <div class="diretorias-card">
+              <div class="diretorias-card title-19 switzerlandBold">
                 <?php 
                   if( have_rows('conselho_fiscal') ) {
                     while ( have_rows('conselho_fiscal') ) : the_row();
@@ -97,10 +97,10 @@
               <div class="label-block">
                 <?php echo esc_html($label_conselho_admin); ?>
               </div>
-              <div class="title-block">
+              <div class="title-block title-28 switzerlandBold">
                 <?php echo esc_html($titulo_conselho_admin); ?>
               </div>
-              <div class="diretorias-card">
+              <div class="diretorias-card title-19 switzerlandBold">
                 <?php 
                   if( have_rows('conselho_de_administracao') ) {
                     while ( have_rows('conselho_de_administracao') ) : the_row();

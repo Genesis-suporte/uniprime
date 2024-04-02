@@ -11,12 +11,12 @@
     <div class="container">
       <div class="position-absolute copy">
         <?php if($title_banner) { ?>
-          <h1 class="title">
+          <h1 class="title title-48 switzerlandLight">
             <?php echo esc_html($title_banner); ?>
           </h1>
         <?php } ?>
         <?php if($description_banner) { ?>
-          <div class="description">
+          <div class="description title-24 switzerlandBold">
             <?php echo esc_html($description_banner); ?>
           </div>
         <?php } ?>

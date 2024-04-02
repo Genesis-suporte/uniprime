@@ -490,7 +490,7 @@
     if($('.slide-relatorios-balanco')) {
       $('.slide-relatorios-balanco').slick({
         dots: false,
-        slidesToShow: 4,
+        slidesPerRow: 4,
         slidesToScroll: 4,
         infinite: false,
         rows: 3,
@@ -499,7 +499,7 @@
           {
             breakpoint: 1400,
             settings: {
-              slidesToShow: 2,
+              slidesPerRow: 2,
               slidesToScroll: 2,
               rows: 3,
               appendArrows: '.arrows-relatorios-balanco-desktop',
@@ -508,7 +508,7 @@
           {
             breakpoint: 992,
             settings: {
-              slidesToShow: 1,
+              slidesPerRow: 1,
               slidesToScroll: 1,
               rows: 4,
               appendArrows: '.arrows-relatorios-balanco-mobile',
@@ -516,6 +516,38 @@
           }
         ]
       });
-    }    
+    }  
+    if($('.slide-bi')) {
+      $('.slide-bi').slick({
+        dots: false,
+        slidesToScroll: 1,
+        infinite: false,
+        appendArrows: '.arrows-bi-desktop',
+        slidesPerRow: 3,
+        rows: 2,
+        responsive: [
+          {
+            breakpoint: 992,
+            settings: {
+              slidesPerRow: 1,
+              rows: 1,
+              appendArrows: '.arrows-bi-mobile',
+            }
+          }
+        ]
+      });
+      var cardsBi = $('.slide-bi .slick-slide .card-bi');
+      var maxHeight = 0;
+      for (var i = 0; i < cardsBi.length; i++) {
+        if (maxHeight < $(cardsBi[i]).outerHeight()) {
+          maxHeight = $(cardsBi[i]).outerHeight();
+          console.log(maxHeight);
+        }
+      }
+      // Set ALL card bodies to this height
+      for (var i = 0; i < cardsBi.length; i++) {
+        $(cardsBi[i]).height(maxHeight);
+      }
+    }   
   });
 })(jQuery); 

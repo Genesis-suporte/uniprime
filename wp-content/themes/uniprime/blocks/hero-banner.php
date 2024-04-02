@@ -385,7 +385,7 @@ $tipo_homepage = get_field('tipo-homepage');
           <div class="hero-image">
             <div class="container position-relative">
               <div class="copy position-absolute">
-                <div class="title">
+                <div class="title title-48 switzerlandLight">
                   <?php echo esc_html($title_banner); ?>
                 </div>
                 <div class="description">

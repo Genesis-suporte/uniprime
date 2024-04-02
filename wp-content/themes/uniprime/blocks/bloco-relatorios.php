@@ -23,7 +23,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
           <div class="label-block">
             <?php echo esc_html($label); ?>
           </div>
-          <div class="title-block">
+          <div class="title-block title-28 switzerlandBold">
             <?php echo esc_html($titulo); ?>
           </div>
           <div class="description-block">
@@ -38,11 +38,11 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
               if( get_row_layout() == 'resultado' ) {
                 $titulo = get_sub_field('titulo');
                 $valor = get_sub_field('valor');?>
-                  <div class="relatorio-card d-flex flex-column flex-lg-row relatorio">
-                    <div class="nome flex-grow col-7">
+                  <div class="relatorio-card d-flex flex-column flex-lg-row relatorio title-19 switzerlandBold">
+                    <div class="nome flex-grow col-lg-7">
                       <?php echo esc_html($titulo); ?>
                     </div>
-                    <div class="valor col-5">
+                    <div class="valor col-lg-5">
                       <?php echo esc_html($valor); ?>
                     </div>
                   </div>
@@ -62,7 +62,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
         <div class="label-block">
           <?php echo esc_html($label_segundo_grupo); ?>
         </div>
-        <div class="title-block">
+        <div class="title-block title-40 switzerlandLight">
           <h2><?php echo esc_html($titulo_segundo_grupo); ?></h2>
         </div>
         <div class="d-flex">
@@ -105,7 +105,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
                                 <?php echo esc_html($label_transparencia); ?>
                               </div>
                               <div class="d-flex justify-content-between align-items-end">
-                                <div class="ano flex-grow-1 align-self-end">
+                                <div class="ano flex-grow-1 align-self-end title-60 switzerlandLight">
                                   <?php echo esc_html($ano_transparencia); ?>
                                 </div>
                                 <div class="linkpdf">
@@ -137,7 +137,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
         <div class="label-block">
           <?php echo esc_html($label_terceiro_grupo); ?>
         </div>
-        <div class="title-block">
+        <div class="title-block title-40 switzerlandLight">
           <h2><?php echo esc_html($titulo_terceiro_grupo); ?></h2>
         </div>
         <div class="d-flex">
@@ -172,7 +172,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
                                 <?php echo esc_html($label_balanco); ?>
                               </div>
                               <div class="d-flex justify-content-between align-items-end">
-                                <div class="ano flex-grow-1 align-self-end">
+                                <div class="ano flex-grow-1 align-self-end title-36 switzerlandLight">
                                   <?php echo esc_html($ano_balanco); ?>
                                 </div>
                                 <div class="linkpdf">
@@ -204,7 +204,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
         <div class="label-block">
           <?php echo esc_html($label_quarto_grupo); ?>
         </div>
-        <div class="title-block">
+        <div class="title-block title-40 switzerlandLight">
           <h2><?php echo esc_html($titulo_quarto_grupo); ?></h2>
         </div>
         <div class="d-flex">
@@ -231,7 +231,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
                       ));
                       if (!empty($subcategories)) {
                           foreach ($subcategories as $subcategory) {
-                            echo '<div class="title_subcategory">' . $subcategory->name . '</div>';
+                            echo '<div class="title-subcategory title-28 switzerlandBold">' . $subcategory->name . '</div>';
                             echo '<div class="d-grid relatorios-riscos">';
                             // Define os argumentos da consulta para recuperar os posts associados à subcategoria atual
                             $args = array(

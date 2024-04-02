@@ -15,7 +15,7 @@
   <div class="container">
     <div class="row d-flex justify-content-between">
       <div class="search-by-units">          
-        <div class="title-block">
+        <div class="title-block title-28 switzerlandBold">
           <?php echo __('Editais de Convocação'); ?>
         </div>       
         <div class="search-block d-flex justify-content-center">
@@ -31,7 +31,7 @@
         <div class="label-block">
           <?php echo esc_html($label_ultimas); ?>
         </div>
-        <div class="title-block">
+        <div class="title-block title-40 switzerlandLight">
           <h2><?php echo esc_html($titulo_ultimas); ?></h2>
         </div>
         <div class="d-flex">
@@ -72,7 +72,7 @@
                       <div class="ano icon-menu icon-logo">
                         <?php echo esc_html($data_inicio_ano); ?>
                       </div>
-                      <div class="title flex-grow-1">
+                      <div class="title title-block flex-grow-1 title-36 switzerlandLight">
                         <h2><?php echo esc_html($titulo); ?></h2>
                       </div>
                       <div class="d-flex justify-content-between align-items-start align-items-lg-end flex-column flex-lg-row">
@@ -95,7 +95,7 @@
                   $prox_assembleias .= '<div class="card-assembleias">';
                   $prox_assembleias .= '<div class="content-card d-flex flex-column justify-content-start">';
                   $prox_assembleias .= '<div class="ano icon-menu icon-logo">PRÓXIMA ASSEMBLEIA</div>';
-                  $prox_assembleias .= '<div class="title flex-grow-1"><h2>'. esc_html($data_assembleia) .'</h2></div>';
+                  $prox_assembleias .= '<div class="title title-block flex-grow-1 title-36 switzerlandLight"><h2>'. esc_html($data_assembleia) .'</h2></div>';
                   $prox_assembleias .= '<div class="d-flex justify-content-between align-items-start align-items-lg-end flex-column flex-lg-row">';
                   $prox_assembleias .= '<div class="description flex-grow-1">';
                   $prox_assembleias .= '<div class="unidade"><strong>'. esc_html($unidade) .'</strong></div>';
@@ -126,7 +126,7 @@
         <div class="label-block">
           <?php echo esc_html($label_proximas); ?>
         </div>
-        <div class="title-block">
+        <div class="title-block title-28 switzerlandBold">
           <h2><?php echo esc_html($titulo_proximas); ?></h2>
         </div>
         <div class="d-flex">

@@ -10,13 +10,13 @@
         <div class="label-block">
           <?php echo esc_html($label); ?>
         </div>
-        <div class="title-block">
+        <div class="title-block title-28 switzerlandBold">
           <?php echo esc_html($titulo); ?>
         </div>
         <div class="description-block">
           <?php echo esc_html($descricao); ?>
         </div>
-        <div class="cards-bbc d-grid">
+        <div class="cards-bbc d-grid container-grid-2-col container">
           <?php 
             if( have_rows('bloco_investimentos') ) {
               while ( have_rows('bloco_investimentos') ) : the_row();

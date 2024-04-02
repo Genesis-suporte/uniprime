@@ -20,10 +20,10 @@ $upload_url = $upload_dir['baseurl'];
     </div>
     <div class="container">
       <div class="position-absolute copy">
-        <div class="title">
+        <div class="title title-48 switzerlandLight">
           Políticas
         </div>
-        <div class="description">
+        <div class="description title-24 switzerlandBold">
           Confira todas as políticas Uniprime
         </div>
       </div>
@@ -88,7 +88,7 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
               <div class="label-block">
                 POLÍTICAS UNIPRIME
               </div>
-              <div class="title-block">
+              <div class="title-block title-28 switzerlandBold">
                 <h1><?php the_title(); ?></h1>
               </div>
               <div class="content">

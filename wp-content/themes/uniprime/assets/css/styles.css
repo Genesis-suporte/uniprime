@@ -439,7 +439,24 @@ a {
   display: block;
   margin: 4px 0px 0 10px;
 }
-
+.icon-arrow-down-gold {
+  background: url('../images/icons/icon-arrow-down-gold.svg') no-repeat 0px 0px;
+  width: 9px;
+  height: 15px;
+  display: block;
+  margin: 4px 0px 0 10px;
+  
+}
+.accordion-button::after {
+  background: url('../images/icons/icon-arrow-down-gold.svg') no-repeat 0px 0px !important;
+  width: 12px !important;
+}
+.accordion-button:not(.collapsed)::after {
+  background: url('../images/icons/icon-arrow-down-gold.svg') no-repeat 0px 0px !important;
+}
+.accordion-button:focus {
+  box-shadow: none !important;
+}
 .slick-arrow {
   background: url('../images/icons/icon-right-arrow.png') no-repeat 10px 10px;
   background-color: white;
@@ -466,6 +483,10 @@ a {
 }
 .arrows-mobile .slick-arrow {
   margin: 0 12px !important;
+}
+.z-12 {
+  z-index: 12;
+  position: relative;
 }
 .z-13 {
   z-index: 13;
@@ -925,9 +946,6 @@ a {
   max-width: 50%;
 }
 .hero-banner .hero-image .copy .title{
-  font-size: 48px;
-  font-family: 'SwitzerlandLight';
-  line-height: 62px;
   padding-bottom: 28px;
 }
 .hero-banner .hero-image .copy .description{
@@ -1039,17 +1057,59 @@ a {
 }
 .title-block {
   color: var(--primary-color-brand);
-  font-size: 29px;
-  font-family: 'SwitzerlandBold';
+  padding: 6px 0 4px;
+}
+.switzerlandBold {
+  font-family: 'Switzerland';
   font-weight: bold;
-  padding-top: 2px;
+  letter-spacing: 1.1px;
+}
+.switzerlandLight {
+  font-family: 'SwitzerlandLight';
+  font-weight: lighter;
 }
 .title-block h2{
-  font-family: 'SwitzerlandLight';
-  font-size: 40px;
-  font-weight: lighter;
-  line-height: 52px;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
   padding: 4px 0 2px;
+}
+.title-16 {
+  font-size: 16px;
+  line-height: 21px;
+}
+.title-19 {
+  font-size: 19px;
+  line-height: 26px;
+}
+.title-24 {
+  font-size: 24px;
+  line-height: 32px;
+}
+.title-28 {
+  font-size: 28px;
+  line-height: 36px;
+}
+.title-36 {
+  font-size: 36px;
+  line-height: 46px;
+}
+.title-40 {
+  font-size: 40px;
+  line-height: 52px;
+}
+.title-48 {
+  font-size: 48px;
+  line-height: 62px;
+}
+.title-60 {
+  font-size: 60px;
+  line-height: 84px;
+}
+.title-62 {
+  font-size: 62px;
+  line-height: 88px;
 }
 .description-block {
   color: var(--color-neutral);
@@ -1058,7 +1118,7 @@ a {
   padding-top: 5px;
   line-height: 27px;
 }
-.breadcrumbs {
+.nav-breadcrumb {
   width: 100%;
   padding: 32px 12px;
   font-family: "Calibri";
@@ -1066,27 +1126,26 @@ a {
   color: var(--color-neutral);
 }
 
-.breadcrumbs ul {
-  list-style: none;
+.nav-breadcrumb ol {
   margin: 0px;
   padding-left: 0px;
 }
 
-.breadcrumbs ul li {
+.nav-breadcrumb ol li {
   display: inline-block;
   vertical-align: middle;
   margin-right: 0px;
 }
-.breadcrumbs ul li a {
+.nav-breadcrumb ol li a {
   font-family: "Calibri";
   font-size: 14px;
   color: var(--color-neutral);
 }
-.breadcrumbs li.separator {
+.nav-breadcrumb li.separator {
   padding: 0px 13px 2px 4px;
 }
-.breadcrumbs ul li b {
-  color: var(--primary-color);
+.nav-breadcrumb ol li b {
+  color: var(vs);
 }
 /* NOSSOS PRODUTOS */
 .nossos-produtos {
@@ -1169,7 +1228,7 @@ a {
 .nossos-produtos-shorts .block-content {
 }
 .nossos-produtos .description-block .col-left {
-  padding: 0 70px 34px 0;
+  padding: 0 70px 50px 0;
 }
 .nossos-produtos-shorts .card-nossos-produtos {
   background-color: rgba(248, 250, 251, .9);
@@ -1184,10 +1243,37 @@ a {
   position: relative;
   font-family: 'Calibri' !important;
 }
+
+.nossa-historia .container {
+  max-width: 100%;
+}
+@media (min-width: 575.9px) {
+  .nossa-historia .container {
+    max-width: 540px;
+    padding: 0;
+  }
+}
+@media (min-width: 767.9px) {
+  .nossa-historia .container {
+    max-width: 720px;
+    padding: 0;
+  }
+}
+@media (min-width: 991.9px) {
+  .nossa-historia .container {
+    max-width: 960px;
+    padding: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .nossa-historia .container {
+    max-width: 100%;
+    padding: 0;
+  }
+}
 .nossa-historia .col-left{
   padding-top: 43px;
-  /* @TODO: Remover padding e ajustar padding real */
-  padding-left: 120px;
 }
 .nossa-historia .col-8{
   padding: 0 24px 0 50px;
@@ -1195,11 +1281,7 @@ a {
 }
 .nossa-historia .title-block {
   color: white;
-  font-size: 48px;
-  font-family: 'SwitzerlandLight';
-  font-weight: 300;
   padding-top: 12px;
-  line-height: 62px;
   padding-right: 40px;
 }
 .nossa-historia .arrows-nossa-historia-desktop {
@@ -1239,9 +1321,6 @@ a {
 }
 .nossa-historia .card-nossa-historia .content-card .destaque {
   color: white;
-  font-size: 62px;
-  font-family: 'SwitzerlandLight';
-  font-weight: 300;
   padding-top: 12px;
 }
 .nossa-historia .card-nossa-historia .content-card .description {
@@ -1304,13 +1383,11 @@ section.canais-digitais {
   font-family: 'Calibri' !important;
 }
 .onde-encontrar .block-left {
-  padding: 0px 0 0 207px;
+  /*padding: 0px 0 0 207px;*/
+  width: 390px;
 }
 .onde-encontrar .destaque-block {
   color: white;
-  font-size: 60px;
-  font-family: 'SwitzerlandLight';
-  font-weight: 300;
   line-height: 84px;
 }
 .onde-encontrar .description {
@@ -1418,12 +1495,14 @@ section.canais-digitais {
   font-size:  17px;
   line-height: 21px;
   padding-bottom: 30px;
+  font-family: 'Switzerland';
+  font-weight: 700;
 }
 .novidades .artigos .card-post .title-block a {
-  color: var(--primary-color);
+  color: var(--primary-color-brand);
 }
 .novidades .artigos .card-post .cta a.leia_mais {
-  color: var(--primary-color);
+  color: var(--primary-color-brand);
   font-size: 13px;
 }
 
@@ -1444,17 +1523,10 @@ section.canais-digitais {
   padding: 60px 0 0 14px;
 }
 .atendimento .col-right .title-block {
-  font-size: 62px;
-  font-family: 'SwitzerlandLight';
-  font-weight: 300;
   padding-top: 0px;
-  line-height: 84px;
 }
 .atendimento .col-right .subtitle-block {
   color: var(--primary-color-brand);
-  font-size: 30px;
-  font-family: 'SwitzerlandBold';
-  font-weight: bold;
   padding: 6px 0px;
 }
 .atendimento .col-right .description {
@@ -1487,17 +1559,10 @@ section.canais-digitais {
   }
 }
 .banner-internas .hero-image .copy .title{
-  font-size: 48px;
-  font-family: 'SwitzerlandLight';
-  line-height: 62px;
   padding-bottom: 10px;
   margin: 0;
 }
 .banner-internas .hero-image .copy .description{
-  font-size: 24px;
-  font-family: 'SwitzerlandBold';
-  font-weight: bold;
-  line-height: 32px;
 }
 .banner-internas .hero-image .copy .cta a{
   font-size: 18px !important;
@@ -1577,16 +1642,25 @@ section.canais-digitais {
   width: 100%;
   z-index: -1;
 }
-.bloco-mvv .card-mvv {
+.container-grid-2-col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-row-gap: 24px;
+  grid-column-gap: 24px;
+  margin: 0 -24px;
+}
+.container-grid-3-col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-row-gap: 24px;
+  grid-column-gap: 24px;
+  margin: 0 -24px;
+}
+
+.container-grid-3-col .card {
   background-image: linear-gradient(#004F71, #007D79);
   padding: 76px 40px 20px;
-  margin: 0 12px;
   border-radius: 16px;
 }
 .bloco-mvv .card-mvv .title {
-  font-size: 40px;
-  font-family: 'SwitzerlandLight';
-  line-height: 62px;
   color: white;
   padding: 40px 0 21px;
 }
@@ -1633,9 +1707,6 @@ section.canais-digitais {
 }
 
 .beneficios-institucional .slide-beneficios .title {
-  font-size: 64px;
-  font-family: 'SwitzerlandLight';
-  line-height: 80px;
   color: white;
   padding-bottom: 8px;
 }
@@ -1650,7 +1721,7 @@ section.canais-digitais {
   padding: 128px 0 106px;
 }
 .diretoria-e-conselhos .description-block {
-  padding-bottom: 32px;
+  padding-bottom: 50px;
 }
 .diretoria-e-conselhos .content-diretoria {
   background-color: var(--primary-color-brand);
@@ -1660,9 +1731,6 @@ section.canais-digitais {
   margin-bottom: 24px;
 }
 .diretoria-e-conselhos .content-diretoria .title-block {
-  font-size: 28px;
-  font-family: 'Switzerland';
-  line-height: 36px;
   color: white;
   padding: 7px 0 22px;
 }
@@ -1674,9 +1742,6 @@ section.canais-digitais {
   padding-bottom: 32px;  
 }
 .diretoria-e-conselhos .content-diretoria .diretoria-card {
-  font-size: 20px;
-  font-family: 'Switzerland';
-  line-height: 26px;
   padding: 32px 0;  
   border-bottom: 1px solid var(--color-neutral-alpha);
   width: 100%;
@@ -1794,18 +1859,10 @@ section.canais-digitais {
   padding: 0px 0 132px;
 }
 .bloco-beneficios-coop .title-block {
-  font-size: 62px;
-  font-family: 'SwitzerlandLight';
   line-height: 80px;
   color: var(--primary-color-brand);
   padding-bottom: 52px;
-  font-weight: lighter;
   width: 100%;
-}
-.cards-bbc {
-  grid-template-columns: auto auto auto;
-  grid-row-gap: 24px;
-  grid-column-gap: 24px;
 }
 .card-bbc {
   background-color: var(--primary-color-para-voce);
@@ -1950,10 +2007,6 @@ section.single-politica {
   padding-bottom: 197px;
 }
 .assembleias .search-by-units .title-block{
-  font-family: 'SwitzerlandBold';
-  font-size: 28px;
-  font-weight: bold;
-  line-height: 37px;
   text-align: center;
   padding: 0px 0 28px 0;
 }
@@ -2010,11 +2063,8 @@ section.single-politica {
 .assembleias .card-assembleias .content-card .title,
 .assembleias .card-assembleias .content-card .title h2 {
   color: white;
-  font-family: 'SwitzerlandLight';
-  font-size: 36px !important;
-  line-height: 46px !important;
 }
-.assembleias .card-assembleias .content-card .title {
+.assembleias .card-assembleias .content-card .title-block {
   padding-bottom: 24px;
 }
 .assembleias .card-assembleias .content-card .description {
@@ -2053,10 +2103,6 @@ section.single-politica {
 }
 .bloco-relatorios .relatorio-card {
   border-bottom: 1px solid var(--color-neutral-alpha-2);
-  font-family: 'SwitzerlandBold';
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 26px;
   padding: 32px 0;
 }
 
@@ -2084,8 +2130,6 @@ section.single-politica {
 }
 
 .bloco-relatorios .container-segundo-grupo-relatorios .card-relatorio .content-card .ano {
-  font-size: 60px;
-  line-height: 80px;
   padding-top: 3px;
 }
 
@@ -2131,12 +2175,9 @@ section.single-politica {
 }
 .bloco-relatorios .card-relatorio .content-card .ano {
   color: white;
-  font-family: 'SwitzerlandLight';
-  font-size: 62px;
-  line-height: 80px;
 }
 .bloco-relatorios .card-relatorio .content-card .linkpdf {
-  padding: 7px 0 16px;
+  padding: 10px 0;
 }
 .bloco-relatorios .card-relatorio .content-card .linkpdf a {
   display: flex;
@@ -2153,16 +2194,16 @@ section.single-politica {
 .bloco-relatorios .cards-terceiro-grupo-relatorios {
   padding: 32px 0 0px;
 }
-.bloco-relatorios .cards-terceiro-grupo-relatorios .slick-slide > div {
-  margin: 0px 0px 24px 0px;
+.bloco-relatorios .cards-terceiro-grupo-relatorios .slick-slide {
+  margin: 0;
+}
+.bloco-relatorios .cards-terceiro-grupo-relatorios .slick-slide > div .card-relatorio{
+  margin: 0px 0px 24px 24px;
   height: inherit !important;
+  width: calc(25% - 25px) !important;
 }
 .bloco-relatorios .cards-terceiro-grupo-relatorios .card-relatorio  {
   background-color: var(--primary-color);
-}
-.bloco-relatorios .card-relatorio .content-card .ano {
-  font-size: 36px;
-  line-height: 46px;
 }
 .bloco-relatorios .container-quarto-grupo-relatorios {
   padding: 130px 0 60px;
@@ -2174,12 +2215,8 @@ section.single-politica {
 .bloco-relatorios .cards-quarto-grupo-relatorios {
   padding: 0 0px;
 }
-.bloco-relatorios .cards-quarto-grupo-relatorios .title_subcategory {
+.bloco-relatorios .cards-quarto-grupo-relatorios .title-subcategory {
   color: var(--primary-color-brand);
-  font-family: 'SwitzerlandBold';
-  font-size: 28px;
-  font-weight: bold;
-  line-height: 36px;
   padding: 32px 0 26px;
 
 }
@@ -2363,7 +2400,6 @@ section.fale-conosco {
   padding: 10px 0 12px;
 }
 .bloco-investimentos .cards-bbc {
-  grid-template-columns: auto auto;
   padding: 29px 0 0;
 }
 .bloco-investimentos .card-bbc {
@@ -2378,7 +2414,106 @@ section.fale-conosco {
   font-size: 14px;
   line-height: 24px; 
 }
-
+.banner-investimentos-internas {
+  height: 240px;
+  background-color: var(--primary-color);
+}
+.banner-investimentos-internas .copy {
+  bottom: 0;
+  color: white;
+  max-width: 80%;
+  padding-bottom: 73px;
+}
+.banner-investimentos-internas .copy .title {
+  font-size: 48px;
+  font-family: 'SwitzerlandLight';
+  line-height: 62px;
+  padding-bottom: 10px;
+  margin: 0;
+}
+.banner-investimentos-internas .copy .description {
+  font-size: 24px;
+  font-family: 'SwitzerlandBold';
+  font-weight: bold;
+  line-height: 32px;
+}
+/* BLOCO DE INVESTIMENTOS */
+.bloco-bi {
+  padding: 0 0 128px;
+}
+.bloco-bi .description-block{
+  padding-bottom: 32px;
+}
+.bloco-bi .cards {
+  padding: 0;
+}
+.bloco-bi .card {
+  padding: 76px 40px 50px;
+  background-image: linear-gradient(#004F71, #007D79);
+  padding: 76px 40px 20px;
+  border-radius: 16px;
+  margin: 0px 0px 24px 24px;
+  width: calc(33.33% - 25px) !important;
+}
+.bloco-bi .slick-list {
+  width: 100%;
+  margin: 0 -12px;
+}
+.icon-number {
+  height: 64px;
+  width: 64px;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 50%;
+  color: white;
+  padding: 12px;
+  text-align: center;
+}
+.bloco-bi .cards .title {
+  padding-top: 43px;
+  color: white;
+}
+.bloco-bi .cards .description {
+  padding-top: 18px;
+}
+.bloco-bi .cards .description p {
+  color: white;
+  font-family: 'Calibri' !important;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 34px;
+}
+/* BLOCO SAIBA MAIS - DÚVIDAS */
+.bloco-saiba-mais {
+  background-color: var(--primary-color-brand);
+  padding: 130px 0 50px;
+}
+.bloco-saiba-mais .container {
+  color: white;
+  padding: 0 260px;
+}
+.bloco-saiba-mais .title-block {
+  color: white;
+  padding: 0;
+}
+.bloco-saiba-mais .description-block {
+  color: white;
+  font-size: 14px;
+}
+.bloco-saiba-mais .accordion {
+  padding: 50px 0;
+}
+.bloco-saiba-mais .accordion-item {
+  border-radius: 29px !important;
+  border: 1px solid white !important;
+  background-color: transparent !important;
+  margin-bottom: 22px;
+}
+.accordion-button {
+  border-radius: 29px !important;
+  background-color: transparent !important;
+  color: white !important;
+}
 /* FOOTER */
 footer {
   z-index: 12;
@@ -2388,6 +2523,9 @@ footer {
 .footer-top {
   background-color:  var(--primary-color-para-voce);
   padding: 97px 0 84px;
+}
+.logo-footer {
+  padding: 15px 0 0 11px;
 }
 .footer-top .col-4 {
   padding: 15px 0 0 12px;
@@ -2421,8 +2559,8 @@ footer {
 }
 .footer-menu .label-footer-menu {
   color: var(--primary-color-brand);
-  font-size: 20px;
-  font-family: 'SwitzerlandBold';
+  font-size: 22px;
+  font-family: 'Switzerland';
   font-weight: bold;
   padding: 0px 0px 30px;
 }
@@ -2805,8 +2943,6 @@ footer {
     max-width: 65%;
   }
   .hero-banner .hero-image .copy .title {
-    font-size: 38px;
-    line-height: 48px;
     padding-bottom: 26px;
   }
   .hero-banner .hero-image .copy .description {
@@ -2841,6 +2977,14 @@ footer {
     line-height: 47px;
     padding: 0px 0 2px;
   }
+  .title-48 {
+    font-size: 38px;
+    line-height: 48px;
+  }
+  .title-60 {
+    font-size: 60px;
+    line-height: 84px;
+  }
   .description-block {
     padding-top: 8px;
   }
@@ -2870,7 +3014,7 @@ footer {
     padding-bottom: 19px;
   }
   .arrows-nossos-produtos-mobile {
-    margin-left: -24px;
+    margin-left: -12px;
   }
   /* NOSSOS PRODUTOS INTERNAS */
   .nossos-produtos-shorts .title-block h2 {
@@ -2896,8 +3040,8 @@ footer {
   .nossa-historia {
     padding: 23px 0 135px;
   }
-  .nossa-historia .col-left{
-    padding: 42px 24px 0;
+  .nossa-historia .fix-padding-left {
+    padding: 42px 12px 0 !important;
   }
   .nossa-historia .title-block {
     font-size: 36px;
@@ -2906,7 +3050,7 @@ footer {
     width: 100%;
   }
   .nossa-historia .slide-nossa-historia {
-    padding: 0px 24px 30px;
+    padding: 0px 0px 30px;
   }
   .nossa-historia .slide-nossa-historia .slick-list {
     padding: 0 0% 0 0 !important;
@@ -2973,7 +3117,7 @@ footer {
     line-height: 47px;
   }
   .canais-digitais .container {
-    height: 666px;
+    height: 602px;
     justify-content: center;
     display: flex;
   }
@@ -2988,6 +3132,10 @@ footer {
     max-height: 407px;
     margin: -97px 0 -55px;
   }
+  .home .canais-digitais {
+    padding: 0px 0 68px !important;
+  }
+  .home .canais-digitais .col-right,
   .canais-digitais .col-right {
     padding: 0px 24px 0;
     position: relative;
@@ -3004,6 +3152,7 @@ footer {
   }
   .onde-encontrar .block-left {
     padding: 0px 0 0 12px;
+    width: 100%;
   }
   .onde-encontrar .destaque-block {
     font-size: 36px;
@@ -3093,6 +3242,10 @@ footer {
   .beneficios-institucional {
     padding: 42px 12px 64px;
   }
+  
+  .container-grid-3-col {
+    grid-template-columns: auto;
+  }
   .bloco-mvv .card-mvv {
     padding: 46px 40px 34px;
     margin: 0 12px 24px;
@@ -3123,8 +3276,11 @@ footer {
   .diretoria-e-conselhos .title-block {
     width: 100%;
   }
+  .diretoria-e-conselhos .description-block {
+    padding-bottom: 32px;
+  }
   .diretoria-e-conselhos .content-diretoria {
-    padding: 69px 32px 30px;
+    padding: 64px 32px 30px;
     margin-bottom: 16px;
   }
   .diretoria-e-conselhos .content-diretoria .description-block {
@@ -3137,7 +3293,7 @@ footer {
   .diretoria-e-conselhos .content-diretoria .diretoria-card {
     font-size: 21px;
     font-weight: bold;
-    padding: 32px 16px 32px 0px;
+    padding: 32px 0px 32px 0px;
   }
   .diretoria-e-conselhos .content-diretoria .diretoria-card .cargo {
     text-align: left;
@@ -3303,6 +3459,12 @@ footer {
   .bloco-relatorios .container-terceiro-grupo-relatorios .container{
     padding: 0 24px;
   }
+  .bloco-relatorios .cards-terceiro-grupo-relatorios .slick-slide > div {
+    margin: 0 !important;
+  }
+  .bloco-relatorios .cards-terceiro-grupo-relatorios .slick-slide > div .card-relatorio {
+    width: calc(100% - 25px) !important;
+  }
   .bloco-relatorios .container-quarto-grupo-relatorios {
     padding: 130px 12px 60px;
   }
@@ -3316,9 +3478,6 @@ footer {
   }
   .single-politica .cols-politica {
     grid-template-columns: auto;
-  }
-  .politicas-mobile {
-
   }
   .politicas-mobile .select-politica {
     width: 100%;
@@ -3452,10 +3611,47 @@ footer {
   .bloco-investimentos .cards-bbc {
     grid-template-columns: auto;
     padding: 29px 0 0;
+  }
+  /* BANNER INVESTIMENTOS  */
+  .banner-investimentos-internas {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    height: 220px;
+  }
+  .banner-investimentos-internas .copy {
+    bottom: 0;
+    max-width: 100%;
+    padding: 0 0px 31px 12px;
+  }
+  /* BLOCO BENEFICIOS DE INVESTIMENTOS */
+  .bloco-bi {
+    padding: 0 12px 64px;
+  }
+  
+  .bloco-bi .card {
+    padding: 76px 40px 20px;
+    width: calc(100% - 25px) !important;
+  }
+  
+  /* BLOCO SAIBA MAIS - DÚVIDAS */
+  .bloco-saiba-mais {
+    padding: 65px 0 50px;
 }
+  .bloco-saiba-mais .container {
+    padding: 0 24px;
+  }
+  .bloco-saiba-mais .title-block {
+    padding: 12px 0 0;
+  }
+  .bloco-saiba-mais .accordion {
+    padding: 30px 0;
+  }
+  .accordion-button {
+    font-size: 14px !important;
+  }
   /* FOOTER */
   .footer-top {
-    padding: 129px 0px 4px 43px;
+    padding: 60px 0px 4px 43px;
   }
   .footer-top .logo-footer {
     justify-content: center;

@@ -1,6 +1,6 @@
 <div class="bloco-mvv z-13">
   <div class="container">
-    <div class="d-flex justify-content-between flex-column flex-lg-row">
+    <div class="container-mvv container-grid-3-col d-grid">
       <?php 
         if( have_rows('bloco-mvv') ) {
           while ( have_rows('bloco-mvv') ) : the_row();
@@ -8,10 +8,10 @@
               $classe = get_sub_field('classe');
               $titulo = get_sub_field('titulo');
               $descricao = get_sub_field('descricao');?>
-              <div class="card-mvv col">
-                <div class="content-card">
+              <div class="card-mvv card col">
+                <div class="">
                   <div class="icon-menu icon-<?php echo esc_html($classe); ?>"></div>
-                  <div class="title">
+                  <div class="title title-40 switzerlandLight">
                     <?php echo esc_html($titulo); ?>
                   </div>
                   <div class="description">

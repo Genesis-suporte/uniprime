@@ -11,7 +11,7 @@
         <div class="label-block">
           <?php echo esc_html($label); ?>
         </div>
-        <div class="title-block">
+        <div class="title-block title-28 switzerlandBold">
           <?php echo esc_html($titulo); ?>
         </div>
         <div class="description-block">
@@ -41,7 +41,7 @@
                   </div>
                   <div class="position-absolute copy">
                     <?php if($titulo_card) { ?>
-                      <div class="title">
+                      <div class="title title-62 switzerlandLight">
                         <?php echo esc_html($titulo_card); ?>
                       </div>
                     <?php } ?>

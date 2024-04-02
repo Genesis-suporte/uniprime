@@ -9,19 +9,19 @@
 <section class="atendimento mw-100" style="background: url(<?php echo esc_html($imagem_de_fundo); ?>) no-repeat;">
   <div class="container">
     <div class="row">
-      <div class="col col-left col-5 d-none d-lg-flex" >
+      <div class="col col-left col-lg-5 d-none d-lg-flex" >
         <div class="img">
           <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" >
         </div>
       </div>
-      <div class="col col-right col-7">
+      <div class="col col-right col-lg-7">
         <div class="label-block col-7">
           <?php echo esc_html($label); ?>
         </div>
-        <div class="title-block">
+        <div class="title-block title-62 switzerlandLight">
           <?php echo esc_html($titulo); ?>
         </div>
-        <div class="subtitle-block">
+        <div class="subtitle-block title-28 switzerlandBold">
           <?php echo esc_html($sub_titulo); ?>
         </div>
         <div class="description">

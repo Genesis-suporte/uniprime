@@ -7,12 +7,12 @@
 <section class="onde-encontrar mw-100" style="background: url(<?php echo esc_html($imagem_de_fundo); ?>) no-repeat;">
   <div class="container">
     <div class="row d-flex justify-content-between flex-column flex-lg-row z-13">
-      <div class="col">
+      <div class="col d-flex justify-content-end">
         <div class="block-left">
           <div class="label-block">
             <?php echo esc_html($label); ?>
           </div>
-          <div class="destaque-block">
+          <div class="destaque-block title-60 switzerlandLight">
             <?php echo esc_html($destaque); ?>
           </div>
           <div class="description">

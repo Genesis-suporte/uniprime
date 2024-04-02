@@ -3,13 +3,13 @@
   $titulo = get_field('titulo', $block['id']);
   ?>
 <section class="nossa-historia mw-100">
-  <div class="">
+  <div class="container">
     <div class="d-flex flex-column flex-lg-row">
-      <div class="col-left col-12 col-lg-5 col-xl-4">
+      <div class="col-left col-12 col-lg-5 col-xl-4 fix-padding-left">
         <div class="label-block">
           <?php echo esc_html($label); ?>
         </div>
-        <div class="title-block">
+        <div class="title-block title-48 switzerlandLight">
           <?php echo esc_html($titulo); ?>
         </div>
         <div class="arrows-nossa-historia-desktop d-none d-lg-flex">
@@ -33,7 +33,7 @@
                     <div class="title icon-menu icon-logo">
                       <?php echo esc_html($titulo); ?>
                     </div>
-                    <div class="destaque">
+                    <div class="destaque title-62 switzerlandLight">
                       <?php echo esc_html($destaque); ?>
                     </div>
                     <div class="description">

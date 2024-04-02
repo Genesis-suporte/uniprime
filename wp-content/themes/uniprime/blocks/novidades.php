@@ -10,7 +10,7 @@
         <div class="label-block">
           <?php echo esc_html($label); ?>
         </div>
-        <div class="title-block">
+        <div class="title-block title-28 switzerlandBold">
           <?php echo esc_html($titulo); ?>
         </div>
         <div class="description-block">
@@ -85,7 +85,7 @@
                           <?php echo esc_html($text_label); ?>
                         </a>
                       </div>
-                      <div class="title-block">
+                      <div class="title-block title-28 switzerlandBold">
                         <a href="<?php echo esc_url($post->guid); ?>" target="_SELF">
                           <?php echo esc_html($post->post_title); ?>
                         </a>

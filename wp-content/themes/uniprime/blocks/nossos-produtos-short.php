@@ -8,7 +8,7 @@
     <div class="label-block">
       <?php echo esc_html($label); ?>
     </div>
-    <div class="title-block">
+    <div class="title-block title-28 switzerlandBold">
       <h2><?php echo esc_html($titulo); ?></h2>
     </div>
     <div class="description-block">

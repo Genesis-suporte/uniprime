@@ -7,13 +7,12 @@
   $breadcrumb_content = '';
   
   if (!is_front_page()) {
-      $breadcrumb_content .= "<section class='breadcrumbs mw-100'>\n";
+      $breadcrumb_content .= '<nav class=\'nav-breadcrumb\' style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'8\' height=\'8\'%3E%3Cpath d=\'M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z\' fill=\'%236c757d\'\/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">';
       $breadcrumb_content .= "<div class='container'>\n";
-      $breadcrumb_content .= "<div class='content-breadcrumbs'>\n<ul>\n";
+      $breadcrumb_content .= "<div class='content-breadcrumbs'>\n<ol class='breadcrumb'>\n";
   
       // Home link
-      $breadcrumb_content .= "<li><a href='$home_url'>$home_title</a></li>\n";
-      $breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+      $breadcrumb_content .= "<li class='breadcrumb-item'><a href='$home_url'>$home_title</a></li>\n";
   
       // Check if the post has parents
       if ($post->post_parent) {
@@ -23,28 +22,24 @@
         foreach ($ancestors as $ancestor) {
           $anc_permalink = get_permalink($ancestor);
           $anc_title = get_the_title($ancestor);
-          $breadcrumb_content .= "<li><a href='$anc_permalink'>$anc_title</a></li>\n";
-          $breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+          $breadcrumb_content .= "<li class='breadcrumb-item'><a href='$anc_permalink'>$anc_title</a></li>\n";
         }
       }
   
       // If the post belongs to 'solucoes' post type
       //var_dump($post);
       if ($post->post_name == 'relatorio-do-sistema' || $post->post_name == 'assembleias-ago-e-age'  || $post->post_name == 'cooperativismo-financeiro' || $post->post_name == 'sobre-a-uniprime' || $post->post_type == 'politica' ) {
-        $breadcrumb_content .= "<li>" . __("A Uniprime") . "</li>\n";
-        $breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+        $breadcrumb_content .= "<li class='breadcrumb-item'>" . __("A Uniprime") . "</li>\n";
       }
       if ($post->post_name == 'canais-digitais' || $post->post_name == 'fale-conosco') {
-        $breadcrumb_content .= "<li>" . __("Atendimento") . "</li>\n";
-        $breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+        $breadcrumb_content .= "<li class='breadcrumb-item'>" . __("Atendimento") . "</li>\n";
       }
 
       
       if ($post->post_type == 'solucoes') {
         // Add link to 'Soluções'
         //$solucoes_url = site_url('/solucoes/'); // Adjust this to the correct URL for your 'Soluções' page
-        //$breadcrumb_content .= "<li>Soluções</li>\n";
-        //$breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+        //$breadcrumb_content .= "<li class='breadcrumb-item'>Soluções</li>\n";
         $taxonomy = 'tipo-solucao';
         
         $terms = wp_get_post_terms($post->ID, $taxonomy);
@@ -58,8 +53,7 @@
             foreach ($term_ancestors as $term_ancestor) {
               $term_ancestor_obj = get_term($term_ancestor, $taxonomy);
               //var_dump($term_ancestor_obj);
-              $breadcrumb_content .= "<li>" . $term_ancestor_obj->name . "</li>\n";
-              $breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+              $breadcrumb_content .= "<li class='breadcrumb-item'>" . $term_ancestor_obj->name . "</li>\n";
             }
 
             // Current term
@@ -70,19 +64,18 @@
               $link_url = "#";
             }
             
-            $breadcrumb_content .= "<li><a href='" . $link_url . "'>" . $term->name . "</a></li>\n";
-            $breadcrumb_content .= "<li class='separator'>$separator</li>\n";
+            $breadcrumb_content .= "<li class='breadcrumb-item'><a href='" . $link_url . "'>" . $term->name . "</a></li>\n";
           }
         }
       }
   
       // Display the current post
       if ($post->post_type != 'politica' ) {
-        $breadcrumb_content .= "<li><b>" . get_the_title() . "</b></li>\n";
+        $breadcrumb_content .= "<li class='breadcrumb-item'><b>" . get_the_title() . "</b></li>\n";
       } else {
-        $breadcrumb_content .= "<li><b>Políticas</b></li>\n";
+        $breadcrumb_content .= "<li class='breadcrumb-item'><b>Políticas</b></li>\n";
       }
-      $breadcrumb_content .= "</ul>\n</div>\n</div>\n</section>\n";
+      $breadcrumb_content .= "</ol>\n</div>\n</div>\n</nav>\n";
       echo $breadcrumb_content;
   }
   //}

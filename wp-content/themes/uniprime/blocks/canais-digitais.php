@@ -22,7 +22,7 @@
             <div class="label-block">
               <?php echo esc_html($label); ?>
             </div>
-            <div class="title-block">
+            <div class="title-block title-28 switzerlandBold">
               <?php echo esc_html($titulo); ?>
             </div>
             <div class="description-block">
@@ -79,7 +79,7 @@
           <div class="label-block">
             <?php echo esc_html($label); ?>
           </div>
-          <div class="title-block">
+          <div class="title-block title-28 switzerlandBold">
             <?php echo esc_html($titulo); ?>
           </div>
           <?php if ($posicao_imagem != 'right') { ?>
@@ -145,7 +145,7 @@
             <div class="label-block">
               <?php echo esc_html($label); ?>
             </div>
-            <div class="title-block">
+            <div class="title-block title-28 switzerlandBold">
               <?php echo esc_html($titulo); ?>
             </div>
             <div class="description-block">
@@ -195,7 +195,7 @@
           <div class="label-block">
             <?php echo esc_html($label); ?>
           </div>
-          <div class="title-block">
+          <div class="title-block title-28 switzerlandBold">
             <?php echo esc_html($titulo); ?>
           </div>
           <div class="description-block">

@@ -207,6 +207,33 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'category' 				=> 'layout',
 			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'institucional' )
+		));		
+		acf_register_block_type(array(
+			'name'      			=> 'bloco-topo-investimentos',
+			'title' 					=> __('Bloco topo de investimentos'),
+			'description' 		=> __('Bloco que substitui a hero image das páginas de investimentos'),
+			"render_template"	=> "blocks/bloco-topo-investimentos.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'institucional' )
+		));	
+		acf_register_block_type(array(
+			'name'      			=> 'bloco-beneficios-investimentos',
+			'title' 					=> __('Bloco benefícios de investimentos'),
+			'description' 		=> __('Bloco de benefícios de investimentos'),
+			"render_template"	=> "blocks/bloco-beneficios-investimentos.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'institucional' )
+		));	
+		acf_register_block_type(array(
+			'name'      			=> 'bloco-duvidas',
+			'title' 					=> __('Bloco Saiba mais (dúvidas)'),
+			'description' 		=> __('Bloco Saiba mais (dúvidas)'),
+			"render_template"	=> "blocks/bloco-duvidas.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'institucional' )
 		));	
 		/* FUNÇÃO PRO GRAVITY FORMS RETORNAR CAMPO ASSUNTO */
 		/*add_filter( 'gform_field_value_assuntos', 'pre_select_assuntos' );
