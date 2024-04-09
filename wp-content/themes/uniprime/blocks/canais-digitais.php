@@ -19,12 +19,16 @@
             <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" >
           </div>
           <div class="col-12 col-lg-6 col-right">
-            <div class="label-block">
-              <?php echo esc_html($label); ?>
-            </div>
-            <div class="title-block title-28 switzerlandBold">
-              <?php echo esc_html($titulo); ?>
-            </div>
+            <?php if($label) { ?>
+              <div class="label-block">
+                <?php echo esc_html($label); ?>
+              </div>
+            <?php }
+            if($titulo) { ?>
+              <div class="title-block title-28 switzerlandBold">
+                <?php echo esc_html($titulo); ?>
+              </div>
+            <?php } ?>
             <div class="description-block">
               <?php echo esc_html($descricao); ?>
             </div>

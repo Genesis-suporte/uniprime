@@ -80,7 +80,7 @@
         });
       }
       if($('.slide-nossos-produtos')) {
-        $('.slide-nossos-produtos').slick({
+        $('.slide-nossos-produtos').not('.slick-initialized').slick({
           dots: false,
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -111,7 +111,7 @@
       }
       
       if($('.slide-nossos-produtos-short')) {
-        $('.slide-nossos-produtos-short').slick({
+        $('.slide-nossos-produtos-short').not('.slick-initialized').slick({
           dots: false,
           slidesToShow: 3,
           slidesToScroll: 3,
@@ -190,7 +190,7 @@
       }
       /* SLICK Benefícios Institucional */
       if($('.slide-beneficios')) {
-        $('.slide-beneficios').slick({
+        $('.slide-beneficios').not('.slick-initialized').slick({
           dots: false,
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -308,7 +308,7 @@
     });
     */
     if($('.slide-novidades')) {
-      $('.slide-novidades').slick({
+      $('.slide-novidades').not('.slick-initialized').slick({
         dots: false,
         slidesToShow: 3,
         slidesToScroll: 1,
@@ -385,8 +385,9 @@
         }); 
       }
     }  
+
     if($('.slide-assembleias')) {
-      $('.slide-assembleias').slick({
+      $('.slide-assembleias').not('.slick-initialized').slick({
         dots: false,
         slidesToScroll: 1,
         infinite: false,
@@ -417,8 +418,9 @@
         $(cards[i]).height(maxHeight);
       }
     } 
+
     if($('.slide-proximas-assembleias')) {
-      $('.slide-proximas-assembleias').slick({
+      $('.slide-proximas-assembleias').not('.slick-initialized').slick({
         dots: false,
         slidesToShow: 2,
         slidesToScroll: 2,
@@ -457,7 +459,7 @@
     } 
     
     if($('.slide-relatorios-transparencia')) {
-      $('.slide-relatorios-transparencia').slick({
+      $('.slide-relatorios-transparencia').not('.slick-initialized').slick({
         dots: false,
         slidesToShow: 3,
         slidesToScroll: 3,
@@ -487,8 +489,9 @@
         
       });
     }
+
     if($('.slide-relatorios-balanco')) {
-      $('.slide-relatorios-balanco').slick({
+      $('.slide-relatorios-balanco').not('.slick-initialized').slick({
         dots: false,
         slidesPerRow: 4,
         slidesToScroll: 4,
@@ -517,37 +520,7 @@
         ]
       });
     }  
-    if($('.slide-bi')) {
-      $('.slide-bi').slick({
-        dots: false,
-        slidesToScroll: 1,
-        infinite: false,
-        appendArrows: '.arrows-bi-desktop',
-        slidesPerRow: 3,
-        rows: 2,
-        responsive: [
-          {
-            breakpoint: 992,
-            settings: {
-              slidesPerRow: 1,
-              rows: 1,
-              appendArrows: '.arrows-bi-mobile',
-            }
-          }
-        ]
-      });
-      var cardsBi = $('.slide-bi .slick-slide .card-bi');
-      var maxHeight = 0;
-      for (var i = 0; i < cardsBi.length; i++) {
-        if (maxHeight < $(cardsBi[i]).outerHeight()) {
-          maxHeight = $(cardsBi[i]).outerHeight();
-          console.log(maxHeight);
-        }
-      }
-      // Set ALL card bodies to this height
-      for (var i = 0; i < cardsBi.length; i++) {
-        $(cardsBi[i]).height(maxHeight);
-      }
-    }   
+
+    
   });
 })(jQuery); 

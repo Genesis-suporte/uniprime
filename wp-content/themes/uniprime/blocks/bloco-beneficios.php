@@ -8,12 +8,17 @@
   <div class="container">
     <div class="row d-flex justify-content-between">
       <div class="col">
-        <div class="label-block">
-          <?php echo esc_html($label); ?>
-        </div>
-        <div class="title-block title-28 switzerlandBold">
-          <?php echo esc_html($titulo); ?>
-        </div>
+      <?php if($label) { ?>
+          <div class="label-block">
+            <?php echo esc_html($label); ?>
+          </div>
+        <?php }
+        if($titulo) { ?>
+          <div class="title-block title-28 switzerlandBold">
+            <?php echo esc_html($titulo); ?>
+          </div>
+        <?php } 
+        if($descricao) { ?>
         <div class="description-block">
           <div class="d-flex">
             <div class="flex-grow-1">
@@ -22,6 +27,7 @@
             <div class="arrows-beneficios-desktop d-none d-lg-flex"></div>
           </div>
         </div>
+        <?php } ?>
       </div>
       <div class="container-">
         <div class="d-flex justify-content-between slide-beneficios">
@@ -32,7 +38,9 @@
               if( get_row_layout() == 'cards' ) {
                 $titulo_card = get_sub_field('titulo_card');
                 $descricao_card = get_sub_field('descricao_card');
+                $sub_descricao_card = get_sub_field('sub_descricao');
                 $imagem_card = get_sub_field('imagem_card');
+                $link_cartoes = get_sub_field('botao'); 
                 //->filename url alt
                 //print_r( $destaque);?>
                 <div class="card-beneficios position-relative">
@@ -44,10 +52,20 @@
                       <div class="title title-62 switzerlandLight">
                         <?php echo esc_html($titulo_card); ?>
                       </div>
-                    <?php } ?>
+                    <?php }  ?>
                     <?php if($descricao_card) { ?>
                       <div class="description">
                         <?php echo esc_html($descricao_card); ?>
+                      </div>
+                    <?php } ?>
+                    <?php if($sub_descricao_card) { ?>
+                      <div class="sub-description">
+                        <?php echo esc_html($sub_descricao_card); ?>
+                      </div>
+                    <?php }  ?>
+                    <?php if($link_cartoes) { ?>
+                      <div class="d-block">
+                        <a class="button btn-actived btn-secondary btn" href="<?php echo esc_url( $link_cartoes['url'] ); ?>"><?php echo esc_html( $link_cartoes['title'] ); ?></a>
                       </div>
                     <?php } ?>
                   </div>

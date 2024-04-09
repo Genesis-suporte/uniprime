@@ -51,6 +51,6 @@
         ?>
       </div>
     </div>
-    <div class="arrows-bi-mobile arrows-mobile d-flex d-md-none justify-content-center"></div>
+    <div class="arrows-bi-mobile arrows-mobile d-flex d-lg-none justify-content-center"></div>
   </div>
 </section>

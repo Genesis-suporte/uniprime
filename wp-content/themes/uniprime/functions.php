@@ -164,10 +164,10 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'keywords' => 		array( 'institucional' )
 		));
 		acf_register_block_type(array(
-			'name'      			=> 'bloco-beneficios-coop',
-			'title' 					=> __('Bloco benefícios de Cooperativismo Financeiro'),
-			'description' 		=> __('Bloco benefícios da página Cooperativismo Financeiro'),
-			"render_template"	=> "blocks/bloco-beneficios-coop.php",
+			'name'      			=> 'bloco-cards',
+			'title' 					=> __('Bloco de cards'),
+			'description' 		=> __('Bloco para montar cards'),
+			"render_template"	=> "blocks/bloco-cards.php",
 			'category' 				=> 'layout',
 			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'institucional' )
@@ -218,19 +218,19 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'keywords' => 		array( 'institucional' )
 		));	
 		acf_register_block_type(array(
-			'name'      			=> 'bloco-beneficios-investimentos',
-			'title' 					=> __('Bloco benefícios de investimentos'),
-			'description' 		=> __('Bloco de benefícios de investimentos'),
-			"render_template"	=> "blocks/bloco-beneficios-investimentos.php",
+			'name'      			=> 'bloco-duvidas',
+			'title' 					=> __('Bloco Saiba mais (dúvidas)'),
+			'description' 		=> __('Bloco Saiba mais (dúvidas)'),
+			"render_template"	=> "blocks/bloco-duvidas.php",
 			'category' 				=> 'layout',
 			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'institucional' )
 		));	
 		acf_register_block_type(array(
-			'name'      			=> 'bloco-duvidas',
-			'title' 					=> __('Bloco Saiba mais (dúvidas)'),
-			'description' 		=> __('Bloco Saiba mais (dúvidas)'),
-			"render_template"	=> "blocks/bloco-duvidas.php",
+			'name'      			=> 'bloco-cartoes',
+			'title' 					=> __('Bloco de cartões'),
+			'description' 		=> __('Bloco de cartões'),
+			"render_template"	=> "blocks/bloco-cartoes.php",
 			'category' 				=> 'layout',
 			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'institucional' )
@@ -332,11 +332,75 @@ function custom_taxonomy_column_sortable($columns) {
 }
 add_filter('manage_edit-relatorio_sortable_columns', 'custom_taxonomy_column_sortable');
 add_filter('manage_edit-solucoes_sortable_columns', 'custom_taxonomy_column_sortable');
+
+// Adicionando ícones no select dos blocos de cards 
+function my_acf_load_icon_choices( $field ) {
+	// Verifica se o campo é o campo de seleção de ícones
+	if ( $field['name'] == 'icone_cards' ) {
+		$field['choices'] = array(
+			'no-icons' => 'Sem ícones',
+			'use-numbers' => 'Usar números'
+		);
+		// Define o caminho para a pasta de ícones
+		$icon_directory = get_template_directory() . '/assets/images/icons/defaults/';
+
+		// Verifica se a pasta de ícones existe
+		if ( is_dir( $icon_directory ) ) {
+			// Inicializa um array para armazenar as opções de ícones
+			$icon_choices = array();
+			$field['choices'] = array(
+            'no-icons' => 'Sem ícones',
+            'use-numbers' => 'Usar números'
+        );
+			// Abre o diretório de ícones
+			if ( $handle = opendir( $icon_directory ) ) {
+				// Percorre os arquivos no diretório
+				while ( false !== ( $entry = readdir( $handle ) ) ) {
+					// Verifica se é um arquivo regular
+					if ( is_file( $icon_directory . $entry ) ) {
+						// Adiciona o ícone como uma opção no campo de seleção
+						// O valor do ícone é o nome do arquivo (Sem extensão)
+						// O rótulo do ícone pode ser personalizado conforme necessário
+
+						//$icon_choices[ pathinfo( $entry, PATHINFO_FILENAME ) ] = '<img src="' . get_template_directory_uri() . '/assets/images/icones/' . $entry . '" alt="' . $entry . '"> ' . $entry;
+						$icon_class = pathinfo( $entry, PATHINFO_FILENAME );
+						$class_suffix = '';
+						$icon_name = str_replace('icon-', '', pathinfo($entry, PATHINFO_FILENAME));
+						// Verifica se o nome do arquivo termina com '-white.png' ou '-white.svg'
+						if ( preg_match( '/-white\.(png|svg)$/', $entry ) || $icon_class == 'icon-missao' || $icon_class == 'icon-visao' || $icon_class == 'icon-valores') {
+							$class_suffix = ' white';
+						}
+						if($icon_name != 'arrow-down-gold') {
+							if($icon_name == 'Sem ícone') {
+								$field['choices'][ $icon_name ] = '<div class="title icon-menu icon-select-field no-icon">Sem ícone</div>';
+							} else if($icon_name == 'Números') {
+								$field['choices'][ $icon_name ] = '<div class="title icon-menu icon-select-field numbers">Números</div>';
+							} else {
+								$field['choices'][ $icon_class ] = '<div class="title icon-menu icon-select-field ' . $icon_class . ' '.$class_suffix.'">' . $icon_name . '</div>';
+							}
+						}
+					}
+				}
+				// Fecha o manipulador do diretório
+				closedir( $handle );
+			}
+
+			// Define as opções do campo de seleção com os ícones carregados dinamicamente
+			$field;
+		}
+	}
+
+	// Retorna o campo modificado
+	return $field;
+}
+add_filter('acf/load_field', 'my_acf_load_icon_choices');
+
+
 /*
-function my_acf_editor( $mceInit, $editor_id ) {
+function my_acf_editor( $mceInit ) {
 	$mceInit['setup'] = 'editShortcut_tiny_mce_init';
 	// What goes into the 'formatselect' list
-	$mceInit['block_formats'] = 'Título Uniprime=code;Header 3=h3;Header 4=h4;Header 5=h5;Header 6=h6;Paragraph=p;Code=code';
+	$mceInit['block_formats'] = 'Marcadores Uniprime=bullist;Título 1=h1;Título 2=h2;Título 3=h3;Título 4=h4;Título 5=h5;Título 6=h6;Paragraph=p;Code=code';
 	$mceInit['paste_word_valid_elements'] = '-strong/b,-em/i,-p,-ol,-ul,-li,-h3,-h4,-h5,-h6,-p,-table[width],-tr,-td[colspan|rowspan|width],-th,-thead,-tfoot,-tbody,-a[href|name],br,del';
 		
 	$mceInit['paste_strip_class_attributes'] = 'all';
@@ -344,7 +408,7 @@ function my_acf_editor( $mceInit, $editor_id ) {
 
 	return $mceInit;
 }
-add_filter('tiny_mce_before_init', 'my_acf_editor')*/
+add_filter('tiny_mce_before_init', 'my_acf_editor');*/
 /*
 FUNTION DO ADD STICKY ON CPT
 function addbox($post, $metabox) {  

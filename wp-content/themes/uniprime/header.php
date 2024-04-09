@@ -206,7 +206,7 @@
                       //solucoes-para-voce
                       //solucoes-para-empresa
                       //solucoes-para-cooperativa
-                        $menu_lists = setMenuThreeLevels('solucoes-'.$tipo_homepage);
+                        $menu_lists = setMenuThreeLevels('solucoes-para-voce');
                         $menu_solucoes = "";
                         foreach ($menu_lists as $item) { 
                           $class = '';
@@ -384,7 +384,7 @@
                               //solucoes-para-voce
                               //solucoes-para-empresa
                               //solucoes-para-cooperativa
-                              $menu_lists = setMenuThreeLevels('solucoes-'.$tipo_homepage);
+                              $menu_lists = setMenuThreeLevels('solucoes-para-voce');
                               $menu_solucoes = "";
                               foreach ($menu_lists as $item) { 
                                 $class = '';

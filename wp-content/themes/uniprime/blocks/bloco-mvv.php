@@ -1,6 +1,6 @@
 <div class="bloco-mvv z-13">
   <div class="container">
-    <div class="container-mvv container-grid-3-col d-grid">
+    <div class="container-mvv container-grid-three-col d-grid">
       <?php 
         if( have_rows('bloco-mvv') ) {
           while ( have_rows('bloco-mvv') ) : the_row();
@@ -8,7 +8,7 @@
               $classe = get_sub_field('classe');
               $titulo = get_sub_field('titulo');
               $descricao = get_sub_field('descricao');?>
-              <div class="card-mvv card col">
+              <div class="card-azul">
                 <div class="">
                   <div class="icon-menu icon-<?php echo esc_html($classe); ?>"></div>
                   <div class="title title-40 switzerlandLight">

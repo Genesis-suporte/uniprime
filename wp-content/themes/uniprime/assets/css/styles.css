@@ -136,6 +136,13 @@ a {
 .icon-cta {
   background: url('../images/icons/icon-right-arrow-white.png') no-repeat 0px 0px;
 }
+.icon-cta-blue {
+  background: url('../images/icons/icon-right-arrow.png') no-repeat 0px 0px;
+  width: 18px;
+  height: 16px;
+  display: block;
+  margin: 4px 0px 0 10px;
+}
 .icon-users {
   float: left;
   padding-left: 0px;
@@ -147,6 +154,31 @@ a {
 }
 .btn:hover svg path {
   stroke: white
+}
+/* ICONS CARTÕES */
+.icon-cartao {
+  background: url('../images/icons/icon-cartao.svg') no-repeat 0px 0px;
+}
+.icon-mobile {
+  background: url('../images/icons/icon-mobile.png') no-repeat 0px 0px;
+}
+.icon-verified-user {
+  background: url('../images/icons/icon-verified-user.svg') no-repeat 0px 0px;
+}
+.icon-monetization-on {
+  background: url('../images/icons/icon-monetization-on.svg') no-repeat 0px 0px;
+}
+.icon-trending-down {
+  background: url('../images/icons/icon-trending-down.svg') no-repeat 0px 0px;
+}
+.icon-heart-01 {
+  background: url('../images/icons/icon-heart-01.svg') no-repeat 0px 0px;
+}
+.icon-perm-phone-msg {
+  background: url('../images/icons/icon-perm-phone-msg.svg') no-repeat 0px 0px;
+}
+.icon-zero {
+  background: url('../images/icons/icon-zero.svg') no-repeat 0px 0px;
 }
 /* ICONS SOLUÇÔES */
 
@@ -172,7 +204,7 @@ a {
 .icon-boleto-bancario-cobranca-white {
   background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
-/* cambio 
+/* cambio */
 .icon-cambio {
   background: url('../images/icons/icon-cambio.png') no-repeat 0px 0px;
 }
@@ -181,7 +213,7 @@ a {
 }
 .icon-cambio-white {
   background: url('../images/icons/icon-cambio-white.png') no-repeat 0px 0px;
-}*/
+}
 /* cartao-credito */
 .icon-cartao-credito {
   background: url('../images/icons/icon-cartao-credito.png') no-repeat 0px 0px;
@@ -393,6 +425,26 @@ a {
 .icon-servicos-internacionais-white {
   background: url('../images/icons/icon-servicos-internacionais-white.png') no-repeat 0px 0px;
 }
+/* icon-custodia-cheques */
+.icon-custodia-cheques {
+  background: url('../images/icons/icon-custodia-cheques.png') no-repeat 0px 0px;
+}
+.icon-custodia-cheques-gold {
+  background: url('../images/icons/icon-custodia-cheques-gold.png') no-repeat 0px 0px;
+}
+.icon-custodia-cheques-white {
+  background: url('../images/icons/icon-custodia-cheques-white.png') no-repeat 0px 0px;
+}
+/* servicos-internacionais */
+/*.icon-pagamentos-recebimentos {
+  background: url('../images/icons/icon-pagamentos-recebimentos.png') no-repeat 0px 0px;
+}*/
+.icon-pagamentos-recebimentos-gold {
+  background: url('../images/icons/icon-pagamentos-recebimentos-gold.png') no-repeat 0px 0px;
+}
+.icon-pagamentos-recebimentos-white {
+  background: url('../images/icons/icon-pagamentos-recebimentos-white.png') no-repeat 0px 0px;
+}
 /* tag */
 .icon-tag {
   background: url('../images/icons/icon-tag.png') no-repeat 0px 0px;
@@ -470,7 +522,32 @@ a {
   padding: 0;
   margin: 0 0px 0px 24px;
 }
+div.icon-menu.white {
+  background-color: var(--primary-color-brand);
+  color: white;
+}
 
+li.select2-results__option .icon-menu {
+  padding-left: 30px !important;
+  font-size: 13px;
+  background-size: 25px;
+  width: 100%;
+  margin: 0px 0px 0 0px;
+  height: 24px;
+}
+/*
+.icon-select-field {
+  padding: 0px 0;
+  font-size: 13px;
+}
+.select2-results__option {
+  padding: 0 !important;
+  height: 40px;
+}
+.select2-results__option > div{
+  padding: 7px 0 7px 40px !important;
+  height: 40px;
+}*/
 .slick-arrow-white {
   background: url('../images/icons/icon-right-arrow-white.png') no-repeat;
   border: 1px solid var(--color-neutral-alpha);
@@ -1032,6 +1109,10 @@ a {
   right: 0;
   top: -45px;
 }
+.div-logo-uniprime .logo-uniprime-background.maquina {
+  height: 793px;
+  width: 811px;
+}
 .div-logo-uniprime .logo-uniprime-background.investimentos {
   height: 823px;
   width: 811px;
@@ -1076,40 +1157,40 @@ a {
   padding: 4px 0 2px;
 }
 .title-16 {
-  font-size: 16px;
-  line-height: 21px;
+  font-size: 16px !important;
+  line-height: 21px !important;
 }
 .title-19 {
-  font-size: 19px;
-  line-height: 26px;
+  font-size: 19px !important;
+  line-height: 26px !important;
 }
 .title-24 {
-  font-size: 24px;
-  line-height: 32px;
+  font-size: 24px !important;
+  line-height: 32px !important;
 }
 .title-28 {
-  font-size: 28px;
-  line-height: 36px;
+  font-size: 28px !important;
+  line-height: 36px !important;
 }
 .title-36 {
-  font-size: 36px;
-  line-height: 46px;
+  font-size: 36px !important;
+  line-height: 46px !important;
 }
 .title-40 {
-  font-size: 40px;
-  line-height: 52px;
+  font-size: 40px !important;
+  line-height: 52px !important;
 }
 .title-48 {
-  font-size: 48px;
-  line-height: 62px;
+  font-size: 48px !important;
+  line-height: 62px !important;
 }
 .title-60 {
-  font-size: 60px;
-  line-height: 84px;
+  font-size: 60px !important;
+  line-height: 84px !important;
 }
 .title-62 {
-  font-size: 62px;
-  line-height: 88px;
+  font-size: 62px !important;
+  line-height: 78px !important;
 }
 .description-block {
   color: var(--color-neutral);
@@ -1584,6 +1665,9 @@ section.canais-digitais {
 .banner-internas .slick-arrow {
   display: none !important;
 }
+.nav-breadcrumb {
+  padding: 27px 12px;
+}
 .content-internas  {
   padding: 163px 0 114px;
 }
@@ -1642,41 +1726,23 @@ section.canais-digitais {
   width: 100%;
   z-index: -1;
 }
-.container-grid-2-col {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-row-gap: 24px;
-  grid-column-gap: 24px;
-  margin: 0 -24px;
-}
-.container-grid-3-col {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-row-gap: 24px;
-  grid-column-gap: 24px;
-  margin: 0 -24px;
-}
-
-.container-grid-3-col .card {
-  background-image: linear-gradient(#004F71, #007D79);
-  padding: 76px 40px 20px;
-  border-radius: 16px;
-}
-.bloco-mvv .card-mvv .title {
+.bloco-mvv .card-azul .title {
   color: white;
   padding: 40px 0 21px;
 }
-.bloco-mvv .card-mvv .description {
+.bloco-mvv .card-azul .description {
   font-size: 20px;
   font-family: 'Calibri';
   line-height: 34px;
   color: white;
 }
-.bloco-mvv .card-mvv .description ul {
+.bloco-mvv .card-azul .description ul {
   padding-left: 20px;
 }
-.bloco-mvv .card-mvv .description ul li::marker {
+.bloco-mvv .card-azul .description ul li::marker {
   color: var(--color-actived);
 }
-.bloco-mvv .card-mvv .description ul li {
+.bloco-mvv .card-azul .description ul li {
   padding-bottom: 8px;
 }
 /* BENEFICIOS */
@@ -1715,6 +1781,19 @@ section.canais-digitais {
   font-family: 'Switzerland';
   line-height: 26px;
   color: white;
+}
+.beneficios-institucional .slide-beneficios .sub-description {  
+  color: white;
+  font-family: 'Calibri';
+  font-size: 16px;
+  line-height: 28px;
+  padding: 15px 0 0;
+}
+.beneficios-institucional .btn {
+  padding: 11px 23px !important;
+  height: 52px;
+  font-size: 18px !important;
+  margin-top: 20px;
 }
 /* DIRETORIA */
 .diretoria-e-conselhos {
@@ -1764,7 +1843,7 @@ section.canais-digitais {
   width: 49%;
   /*gap: 24px;*/
 }
-/* BNLOCO CANAIS DIGITAIS */
+/* BLOCO CANAIS DIGITAIS */
 .blocos-canais-digitais {
   gap: 0 !important;
 }
@@ -1853,43 +1932,6 @@ section.canais-digitais {
   padding: 11px 23px !important;
   height: 52px;
   font-size: 18px !important;
-}
-/* BLOCO BENEFÍCIOS COOP */
-.bloco-beneficios-coop {
-  padding: 0px 0 132px;
-}
-.bloco-beneficios-coop .title-block {
-  line-height: 80px;
-  color: var(--primary-color-brand);
-  padding-bottom: 52px;
-  width: 100%;
-}
-.card-bbc {
-  background-color: var(--primary-color-para-voce);
-  border-radius: 16px;
-  padding: 52px 52px 45px 32px;
-}
-.content-card {
-  border-top: 1px solid var(--color-actived);
-}
-
-.card-bbc .title {
-  font-family: 'Calibri';
-  font-size: 14px;
-  color: var(--primary-color);
-  text-transform: uppercase;
-  position: relative;
-  padding: 17px 0 25px 30px !important;
-}
-.card-bbc .title .icon-logo {
-  margin: 3px 7px 0 0px;
-}
-.card-bbc .description {
-  color: var(--color-neutral);
-  font-family: 'Calibri';
-  font-size: 16px;
-  padding-top: 0px;
-  line-height: 27px;
 }
 /* SINGLE POLITICA */
 section.single-politica {
@@ -2405,15 +2447,6 @@ section.fale-conosco {
 .bloco-investimentos .card-bbc {
   padding: 52px 24px 50px 32px;
 }
-.bloco-investimentos .card-bbc .link {
-  padding-top: 23px;
-}
-.bloco-investimentos .card-bbc .link a {
-  color: var(--primary-color);
-  font-family: 'Calibri' !important;
-  font-size: 14px;
-  line-height: 24px; 
-}
 .banner-investimentos-internas {
   height: 240px;
   background-color: var(--primary-color);
@@ -2469,20 +2502,6 @@ section.fale-conosco {
   padding: 12px;
   text-align: center;
 }
-.bloco-bi .cards .title {
-  padding-top: 43px;
-  color: white;
-}
-.bloco-bi .cards .description {
-  padding-top: 18px;
-}
-.bloco-bi .cards .description p {
-  color: white;
-  font-family: 'Calibri' !important;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 34px;
-}
 /* BLOCO SAIBA MAIS - DÚVIDAS */
 .bloco-saiba-mais {
   background-color: var(--primary-color-brand);
@@ -2513,6 +2532,239 @@ section.fale-conosco {
   border-radius: 29px !important;
   background-color: transparent !important;
   color: white !important;
+}
+/* SISTEMA DE CARDS */
+.bloco-cards {
+  padding: 0px 0 132px;
+  overflow: hidden;
+}
+.bloco-cards .container-cards {
+  padding: 0px
+}
+.bloco-cards .title-block {
+  color: var(--primary-color-brand);
+  padding: 4px 0 7px;
+  width: 100%;
+}
+.bloco-cards .description-block {
+  padding-bottom: 60px;
+}
+.bloco-cards .slick-list {
+  width: 100%;
+  margin: 0 -12px;
+  position: relative;
+  z-index: 12;
+}
+.bloco-cards .slick-slide > div {
+  display: flex;
+}
+.card-bbc, .card-cinza {
+  background-color: var(--primary-color-para-voce);
+  border-radius: 16px;
+  padding: 52px 52px 45px 32px;
+}
+.card-azul {
+  background-image: linear-gradient(#004F71, #007D79);
+  padding: 76px 40px 60px;
+  border-radius: 16px;
+}
+.thumbnail-card {
+  overflow: hidden;
+  height: 180px;
+  width: 100%;
+  background-size: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.thumbnail.card-cinza,
+.thumbnail.card-azul {
+  padding: 0px;
+}
+.thumbnail.card-cinza .has-thumbnail{
+  padding: 33px 32px 45px;
+}
+.thumbnail.card-azul .has-thumbnail{
+  padding: 33px 32px 45px;
+}
+.thumbnail.card-cinza img,
+.thumbnail.card-cinza img {
+  width: 100%;
+}
+.content-card {
+  border-top: 1px solid var(--color-actived);
+}
+.card-cinza .title {
+  font-family: 'Calibri';
+  font-size: 14px;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  position: relative;
+  padding: 17px 0 25px 30px !important;
+}
+.card-cinza .title .icon-logo {
+  margin: 3px 7px 0 0px;
+}
+.card-cinza .description {
+  color: var(--color-neutral);
+  font-family: 'Calibri';
+  font-size: 16px;
+  padding-top: 0px;
+  line-height: 27px;
+}
+.d-grid.container-grid-one-col {
+  /*grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-row-gap: 24px;
+  grid-column-gap: 24px;
+  margin: 0 -24px;*/
+}
+.d-grid.container-grid-two-col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-row-gap: 24px;
+  grid-column-gap: 24px;
+  /* margin: 0 -24px; */
+}
+.d-grid.container-grid-three-col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-row-gap: 24px;
+  grid-column-gap: 24px;
+  /* margin: 0 -24px; */
+}
+.d-grid.container-grid-four-col {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-row-gap: 24px;
+  grid-column-gap: 24px;
+  /* margin: 0 -24px; */
+}
+.d-flex.container-grid-one-col .card-default {
+  /*width: calc(100% - 25px) !important;*/
+}
+.d-flex.container-grid-two-col .card-default {
+  width: calc(50% - 25px) !important;
+  margin: 0px 0px 25px 25px;
+}
+.d-flex.container-grid-three-col .card-default {
+  width: calc(33.33% - 25px) !important;
+  margin: 0px 0px 25px 25px;
+}
+.d-flex.container-grid-four-col .card-default {
+  width: calc(25% - 25px) !important;
+  margin: 0px 0px 25px 25px;
+}
+.bloco-cards .link {
+  padding-top: 23px;
+}
+.bloco-cards .link a {
+  color: var(--primary-color);
+  font-family: 'Calibri' !important;
+  font-size: 14px;
+  line-height: 24px; 
+}
+.bloco-cards .link a .arrow {
+  bottom: 0px;
+}
+
+.card-azul .title {
+  padding-top: 43px;
+  color: white;
+}
+.card-azul .description {
+  padding-top: 18px;
+  color: white;
+}
+.card-azul .description p {
+  color: white;
+  font-family: 'Calibri' !important;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 34px;
+}
+.card-default .description ul {
+  margin-left: 0px !important;
+  margin-right: 0 !important;
+  padding: 17px 0 0 28px;
+}
+.card-default .description ul li {
+  color: var(--primary-color);
+  padding-bottom: 27px;
+}
+.card-default .description ul li::marker {
+  color: var(--color-actived);
+}
+/* BLOCO CARTÕES */
+.bloco-cartoes {
+  padding: 60px 0 167px;
+}
+.bloco-cartoes .d-grid.container-grid-two-col {
+  grid-row-gap: 97px;
+}
+.bloco-cartoes .thumbnail-card {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  height: 450px;
+  width: 100%;
+}
+.bloco-cartoes .content-cards {
+  padding: 0 0px 0 78px;
+  margin-top: -88px;
+}
+.bloco-cartoes .content-cards .title {
+  color: var(--primary-color-brand);
+  padding: 13px 0 22px;
+}
+.bloco-cartoes .content-cards .description {
+  color: var(--primary-color);
+  font-size: 15px;
+  line-height: 27px;
+  padding-right: 40px;
+}
+.bloco-cartoes .content-cards .frases {
+
+}
+.bloco-cartoes .content-cards .frases .frase {
+  color: var(--primary-color);
+  font-size: 15px;
+  background-position-y: 2px;
+}
+.bloco-cartoes .content-cards .frases .frase p {
+  margin-bottom: 15px;
+  line-height: 27px;
+}
+.bloco-cartoes .content-cards .frases .frase a {
+  color: var(--color-actived);
+}
+.btn-primary-color {
+  background-color: transparent !important;
+  border: 1px solid var(--primary-color) !important;
+  color: var(--primary-color) !important;
+  display: flex !important;
+  flex-direction: row;
+  font-size: 14px !important;
+  height: 43px;
+  max-width: 200px;
+  padding:9px 9px 9px 23px !important;
+  margin-top: 34px;  
+}
+.bloco-cartoes .final-content {
+  padding: 95px 0 0;
+}
+.bloco-cartoes .final-content .final-labels ul {
+  margin: 0;
+  padding: 0;
+}
+.bloco-cartoes .final-content .final-labels li::marker {
+  color: var(--color-actived);
+}
+.bloco-cartoes .final-content .final-labels li {
+  color: var(--color-neutral);
+  float: left;
+  padding-right: 40px;
+  font-size: 16px;
+  font-family: 'Calibri';
+}
+.bloco-cartoes .texto-final {
+  color: var(--color-actived);
+  text-align: center;
+  padding: 23px 0 0;
 }
 /* FOOTER */
 footer {
@@ -2686,7 +2938,7 @@ footer {
     padding-left: 0px;
   }
   
-  .bloco-beneficios-coop .cards-bbc {
+  .bloco-cards .cards-bbc {
     grid-template-columns: auto auto;
   }
   .bloco-relatorios .cards-relatorios {
@@ -2978,12 +3230,12 @@ footer {
     padding: 0px 0 2px;
   }
   .title-48 {
-    font-size: 38px;
-    line-height: 48px;
+    font-size: 38px !important;
+    line-height: 48px !important;
   }
   .title-60 {
-    font-size: 60px;
-    line-height: 84px;
+    font-size: 60px !important;
+    line-height: 84px !important;
   }
   .description-block {
     padding-top: 8px;
@@ -3243,10 +3495,7 @@ footer {
     padding: 42px 12px 64px;
   }
   
-  .container-grid-3-col {
-    grid-template-columns: auto;
-  }
-  .bloco-mvv .card-mvv {
+  .bloco-mvv .card-azul {
     padding: 46px 40px 34px;
     margin: 0 12px 24px;
   }
@@ -3338,18 +3587,6 @@ footer {
   /* COOP */
   .content-internas .copy .description-block .title-block {
     width: 100%;
-  }
-  .bloco-beneficios-coop {
-    padding: 0px 0 68px;
-  }
-  .bloco-beneficios-coop .content-beneficios-coop {
-    padding: 0 24px;
-  }
-  .bloco-beneficios-coop .content-beneficios-coop .container {
-    padding: 0;
-  }
-  .bloco-beneficios-coop .card-bbc {
-    padding: 35px 30px 44px 32px;
   }
   /* FALE CONOSCO */
   section.fale-conosco {
@@ -3622,17 +3859,7 @@ footer {
     bottom: 0;
     max-width: 100%;
     padding: 0 0px 31px 12px;
-  }
-  /* BLOCO BENEFICIOS DE INVESTIMENTOS */
-  .bloco-bi {
-    padding: 0 12px 64px;
-  }
-  
-  .bloco-bi .card {
-    padding: 76px 40px 20px;
-    width: calc(100% - 25px) !important;
-  }
-  
+  }  
   /* BLOCO SAIBA MAIS - DÚVIDAS */
   .bloco-saiba-mais {
     padding: 65px 0 50px;
@@ -3649,6 +3876,63 @@ footer {
   .accordion-button {
     font-size: 14px !important;
   }
+
+  /* SISTEMA DE CARDS */
+  .bloco-cards {
+    padding: 0 12px 64px;
+  }
+  .bloco-cards .content-beneficios-coop {
+    padding: 0 24px;
+  }
+  .bloco-cards .content-beneficios-coop .container {
+    padding: 0;
+  }
+  .bloco-cards .card-cinza {
+    padding: 35px 32px 44px;
+  }
+  .bloco-cards .card-azul {
+    padding: 76px 40px 20px;
+  }
+  
+  .thumbnail.card-cinza,
+  .thumbnail.card-azul {
+    padding: 0px;
+  }
+  .thumbnail.card-cinza .has-thumbnail{
+    padding: 30px 32px 45px;
+  }
+  .thumbnail.card-azul .has-thumbnail{
+    padding: 30px 40px 45px;
+  }
+
+  .d-grid.container-grid-two-col {
+    grid-template-columns: auto;
+    margin: 0 0px;
+  }
+  .d-grid.container-grid-three-col {
+    grid-template-columns: auto;
+    margin: 0 0px;
+  }
+  .d-grid.container-grid-four-col {
+    grid-template-columns: auto;
+    margin: 0 0px;
+  }
+
+  .d-flex.container-grid-two-col .card-default {
+    width: calc(100% - 25px) !important;
+  }
+  .d-flex.container-grid-three-col .card-default {
+    width: calc(100% - 25px) !important;
+  }
+  .d-flex.container-grid-four-col .card-default {
+    width: calc(100% - 25px) !important;
+  }
+  .bloco-cards .title-block {
+    padding: 12px 0 7px;
+  }
+  
+  
+
   /* FOOTER */
   .footer-top {
     padding: 60px 0px 4px 43px;
@@ -3685,7 +3969,7 @@ footer {
   }
 }
 @media (max-width: 767.98px) { 
-  .bloco-beneficios-coop .cards-bbc {
+  .bloco-cards .cards-bbc {
     grid-template-columns: auto;
   }
 }

@@ -2,7 +2,7 @@
 $tipo_homepage = get_field('tipo-homepage');
 ?>
 <header class="header-menu-banner position-relative mw-100 <?php echo $tipo_homepage;?>">
-  <div class="main-menu  <?php echo $tipo_homepage;?>" id="main-menu">
+  <div class="main-menu <?php echo $tipo_homepage;?>" id="main-menu">
     <div class="container d-flex justify-content-between">
       <div class="logo">
         <a href="/" class="link-logo">
@@ -96,8 +96,8 @@ $tipo_homepage = get_field('tipo-homepage');
                       if(isset( $item[ 'class' ])) {
                         $class = esc_attr( implode( ' ', $item['class']));
                       }
-                      $menu_solucoes .= '<div class="col-4 menu-subitem '.$class.'">'."\n";
-                      $menu_solucoes .= '<a href="#" class="icon-menu icon-'.$class.'">'. esc_html($item['title']) ."\n";
+                      $menu_solucoes .= '<div class="col-4 menu-subitem '.esc_attr($class).'">'."\n";
+                      $menu_solucoes .= '<a href="'. esc_attr($item['link']).'" class="icon-menu icon-'.$class.'">'. esc_html($item['title']) ."\n";
                       $menu_solucoes .= '<i class="arrow right"></i></a>'."\n";
                       $menu_solucoes .= '</div>'."\n";
                     }
