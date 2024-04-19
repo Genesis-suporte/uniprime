@@ -1688,15 +1688,15 @@ section.canais-digitais {
 }
 .content-internas .img {
   float:none;
-  margin-top: -28px;
+  border-radius: 16px;
 }
 .content-internas .img.direita {
   float:right;
-  padding: 0 0 30px 30px;
+  margin: -20px 0 30px 30px;
 }
 .content-internas .img.esquerda {
   float:left;
-  padding: 0 30px 30px 0;
+  margin: -20px 30px 30px 0;
 }
 .content-internas .img.nenhuma {
   float:none;
@@ -1764,7 +1764,7 @@ section.canais-digitais {
   bottom: 0;
   color: white;
   max-width: 85%;
-  padding: 104px;
+  padding: 104px 104px 52px;
 }
 .beneficios-institucional .slide-beneficios .image {
   width: 100%;
@@ -2569,12 +2569,24 @@ section.fale-conosco {
   border-radius: 16px;
 }
 .thumbnail-card {
-  overflow: hidden;
-  height: 180px;
-  width: 100%;
   background-size: cover;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+  overflow: hidden;
+  height: 180px;
+  width: 100%;
+}
+.container-grid-one-col .thumbnail-card {
+  background-size: cover;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-top-right-radius: 0px;
+  overflow: hidden;
+  height: auto !important;
+  width: 392px !important;
+}
+.container-grid-one-col .has-thumbnail {
+  flex: 1;
 }
 .thumbnail.card-cinza,
 .thumbnail.card-azul {
@@ -2612,6 +2624,7 @@ section.fale-conosco {
   line-height: 27px;
 }
 .d-grid.container-grid-one-col {
+  grid-row-gap: 24px;
   /*grid-template-columns: repeat(1, minmax(0, 1fr));
   grid-row-gap: 24px;
   grid-column-gap: 24px;
@@ -3903,8 +3916,17 @@ footer {
   }
   .thumbnail.card-azul .has-thumbnail{
     padding: 30px 40px 45px;
+  }  
+  .container-grid-one-col .thumbnail-card {
+    background-size: cover;
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 16px;
+    overflow: hidden;
+    height: auto !important;
+    width: 100% !important;
+    /*min-height: 100%;*/
   }
-
   .d-grid.container-grid-two-col {
     grid-template-columns: auto;
     margin: 0 0px;

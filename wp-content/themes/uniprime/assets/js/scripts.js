@@ -141,7 +141,7 @@
        
       
       if($('.slide-nossa-historia')) {
-        $('.slide-nossa-historia').slick({
+        $('.slide-nossa-historia').not('.slick-initialized').slick({
           dots: false,
           slidesToShow: 2,
           slidesToScroll: 1,

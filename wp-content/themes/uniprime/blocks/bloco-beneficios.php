@@ -40,7 +40,8 @@
                 $descricao_card = get_sub_field('descricao_card');
                 $sub_descricao_card = get_sub_field('sub_descricao');
                 $imagem_card = get_sub_field('imagem_card');
-                $link_cartoes = get_sub_field('botao'); 
+                $link_card = get_sub_field('link'); 
+                $tipo_link_card = get_sub_field('tipo_link'); 
                 //->filename url alt
                 //print_r( $destaque);?>
                 <div class="card-beneficios position-relative">
@@ -55,19 +56,25 @@
                     <?php }  ?>
                     <?php if($descricao_card) { ?>
                       <div class="description">
-                        <?php echo esc_html($descricao_card); ?>
+                        <?php echo __($descricao_card); ?>
                       </div>
                     <?php } ?>
                     <?php if($sub_descricao_card) { ?>
                       <div class="sub-description">
-                        <?php echo esc_html($sub_descricao_card); ?>
+                        <?php echo __($sub_descricao_card); ?>
                       </div>
-                    <?php }  ?>
-                    <?php if($link_cartoes) { ?>
-                      <div class="d-block">
-                        <a class="button btn-actived btn-secondary btn" href="<?php echo esc_url( $link_cartoes['url'] ); ?>"><?php echo esc_html( $link_cartoes['title'] ); ?></a>
-                      </div>
-                    <?php } ?>
+                    <?php }  
+                    if($link_card) { 
+                      if ($tipo_link_card == 'link' ) { ?>
+                        <div class="d-block link">
+                          <a href="<?php echo esc_html($link_card['url']); ?>" class=""><?php echo esc_html($link_card['title']); ?><i class="arrow right"></i></a>
+                        </div>
+                      <?php } else { ?>
+                        <div class="d-block">
+                          <a class="button btn-actived btn-secondary btn" href="<?php echo esc_url( $link_card['url'] ); ?>"><?php echo esc_html( $link_card['title'] ); ?></a>
+                        </div>
+                      <?php } 
+                      } ?>
                   </div>
                 </div>
                 <?php

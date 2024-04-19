@@ -76,7 +76,7 @@
                     $descricao_card = get_sub_field('descricao');
                     $icone_cards = get_sub_field('icone_cards');
                     $thumbnail_card = get_sub_field('thumbnail');
-                    $link_card = get_sub_field('link');                    
+                    $link_card = get_sub_field('link');
                     $tipo_link_card = get_sub_field('tipo_link'); 
                     if($icone_cards['value'] == 'use-numbers') {
                       $count++;
@@ -88,10 +88,10 @@
                     } 
                     //
                     ?>
-                    <div class="card-default <?php echo $class_layout;?><?php echo ($has_thumbnail) ? ' thumbnail' : '' ?>" <?php echo $style_layout;?> >
+                    <div class="card-default <?php echo $class_layout; echo ($has_thumbnail) ? ' thumbnail' : ''; echo ($num_colunas == 1) ? ' d-flex flex-column flex-lg-row img-left' : '';?>" <?php echo $style_layout;?> >
                       <?php if ($has_thumbnail) {?>
                         <div class="thumbnail-card" style="background-image: url(<?php echo esc_url($thumbnail_card['url']); ?>);">
-                            <!-- <img src="<?php echo esc_url($thumbnail_card['url']); ?>" alt="<?php echo esc_html($thumbnail_card['alt']); ?>" > -->
+                          <img class="d-flex d-lg-none" src="<?php echo esc_url($thumbnail_card['url']); ?>" alt="<?php echo esc_html($thumbnail_card['alt']); ?>" >
                         </div>
                         <div class="has-thumbnail">
                       <?php } ?>
@@ -142,6 +142,8 @@
   <script type="text/javascript">
     (function($){
       window.addEventListener("load", ()=>{
+        
+        var quantidade_linhas = <?php echo $quantidade_linhas;?>;
         if($('.slide-cards')) {
           $('.slide-cards').slick({
             dots: false,
@@ -161,17 +163,19 @@
               }
             ]
           });
-          var cardsBi = $('.slide-cards .slick-slide .card-default > div');
-          var maxHeight = 0;
-          for (var i = 0; i < cardsBi.length; i++) {
-            if (maxHeight < $(cardsBi[i]).outerHeight()) {
-              maxHeight = $(cardsBi[i]).outerHeight();
-              console.log(maxHeight);
+          if(quantidade_linhas > 1) {
+            var cardsBi = $('.slide-cards .slick-slide .card-default > div');
+            var maxHeight = 0;
+            for (var i = 0; i < cardsBi.length; i++) {
+              if (maxHeight < $(cardsBi[i]).outerHeight()) {
+                maxHeight = $(cardsBi[i]).outerHeight();
+                console.log(maxHeight);
+              }
             }
-          }
-          // Set ALL card bodies to this height
-          for (var i = 0; i < cardsBi.length; i++) {
-            $(cardsBi[i]).height(maxHeight);
+            // Set ALL card bodies to this height
+            for (var i = 0; i < cardsBi.length; i++) {
+              $(cardsBi[i]).height(maxHeight);
+            }
           }
         }   
       });
