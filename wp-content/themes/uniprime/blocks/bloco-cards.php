@@ -40,6 +40,7 @@
     $class_layout = 'card-azul';
     $style_layout = ' style="background-color: '.$cor_de_fundo.'"';
   }
+  $class_slide = ' row slide-cards-'.$block['id'];
 ?>
 <section class="bloco-cards z-13">
   <div class="container">
@@ -54,19 +55,19 @@
         <div class="title-block <?php echo $tamanho_titulo;?> switzerlandLight">
           <?php echo esc_html($titulo); ?>
         </div>
-        <?php } 
-        if($descricao) { ?>
+        <?php } ?>
         <div class="d-flex">
           <div class="description-block flex-grow-1">
-            <?php echo esc_html($descricao); ?>
+            <?php if($descricao) { ?>
+              <?php echo esc_html($descricao); ?>
+            <?php } ?>
           </div>
           <?php if($slide) { ?>
-            <div class="arrows-cards-desktop d-none d-md-flex"></div>
+            <div class="arrows-cards-desktop d-none d-md-flex arrows-cards-desktop-<?php echo $block['id'];?>"></div>
           <?php } ?>
-        </div>   
-        <?php } ?>
+        </div>  
         <div class="container-cards">
-          <div class="cards <?php echo $class_grid_cols; echo ($slide) ? ' slide-cards row' : '';?>">
+          <div class="cards <?php echo $class_grid_cols; echo ($slide) ? $class_slide : '';?>">
             <?php 
               if( have_rows('bloco_cards') ) {
                 $count = 0;
@@ -78,6 +79,7 @@
                     $thumbnail_card = get_sub_field('thumbnail');
                     $link_card = get_sub_field('link');
                     $tipo_link_card = get_sub_field('tipo_link'); 
+                    
                     if($icone_cards['value'] == 'use-numbers') {
                       $count++;
                       $formatted_count = sprintf('%02d', $count); // Adiciona um zero à frente se for menor que 10
@@ -135,21 +137,21 @@
       </div>
     </div>
     <?php if($slide) { ?>
-      <div class="arrows-cards-mobile arrows-mobile d-flex d-lg-none justify-content-center"></div>
+      <div class="arrows-cards-mobile arrows-mobile d-flex d-lg-none justify-content-center arrows-cards-mobile-<?php echo $block['id'];?>"></div>
     <?php } ?>
   </div>
   <?php if($slide) { ?>
   <script type="text/javascript">
     (function($){
       window.addEventListener("load", ()=>{
-        
+        var class_block = '.slide-cards-<?php echo $block['id'];?>';
         var quantidade_linhas = <?php echo $quantidade_linhas;?>;
-        if($('.slide-cards')) {
-          $('.slide-cards').slick({
+        if($(class_block)) {
+          $(class_block).not('.slick-initialized').slick({
             dots: false,
             slidesToScroll: 1,
             infinite: false,
-            appendArrows: '.arrows-cards-desktop',
+            appendArrows: '.arrows-cards-desktop-<?php echo $block['id'];?>',
             slidesPerRow: <?php echo $num_colunas;?>,
             rows: <?php echo $quantidade_linhas;?>,
             responsive: [
@@ -158,7 +160,7 @@
                 settings: {
                   slidesPerRow: 1,
                   rows: 1,
-                  appendArrows: '.arrows-cards-mobile',
+                  appendArrows: '.arrows-cards-mobile-<?php echo $block['id'];?>',
                 }
               }
             ]
