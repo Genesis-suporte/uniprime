@@ -93,7 +93,7 @@
                       $class = esc_attr( implode( ' ', $item['class']));
                     }
                     $menu_solucoes_voce .= '<div class="col-4 menu-subitem '.$class.'">'."\n";
-                    $menu_solucoes_voce .= '<a href="#" class="icon-menu icon-'.$class.'-white">'. esc_html($item['title']) ."\n";
+                    $menu_solucoes_voce .= '<a href="'. esc_attr($item['link']).'" class="icon-menu icon-'.$class.'-white">'. esc_html($item['title']) ."\n";
                     $menu_solucoes_voce .= '<i class="arrow right"></i></a>'."\n";
                     $menu_solucoes_voce .= '</div>'."\n";
                   }
@@ -119,7 +119,7 @@
                       $class = esc_attr( implode( ' ', $item['class']));
                     }
                     $menu_solucoes_empresa .= '<div class="col-4 menu-subitem '.$class.'">'."\n";
-                    $menu_solucoes_empresa .= '<a href="#" class="icon-menu icon-'.$class.'-white">'. esc_html($item['title']) ."\n";
+                    $menu_solucoes_empresa .= '<a href="'. esc_attr($item['link']).'" class="icon-menu icon-'.$class.'-white">'. esc_html($item['title']) ."\n";
                     $menu_solucoes_empresa .= '<i class="arrow right"></i></a>'."\n";
                     $menu_solucoes_empresa .= '</div>'."\n";
                   }
@@ -145,7 +145,7 @@
                       $class = esc_attr( implode( ' ', $item['class']));
                     }
                     $menu_solucoes_cooperativa .= '<div class="col-4 menu-subitem '.$class.'">'."\n";
-                    $menu_solucoes_cooperativa .= '<a href="#" class="icon-menu icon-'.$class.'-white">'. esc_html($item['title']) ."\n";
+                    $menu_solucoes_cooperativa .= '<a href="'. esc_attr($item['link']).'" class="icon-menu icon-'.$class.'-white">'. esc_html($item['title']) ."\n";
                     $menu_solucoes_cooperativa .= '<i class="arrow right"></i></a>'."\n";
                     $menu_solucoes_cooperativa .= '</div>'."\n";
                   }
