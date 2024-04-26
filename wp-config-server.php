@@ -18,23 +18,16 @@
  *
  * @package WordPress
  */
-/*define( 'DB_NAME', 'genesiscreative_unip' );
 
-define( 'DB_USER', 'genesiscreative_unip' );
-
-define( 'DB_PASSWORD', '9v$K#DG8iB]D' );
-
-define( 'DB_HOST', 'localhost' );
-*/
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'local' );
+define( 'DB_NAME', 'genesiscreative_unip' );
 
 /** Database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'genesiscreative_unip' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'root' );
+define( 'DB_PASSWORD', '9v$K#DG8iB]D' );
 
 /** Database hostname */
 define( 'DB_HOST', 'localhost' );
@@ -104,7 +97,7 @@ define( 'WP_ALLOW_MULTISITE', true );
 define( 'MULTISITE', true );
 define( 'SUBDOMAIN_INSTALL', false );
 $base = '/';
-define( 'DOMAIN_CURRENT_SITE', 'uniprime.local' );
+define( 'DOMAIN_CURRENT_SITE', 'unip.genesiscreative.com.br' );
 define( 'PATH_CURRENT_SITE', '/' );
 define( 'SITE_ID_CURRENT_SITE', 1 );
 define( 'BLOG_ID_CURRENT_SITE', 1 );

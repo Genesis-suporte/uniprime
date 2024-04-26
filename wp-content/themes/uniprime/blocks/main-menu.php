@@ -177,7 +177,7 @@
                 </div>
                 <div class="col-right-menu-mobile col d-flex justify-content-end">
                   <a href="#" class="search">
-                    <img src="http://uniprime.local/wp-content/themes/uniprime/assets/images/icons/icon-search.png" alt="Digite sua busca">
+                    <img src="https://unip.genesiscreative.com.br/wp-content/themes/uniprime/assets/images/icons/icon-search.png" alt="Digite sua busca">
                   </a>
                   <a href="#" class="close">
                     <div class="bars">
@@ -200,7 +200,7 @@
                         </div>
                         <div class="col-right-menu-mobile col d-flex justify-content-end">
                           <a href="#" class="search">
-                            <img src="http://uniprime.local/wp-content/themes/uniprime/assets/images/icons/icon-search.png" alt="Digite sua busca">
+                            <img src="https://unip.genesiscreative.com.br/wp-content/themes/uniprime/assets/images/icons/icon-search.png" alt="Digite sua busca">
                           </a>
                           <a href="#" class="close">
                             <div class="bars">
@@ -244,7 +244,7 @@
                         </div>
                         <div class="col-right-menu-mobile col d-flex justify-content-end">
                           <a href="#" class="search">
-                            <img src="http://uniprime.local/wp-content/themes/uniprime/assets/images/icons/icon-search.png" alt="Digite sua busca">
+                            <img src="https://unip.genesiscreative.com.br/wp-content/themes/uniprime/assets/images/icons/icon-search.png" alt="Digite sua busca">
                           </a>
                           <a href="#" class="close">
                             <div class="bars">
@@ -291,7 +291,7 @@
                         </div>
                         <div class="col-right-menu-mobile col d-flex justify-content-end">
                           <a href="#" class="search">
-                            <img src="http://uniprime.local/wp-content/themes/uniprime/assets/images/icons/icon-search.png" alt="Digite sua busca">
+                            <img src="https://unip.genesiscreative.com.br/wp-content/themes/uniprime/assets/images/icons/icon-search.png" alt="Digite sua busca">
                           </a>
                           <a href="#" class="close">
                             <div class="bars">

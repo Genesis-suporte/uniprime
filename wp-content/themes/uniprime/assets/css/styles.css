@@ -2779,6 +2779,165 @@ section.fale-conosco {
   text-align: center;
   padding: 23px 0 0;
 }
+/* PÁGINA LISTAGEM DE NOTÍCIAS */
+.bloco-noticias-destaque {
+  padding: 128px 0;
+}
+.botoes-fique-por-dentro {
+  padding: 32px 0 0;
+}
+.botoes-fique-por-dentro .button-fique-por-dentro {
+  padding-right: 24px;
+}
+.botoes-fique-por-dentro .button-fique-por-dentro .btn {
+  background-color: transparent !important;
+  border: 1px solid white !important;
+  color: #fff;
+  font-size: 16px !important;
+  transition: all .2s ease-in-out;
+}
+.botoes-fique-por-dentro .button-fique-por-dentro .btn.actived {
+  background-color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
+}
+.bloco-noticias-destaque .title-block {
+  padding-bottom: 48px;
+}
+    /* CARDS */
+.slide-destaques .slide-novidades .slick-list{
+  margin: 0 -12px;
+}
+.slide-destaques .slick-slide > div {
+  margin: 0 12px;
+}
+.slide-destaques .card-post .thumbnail-card {
+  min-height: 320px;
+}
+.slide-destaques .card-post .img-post {
+  background-color: var(--primary-color-brand);
+  background-position: center;
+  background-size: cover;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  height: auto;
+  min-height: 320px;
+  position: relative;
+  width: 100%;
+}
+.slide-destaques .card-post .img-post img {
+  width: 100%;
+  height: auto;
+}
+.slide-destaques .card-post .container-post {
+  padding: 32px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  background-color: var(--primary-color-brand);
+  color: white;
+  border-top: 0px;
+  min-height: 186px;
+}
+.slide-destaques .card-post .container-post .content-post {
+  border-top: 1px solid var(--color-actived);
+}
+.slide-destaques .card-post .category {
+  color: var(--color-actived);
+  padding: 16px 0 25px 0;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.slide-destaques .card-post .category .icon-logo {
+  margin: 3px 0px 0 0px;
+  padding-left: 30px !important;
+  background-position-y: 0;
+}
+.slide-destaques .card-post .category a {
+  color: var(--color-actived);
+}
+.slide-destaques .card-post .title-block {
+  padding-bottom: 30px;
+}
+.slide-destaques .card-post .title-block a {
+  color: white;
+}
+.slide-destaques .card-post .cta a.leia_mais {
+  color: white;
+  font-size: 13px;
+}
+.slide-destaques .card-post .cta a.leia_mais .arrow {
+  border-color:  white;
+}
+    /* BLOCO NOVIDADES */
+.bloco-noticias {
+  padding: 128px 0;
+  background-color: var(--primary-color-para-voce);
+}
+
+.bloco-noticias .slick-list{
+  margin: 0 -12px;
+}
+.bloco-noticias .slick-slide > div .card-post {
+  margin: 0px 0px 24px 24px;
+  width: calc(33% - 24px) !important;
+}
+
+.bloco-noticias .card-post {
+  height: 100%;
+}
+
+.bloco-noticias .card-post .img-post {
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  height: auto;
+  min-height: 320px;
+  position: relative;
+  width: 100%;
+}
+.bloco-noticias .card-post .img-post img {
+  width: 100%;
+  height: auto;
+}
+.bloco-noticias .card-post .container-post {
+  padding: 32px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border: 1px solid var(--color-neutral);
+  border-top: 0px;
+  min-height: 186px;
+}
+.bloco-noticias .card-post .container-post .content-post {
+  border-top: 1px solid var(--color-actived);
+}
+.bloco-noticias .card-post .category {
+  color: var(--color-actived);
+  padding: 16px 0 25px 0;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.bloco-noticias .card-post .category a {
+  color: var(--color-actived);
+}
+.bloco-noticias .card-post .category .icon-logo {
+  margin: 3px 0px 0 0px;
+  padding-left: 30px !important;
+  background-position-y: 0;
+}
+.bloco-noticias .card-post .title-block {
+  font-size:  17px;
+  line-height: 21px;
+  padding-bottom: 30px;
+  font-family: 'Switzerland';
+  font-weight: 700;
+}
+.bloco-noticias .card-post .title-block a {
+  color: var(--primary-color-brand);
+}
+.bloco-noticias .card-post .cta a.leia_mais {
+  color: var(--primary-color-brand);
+  font-size: 13px;
+}
 /* FOOTER */
 footer {
   z-index: 12;

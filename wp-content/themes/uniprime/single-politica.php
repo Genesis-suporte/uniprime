@@ -16,7 +16,7 @@ $upload_url = $upload_dir['baseurl'];
 <div class="banner-internas position-relative">
   <div class="hero-image">
     <div class="image"  style="background-image: url('<?php echo $upload_url;?>/2024/03/img-politicas.jpg');">
-      <!-- <img src="http://uniprime.local/wp-content/uploads/2024/03/img-politicas.jpg" alt="Foto de capa de políticas" > -->
+      <!-- <img src="https://unip.genesiscreative.com.br/wp-content/uploads/2024/03/img-politicas.jpg" alt="Foto de capa de políticas" > -->
     </div>
     <div class="container">
       <div class="position-absolute copy">

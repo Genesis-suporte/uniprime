@@ -67,7 +67,12 @@
           //console.log(maxHeight);
           
         }
-      }      
+      } 
+      
+      if($('.menu-footer-solucoes')) {
+        var height_footer_menu = $('.footer-menu').outerHeight();
+        $('.dropdown-content').height(height_footer_menu);      
+      }     
     }
     
     var initializeBlock = function( $block ) {
@@ -520,7 +525,5 @@
         ]
       });
     }  
-
-    
   });
 })(jQuery); 

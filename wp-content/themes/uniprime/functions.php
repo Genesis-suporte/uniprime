@@ -283,41 +283,39 @@ function custom_taxonomy_column($columns) {
 	$new_columns['taxonomy'] = 'Taxonomia';
 	// Adiciona as demais colunas após a coluna 'Taxonomia'
 	foreach ($columns as $key => $value) {
-			$new_columns[$key] = $value;
+		$new_columns[$key] = $value;
 	}
 
 	return $new_columns;
 }
 add_filter('manage_solucoes_posts_columns', 'custom_taxonomy_column');
 add_filter('manage_relatorio_posts_columns', 'custom_taxonomy_column');
-/*
-custom_taxonomy_column_content($column, $post_id, 'tipo-relatorio');
-custom_taxonomy_column_content($column, $post_id, 'tipo-solucoes');*/
+
 // Mostra o conteúdo da nova coluna
 function custom_taxonomy_column_content($column, $post_id) {
 
 	if ($column === 'taxonomy') {
-        // Obtém todas as taxonomias associadas ao tipo de post
-        $taxonomies = get_object_taxonomies(get_post_type($post_id), 'objects');
-        
-        // Verifica se há taxonomias
-        if ($taxonomies) {
-            foreach ($taxonomies as $taxonomy) {
-                // Verifica se o post tem termos associados à taxonomia atual
-                $terms = get_the_terms($post_id, $taxonomy->name);
-                
-                if ($terms && !is_wp_error($terms)) {
-                    $taxonomy_names = array();
-                    foreach ($terms as $term) {
-                        $taxonomy_names[] = $term->name;
-                    }
-                    echo implode(', ', $taxonomy_names);
-                    return; // Termina a função após encontrar a primeira taxonomia com termos associados
-                }
-            }
-        }
-        
-        // Se não houver taxonomias ou termos associados
+		// Obtém todas as taxonomias associadas ao tipo de post
+		$taxonomies = get_object_taxonomies(get_post_type($post_id), 'objects');
+		
+		// Verifica se há taxonomias
+		if ($taxonomies) {
+			foreach ($taxonomies as $taxonomy) {
+				// Verifica se o post tem termos associados à taxonomia atual
+				$terms = get_the_terms($post_id, $taxonomy->name);
+				
+				if ($terms && !is_wp_error($terms)) {
+					$taxonomy_names = array();
+					foreach ($terms as $term) {
+							$taxonomy_names[] = $term->name;
+					}
+					echo implode(', ', $taxonomy_names);
+					return; // Termina a função após encontrar a primeira taxonomia com termos associados
+				}
+			}
+		}
+		
+		// Se não houver taxonomias ou termos associados
         echo 'N/A';
     }
 }
@@ -332,6 +330,44 @@ function custom_taxonomy_column_sortable($columns) {
 }
 add_filter('manage_edit-relatorio_sortable_columns', 'custom_taxonomy_column_sortable');
 add_filter('manage_edit-solucoes_sortable_columns', 'custom_taxonomy_column_sortable');
+
+function custom_destaque_column($columns) {
+	$new_columns = array();
+	// Move a coluna do título para o início do array
+	$title = $columns['title'];
+	unset($columns['title']);
+	// Adiciona a coluna do título no início do array
+	$new_columns['title'] = $title;
+	// Adiciona a nova coluna 'Taxonomia' após a coluna do título
+	$new_columns['destaque'] = 'Destaque home';
+	// Adiciona as demais colunas após a coluna 'Taxonomia'
+	foreach ($columns as $key => $value) {
+		$new_columns[$key] = $value;
+	}
+	return $new_columns;
+}
+add_filter('manage_noticia_posts_columns', 'custom_destaque_column');
+add_filter('manage_sala-de-imprensa_posts_columns', 'custom_destaque_column');
+add_filter('manage_campanha_posts_columns', 'custom_destaque_column');
+
+function custom_destaque_column_content($column, $post_id) {
+	if ($column == 'destaque') {
+		// Obtenha o valor do campo 'destaque' usando o plugin ACF
+		$destaque = get_field('destaque_home', $post_id);
+		echo ($destaque) ? 'Sim' : 'Não';
+	}
+}
+add_action('manage_noticia_posts_custom_column', 'custom_destaque_column_content', 10, 3);
+add_action('manage_sala-de-imprensa_posts_custom_column', 'custom_destaque_column_content', 10, 3);
+add_action('manage_campanha_posts_custom_column', 'custom_destaque_column_content', 10, 3);
+
+function custom_destaque_column_sortable($columns) {
+	$columns['destaque'] = 'Destaque home'; // Define o nome do campo usado para ordenação
+	return $columns;
+}
+add_filter('manage_edit-noticia_sortable_columns', 'custom_destaque_column_sortable');
+add_filter('manage_edit-sala-de-imprensa_columns', 'custom_destaque_column_sortable');
+add_filter('manage_edit-campanha_sortable_columns', 'custom_destaque_column_sortable');
 
 // Adicionando ícones no select dos blocos de cards 
 function my_acf_load_icon_choices( $field ) {
@@ -394,6 +430,23 @@ function my_acf_load_icon_choices( $field ) {
 	return $field;
 }
 add_filter('acf/load_field', 'my_acf_load_icon_choices');
+// Adicione uma nova coluna na listagem de posts do admin
+function custom_post_type_columns($columns) {
+	$columns['destaque'] = 'Destaque'; // Adicione a nova coluna após o título
+	return $columns;
+}
+add_filter('manage_noticias_posts_columns', 'custom_post_type_columns');
+
+// Exiba os dados na coluna personalizada
+function custom_post_type_column_content($column, $post_id) {
+	if ($column == 'destaque') {
+			// Obtenha o valor do campo 'destaque' usando o plugin ACF
+			$destaque = get_field('destaque', $post_id);
+			// Exiba o valor na coluna
+			echo ($destaque) ? 'Sim' : 'Não';
+	}
+}
+add_action('manage_noticias_posts_custom_column', 'custom_post_type_column_content', 10, 2);
 
 
 /*
@@ -486,3 +539,17 @@ function setMenuThreeLevels($menu) {
 	//print_r($menu_lists);
 	return $menu_lists;
 }
+
+function custom_login_logo() {
+	echo '<style type="text/css">
+			.login h1 a {
+					background-image: url(' . get_template_directory_uri() . '/assets/images/UniPrime-logo.png);
+					width: 300px; /* Largura do seu logo */
+					height: 100px; /* Altura do seu logo */
+					background-size: 300px auto; /* Ajuste conforme necessário */
+					background-repeat: no-repeat;
+					padding-bottom: 30px; /* Espaçamento abaixo do logo */
+			}
+	</style>';
+}
+add_action('login_head', 'custom_login_logo');
