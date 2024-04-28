@@ -28,13 +28,24 @@
   
       // If the post belongs to 'solucoes' post type
       //var_dump($post);
-      if ($post->post_name == 'relatorio-do-sistema' || $post->post_name == 'assembleias-ago-e-age'  || $post->post_name == 'cooperativismo-financeiro' || $post->post_name == 'sobre-a-uniprime' || $post->post_type == 'politica' ) {
+      if ($post->post_name == 'relatorio-do-sistema' || $post->post_name == 'assembleias-ago-e-age'  || $post->post_name == 'cooperativismo-financeiro' || $post->post_name == 'sobre-a-uniprime' || $post->post_type == 'politica' || $post->post_type == 'noticia' || $post->post_name == 'noticias' || $post->post_type == 'campanha' || $post->post_name == 'campanha' || $post->post_type == 'sala-de-imprensa' || $post->post_name == 'sala-de-imprensa'  ) {
         $breadcrumb_content .= "<li class='breadcrumb-item'>" . __("A Uniprime") . "</li>\n";
       }
       if ($post->post_name == 'canais-digitais' || $post->post_name == 'fale-conosco') {
         $breadcrumb_content .= "<li class='breadcrumb-item'>" . __("Atendimento") . "</li>\n";
       }
 
+      if ($post->post_type == 'noticia' ) {
+        $breadcrumb_content .= "<li class='breadcrumb-item'><a href='/noticias/'>". __("Notícias") . "</a></li>\n";
+      } 
+
+      if ($post->post_type == 'campanha' ) {
+        $breadcrumb_content .= "<li class='breadcrumb-item'><a href='/campanhas/'>". __("Campanhas") . "</a></li>\n";
+      } 
+
+      if ($post->post_type == 'sala-de-imprensa' ) {
+        $breadcrumb_content .= "<li class='breadcrumb-item'><a href='/sala-de-imprensa/'>". __("Sala de imprensa") . "</a></li>\n";
+      } 
       
       if ($post->post_type == 'solucoes') {
         // Add link to 'Soluções'
@@ -76,6 +87,7 @@
         $breadcrumb_content .= "<li class='breadcrumb-item'><b>Políticas</b></li>\n";
       }
       $breadcrumb_content .= "</ol>\n</div>\n</div>\n</nav>\n";
+
       echo $breadcrumb_content;
   }
   //}

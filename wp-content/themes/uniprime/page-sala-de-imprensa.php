@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Página de notícias
+ * Template Name: Página de sala de imprensa
  */
 get_header(); 
 
@@ -10,7 +10,7 @@ $description_banner = get_field('description_banner');
 $image_banner = get_field('image_banner');
 
 $array_fique_por_dentro = array(
-  'post_type'   => array( 'noticia', 'campanha', 'sala-imprensa' ),
+  'post_type'   => array( 'sala-de-imprensa' ),
   'posts_per_page' => -1,/*,
   'meta_key'       => 'data_assembleia',
   'orderby'        => 'meta_value',
@@ -40,13 +40,13 @@ $get_fique_por_dentro = get_posts( $array_fique_por_dentro );
         <div class="botoes-fique-por-dentro">
           <div class="d-flex flex-wrap">
             <div class="button-fique-por-dentro">
-              <span class="btn actived" id="btn-noticias">Notícias</span>
+              <a href="/noticias/" class="btn" id="btn-noticias">Notícias</a>
             </div>
             <div class="button-fique-por-dentro">
               <a href="/campanhas/" class="btn" id="btn-campanhas">Campanhas</a>
             </div>
             <div class="button-fique-por-dentro">
-              <a href="/sala-de-imprensa/" class="btn" id="btn-sala-de-imprensa">Sala de imprensa</a>
+              <span class="btn actived" id="btn-sala-de-imprensa">Sala de imprensa</span>
             </div>
           </div>
         </div>
@@ -59,110 +59,11 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
   include(get_template_directory() . '/blocks/breadcrumbs.php');
 }
 ?>
-<?php 
-  $label_destaques = get_field('label_destaques');
-  $titulo_destaques = get_field('titulo_destaques');
-  $descricao_destaques = get_field('descricao_destaques');
-
-  
+<?php   
   $label_novidades = get_field('label_novidades');
   $titulo_novidades = get_field('titulo_novidades');
   $descricao_novidades = get_field('descricao_novidades');
 ?>
-<section class="bloco-noticias-destaque">
-  <div class="container">
-    <div class="row d-flex justify-content-between flex-column flex-lg-row">
-      <div class="content-bloco-destaque">
-        <div class="label-block">
-          <?php if($label_destaques) { ?>
-            <?php echo esc_html($label_destaques); ?>
-          <?php } ?>
-        </div>
-        <div class="d-flex" <?php echo (!$descricao_destaques) ? 'style="padding-bottom: 48px"' : ''; ?>>
-          <div class="title-block title-28 switzerlandBold flex-grow-1">
-            <?php if($titulo_destaques) { ?>
-              <?php echo esc_html($titulo_destaques); ?>
-            <?php } ?>
-          </div>
-          <?php if(!$descricao_destaques) { ?>
-            <div class="arrows-destaques-desktop d-none d-md-flex"></div>
-          <?php } ?>
-        </div>
-        <?php if($descricao_destaques) { ?>
-          <div class="d-flex" style="padding-bottom: 48px">
-            <div class="description-block flex-grow-1">
-              <?php echo esc_html($descricao_destaques); ?>
-            </div>
-            <div class="arrows-destaques-desktop d-none d-md-flex"></div>
-          </div>
-        <?php } ?>
-        <div class="container-bloco-destaque">
-          <div class="slide-destaques row">
-            <?php 
-            if ( $get_fique_por_dentro ) {
-              foreach ( $get_fique_por_dentro as $key=>$post ) {
-                if($post->destaque_home == 1) {
-                  if($post->post_type == 'noticia') {//
-                    $text_label = "Notícias ";
-                  } else if($post->post_type == 'campanha') {
-                    $text_label = "Campanhas ";
-                  }else if($post->post_type == 'sala-de-imprensa') {
-                    $text_label = "Sala de imprensa ";
-                  }
-                  $post_thumbnail_id = get_post_thumbnail_id();
-
-                  // Verifica se há uma imagem em destaque
-                  if ( $post_thumbnail_id ) {
-                      // Obtém a URL da imagem em tamanho completo ('full')
-                    $image_url = wp_get_attachment_image_src( $post_thumbnail_id, 'full' );
-
-                    // Verifica se a URL foi obtida com sucesso
-                    if ( $image_url ) {
-                      // O caminho da imagem é o primeiro elemento da matriz retornada por wp_get_attachment_image_src()
-                      $image_path = $image_url[0];
-
-                      // Exibe o caminho da imagem
-                      //echo $image_path;
-                    }
-                  }
-                  ?>
-                  <div class="card-post" >
-                    <div class="thumbnail-card">
-                      <a href="<?php echo esc_url($post->guid); ?>" target="_SELF">
-                        <div class="img-post" style="background-image: url(<?php echo $image_path; ?>);">
-                        </div>
-                      </a>
-                    </div>
-                    <div class="container-post">
-                      <div class="content-post">
-                        <div class="category">
-                          <a href="<?php echo $post->post_type; ?>" target="_SELF" class="icon-menu icon-logo">
-                            <?php echo esc_html($text_label); ?>
-                          </a>
-                        </div>
-                        <div class="title-block title-28 switzerlandBold">
-                          <a href="<?php echo esc_url($post->guid); ?>" target="_SELF">
-                            <?php echo esc_html($post->post_title); ?>
-                          </a>
-                        </div>
-                        <div class="cta">
-                          <a href="<?php echo esc_url($post->guid); ?>" target="_SELF" class="leia_mais">Leia mais <i class="arrow right"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                <?php 
-                }
-              }
-            }
-            ?>
-          </div>
-        </div>        
-        <div class="arrows-destaques-mobile arrows-mobile d-flex d-md-none justify-content-center"></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="bloco-noticias z-13">
   <div class="container">
@@ -196,13 +97,6 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
             <?php 
             if ( $get_fique_por_dentro ) {
               foreach ( $get_fique_por_dentro as $key=>$post ) : 
-                if($post->post_type == 'noticia') {//
-                  $text_label = "Notícias ";
-                } else if($post->post_type == 'campanha') {
-                  $text_label = "Campanhas ";
-                }else if($post->post_type == 'sala-de-imprensa') {
-                  $text_label = "Sala de imprensa ";
-                }
                 $post_thumbnail_id = get_post_thumbnail_id();
 
                 // Verifica se há uma imagem em destaque
@@ -231,7 +125,7 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
                     <div class="content-post">
                       <div class="category">
                         <a href="<?php echo $post->post_type; ?>" target="_SELF" class="icon-menu icon-logo">
-                          <?php echo esc_html($text_label); ?>
+                          <?php echo esc_html("Sala de imprensa"); ?>
                         </a>
                       </div>
                       <div class="title-block title-28 switzerlandBold">

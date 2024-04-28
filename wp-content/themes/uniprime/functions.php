@@ -235,6 +235,15 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'institucional' )
 		));	
+		acf_register_block_type(array(
+			'name'      			=> 'bloco-baixe-conteudo',
+			'title' 					=> __('Bloco de Baixe agora seu conteúdo exclusivo'),
+			'description' 		=> __('Bloco de Baixe agora seu conteúdo exclusivo'),
+			"render_template"	=> "blocks/bloco-baixe-conteudo.php",
+			'category' 				=> 'layout',
+			'icon' 						=> 'uniprime',
+			'keywords' => 		array( 'institucional' , 'content-noticias')
+		));	
 		/* FUNÇÃO PRO GRAVITY FORMS RETORNAR CAMPO ASSUNTO */
 		/*add_filter( 'gform_field_value_assuntos', 'pre_select_assuntos' );
 		function pre_select_assuntos( $value ) {
