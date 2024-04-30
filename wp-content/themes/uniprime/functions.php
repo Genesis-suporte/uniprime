@@ -237,8 +237,8 @@ if ( ! function_exists( 'Uniprime' ) ) :
 		));	
 		acf_register_block_type(array(
 			'name'      			=> 'bloco-baixe-conteudo',
-			'title' 					=> __('Bloco de Baixe agora seu conteúdo exclusivo'),
-			'description' 		=> __('Bloco de Baixe agora seu conteúdo exclusivo'),
+			'title' 					=> __('Bloco Baixe agora seu conteúdo exclusivo'),
+			'description' 		=> __('Bloco Baixe agora seu conteúdo exclusivo'),
 			"render_template"	=> "blocks/bloco-baixe-conteudo.php",
 			'category' 				=> 'layout',
 			'icon' 						=> 'uniprime',

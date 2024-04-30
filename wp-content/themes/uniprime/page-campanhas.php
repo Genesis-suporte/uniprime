@@ -108,9 +108,6 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
                   if ( $image_url ) {
                     // O caminho da imagem é o primeiro elemento da matriz retornada por wp_get_attachment_image_src()
                     $image_path = $image_url[0];
-
-                    // Exibe o caminho da imagem
-                    //echo $image_path;
                   }
                 }
                 ?>
