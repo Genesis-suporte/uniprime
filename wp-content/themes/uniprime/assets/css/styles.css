@@ -4189,6 +4189,37 @@ footer {
     width: calc(100% - 25px) !important;
   }
 
+  .content p {
+    padding: 0 0px;
+  }
+  /* BLOCO BAIXE CONTEUDO EXCLUSIVO */
+  .bloco-conteudo-exclusivo {
+    padding: 8px 8px 24px 8px;
+    margin: 64px 0px;
+  }
+  .bloco-conteudo-exclusivo .container {
+    margin: 0;
+  }
+  .bloco-conteudo-exclusivo .content-left img {
+    height: auto;
+    width: 100%;
+    padding-bottom: 24px;
+  }
+  .bloco-conteudo-exclusivo .content-right {
+    padding-left: 0px;
+  }
+  .bloco-conteudo-exclusivo .title-block {
+    width: 100%;
+  }
+  .bloco-conteudo-exclusivo input,
+  .bloco-conteudo-exclusivo textarea,
+  .bloco-conteudo-exclusivo select,
+  .search-block select {
+    width: 100% !important;
+  }
+  .bloco-conteudo-exclusivo input[type="submit"] {
+    width: auto !important;
+  }
   /* FOOTER */
   .footer-top {
     padding: 60px 0px 4px 43px;
