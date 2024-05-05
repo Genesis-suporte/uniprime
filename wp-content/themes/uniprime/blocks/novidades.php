@@ -24,82 +24,96 @@
         <div class="artigos">
           <div class="slide-novidades d-flex justify-content-between">
             <?php 
-            $get_campanhas_id = array(
-              'fields'      => 'ids',
-              'numberposts' => 5,
-              'post_type'   => 'campanha'
+            $array_fique_por_dentro = array(
+              'post_type'   => array( 'noticia', 'campanha', 'sala-de-imprensa' ),
+              'posts_per_page' => -1,/*,
+              'meta_key'       => 'data_assembleia',
+              'orderby'        => 'meta_value',
+              'order'          => 'DESC'*/
             );
-            $get_campanhas = get_posts( $get_campanhas_id );
-            $get_posts_fixed = array(
-              'fields'      => 'ids',
-              'numberposts' => 5,
-              'post_type'   => 'post',
-              'post__in'    => get_option( 'sticky_posts' ),            
-              'category'    => array(
-                'noticias',
-                'sala-de-imprensa'
-              )
-            );
-            $get_post_fixed = get_posts( $get_posts_fixed );
-            
-            $merged_post_ids = array_merge( $get_campanhas, $get_post_fixed);
-            /*$wp_query = new WP_Query( array(
-              'post_type' => 'any', // any post type
-              'post__in'  => $first_post_ids, // our merged queries
-            ));
-            */
-            $merged_array = array(
-              'post_type' => 'any', // any post type
-              'post__in'  => $merged_post_ids, // our merged queries
-            );
-            
-            
-            //
-            $get_post_home = get_posts( $merged_array );
-            //var_dump($get_post_home);
-            if ( $get_post_home ) {
-              foreach ( $get_post_home as $post ) : 
-                
-              
-                if($post->post_type == 'campanha') {
-                  $text_label = "Campanha";
-                  $link_cat = "/campanhas/";
-                } else {
-                  $cats = get_the_category($post->ID);
-                  $text_label = $cats[0]->cat_name;
-                  $link_cat = "/".$cats[0]->slug."/";
-                  
-                }
-                
-              ?>
-                <div class="card-post">
-                  <div class="img-post">
-                    <a href="<?php echo esc_url($post->guid); ?>" target="_SELF">
-                      <?php echo get_the_post_thumbnail( $post->ID);?>
-                    </a>
-                  </div>
-                  <div class="container-post">
-                    <div class="content-post">
-                      <div class="category">
-                        <a href="<?php echo esc_url($link_cat); ?>" target="_SELF" class="icon-menu icon-logo">
-                          <?php echo esc_html($text_label); ?>
-                        </a>
-                      </div>
-                      <div class="title-block title-28 switzerlandBold">
+
+            $get_fique_por_dentro = get_posts( $array_fique_por_dentro );
+            if ( $get_fique_por_dentro ) {
+              foreach ( $get_fique_por_dentro as $key=>$post ) {
+                if( $post->destaque_home == 1 ) {
+                  if( $post->post_type == 'campanha') {
+                    $text_label = "Campanhas ";                    
+                    $post_thumbnail_id = get_post_thumbnail_id();
+                    // Verifica se há uma imagem em destaque
+                    if ( $post_thumbnail_id ) {
+                        // Obtém a URL da imagem em tamanho completo ('full')
+                      $image_url = wp_get_attachment_image_src( $post_thumbnail_id, 'full' );
+    
+                      // Verifica se a URL foi obtida com sucesso
+                      if ( $image_url ) {
+                        // O caminho da imagem é o primeiro elemento da matriz retornada por wp_get_attachment_image_src()
+                        $image_path = $image_url[0];
+                        
+                      }
+                    } else {
+                      $image_url = get_field('image_banner',$post->ID);
+                      $image_path = $image_url['url'];
+                    }
+                  }
+
+                  if($post->post_type == 'noticia' || $post->post_type == 'sala-de-imprensa') {
+                    if($post->post_type == 'noticia') {
+                      $text_label = "Notícias ";
+                    } else if($post->post_type == 'sala-de-imprensa') {
+                      $text_label = "Sala de imprensa ";
+                    }
+                    // Verifica se há uma imagem em destaque, se não imprime a imagem dentro do conteúdo
+                    $post_thumbnail_id = get_post_thumbnail_id();
+                    if ( $post_thumbnail_id ) {
+                        // Obtém a URL da imagem em tamanho completo ('full')
+                      $image_url = wp_get_attachment_image_src( $post_thumbnail_id, 'full' );
+                      // Verifica se a URL foi obtida com sucesso
+                      if ( $image_url ) {
+                        // O caminho da imagem é o primeiro elemento da matriz retornada por wp_get_attachment_image_src()
+                        $image_path = $image_url[0];
+                      }
+                    } else {
+                      $image_url = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+                      // Verifica se há imagens encontradas
+                      if(isset($matches[1]) && !empty($matches[1])) {
+                        // Verifica se a URL foi obtida com sucesso
+                        if ( $image_url ) {
+                          // O caminho da imagem é o primeiro elemento da matriz retornada por wp_get_attachment_image_src()
+                          $image_path = $matches[1][0];
+                        }
+                      }
+                    }                    
+                  }
+                  ?>
+                    <div class="card-post">
+                      <div class="img-post">
                         <a href="<?php echo esc_url($post->guid); ?>" target="_SELF">
-                          <?php echo esc_html($post->post_title); ?>
+                          <div class="img-post" style="background-image: url(<?php echo $image_path; ?>);">
+                          </div>
                         </a>
                       </div>
-                      <div class="cta">
-                        <a href="<?php echo esc_url($post->guid); ?>" target="_SELF" class="leia_mais">Leia mais <i class="arrow right"></i></a>
+                      <div class="container-post">
+                        <div class="content-post">
+                          <div class="category">
+                            <a href="<?php echo $post->post_type; ?>" target="_SELF" class="icon-menu icon-logo">
+                              <?php echo esc_html($text_label); ?>
+                            </a>
+                          </div>
+                          <div class="title-block title-28 switzerlandBold">
+                            <a href="<?php echo esc_url($post->guid); ?>" target="_SELF">
+                              <?php echo esc_html($post->post_title); ?>
+                            </a>
+                          </div>
+                          <div class="cta">
+                            <a href="<?php echo esc_url($post->guid); ?>" target="_SELF" class="leia_mais">Leia mais <i class="arrow right"></i></a>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-              <?php 
-              endforeach;
-              wp_reset_postdata();
-            }
+                  <?php 
+                  }
+                }
+              }
             ?>
           </div>
         </div>

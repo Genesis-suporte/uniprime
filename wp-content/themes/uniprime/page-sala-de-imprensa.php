@@ -96,10 +96,9 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
           <div class="slide-noticias-novidades row">
             <?php 
             if ( $get_fique_por_dentro ) {
-              foreach ( $get_fique_por_dentro as $key=>$post ) : 
+              foreach ( $get_fique_por_dentro as $key=>$post ) :                 
+                // Verifica se há uma imagem em destaque, se não imprime a imagem dentro do conteúdo
                 $post_thumbnail_id = get_post_thumbnail_id();
-
-                // Verifica se há uma imagem em destaque
                 if ( $post_thumbnail_id ) {
                     // Obtém a URL da imagem em tamanho completo ('full')
                   $image_url = wp_get_attachment_image_src( $post_thumbnail_id, 'full' );
@@ -108,9 +107,16 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
                   if ( $image_url ) {
                     // O caminho da imagem é o primeiro elemento da matriz retornada por wp_get_attachment_image_src()
                     $image_path = $image_url[0];
-
-                    // Exibe o caminho da imagem
-                    //echo $image_path;
+                  }
+                } else {
+                  $image_url = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+                  // Verifica se há imagens encontradas
+                  if(isset($matches[1]) && !empty($matches[1])) {
+                    // Verifica se a URL foi obtida com sucesso
+                    if ( $image_url ) {
+                      // O caminho da imagem é o primeiro elemento da matriz retornada por wp_get_attachment_image_src()
+                      $image_path = $matches[1][0];
+                    }
                   }
                 }
                 ?>
@@ -250,19 +256,6 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
         $(cardsNoticiasDestaques[i]).height(maxHeight -30);
       }
     }
-    /*const btn_fique_por_dentro = document.querySelectorAll('.button-fique-por-dentro .btn')
-    btn_fique_por_dentro.forEach(triggerEl => {
-      triggerEl.addEventListener('click', event => {
-        console.log(event);
-        event.preventDefault()
-        for (let j = 0; j < btn_fique_por_dentro.length; j++) {
-          btn_fique_por_dentro[j].classList.remove('actived');
-        }
-        event.currentTarget.classList.toggle('actived');
-
-        
-      })
-    })*/
   });
 })(jQuery); 
 

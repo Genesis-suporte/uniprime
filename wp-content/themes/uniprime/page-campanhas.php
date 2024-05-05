@@ -108,8 +108,13 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
                   if ( $image_url ) {
                     // O caminho da imagem é o primeiro elemento da matriz retornada por wp_get_attachment_image_src()
                     $image_path = $image_url[0];
+                    
                   }
+                } else {
+                  $image_url = get_field('image_banner',$post->ID);
+                  $image_path = $image_url['url'];
                 }
+                
                 ?>
                 <div class="card-post" >
                   <div class="thumbnail-card">
@@ -247,19 +252,6 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
         $(cardsNoticiasDestaques[i]).height(maxHeight -30);
       }
     }
-    /*const btn_fique_por_dentro = document.querySelectorAll('.button-fique-por-dentro .btn')
-    btn_fique_por_dentro.forEach(triggerEl => {
-      triggerEl.addEventListener('click', event => {
-        console.log(event);
-        event.preventDefault()
-        for (let j = 0; j < btn_fique_por_dentro.length; j++) {
-          btn_fique_por_dentro[j].classList.remove('actived');
-        }
-        event.currentTarget.classList.toggle('actived');
-
-        
-      })
-    })*/
   });
 })(jQuery); 
 

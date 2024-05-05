@@ -6,32 +6,39 @@
 
 get_header(); 
 
+$title_banner = get_field('title_banner');
+$description_banner = get_field('description_banner');
+$image_banner = get_field('image_banner');
 
 $label = get_field('label');
 $descricao = get_field('descricao');
 ?>
 
+<div class="banner-internas position-relative">
+  <div class="hero-image">
+    <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);">
+      <!--<img src="<?php echo esc_url($image_banner['url']); ?>" alt="<?php echo esc_html($image_banner['alt']); ?>" >-->
+    </div>
+    <div class="container">
+      <div class="position-absolute copy">
+        <?php if($title_banner) { ?>
+          <h1 class="title title-48 switzerlandLight">
+            <?php echo esc_html($title_banner); ?>
+          </h1>
+        <?php } ?>
+        <?php if($description_banner) { ?>
+          <h1 class="description title-24 switzerlandBold">
+            <?php echo esc_html($description_banner); ?>
+          </h1>
+        <?php } ?>
+      </div>
+    </div>
+  </div>
+</div>
 <?php
 if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
   include(get_template_directory() . '/blocks/breadcrumbs.php');
 }
-
-/*global $post;
-$post_id = $post->ID;
-$post_author_id = get_post_field('post_author', $post_id);
-$post_author = get_the_author_meta('nickname', $post_author_id);
-
-$date_published = get_the_date();
-$date_published_brazilian = date_i18n('d/m/Y', strtotime($date_published));
-
-// Obtenha o conteúdo do post
-$content = get_the_content();
-// Conte o número de palavras no conteúdo
-$word_count = str_word_count(strip_tags($content));
-// Estime o tempo de leitura com base em uma velocidade média de leitura (em palavras por minuto)
-$average_reading_speed = 200; // Palavras por minuto
-$reading_time_minutes = ceil($word_count / $average_reading_speed);
-*/
 ?>
 <section class="single-campanha mw-100">
   <div class="container">
