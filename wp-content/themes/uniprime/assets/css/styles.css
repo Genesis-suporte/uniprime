@@ -2310,17 +2310,17 @@ section.fale-conosco {
 .fale-conosco .gform_heading {
   display: none;
 }
-.fale-conosco label,
-.fale-conosco legend {
+.gform_wrapper.gravity-theme label,
+.gform_wrapper.gravity-theme legend {
   color: var(--primary-color);
   font-family: "Calibri";
   font-weight: bold !important;
   font-size: 14px;
 }
-.fale-conosco input, 
-.fale-conosco textarea,
-.fale-conosco select,
-.search-block select {
+.gform_wrapper.gravity-theme input, 
+.gform_wrapper.gravity-theme textarea,
+.gform_wrapper.gravity-theme select,
+.gform_wrapper.gravity-theme select {
   color: var(--primary-color);
   border: 1px solid #D5D4DC;
   font-family: "Calibri" !important;
@@ -2328,20 +2328,50 @@ section.fale-conosco {
   border-radius: 50px;
   padding: 14px 24px !important;
 }
-
-.fale-conosco input:focus-visible, 
-.fale-conosco textarea:focus-visible,
-.fale-conosco select:focus-visible,
+.gform_wrapper.gravity-theme select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none; 
+  /* Adiciona uma seta personalizada com borda */
+  padding-right: 20px; /* Espaço para acomodar a seta */
+  background-color: #ffffff; /* Cor de fundo do select */
+  cursor: pointer;
+}
+.ginput_container_select {
+  position: relative;
+  cursor: pointer;
+}
+.ginput_container_select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 28px; 
+  transform: translateY(-50%) rotate(45deg); 
+  border: 2px solid var(--color-actived); 
+  border-width: 0 2px 2px 0; 
+  width: 8px; 
+  height: 8px; 
+  pointer-events: none; 
+}
+/* Adiciona estilos de hover para a seta */
+.gform_wrapper.gravity-theme select:hover::after {
+  cursor: pointer; /* Muda o cursor ao passar sobre o select */
+  border-color: #555;
+}
+.gform_wrapper.gravity-theme input:focus-visible, 
+.gform_wrapper.gravity-theme textarea:focus-visible,
+.gform_wrapper.gravity-theme select:focus-visible,
 .search-block select:focus-visible {
   border: 2px solid var(--primary-color);
   outline-color: var(--primary-color);
   font-weight: bold !important;
 }
-.fale-conosco textarea {
+.gform_wrapper.gravity-theme textarea {
   border-radius: 16px;
   height: 160px !important;
 }
-.fale-conosco input[type="submit"] {
+.gform_wrapper.gravity-theme input[type="submit"] {
   background-color: var(--primary-color) !important;
   border: 1px solid var(--primary-color) !important;
   border-radius: 50px !important;
@@ -3088,6 +3118,67 @@ body.single-campanha {
   height: 32px;
   padding: 3px 15px !important;
   text-wrap: nowrap;
+}
+/* PORTABILIDADE DE SALÁRIO */
+section.portabilidade {
+  padding: 130px 0 99px;
+}
+.bloco-observacoes {
+  background-color: var(--primary-color-para-voce);
+  border-radius: 16px;
+  padding: 64px 104px;
+  margin-top: 64px;
+}
+.bloco-observacoes .title-block {
+  padding-bottom: 12px;
+}
+.portabilidade .left-container,
+.portabilidade .right-container {
+  padding-top: 64px;
+}
+.portabilidade .gsection_title {
+  color: var(--primary-color-brand);
+  font-family: 'Switzerland';
+  font-size: 28px !important;
+  font-weight: bold;
+  letter-spacing: 1.1px;
+  line-height: 36px !important;
+  padding: 6px 0 16px;
+}
+.container-portabilidade {
+  background-color: var(--primary-color-para-voce);
+  border-radius: 16px;
+  padding: 32px;
+}
+.container-portabilidade .ginput_container {
+  padding-bottom: 16px;
+}
+#field_3_17, #field_3_18 {
+  border: 0px;
+  padding: 0px;
+}
+/* OUVIDORIA */
+section.ouvidoria {
+  padding: 130px 0 99px;
+}
+.cards-ouvidoria {
+  padding: 112px 48px 48px 48px;
+  background: url(../images/bg-solucoes.png) no-repeat -200px 0px;
+  border-radius: 16px;
+  background-size: cover;
+  max-width: 392px;
+  color: white;
+  font-size: 14px;
+}
+.cards-ouvidoria .bloco-interno-contato {
+  padding: 24px 0 0;
+}
+.cards-ouvidoria .telefone-contato {
+  color: var(--color-actived);
+  font-family: 'SwitzerlandBold';
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 26px;
 }
 /* FOOTER */
 footer {

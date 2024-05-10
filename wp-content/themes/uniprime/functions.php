@@ -244,6 +244,7 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			'icon' 						=> 'uniprime',
 			'keywords' => 		array( 'institucional' , 'content-noticias')
 		));	
+		
 		/* FUNÇÃO PRO GRAVITY FORMS RETORNAR CAMPO ASSUNTO */
 		/*add_filter( 'gform_field_value_assuntos', 'pre_select_assuntos' );
 		function pre_select_assuntos( $value ) {
