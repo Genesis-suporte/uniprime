@@ -45,7 +45,7 @@
           <div class="description-block">
             <?php echo esc_html($descricao); ?>
           </div>
-          [gravityform id="1" title="true"]
+          [gravityform id="1" title="true" ajax="true" description="false"]
           <div class="msg-sucess d-none">
             <div class="container d-flex flex-column justify-content-center text-center">
               <div class="icone d-flex justify-content-center">

@@ -25,7 +25,7 @@
           <?php echo esc_html($descricao); ?>
         </div>
       <?php } ?>
-      [gravityform id="2" title="false"]
+      [gravityform id="2" ajax="true" description="false" ]
     </div>
   </div>
 </section>

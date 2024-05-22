@@ -63,7 +63,16 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
           <div class="description-block">
             <?php echo esc_html($descricao); ?>
           </div>
-          [gravityform id="4" title="false"]
+          <?php
+              // Verifica se a função do_shortcode() está disponível
+              if (function_exists('do_shortcode')) {
+                  // Exibe o formulário usando do_shortcode()
+                  echo do_shortcode('[gravityform id="4" title="false" ajax="true" description="false"]');
+              } else {
+                  // Se do_shortcode() não estiver disponível, exibe uma mensagem de erro
+                  echo 'A função do_shortcode() não está disponível.';
+              }
+            ?>
           <div class="msg-sucess d-none">
             <div class="container d-flex flex-column justify-content-center text-center">
               <div class="icone d-flex justify-content-center">
@@ -99,6 +108,32 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
     </div>
   </div>
 </section>
+<script type="text/javascript">
+  (function ($) {
+    $(document ).ready(function() {
+      var origem_div = $('.origem-div').html()
+      var banco_origem = $('.banco-origem').html()
+      var agencia_origem = $('.agencia-origem').html()
+      var conta_origem = $('.conta-origem').html()
+      $('.left-container').append(origem_div + '<div class="container-portabilidade">' + banco_origem + '' + agencia_origem + '' + conta_origem + '</div>')
+      $('.origem-div').html('')
+      $('.banco-origem').html('')
+      $('.agencia-origem').html('')
+      $('.conta-origem').html('')
 
+      var destino_div = $('.destino-div').html()
+      var coop_destino = $('.coop-destino').html()
+      var agencia_destino = $('.agencia-destino').html()
+      var conta_destino = $('.conta-destino').html()
+      $('.right-container').html(destino_div + '<div class="container-portabilidade">' + coop_destino + '' + agencia_destino + '' + conta_destino+ '</div>')
+      $('.destino-div').html('')
+      $('.coop-destino').html('')
+      $('.agencia-destino').html('')
+      $('.conta-destino').html('')
+    });
+  })(jQuery);
+
+
+  </script>
 
 <?php get_footer(); ?>

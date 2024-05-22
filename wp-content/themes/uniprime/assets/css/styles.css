@@ -2319,7 +2319,6 @@ section.fale-conosco {
 }
 .gform_wrapper.gravity-theme input, 
 .gform_wrapper.gravity-theme textarea,
-.gform_wrapper.gravity-theme select,
 .gform_wrapper.gravity-theme select {
   color: var(--primary-color);
   border: 1px solid #D5D4DC;
@@ -2338,6 +2337,16 @@ section.fale-conosco {
   background-color: #ffffff; /* Cor de fundo do select */
   cursor: pointer;
 }
+.gform_wrapper.gravity-theme select:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
 .ginput_container_select {
   position: relative;
   cursor: pointer;
@@ -2353,6 +2362,31 @@ section.fale-conosco {
   width: 8px; 
   height: 8px; 
   pointer-events: none; 
+}
+.gfield_radio {
+  display: flex;
+  flex-direction: row;
+}
+.gchoice {
+  margin-right: 50px;
+}
+.gform_wrapper.gravity-theme .gsection {
+  border-bottom: 0px !important;
+}
+.gsection_title {
+  color: var(--primary-color-brand);
+  font-family: 'Switzerland';
+  font-size: 24px !important;
+  font-weight: bold;
+  letter-spacing: 1.1px;
+  line-height: 36px !important;
+  padding: 36px 0 0px;
+}
+.gform_required_legend {
+  display: none;
+}
+.gravity-theme {
+  padding-top: 30px;
 }
 /* Adiciona estilos de hover para a seta */
 .gform_wrapper.gravity-theme select:hover::after {
@@ -3136,15 +3170,6 @@ section.portabilidade {
 .portabilidade .right-container {
   padding-top: 64px;
 }
-.portabilidade .gsection_title {
-  color: var(--primary-color-brand);
-  font-family: 'Switzerland';
-  font-size: 28px !important;
-  font-weight: bold;
-  letter-spacing: 1.1px;
-  line-height: 36px !important;
-  padding: 6px 0 16px;
-}
 .container-portabilidade {
   background-color: var(--primary-color-para-voce);
   border-radius: 16px;
@@ -3161,14 +3186,21 @@ section.portabilidade {
 section.ouvidoria {
   padding: 130px 0 99px;
 }
+.container-fale-conosco {
+  padding: 0px 0px 32px 104px;
+}
 .cards-ouvidoria {
-  padding: 112px 48px 48px 48px;
+  padding: 0px 80px 32px 127px;
+}
+.cards-ouvidoria .bloco-contato {
   background: url(../images/bg-solucoes.png) no-repeat -200px 0px;
   border-radius: 16px;
   background-size: cover;
   max-width: 392px;
   color: white;
   font-size: 14px;
+  padding: 112px 48px 48px 48px;
+  margin-bottom: 25px;
 }
 .cards-ouvidoria .bloco-interno-contato {
   padding: 24px 0 0;
@@ -3179,6 +3211,142 @@ section.ouvidoria {
   font-size: 20px;
   font-weight: bold;
   line-height: 26px;
+}
+/* PÁGINA DE CANAL DE DENÚNCIA */
+.cards-canal-denuncia {
+  padding: 0px 80px 32px 127px;
+}
+.cards-canal-denuncia .color-actived,
+.denuncias .color-actived {
+  color: var(--color-actived);
+  padding-bottom: 24px;
+}
+.cards-canal-denuncia .color-blue {
+  color: var(--primary-color);
+  padding-bottom: 36px;
+}
+.bloco-consulta-protocolo {
+  padding-top: 28px !important;
+  background-color: var(--primary-color-para-voce);
+  border-radius: 16px;
+  padding: 46px 36px 16px;
+  margin-bottom: 25px;
+}
+.bloco-consulta-protocolo input {
+  color: var(--primary-color);
+  border: 1px solid #D5D4DC;
+  font-family: "Calibri" !important;
+  font-size: 14px !important;
+  border-radius: 50px;
+  padding: 16px 24px !important;
+  width: 100%;
+  height: 54px;
+}
+.div-input-protocolo{
+  position: relative;
+}
+.bloco-consulta-protocolo .btn-consultar {
+  background-color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
+  border-radius: 50px !important;
+  color: white !important;
+  font-family: 'Calibri' !important;
+  font-size: 18px !important;
+  height: 44px;
+  padding: 9px 23px 9px 13px !important;
+  transition: all .2s ease-in-out;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+.bloco-consulta-protocolo .btn-consultar .icon-menu {
+  padding-left: 27px !important;
+}
+.cards-canal-denuncia .bloco-interno-contato .button {
+  color: var(--color-neutral);
+  font-family: 'Calibri' !important;
+  font-size: 14px;
+  line-height: 24px;
+}
+.cards-canal-denuncia .description-contato p {
+  padding: 0 0px 24px;
+}
+.cards-canal-denuncia .description-contato p a {
+  color: var(--color-actived);
+}
+.bloco-consulta-protocolo {
+
+}
+/* SINGLE DENÚNCIAS */
+section.denuncias {
+  padding: 130px 0 99px;
+}
+.container-denuncias .main-protocolo{
+  background-color: var(--primary-color-brand);
+  border-radius: 16px;
+  color: white;
+  margin-bottom: 24px;
+}
+.content-protocolo {
+  padding: 64px 106px !important;
+}
+.content-protocolo .label-block {
+  padding-bottom: 8px;
+}
+
+.num-protocolo {
+  padding-bottom: 24px;
+}
+.denuncias .bloco-consulta-protocolo {
+  min-width: 392px;
+}
+section.denuncias .content p {
+  padding: 0 0px;
+}
+.bg-gray {
+  background-color: var(--primary-color-para-voce);
+  border-radius: 16px;
+  margin-bottom: 24px;
+  padding: 0px !important;
+}
+.bg-blue {
+  background-color: var(--primary-color-brand);
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+.div-dados-protocolo .content-protocolo .title-block {
+  padding-bottom: 24px;
+}
+.div-dados-protocolo .col {
+  padding: 0px;
+}
+.div-dados-protocolo .col .text-white {
+  font-size: 14px;
+}
+.content-nao-encontrado {
+  padding: 35px;
+}
+.div-nao-encontrado .content-nao-encontrado .title-block {
+  padding-bottom: 4px !important;
+}
+.container-denuncias .content-lgpd {
+  margin-top: 128px;
+  background-color: var(--primary-color);
+}
+.container-denuncias .content-lgpd .col-left {
+  padding-right: 24px;
+}
+.container-denuncias .content-lgpd .content-protocolo {
+  padding: 48px 106px 32px !important;
+}
+.block-protocolo {
+  padding-bottom: 24px;
+}
+.block-protocolo .title-block {
+  font-size: 22px;
+  color: var(--primary-color-brand);
+  font-weight: bold;
+  font-family: 'Switzerland';
 }
 /* FOOTER */
 footer {

@@ -13,243 +13,239 @@ if ( ! function_exists( 'Uniprime' ) ) :
 	 * this theme supports.
 	 */
 	function Uniprime() {
-		acf_register_block_type(array(
-			'name'      			=> 'header-para-voce',
-			'title' 					=> __('Header Top bar'),
-			'description' 		=> __('Menu inicial de Uniprime'),
-			"render_template"	=> "blocks/header.php",
-			'category' 				=> 'layout',
-			'icon'            => 'uniprime' ,
-			'keywords' => 		array( 'nav', 'menu' )
-		));
-		
-		acf_register_block_type(array(
-			'name'      			=> 'main-menu',
-			'title' 					=> __('Main menu'),
-			'description' 		=> __('Menu principal da'),
-			"render_template"	=> "blocks/main-menu.php",
-			'category' 				=> 'navigation',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'navigation', 'menu' )
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'Hero banner',
-			'title' 					=> __('hero-banner'),
-			'description' 		=> __('Hero banner da Homepage'),
-			"render_template"	=> "blocks/hero-banner.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'hero', 'banner' )
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'Bloco nossos produtos',
-			'title' 					=> __('nossos-produtos'),
-			'description' 		=> __('Terceiro bloco da Homepage, onde mostra a lista das soluções'),
-			"render_template"	=> "blocks/nossos-produtos.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'list', 'categories' )
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'Bloco nossos produtos curto',
-			'title' 					=> __('Nossos produtos short'),
-			'description' 		=> __('Um bloco onde lista 3 produtos/serviços pras páginas internas'),
-			"render_template"	=> "blocks/nossos-produtos-short.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'list', 'categories' )
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'Bloco nossa história',
-			'title' 					=> __('nossa-historia'),
-			'description' 		=> __('Quarto bloco da Homepage, onde mostra os cards'),
-			"render_template"	=> "blocks/nossa-historia.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'slick', 'slides' )
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'Bloco canais digitais',
-			'title' 					=> __('canais-digitais'),
-			'description' 		=> __('Quinto bloco da Homepage, onde mostra o texto e imagem dos canais digitais'),
-			"render_template"	=> "blocks/canais-digitais.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime'
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'Bloco onde encontrar',
-			'title' 					=> __('onde-encontrar'),
-			'description' 		=> __('Sexto bloco da Homepage, onde tem o combobox de escolha das unidades'),
-			"render_template"	=> "blocks/onde-encontrar.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime'
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'Bloco novidades',
-			'title' 					=> __('novidades'),
-			'description' 		=> __('Sétimo bloco da Homepage, onde lista as notícias em destaque'),
-			"render_template"	=> "blocks/novidades.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime'
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'Bloco atendimento',
-			'title' 					=> __('atendimento'),
-			'description' 		=> __('Oitavo bloco da Homepage, onde se encontram os links das redes sociais'),
-			"render_template"	=> "blocks/atendimento.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime'
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'Footer',
-			'title' 					=> __('footer'),
-			'description' 		=> __('Bloco footer'),
-			"render_template"	=> "blocks/footer.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'footer' )
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'Breadcrumbs nav',
-			'title' 					=> __('Breadcrumbs nav'),
-			'description' 		=> __('Bloco de Breadcrumbs'),
-			"render_template"	=> "blocks/breadcrumbs.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'breadcrumbs' )
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'banner-topo-titulo',
-			'title' 					=> __('Banner topo + Título'),
-			'description' 		=> __('Bloco de Banner topo + Título das páginas internas '),
-			"render_template"	=> "blocks/banner-titulo.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'banner' )
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'texto-imagem',
-			'title' 					=> __('Texto + Imagem'),
-			'description' 		=> __('Bloco de Texto + Imagem das páginas internas'),
-			"render_template"	=> "blocks/text-image.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'texto','imagem' )
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'bloco-mvv',
-			'title' 					=> __('Bloco Missão, Visão, Valores'),
-			'description' 		=> __('Bloco Missão, Visão, Valores da página institucional'),
-			"render_template"	=> "blocks/bloco-mvv.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'texto','imagem' )
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'bloco-beneficios',
-			'title' 					=> __('Bloco benefícios'),
-			'description' 		=> __('Bloco benefícios da página institucional'),
-			"render_template"	=> "blocks/bloco-beneficios.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'institucional' )
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'bloco-diretoria-e-conselhos',
-			'title' 					=> __('Bloco Diretoria e Conselhos'),
-			'description' 		=> __('Bloco Diretoria e Conselhos da página institucional'),
-			"render_template"	=> "blocks/bloco-diretoria-e-conselhos.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'institucional' )
-		));
-		acf_register_block_type(array(
-			'name'      			=> 'bloco-cards',
-			'title' 					=> __('Bloco de cards'),
-			'description' 		=> __('Bloco para montar cards'),
-			"render_template"	=> "blocks/bloco-cards.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'institucional' )
-		));	
-		acf_register_block_type(array(
-			'name'      			=> 'bloco-assembleias',
-			'title' 					=> __('Bloco Assembleias'),
-			'description' 		=> __('Bloco que lista as Assembleias passadas e futuras'),
-			"render_template"	=> "blocks/bloco-assembleias.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'institucional' )
-		));	
-		acf_register_block_type(array(
-			'name'      			=> 'bloco-relatorios',
-			'title' 					=> __('Bloco Relatórios'),
-			'description' 		=> __('Bloco que lista os Relatórios'),
-			"render_template"	=> "blocks/bloco-relatorios.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'institucional' )
-		));			
-		acf_register_block_type(array(
-			'name'      			=> 'bloco-fale-conosco',
-			'title' 					=> __('Bloco Fale conosco'),
-			'description' 		=> __('Bloco com o formulário Fale conosco'),
-			"render_template"	=> "blocks/bloco-fale-conosco.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'institucional' )
-		));			
-		acf_register_block_type(array(
-			'name'      			=> 'bloco-investimentos',
-			'title' 					=> __('Bloco Investimentos'),
-			'description' 		=> __('Bloco com o conteúdo de investimentos e links pras páginas'),
-			"render_template"	=> "blocks/bloco-investimentos.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'institucional' )
-		));		
-		acf_register_block_type(array(
-			'name'      			=> 'bloco-topo-investimentos',
-			'title' 					=> __('Bloco topo de investimentos'),
-			'description' 		=> __('Bloco que substitui a hero image das páginas de investimentos'),
-			"render_template"	=> "blocks/bloco-topo-investimentos.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'institucional' )
-		));	
-		acf_register_block_type(array(
-			'name'      			=> 'bloco-duvidas',
-			'title' 					=> __('Bloco Saiba mais (dúvidas)'),
-			'description' 		=> __('Bloco Saiba mais (dúvidas)'),
-			"render_template"	=> "blocks/bloco-duvidas.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'institucional' )
-		));	
-		acf_register_block_type(array(
-			'name'      			=> 'bloco-cartoes',
-			'title' 					=> __('Bloco de cartões'),
-			'description' 		=> __('Bloco de cartões'),
-			"render_template"	=> "blocks/bloco-cartoes.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'institucional' )
-		));	
-		acf_register_block_type(array(
-			'name'      			=> 'bloco-baixe-conteudo',
-			'title' 					=> __('Bloco Baixe agora seu conteúdo exclusivo'),
-			'description' 		=> __('Bloco Baixe agora seu conteúdo exclusivo'),
-			"render_template"	=> "blocks/bloco-baixe-conteudo.php",
-			'category' 				=> 'layout',
-			'icon' 						=> 'uniprime',
-			'keywords' => 		array( 'institucional' , 'content-noticias')
-		));	
-		
-		/* FUNÇÃO PRO GRAVITY FORMS RETORNAR CAMPO ASSUNTO */
-		/*add_filter( 'gform_field_value_assuntos', 'pre_select_assuntos' );
-		function pre_select_assuntos( $value ) {
-			return 'assunto_2';
-		}*/
+		if( function_exists('acf_register_block_type') ) {
+			acf_register_block_type(array(
+				'name'      			=> 'header-para-voce',
+				'title' 					=> __('Header Top bar'),
+				'description' 		=> __('Menu inicial de Uniprime'),
+				"render_template"	=> "blocks/header.php",
+				'category' 				=> 'layout',
+				'icon'            => 'uniprime' ,
+				'keywords' => 		array( 'nav', 'menu' )
+			));
+			
+			acf_register_block_type(array(
+				'name'      			=> 'main-menu',
+				'title' 					=> __('Main menu'),
+				'description' 		=> __('Menu principal da'),
+				"render_template"	=> "blocks/main-menu.php",
+				'category' 				=> 'navigation',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'navigation', 'menu' )
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'Hero banner',
+				'title' 					=> __('hero-banner'),
+				'description' 		=> __('Hero banner da Homepage'),
+				"render_template"	=> "blocks/hero-banner.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'hero', 'banner' )
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'Bloco nossos produtos',
+				'title' 					=> __('nossos-produtos'),
+				'description' 		=> __('Terceiro bloco da Homepage, onde mostra a lista das soluções'),
+				"render_template"	=> "blocks/nossos-produtos.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'list', 'categories' )
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'Bloco nossos produtos curto',
+				'title' 					=> __('Nossos produtos short'),
+				'description' 		=> __('Um bloco onde lista 3 produtos/serviços pras páginas internas'),
+				"render_template"	=> "blocks/nossos-produtos-short.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'list', 'categories' )
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'Bloco nossa história',
+				'title' 					=> __('nossa-historia'),
+				'description' 		=> __('Quarto bloco da Homepage, onde mostra os cards'),
+				"render_template"	=> "blocks/nossa-historia.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'slick', 'slides' )
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'Bloco canais digitais',
+				'title' 					=> __('canais-digitais'),
+				'description' 		=> __('Quinto bloco da Homepage, onde mostra o texto e imagem dos canais digitais'),
+				"render_template"	=> "blocks/canais-digitais.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime'
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'Bloco onde encontrar',
+				'title' 					=> __('onde-encontrar'),
+				'description' 		=> __('Sexto bloco da Homepage, onde tem o combobox de escolha das unidades'),
+				"render_template"	=> "blocks/onde-encontrar.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime'
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'Bloco novidades',
+				'title' 					=> __('novidades'),
+				'description' 		=> __('Sétimo bloco da Homepage, onde lista as notícias em destaque'),
+				"render_template"	=> "blocks/novidades.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime'
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'Bloco atendimento',
+				'title' 					=> __('atendimento'),
+				'description' 		=> __('Oitavo bloco da Homepage, onde se encontram os links das redes sociais'),
+				"render_template"	=> "blocks/atendimento.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime'
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'Footer',
+				'title' 					=> __('footer'),
+				'description' 		=> __('Bloco footer'),
+				"render_template"	=> "blocks/footer.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'footer' )
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'Breadcrumbs nav',
+				'title' 					=> __('Breadcrumbs nav'),
+				'description' 		=> __('Bloco de Breadcrumbs'),
+				"render_template"	=> "blocks/breadcrumbs.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'breadcrumbs' )
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'banner-topo-titulo',
+				'title' 					=> __('Banner topo + Título'),
+				'description' 		=> __('Bloco de Banner topo + Título das páginas internas '),
+				"render_template"	=> "blocks/banner-titulo.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'banner' )
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'texto-imagem',
+				'title' 					=> __('Texto + Imagem'),
+				'description' 		=> __('Bloco de Texto + Imagem das páginas internas'),
+				"render_template"	=> "blocks/text-image.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'texto','imagem' )
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-mvv',
+				'title' 					=> __('Bloco Missão, Visão, Valores'),
+				'description' 		=> __('Bloco Missão, Visão, Valores da página institucional'),
+				"render_template"	=> "blocks/bloco-mvv.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'texto','imagem' )
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-beneficios',
+				'title' 					=> __('Bloco benefícios'),
+				'description' 		=> __('Bloco benefícios da página institucional'),
+				"render_template"	=> "blocks/bloco-beneficios.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'institucional' )
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-diretoria-e-conselhos',
+				'title' 					=> __('Bloco Diretoria e Conselhos'),
+				'description' 		=> __('Bloco Diretoria e Conselhos da página institucional'),
+				"render_template"	=> "blocks/bloco-diretoria-e-conselhos.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'institucional' )
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-cards',
+				'title' 					=> __('Bloco de cards'),
+				'description' 		=> __('Bloco para montar cards'),
+				"render_template"	=> "blocks/bloco-cards.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'institucional' )
+			));	
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-assembleias',
+				'title' 					=> __('Bloco Assembleias'),
+				'description' 		=> __('Bloco que lista as Assembleias passadas e futuras'),
+				"render_template"	=> "blocks/bloco-assembleias.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'institucional' )
+			));	
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-relatorios',
+				'title' 					=> __('Bloco Relatórios'),
+				'description' 		=> __('Bloco que lista os Relatórios'),
+				"render_template"	=> "blocks/bloco-relatorios.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'institucional' )
+			));			
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-fale-conosco',
+				'title' 					=> __('Bloco Fale conosco'),
+				'description' 		=> __('Bloco com o formulário Fale conosco'),
+				"render_template"	=> "blocks/bloco-fale-conosco.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'institucional' )
+			));			
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-investimentos',
+				'title' 					=> __('Bloco Investimentos'),
+				'description' 		=> __('Bloco com o conteúdo de investimentos e links pras páginas'),
+				"render_template"	=> "blocks/bloco-investimentos.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'institucional' )
+			));		
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-topo-investimentos',
+				'title' 					=> __('Bloco topo de investimentos'),
+				'description' 		=> __('Bloco que substitui a hero image das páginas de investimentos'),
+				"render_template"	=> "blocks/bloco-topo-investimentos.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'institucional' )
+			));	
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-duvidas',
+				'title' 					=> __('Bloco Saiba mais (dúvidas)'),
+				'description' 		=> __('Bloco Saiba mais (dúvidas)'),
+				"render_template"	=> "blocks/bloco-duvidas.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'institucional' )
+			));	
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-cartoes',
+				'title' 					=> __('Bloco de cartões'),
+				'description' 		=> __('Bloco de cartões'),
+				"render_template"	=> "blocks/bloco-cartoes.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'institucional' )
+			));	
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-baixe-conteudo',
+				'title' 					=> __('Bloco Baixe agora seu conteúdo exclusivo'),
+				'description' 		=> __('Bloco Baixe agora seu conteúdo exclusivo'),
+				"render_template"	=> "blocks/bloco-baixe-conteudo.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime',
+				'keywords' => 		array( 'institucional' , 'content-noticias')
+			));	
+		}
 		
 		add_theme_support( 'wp-block-styles' );
 		add_theme_support( 'align-wide' );
@@ -259,7 +255,7 @@ if ( ! function_exists( 'Uniprime' ) ) :
 		add_theme_support( 'post-thumbnails' );
 	}
 endif; // end function_exists blank_setup.
-add_action( 'after_setup_theme', 'Uniprime' );
+//add_action( 'after_setup_theme', 'Uniprime' );
 
 if ( function_exists( 'acf_register_block_type' ) ) {
 	add_action('acf/init', 'Uniprime');
@@ -275,6 +271,8 @@ function my_block_plugin_editor_scripts() {
 	wp_enqueue_script('bootstrap', get_template_directory_uri().'/assets/js/bootstrap.bundle.min.js', $dependencies );
 	wp_enqueue_script('slick', get_template_directory_uri().'/assets/js/slick.js', $dependencies );
 	wp_enqueue_script('scripts', get_template_directory_uri().'/assets/js/scripts.js', $dependencies2 );
+	// Passe o caminho de admin-ajax.php para o script JavaScript
+	wp_localize_script('scripts', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
 
 }
 add_action( 'wp_enqueue_scripts', 'my_block_plugin_editor_scripts' );
@@ -331,7 +329,6 @@ function custom_taxonomy_column_content($column, $post_id) {
 }
 add_action('manage_relatorio_posts_custom_column', 'custom_taxonomy_column_content', 10, 3);
 add_action('manage_solucoes_posts_custom_column', 'custom_taxonomy_column_content', 10, 3); 
-
 
 // Torna a coluna "Taxonomia" filtrável
 function custom_taxonomy_column_sortable($columns) {
@@ -563,3 +560,371 @@ function custom_login_logo() {
 	</style>';
 }
 add_action('login_head', 'custom_login_logo');
+
+// FUNÇÕES PRA POPULAR CAMPOS DE COOP E AGÊNCIAS -> AJAX
+add_action('wp_ajax_my_custom_action', 'my_custom_action_callback');
+add_action('wp_ajax_nopriv_my_custom_action', 'my_custom_action_callback');
+
+function my_custom_action_callback() {
+    // Faça a requisição HTTP GET para o arquivo JSON
+    $response = wp_remote_get(get_template_directory_uri().'/api/agencias.json');
+
+    if (!is_wp_error($response) && $response['response']['code'] == 200) {
+        // Retorna os dados JSON
+        wp_send_json_success(wp_remote_retrieve_body($response));
+    } else {
+        // Retorna uma mensagem de erro
+        wp_send_json_error('Erro ao carregar os dados do JSON.');
+    }
+
+    wp_die(); // Encerra a execução
+}
+
+/* FUNÇÃO PRO GRAVITY FORMS RETORNAR CAMPO ASSUNTO */
+/*add_filter( 'gform_field_value_assuntos', 'pre_select_assuntos' );
+function pre_select_assuntos( $value ) {
+	return 'assunto_2';
+}*/
+
+add_filter( 'gform_field_value_select-cooperativa-data', 'populate_select_cooperativa' );
+function populate_select_cooperativa( $value ) {?>
+	<script type='text/javascript'>
+		(function($){
+			$(document).on('gform_post_render', function(event, form_id, current_page){
+				// Verifica se é o formulário correto pelo ID
+				//console.log('formId',form_id);
+				//if (form_id == 7) {
+					const selectCooperativa = document.querySelectorAll(".select-cooperativa select");
+					const selectAgencia = document.querySelectorAll(".select-agencia select");
+
+					if(selectCooperativa && selectAgencia) {
+						$.ajax({
+							url: ajax_object.ajax_url + '?action=my_custom_action',
+							type: 'GET',
+							dataType: 'json',
+							success: function(response) {
+								// Manipule os dados JSON aqui
+								var json = $.parseJSON(response.data); // create an object with the key of the array
+								var singulares = json.singulares;
+								//console.log(selectCooperativa);
+								var selectArrayCooperativa = Array.from(selectCooperativa);
+								// Iterando sobre a array para limpar as options
+								selectArrayCooperativa.forEach(function(select) {
+									$(select).empty();
+									$(select).append($('<option>').text('Selecione uma cooperativa').val(0));
+
+									singulares.forEach(function(item) {
+											$(select).append($('<option>').text(item.singular).val(item.id));
+									});
+								});
+								
+								
+								$(selectArrayCooperativa).on('change', function() {
+									var selectedCooperativaId = $(this).val();
+									var selectArrayAgencia = Array.from(selectAgencia);
+									// Limpa o select de agencia
+									selectArrayAgencia.forEach(function(select) {
+										$(select).empty();
+										$(select).append($('<option>').text('Selecione uma agência').val(0));
+									});
+
+									// Filtra as agencias baseado no valor selecionado do select cooperativa
+									var selectedSingular = singulares.find(function(item) {
+										return item.id == selectedCooperativaId;
+									});
+
+									if (selectedSingular.agencies.length>0) {
+										selectedSingular.agencies.forEach(function(agency) {
+											selectArrayAgencia.forEach(function(select) {
+												$(select).append($('<option>').text(agency.agency_title).val(agency.agency_id));
+											});
+										});
+									} 
+							});
+									
+							},
+							error: function(xhr, status, error) {
+									// Manipule os erros aqui
+									console.error(error);
+							}
+						});
+					}
+				//}
+			})
+		})(jQuery); 
+	</script>
+	<?php
+}
+
+add_action('gform_after_submission', 'criar_protocolo_cpt', 10, 2);
+function criar_protocolo_cpt($entry, $form) {
+	// Verifique o ID do formulário
+	if ($form['id'] != 7) { // Substitua pelo ID do seu formulário
+			return;
+	}
+	$entry_id = rgar($entry, 'id'); // Obter o ID da entrada
+	$protocolo = date('YmdHis') . $entry_id;
+
+	// Campos do formulário
+	$nome = rgar($entry, '12');
+	$email = rgar($entry, '10');
+	$cpf = rgar($entry, '37');
+	$telefone = rgar($entry, '38');
+	$cooperativa = rgar($entry, '7');
+	$agencia = rgar($entry, '8');
+	$cooperado = rgar($entry, '13');
+	$tipo_relato = rgar($entry, '19');
+	$estado = rgar($entry, '23');
+	$cidade = rgar($entry, '24');
+	$nome_agencia = rgar($entry, '25');
+	$nome_responsavel = rgar($entry, '27');
+	$departamento = rgar($entry, '28');
+	$funcao = rgar($entry, '29');
+	$empresa = rgar($entry, '30');
+	$outros_detalhes = rgar($entry, '31');
+	$detalhamento_denuncia = rgar($entry, '33');
+	$testemunhas = rgar($entry, '35');
+	// Data da denúncia
+	$data_denuncia = current_time('mysql');
+	// Atualize o campo oculto com o número de protocolo
+	
+	//GFAPI::update_entry_field(rgar($entry, 'id'), '39', $protocolo);
+	// Criar o novo post do tipo "protocolo"
+	$post_data = array(
+		'post_title' => 'Protocolo '. $protocolo,
+		'post_content' => '',
+		'post_status' => 'publish',
+		'post_type' => 'protocolo',
+		'meta_input' => array(
+			'numero_protocolo' => $protocolo,
+			'nome' => $nome,
+			'email' => $email,
+			'cpf' => $cpf,
+			'telefone' => $telefone,
+			'cooperativa' => $cooperativa,
+			'agencia' => $agencia,
+			'cooperado' => $cooperado,
+			'tipo_relato' => $tipo_relato,
+			'estado' => $estado,
+			'cidade' => $cidade,
+			'nome_agencia' => $nome_agencia,
+			'nome_responsavel' => $nome_responsavel,
+			'departamento' => $departamento,
+			'funcao' => $funcao,
+			'empresa' => $empresa,
+			'outros_detalhes' => $outros_detalhes,
+			'detalhamento_denuncia' => $detalhamento_denuncia,
+			'testemunhas' => $testemunhas,
+			'status' => 'aguardando resposta', // Status inicial
+			'data_denuncia' => $data_denuncia,
+			'resposta' => '',
+			'data_resposta' => '',
+		),
+	);
+	$post_id = wp_insert_post($post_data);
+	?>
+	<script type='text/javascript'>
+		(function($){
+			$(document).on('gform_post_render', function(event, form_id, current_page){
+				num_protocolo = document.getElementById('num_protocolo');
+				num_protocolo.innerHTML = '<?php echo $protocolo; ?>';
+			})
+		})(jQuery); 
+	</script>
+	<?php
+}
+
+
+// Adicionar colunas personalizadas à lista de Protocolos
+add_filter('manage_protocolo_posts_columns', 'set_custom_edit_protocolo_columns');
+function set_custom_edit_protocolo_columns($columns) {
+    $columns['numero_protocolo'] = __('Número de Protocolo');
+    $columns['agencia'] = __('Agência');
+    $columns['data_denuncia'] = __('Data da Denúncia');
+    $columns['status'] = __('Status');
+    return $columns;
+}
+
+// Preencher as colunas personalizadas com os valores apropriados
+add_action('manage_protocolo_posts_custom_column', 'custom_protocolo_column', 10, 2);
+function custom_protocolo_column($column, $post_id) {
+	switch ($column) {
+		case 'numero_protocolo':
+			echo get_post_meta($post_id, 'numero_protocolo', true);
+			break;
+		case 'agencia':
+			echo get_post_meta($post_id, 'agencia', true);
+			break;
+		case 'data_denuncia':
+			echo get_post_meta($post_id, 'data_denuncia', true);
+			break;
+		case 'status':
+			echo get_post_meta($post_id, 'status', true);
+			break;
+	}
+}
+
+// Tornar as colunas classificáveis
+add_filter('manage_edit-protocolo_sortable_columns', 'set_custom_protocolo_sortable_columns');
+function set_custom_protocolo_sortable_columns($columns) {
+    $columns['numero_protocolo'] = 'numero_protocolo';
+    $columns['agencia'] = 'agencia';
+    $columns['data_denuncia'] = 'data_denuncia';
+    $columns['status'] = 'status';
+    return $columns;
+}
+// Adicionar metabox para status e resposta
+function add_protocolo_meta_box() {
+	add_meta_box(
+			'protocolo_meta_box',
+			__('Detalhes do Protocolo'),
+			'protocolo_meta_box_callback',
+			'protocolo',
+			'normal',
+			'high'
+	);
+}
+add_action('add_meta_boxes', 'add_protocolo_meta_box');
+
+function protocolo_meta_box_callback($post) {
+	// Recuperar os dados do post
+	$numero_protocolo = get_post_meta($post->ID, 'numero_protocolo', true);
+	$nome = get_post_meta($post->ID, 'nome', true);
+	$email = get_post_meta($post->ID, 'email', true);
+	$cpf = get_post_meta($post->ID, 'cpf', true);
+	$telefone = get_post_meta($post->ID, 'telefone', true);
+	$cooperativa = get_post_meta($post->ID, 'cooperativa', true);
+	$agencia = get_post_meta($post->ID, 'agencia', true);
+	$cooperado = get_post_meta($post->ID, 'cooperado', true);
+	$tipo_relato = get_post_meta($post->ID, 'tipo_relato', true);
+	$estado = get_post_meta($post->ID, 'estado', true);
+	$cidade = get_post_meta($post->ID, 'cidade', true);
+	$nome_agencia = get_post_meta($post->ID, 'nome_agencia', true);
+	$nome_responsavel = get_post_meta($post->ID, 'nome_responsavel', true);
+	$departamento = get_post_meta($post->ID, 'departamento', true);
+	$funcao = get_post_meta($post->ID, 'funcao', true);
+	$empresa = get_post_meta($post->ID, 'empresa', true);
+	$outros_detalhes = get_post_meta($post->ID, 'outros_detalhes', true);
+	$detalhamento_denuncia = get_post_meta($post->ID, 'detalhamento_denuncia', true);
+	$testemunhas = get_post_meta($post->ID, 'testemunhas', true);
+	$status = get_post_meta($post->ID, 'status', true);
+	$data_denuncia = get_post_meta($post->ID, 'data_denuncia', true);
+	$resposta = get_post_meta($post->ID, 'resposta', true);
+	$data_resposta = get_post_meta($post->ID, 'data_resposta', true);
+
+	// Caminho para o arquivo JSON
+	$json_path = get_template_directory() . '/api/agencias.json';
+
+	// Verifica se o arquivo existe
+	if (file_exists($json_path)) {
+			// Obtém o conteúdo do arquivo JSON
+			$json_content = file_get_contents($json_path);
+			// Decodifica o JSON para um array PHP
+			$agencias_data = json_decode($json_content, true);
+	}
+	$cooperativa_id = get_post_meta(get_the_ID(), 'cooperativa', true);
+	$agencia_id = get_post_meta(get_the_ID(), 'agencia', true);
+
+	// Variáveis para armazenar os dados encontrados
+	$cooperativa_nome = '';
+	$agencia_nome = '';
+
+	// Verifica se o JSON foi carregado corretamente
+	if (!empty($agencias_data) && isset($agencias_data['singulares'])) {
+		foreach ($agencias_data['singulares'] as $singular) {
+			// Verifica se a cooperativa corresponde ao ID
+			if ($singular['id'] == $cooperativa_id) {
+				$cooperativa_nome = $singular['singular'];
+				// Verifica se há agências e se a agência corresponde ao ID
+				foreach ($singular['agencies'] as $agencia) {
+					//var_dump();
+					if (isset($singular['agencies']) && $agencia['agency_id'] == $agencia_id) {
+							$agencia_nome = $agencia['agency_title'];
+					}
+				}
+				break; // Encerra o loop se a cooperativa foi encontrada
+
+			}
+		}
+	}
+	// Exibir os campos no metabox
+	?>
+	<div class="block-protocolo">
+		<p>
+			<label for="protocolo_status"><b><?php _e('Status:'); ?></b></label>
+			<select name="protocolo_status" id="protocolo_status">
+					<option value="aguardando resposta" <?php selected($status, 'aguardando resposta'); ?>>Aguardando Resposta</option>
+					<option value="respondido" <?php selected($status, 'respondido'); ?>>Respondido</option>
+			</select>
+		</p>
+		<p><b>Número do Protocolo:</b> <?php echo esc_html($numero_protocolo); ?></p>
+		<p><b>Data da Denúncia:</b> <?php echo esc_html($data_denuncia); ?></p>
+		<tr><b>Data da Resposta:</b> <?php echo esc_html($data_resposta); ?></p>
+	</div>
+	<div class="block-protocolo">
+		<div class="title-block"><?php _e('Dados'); ?></div>
+		<p><b>Nome:</b> <?php echo esc_html($nome); ?></p>
+		<p><b>E-mail:</b> <?php echo esc_html($email); ?></p>
+		<p><b>Telefone:</b> <?php echo esc_html($telefone); ?></p>
+		<p><b>CPF:</b> <?php echo esc_html($cpf); ?></p>
+		<p><b>Cooperado:</b> <?php echo esc_html($cooperado); ?></p>
+		<p><b>Singular:</b> <?php echo esc_html($cooperativa_nome) .' - '.esc_html($agencia_nome); ?></p>
+	</div>
+	<div class="block-protocolo">
+		<div class="title-block"><?php _e('Dados do relato'); ?></div>
+		<p><b>Tipo de Relato:</b> <?php echo esc_html($tipo_relato); ?></p>
+		<p><b>Estado:</b> <?php echo esc_html($estado); ?></p>
+		<p><b>Cidade:</b> <?php echo esc_html($cidade); ?></p>
+		<p><b>Nome da Agência:</b> <?php echo esc_html($nome_agencia); ?></p>
+		<p><b>Nome do Responsável:</b> <?php echo esc_html($nome_responsavel); ?></p>
+		<p><b>Departamento do responsável:</b> <?php echo esc_html($departamento); ?></p>
+		<p><b>Função do responsável:</b> <?php echo esc_html($funcao); ?></p>
+		<p><b>Empresa:</b> <?php echo esc_html($empresa); ?></p>
+		<p><b>Outros Detalhes:</b> <?php echo esc_html($outros_detalhes); ?></p>
+		<p><b>Detalhamento:</b></p>
+		<p><?php echo esc_html($detalhamento_denuncia); ?></p>
+		<p><b>Testemunhas:</b></p>
+		<p><?php echo esc_html($testemunhas); ?></p>
+		<!-- <p><b>Provas:</b></p>
+		<p><?php //echo esc_html($provas); ?></p> -->
+
+		<p>
+				<label for="protocolo_resposta"><div class="title-block"><?php _e('Resposta:'); ?></div></label>
+				<textarea name="protocolo_resposta" id="protocolo_resposta" rows="5" style="width:100%;"><?php echo esc_textarea($resposta); ?></textarea>
+		</p>
+	<?php
+}
+
+// Salvar os dados dos metaboxes
+function save_protocolo_meta_box_data($post_id) {
+	/*if (array_key_exists('protocolo_status', $_POST)) {
+		update_post_meta($post_id, 'status', $_POST['protocolo_status']);
+	}*/
+	if (array_key_exists('protocolo_resposta', $_POST)) {
+		if (isset($_POST['protocolo_status']) && $_POST['protocolo_status'] != 'respondido') {
+			update_post_meta($post_id, 'status', 'respondido');
+		}
+		update_post_meta($post_id, 'resposta', $_POST['protocolo_resposta']);
+		update_post_meta($post_id, 'data_resposta', current_time('mysql'));
+	}
+}
+add_action('save_post', 'save_protocolo_meta_box_data');
+
+
+function add_query_vars($vars) {
+	$vars[] = 'protocolo';
+	return $vars;
+}
+add_filter('query_vars', 'add_query_vars');
+
+function protocolo_template_redirect() {
+	global $wp_query;
+	if (isset($wp_query->query_vars['protocolo'])) {
+		$protocolo = $wp_query->query_vars['protocolo'];
+		$post = get_page_by_path($protocolo, OBJECT, 'protocolo');
+		include(get_template_directory() . '/page-protocolo.php');
+	}
+}
+add_action('template_redirect', 'protocolo_template_redirect');
+add_action('init', function() { flush_rewrite_rules(); });
+

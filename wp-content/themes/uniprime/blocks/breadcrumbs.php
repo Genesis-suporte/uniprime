@@ -28,7 +28,7 @@
   
       // If the post belongs to 'solucoes' post type
       //var_dump($post);
-      if ($post->post_name == 'relatorio-do-sistema' || $post->post_name == 'assembleias-ago-e-age'  || $post->post_name == 'cooperativismo-financeiro' || $post->post_name == 'sobre-a-uniprime' || $post->post_type == 'politica' || $post->post_type == 'noticia' || $post->post_name == 'noticias' || $post->post_type == 'campanha' || $post->post_name == 'campanha' || $post->post_type == 'sala-de-imprensa' || $post->post_name == 'sala-de-imprensa'  ) {
+      if ($post->post_name == 'relatorio-do-sistema' || $post->post_name == 'assembleias-ago-e-age'  || $post->post_name == 'cooperativismo-financeiro' || $post->post_name == 'sobre-a-uniprime' || $post->post_type == 'politica' || $post->post_type == 'noticia' || $post->post_name == 'noticias' || $post->post_type == 'campanha' || $post->post_name == 'campanha' || $post->post_type == 'sala-de-imprensa' || $post->post_name == 'sala-de-imprensa' || $post->post_name == 'canal-de-denuncia' || $post->post_type == 'protocolo' || $post->post_name == 'onde-estamos' || $post->post_name == 'portabilidade-de-conta-salario'  || $post->post_name == 'ouvidoria'  ) {
         $breadcrumb_content .= "<li class='breadcrumb-item'>" . __("A Uniprime") . "</li>\n";
       }
       if ($post->post_name == 'canais-digitais' || $post->post_name == 'fale-conosco') {
@@ -46,6 +46,10 @@
       if ($post->post_type == 'sala-de-imprensa' ) {
         $breadcrumb_content .= "<li class='breadcrumb-item'><a href='/sala-de-imprensa/'>". __("Sala de imprensa") . "</a></li>\n";
       } 
+      
+      if ($post->post_type == 'protocolo' ) {
+        $breadcrumb_content .= "<li class='breadcrumb-item'><a href='/canal-de-denuncia/'>" . __("Canal de denúncias") . "</a></li>\n";
+      }
       
       if ($post->post_type == 'solucoes') {
         // Add link to 'Soluções'
@@ -81,9 +85,9 @@
       }
   
       // Display the current post
-      if ($post->post_type != 'politica' ) {
+      if ($post->post_type != 'politica' && $post->post_type != 'protocolo') {
         $breadcrumb_content .= "<li class='breadcrumb-item'><b>" . get_the_title() . "</b></li>\n";
-      } else {
+      } else if($post->post_type == 'politica') {
         $breadcrumb_content .= "<li class='breadcrumb-item'><b>Políticas</b></li>\n";
       }
       $breadcrumb_content .= "</ol>\n</div>\n</div>\n</nav>\n";
