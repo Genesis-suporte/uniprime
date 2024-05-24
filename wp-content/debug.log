@@ -1076,3 +1076,19 @@ Stack trace:
 [22-May-2024 04:22:12 UTC] PHP Warning:  Undefined variable $data_resposta_formatada in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\single-protocolo.php on line 105
 [22-May-2024 04:22:19 UTC] PHP Warning:  Undefined variable $data_resposta_formatada in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\page-protocolo.php on line 107
 [22-May-2024 04:22:19 UTC] PHP Warning:  Undefined variable $data_resposta_formatada in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\single-protocolo.php on line 105
+[22-May-2024 21:52:54 UTC] PHP Warning:  Undefined variable $tipo_homepage in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\blocks\main-menu.php on line 266
+[22-May-2024 21:52:54 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\functions.php on line 488
+[22-May-2024 21:52:57 UTC] PHP Warning:  Undefined variable $tipo_homepage in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\blocks\main-menu.php on line 266
+[22-May-2024 21:52:57 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\functions.php on line 488
+[22-May-2024 21:53:03 UTC] PHP Warning:  Undefined variable $tipo_homepage in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\blocks\main-menu.php on line 266
+[22-May-2024 21:53:03 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\functions.php on line 488
+[22-May-2024 21:53:03 UTC] PHP Warning:  Undefined variable $tipo_homepage in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\blocks\main-menu.php on line 266
+[22-May-2024 21:53:03 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\functions.php on line 488
+[22-May-2024 21:53:50 UTC] PHP Warning:  Undefined variable $tipo_homepage in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\blocks\main-menu.php on line 266
+[22-May-2024 21:53:50 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\functions.php on line 488
+[22-May-2024 21:53:51 UTC] PHP Warning:  Undefined variable $tipo_homepage in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\blocks\main-menu.php on line 266
+[22-May-2024 21:53:51 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\functions.php on line 488
+[22-May-2024 22:01:05 UTC] PHP Warning:  Undefined variable $tipo_homepage in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\blocks\main-menu.php on line 266
+[22-May-2024 22:01:05 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\functions.php on line 488
+[24-May-2024 14:05:54 UTC] PHP Warning:  Undefined variable $tipo_homepage in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\blocks\main-menu.php on line 266
+[24-May-2024 14:05:54 UTC] PHP Warning:  foreach() argument must be of type array|object, bool given in C:\Users\tyara\Local Sites\uniprime\app\public\wp-content\themes\uniprime\functions.php on line 488

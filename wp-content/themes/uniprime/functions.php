@@ -897,9 +897,9 @@ function protocolo_meta_box_callback($post) {
 
 // Salvar os dados dos metaboxes
 function save_protocolo_meta_box_data($post_id) {
-	/*if (array_key_exists('protocolo_status', $_POST)) {
+	if (array_key_exists('protocolo_status', $_POST)) {
 		update_post_meta($post_id, 'status', $_POST['protocolo_status']);
-	}*/
+	}
 	if (array_key_exists('protocolo_resposta', $_POST)) {
 		if (isset($_POST['protocolo_status']) && $_POST['protocolo_status'] != 'respondido') {
 			update_post_meta($post_id, 'status', 'respondido');

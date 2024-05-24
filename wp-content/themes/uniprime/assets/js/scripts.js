@@ -37,7 +37,7 @@
       } else {
         if(mainMenu) {
           if (mainMenu.classList.contains('isMobile')) {
-            console.log('isMobile');
+            //console.log('isMobile');
             mainMenu.classList.toggle('isMobile');
           }
           $('.dots-hero').css('top',((height_hero/2)-(height_dots/2))).height(height_dots);

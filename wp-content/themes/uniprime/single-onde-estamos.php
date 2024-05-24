@@ -13,9 +13,8 @@ $label = get_field('label');
 $titulo = get_field('titulo');
 $descricao = get_field('descricao');
 
-$titulo_consultar_protocolo = get_field('titulo_consultar_protocolo');
 ?>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDksl0bKghCnaXqIwDOxoJOhpQW_lEEuGY"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgPGzPo39FpUbpJ2nrQYbpRj2WkJ9YB9M&token=103284"></script>
 <div class="banner-internas position-relative">
   <div class="hero-image">
     <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);">
@@ -42,100 +41,220 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
   include(get_template_directory() . '/blocks/breadcrumbs.php');
 }
 ?>
-<section class="ouvidoria mw-100">
+<section class="onde-estamos mw-100">
   <div class="container">
     <div class="content">
-    <div class="d-flex flex-column flex-lg-row">
-        <div class="container-fale-conosco col-12 col-lg-6 d-flex flex-column">
+      <div class="">
+        <div class="d-flex justify-content-start justify-content-lg-center">
           <div class="label-block">
             <?php echo esc_html($label); ?>
           </div>
-          <div class="title-block title-28 switzerlandBold">
-            <?php echo esc_html($titulo); ?>
-          </div>
-          <div class="description-block">
-            <?php echo esc_html($descricao); ?>
-          </div>
-          <div class="div-input-address">
-            <input type="text" name="input-address" id="input-address" value="" aria-invalid="false" placeholder="Informe o cep ou nome da cidade">
-            <button class="btn-consultar"><i class="icon-menu icon-search-white"></i>Consultar</button>
-          </div>
         </div>
-        <div class="side-onde-estamos col-12 col-lg-6">
-          <div id="map" style="width: 100%; height: 500px;"></div>
+        <div class="title-block title-28 switzerlandBold text-left text-lg-center">
+          <?php echo esc_html($titulo); ?>
+        </div>
+        <div class="description-block text-left text-lg-center">
+          <?php echo esc_html($descricao); ?>
+        </div>
+        <div class="div-input-address">
+          <input type="text" name="input-address" id="input-address" value="" aria-invalid="false" placeholder="Informe o cep ou nome da cidade">
+          <button class="btn-consultar" id="btn-consultar"><i class="icon-menu icon-search-white"></i>Consultar</button>
+        </div>
+        <div class="d-flex flex-column-reverse flex-lg-row gap-4">
+          <div class="sidebar-map" id="sidebar-map">
+          </div>
+          <div class="map-onde-estamos">
+            <div id="map" style="width: 100%; height: 861px;"></div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 <script type="text/javascript">
   (function ($) {
-    $(document ).ready(function() {
-      // Função para inicializar o mapa
-      function initMap() {
-        // Posição inicial do mapa (exemplo: coordenadas do Brasil)
-        var initialPosition = {lat: -14.235004, lng: -51.92528};
-        var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: initialPosition
+    let map, infoWindow;
+    let allMarkers = [];
+
+    $(document).ready(function() {
+      fetch('<?php echo get_template_directory_uri();?>/api/agencias.json')
+        .then(response => response.json())
+        .then(data => {
+          initMap();
+          displayAgencies(data.singulares);
+        })
+        .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
+
+      $('#btn-consultar').on('click', function() {
+        const address = $('#input-address').val();
+        if (address) {
+          geocodeAddress(address);
+        }
+      });
+    });
+    
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 6,
+        center: { lat: -24.726437, lng: -53.74293 } // Coordenadas centrais do Brasil
+      });
+
+      infoWindow = new google.maps.InfoWindow();
+    }
+
+    function displayAgencies(singulares) {
+      const listaAgencias = $('#sidebar-map');
+      listaAgencias.empty();
+      const customIcon = {
+        url: '<?php echo get_template_directory_uri();?>/assets/images/icons/pin-uniprime.png', // URL do seu pin personalizado
+        scaledSize: new google.maps.Size(38, 48), // Tamanho do pin personalizado
+      };
+      singulares.forEach(singular => {
+        singular.agencies.forEach(agencia => {
+          /*const distance = '';
+          if() {
+            distance = `<div class="phone d-flex flex-lg-column flex-row">
+                    <div>Distância: </div>
+                    <div class="title-block title-16 switzerlandBold distance"></div>
+                  </div>`;
+          }*/
+          
+          whatsapp1 = '';
+          whatsapp2 = '';
+          if(agencia.agency_whatsapp) {
+            /*if(is_mobile()) { 
+              whats = ';
+            } else { 
+              whats = 'https://wa.me/55'+agencia.agency_whatsapp+'/';
+            }*/
+            whatsapp1 = `<div class="phone d-flex flex-lg-column flex-row">
+                          <div>WhatsApp: </div>
+                          <div class="title-block title-16 switzerlandBold">${agencia.agency_whatsapp}</div>
+                        </div>`;
+            whatsapp2 = `<div class="col-12 col-lg-6">
+                           <a href="whatsapp://send?phone=55'${agencia.agency_whatsapp}" class="btn-primary btn icon-menu icon-message-white">Conversar</a>
+                         </div>`;
+          }
+          agency_email1 = '';
+          agency_email2 = '';
+          if(agencia.agency_email) {
+            agency_email1 = `<div class="contact-email d-flex flex-column">
+                  <div>E-mail: </div>
+                  <div class="title-block title-16 switzerlandBold">${agencia.agency_email}</div>      
+                </div>`;
+            agency_email2 = `<div class="col-12 col-lg-6">
+                          <a href="mailto:${agencia.agency_email}" class="btn-primary btn icon-menu icon-chat-white">Enviar mensagem</a>
+                        </div>`;
+          }
+          
+          const agencyHtml = `
+            <div class="content-agency" data-lat="${agencia.agency_address_lat}" data-lng="${agencia.agency_address_lon}">
+              <div class="label-block">AGÊNCIA ${agencia.agency_number}</div>
+              <div class="title-block title-agency title-28 switzerlandBold">${agencia.agency_title}</div>
+              <div class="address">
+                <p>${agencia.agency_address_city} - ${agencia.agency_address_state}. ${agencia.agency_address_cep}</p>
+                <p>${agencia.agency_address_street}, ${agencia.agency_address_number} - ${agencia.agency_address_neighborhood}</p>
+                  ${agencia.agency_content}
+                <div class="block-contacts">
+                  <div class="contact d-flex flex-column flex-lg-row justify-content-between">
+                    <div class="phone d-flex flex-lg-column flex-row">
+                      <div>Telefone: </div>
+                      <div class="title-block title-16 switzerlandBold">${agencia.agency_phone}</div>
+                    </div>
+                    ${whatsapp1}
+                    <div class="phone d-flex flex-lg-column flex-row d-none">
+                      <div>Distância: </div>
+                      <div class="title-block title-16 switzerlandBold distance"></div>
+                    </div>
+                  </div>
+                  ${agency_email1}
+                </div>
+                <div class="d-flex gap-4 pb-3 flex-column flex-lg-row">
+                  <div class="col-12 col-lg-6">
+                    <a href="tel:${agencia.agency_phone}" class="btn-primary btn icon-menu icon-phone-white">Ligar</a>
+                  </div>
+                  ${whatsapp2}
+                </div>
+                <div class="d-flex gap-4 flex-column flex-lg-row">
+                  <div class="col-12 col-lg-6">
+                    <a href="tel:${agencia.agency_phone}" class="btn-primary btn icon-menu icon-arrow-up-down-white">Direções</a>
+                  </div>
+                  ${agency_email2}
+                </div>
+              </div>
+            </div>`;
+              listaAgencias.append(agencyHtml);
+
+              const marker = new google.maps.Marker({
+                position: { lat: parseFloat(agencia.agency_address_lat), lng: parseFloat(agencia.agency_address_lon) },
+                map: map,
+                title: agencia.agency_title,
+                icon: customIcon
+              });
+
+              marker.addListener('click', () => {
+                infoWindow.setContent(`<div class="d-flex flex-column"><div class="title-block title-agency title-28 switzerlandBold">${agencia.agency_title}</div><p>${agencia.agency_content}</p></div>`);
+                infoWindow.open(map, marker);
+              });
+
+              allMarkers.push(marker);
+          });
+      });
+
+      $('.content-agency').on('click', function() {
+        const lat = parseFloat($(this).data('lat'));
+        const lng = parseFloat($(this).data('lng'));
+        const position = { lat: lat, lng: lng };
+        map.setCenter(position);
+        map.setZoom(15);
+        allMarkers.forEach(marker => {
+          if (marker.position.lat() === lat && marker.position.lng() === lng) {
+            infoWindow.setContent(`<h3>${marker.getTitle()}</h3>`);
+            infoWindow.open(map, marker);
+          }
         });
+      });
+    }
 
-        // Requisição AJAX para obter os dados do JSON
-        $.ajax({
-            url: '<?php echo get_template_directory_uri(); ?>/api/agencias.json',
-            type: 'GET',
-            dataType: 'json',
-            success: function(response) {
-                var singulares = response.singulares;
+    function geocodeAddress(address) {
+      const geocoder = new google.maps.Geocoder();
+      geocoder.geocode({ 'address': address }, function(results, status) {
+        if (status === 'OK') {
+          const location = results[0].geometry.location;
+          map.setCenter(location);
+          map.setZoom(12);
+          calculateDistances(location);
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    }
 
-                // Percorre cada singular para adicionar marcadores no mapa
-                singulares.forEach(function(item) {
-                    var agency = item.agencies;
-                    var position = {
-                        lat: parseFloat(agency.agency_address_lat),
-                        lng: parseFloat(agency.agency_address_lon)
-                    };
+    function calculateDistances(location) {
+      const service = new google.maps.DistanceMatrixService();
+      const destinations = allMarkers.map(marker => {
+        return marker.getPosition();
+    });
 
-                    var marker = new google.maps.Marker({
-                        position: position,
-                        map: map,
-                        title: agency.agency_title
-                    });
-
-                    var infoWindow = new google.maps.InfoWindow({
-                        content: '<h3>' + agency.agency_title + '</h3>' +
-                                 '<p>' + agency.agency_address_street + ', ' +
-                                 agency.agency_address_number + '<br>' +
-                                 agency.agency_address_neighborhood + ', ' +
-                                 agency.agency_address_city + ' - ' +
-                                 agency.agency_address_state + '</p>' +
-                                 '<p>Telefone: ' + agency.agency_phone + '</p>'
-                    });
-
-                    marker.addListener('click', function() {
-                        infoWindow.open(map, marker);
-                    });
-                });
-            },
-            error: function(xhr, status, error) {
-                console.error(error);
-            }
+    service.getDistanceMatrix({
+      origins: [location],
+      destinations: destinations,
+      travelMode: 'DRIVING',
+      unitSystem: google.maps.UnitSystem.METRIC
+    }, function(response, status) {
+      if (status === 'OK') {
+        const results = response.rows[0].elements;
+        $('.content-agency').each(function(index) {
+          const distanceText = results[index].distance.text;
+          $(this).find('.distance').text(distanceText);
         });
-      }
-
-      // Verifica se o Google Maps API está carregado e inicializa o mapa
-      if (typeof google !== 'undefined' && google.maps) {
-        initMap();
       } else {
-        // Carrega o script do Google Maps e inicializa o mapa
-        var script = document.createElement('script');
-        //https://maps.googleapis.com/maps/api/js?libraries=places&language=en&key=AIzaSyBgPGzPo39FpUbpJ2nrQYbpRj2WkJ9YB9M&callback=window.easyLocatorMethods.loadMap
-        script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBgPGzPo39FpUbpJ2nrQYbpRj2WkJ9YB9M&callback=window.easyLocatorMethods.loadMap";
-        script.async = true;
-        document.head.appendChild(script);
+        console.error('Error with distance matrix: ' + status);
       }
     });
+  }
+
   })(jQuery);
 </script>
 

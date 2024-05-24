@@ -126,6 +126,21 @@ a {
 .icon-phone {
   background: url('../images/icons/icon-phone.png') no-repeat 0px 0px;
 }
+.icon-phone-white {
+  background: url('../images/icons/icon-phone-white.png') no-repeat 0px 0px;
+}
+.icon-arrow-up-down-white {
+  background: url('../images/icons/icon-arrow-up-down-white.png') no-repeat 0px 0px;
+}
+.icon-message-white {
+  background: url('../images/icons/icon-message-white.png') no-repeat 0px 0px;
+}
+.icon-chat-white {
+  background: url('../images/icons/icon-chat-white.png') no-repeat 0px 0px;
+}
+
+
+
 .icon-central {
   background: url('../images/icons/icon-central.png') no-repeat 0px 0px;
 }
@@ -3232,7 +3247,8 @@ section.ouvidoria {
   padding: 46px 36px 16px;
   margin-bottom: 25px;
 }
-.bloco-consulta-protocolo input {
+.bloco-consulta-protocolo input,
+.div-input-address input {
   color: var(--primary-color);
   border: 1px solid #D5D4DC;
   font-family: "Calibri" !important;
@@ -3242,10 +3258,12 @@ section.ouvidoria {
   width: 100%;
   height: 54px;
 }
-.div-input-protocolo{
+.div-input-protocolo,
+.div-input-address {
   position: relative;
 }
-.bloco-consulta-protocolo .btn-consultar {
+.bloco-consulta-protocolo .btn-consultar,
+.div-input-address .btn-consultar {
   background-color: var(--primary-color) !important;
   border: 1px solid var(--primary-color) !important;
   border-radius: 50px !important;
@@ -3348,6 +3366,70 @@ section.denuncias .content p {
   font-weight: bold;
   font-family: 'Switzerland';
 }
+/* ONDE ESTAMOS */
+.onde-estamos {
+  padding: 130px 0 99px;
+}
+
+.div-input-address {
+  max-width: 800px;
+  margin: 26px auto 0;
+  padding: 0px 0 62px;
+}
+.div-input-address input {
+}
+.sidebar-map {
+  max-width: 495px;
+  overflow: hidden scroll;
+  max-height: 861px;
+  scrollbar-width: thin;
+}
+.content-agency {
+  background-color: var(--primary-color-para-voce);
+  border-radius: 16px;
+  margin-bottom: 24px;
+  padding: 48px;
+}
+
+.sidebar-map .label-block {
+  padding-left: 0px !important;
+}
+.sidebar-map .label-block:before {
+  border: 0px;
+}
+.title-agency {
+  padding-bottom: 16px;
+}
+.address p {
+  padding: 0 !important;
+  margin-bottom: 8px;
+}
+.contact {
+  padding-top: 8px;
+}
+.block-contacts {
+  padding: 16px 0 32px;
+}
+.contact-email {
+}
+.address .icon-phone-white,
+.address .icon-arrow-up-down-white, 
+.address .icon-message-white,
+.address .icon-chat-white {
+  background-position: 15px 13px;
+} 
+.address .btn.icon-menu {
+  padding-left: 40px !important;
+}
+.map-onde-estamos {
+  border-radius: 16px;
+  height: 100%;
+  max-width: 704px;
+  overflow: hidden;
+  width: 100%;
+}
+
+
 /* FOOTER */
 footer {
   z-index: 12;
