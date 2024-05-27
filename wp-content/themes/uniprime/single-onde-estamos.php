@@ -12,9 +12,10 @@ $image_banner = get_field('image_banner');
 $label = get_field('label');
 $titulo = get_field('titulo');
 $descricao = get_field('descricao');
-
+//AIzaSyDksl0bKghCnaXqIwDOxoJOhpQW_lEEuGY
+//Uniprime => AIzaSyBgPGzPo39FpUbpJ2nrQYbpRj2WkJ9YB9M
 ?>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgPGzPo39FpUbpJ2nrQYbpRj2WkJ9YB9M&token=103284"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDksl0bKghCnaXqIwDOxoJOhpQW_lEEuGY&token=103284"></script>
 <div class="banner-internas position-relative">
   <div class="hero-image">
     <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);">
@@ -56,7 +57,7 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
         <div class="description-block text-left text-lg-center">
           <?php echo esc_html($descricao); ?>
         </div>
-        <div class="div-input-address">
+        <div class="div-input-address div-search">
           <input type="text" name="input-address" id="input-address" value="" aria-invalid="false" placeholder="Informe o cep ou nome da cidade">
           <button class="btn-consultar" id="btn-consultar"><i class="icon-menu icon-search-white"></i>Consultar</button>
         </div>
@@ -112,13 +113,6 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
       };
       singulares.forEach(singular => {
         singular.agencies.forEach(agencia => {
-          /*const distance = '';
-          if() {
-            distance = `<div class="phone d-flex flex-lg-column flex-row">
-                    <div>Distância: </div>
-                    <div class="title-block title-16 switzerlandBold distance"></div>
-                  </div>`;
-          }*/
           
           whatsapp1 = '';
           whatsapp2 = '';
@@ -178,7 +172,7 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
                 </div>
                 <div class="d-flex gap-4 flex-column flex-lg-row">
                   <div class="col-12 col-lg-6">
-                    <a href="tel:${agencia.agency_phone}" class="btn-primary btn icon-menu icon-arrow-up-down-white">Direções</a>
+                    <a href="javascript:void(0)" class="btn-primary btn icon-menu icon-arrow-up-down-white btn-directions">Direções</a>
                   </div>
                   ${agency_email2}
                 </div>
@@ -235,25 +229,39 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
       const service = new google.maps.DistanceMatrixService();
       const destinations = allMarkers.map(marker => {
         return marker.getPosition();
-    });
+      });
 
-    service.getDistanceMatrix({
-      origins: [location],
-      destinations: destinations,
-      travelMode: 'DRIVING',
-      unitSystem: google.maps.UnitSystem.METRIC
-    }, function(response, status) {
-      if (status === 'OK') {
-        const results = response.rows[0].elements;
-        $('.content-agency').each(function(index) {
-          const distanceText = results[index].distance.text;
-          $(this).find('.distance').text(distanceText);
-        });
-      } else {
-        console.error('Error with distance matrix: ' + status);
-      }
-    });
-  }
+      service.getDistanceMatrix({
+        origins: [location],
+        destinations: destinations,
+        travelMode: 'DRIVING',
+        unitSystem: google.maps.UnitSystem.METRIC
+      }, function(response, status) {
+        if (status === 'OK') {
+          const results = response.rows[0].elements;
+          $('.content-agency').each(function(index) {
+            const distanceText = results[index].distance.text;
+            $(this).find('.distance').text(distanceText);
+          });
+        } else {
+          console.error('Error with distance matrix: ' + status);
+        }
+      });
+    }
+
+    function calculateAndDisplayRoute(originAddress, destination) {
+      directionsService.route({
+        origin: originAddress,
+        destination: destination,
+        travelMode: 'DRIVING'
+      }, function(response, status) {
+        if (status === 'OK') {
+          directionsRenderer.setDirections(response);
+        } else {
+            window.alert('Directions request failed due to ' + status);
+        }
+      });
+    }
 
   })(jQuery);
 </script>

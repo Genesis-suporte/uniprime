@@ -134,6 +134,38 @@ $tipo_homepage = get_field('tipo-homepage');
               </div>
             </div>
           </div>
+          <div class="menu-item menu-inicial-item" id="menu-search">
+            <div class="dropdown-content">
+              <div class="container justify-content-center">
+                <div class="row">
+                  <div class="label-header-menu title-28 text-center px-0">
+                    <?php echo esc_html('O que você está procurando?'); ?>
+                  </div>
+                  <div class="div-input-search div-search ">
+                    <form role="search" method="get" id="searchform" class="searchform" action="<?php echo home_url('/'); ?>">
+                      <input type="text" name="s" id="input-search" value="" aria-invalid="false" placeholder="Digite aqui">
+                      <button class="btn-consultar" id="btn-search"><i class="icon-menu icon-search-white"></i>Buscar</button>
+                      <input type="hidden" name="post_type[]" value="noticia"/>
+                      <input type="hidden" name="post_type[]" value="sala-de-imprensa"/>
+                      <input type="hidden" name="post_type[]" value="campanha"/>
+                    </form>
+                  </div>
+                  <div class="menu-search-container d-flex flex-wrap">
+                    <?php                         
+                      $menu_list_search = setMenuThreeLevels('menu search');
+                      $menu_search = "";
+                      foreach ($menu_list_search as $item) { 
+                        $menu_search .= '<div class="col-6 menu-subitem">'."\n";
+                        $menu_search .= '<a href="'. esc_html($item['link']) .'">'. esc_html($item['title']) .'</a>'."\n";
+                        $menu_search .= '</div>'."\n";
+                      }
+                      echo $menu_search;
+                    ?>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </nav>
       </div>
       <div class="d-flex justify-content-between bts-externos">
@@ -203,7 +235,7 @@ $tipo_homepage = get_field('tipo-homepage');
                           </a>
                         </div>
                         <div class="col-right-menu-mobile col d-flex justify-content-end">
-                          <a href="#" class="search">
+                          <a href="#" class="search click-search-mobile">
                             <img src="https://unip.genesiscreative.com.br/wp-content/themes/uniprime/assets/images/icons/icon-search.png" alt="Digite sua busca">
                           </a>
                           <a href="#" class="close">
@@ -247,7 +279,7 @@ $tipo_homepage = get_field('tipo-homepage');
                           </a>
                         </div>
                         <div class="col-right-menu-mobile col d-flex justify-content-end">
-                          <a href="#" class="search">
+                          <a href="#" class="search click-search-mobile">
                             <img src="https://unip.genesiscreative.com.br/wp-content/themes/uniprime/assets/images/icons/icon-search.png" alt="Digite sua busca">
                           </a>
                           <a href="#" class="close">
@@ -294,7 +326,7 @@ $tipo_homepage = get_field('tipo-homepage');
                           </a>
                         </div>
                         <div class="col-right-menu-mobile col d-flex justify-content-end">
-                          <a href="#" class="search">
+                          <a href="#" class="search click-search-mobile">
                             <img src="https://unip.genesiscreative.com.br/wp-content/themes/uniprime/assets/images/icons/icon-search.png" alt="Digite sua busca">
                           </a>
                           <a href="#" class="close">
@@ -328,6 +360,55 @@ $tipo_homepage = get_field('tipo-homepage');
                       </div>
                     </div>
                   </div>
+                      <div class="menu-item menu-inicial-item-mobile menu-inicial-item-mobile-search">
+                        <a href="#" class="menu-dropdown bt-menu-inicial-item-mobile">&nbsp;</a>
+                        <div class="dropdown-content dropdown-content-search">
+                          <div class="header-menu-mobile d-flex">
+                            <div class="logo-menu-mobile">
+                              <a href="/" class="link-logo">
+                                <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" alt="Logo Uniprime">
+                              </a>
+                            </div>
+                            <div class="col-right-menu-mobile col d-flex justify-content-end">
+                              <a href="#" class="">
+                                
+                              </a>
+                              <a href="#" class="close">
+                                <div class="bars">
+                                  <div class="bar bar1"></div>
+                                  <div class="bar bar2"></div>
+                                </div>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="content-dropdown-mobile">
+                            <div class="title-block title-28 text-center px-0 switzerlandBold">
+                              <?php echo esc_html('O que você está procurando?'); ?>
+                            </div>
+                            <div class="div-input-search div-search ">
+                              <form role="search" method="get" id="searchform" class="searchform" action="<?php echo home_url('/'); ?>">
+                                <input type="text" name="s" id="input-search" value="" aria-invalid="false" placeholder="Digite aqui">
+                                <button class="btn-consultar" id="btn-search"><i class="icon-menu icon-search-white"></i>Buscar</button>
+                                <input type="hidden" name="post_type[]" value="noticia"/>
+                                <input type="hidden" name="post_type[]" value="sala-de-imprensa"/>
+                                <input type="hidden" name="post_type[]" value="campanha"/>
+                              </form>
+                            </div>
+                            <div class="menu-search-container d-flex flex-wrap">
+                              <?php                         
+                                $menu_list_search = setMenuThreeLevels('menu search');
+                                $menu_search = "";
+                                foreach ($menu_list_search as $item) { 
+                                  $menu_search .= '<div class="col-12 menu-subitem">'."\n";
+                                  $menu_search .= '<a href="'. esc_html($item['link']) .'">'. esc_html($item['title']) .'</a>'."\n";
+                                  $menu_search .= '</div>'."\n";
+                                }
+                                echo $menu_search;
+                              ?>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                 </nav>
               </div>
               <div class="footer-menu-mobile">

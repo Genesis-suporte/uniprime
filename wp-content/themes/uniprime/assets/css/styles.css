@@ -665,7 +665,14 @@ li.select2-results__option .icon-menu {
   margin: 16px 0 0;
 }
 .top-bar .menu-top-bar .menu-item.search {
+  left: 15px;
+  position: relative;
   width: 48px;
+}
+.menu-inicial-item.icon-search {
+  background-position: 15px;
+  height: 48px !important;
+  width: 48px !important;
 }
 .top-bar .menu-top-bar .menu-item.current-menu-item.para-voce {
   background-color: var(--primary-color-para-voce);
@@ -936,6 +943,35 @@ li.select2-results__option .icon-menu {
 .menu-inicial .menu-item .dropdown-content.dropdown-content-atendimento .container .menu-subitem a {
   padding: 8px 0px 8px 0px !important;
 }
+/* SEARCH */
+.div-search {
+  max-width: 800px !important;
+  margin: 26px auto 0;
+  padding: 0px 0 62px;
+}
+#btn-search {
+  right: 18px;
+}
+.menu-search-container {
+  max-width: 50% !important;
+  margin: 0 auto;
+}
+.menu-search-container .menu-subitem {
+  position: relative;
+}
+.menu-search-container .menu-subitem::before {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 5px;
+  position: absolute;
+  top: 18px;
+  left: 38px;
+  background-color: var(--color-actived);
+  border-top: 0px;
+  border-radius: 50%;
+  padding: 2px 2px;
+}
 #modal-menu {
   background-color: black;
   display: none;
@@ -948,10 +984,86 @@ li.select2-results__option .icon-menu {
   width: 100vw;
   z-index: 100;
 }
-
 .main-menu .bts-externos {
   padding: 40px 0px;
 }
+/* PÁGINA DE BUSCA - SEARCH */
+section.search-page {
+  padding: 112px 0px;
+  overflow: hidden;
+}
+section.search-page .thumbnail {
+  margin-bottom: 24px;
+  background-color: white !important;
+}
+section.search-page .thumbnail-card {
+  background-size: cover;
+  background-position: center;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  border-top-right-radius: 0px;
+  height: 323px;
+  max-width: 320px;
+  overflow: hidden;
+  width: 100%;
+}
+section.search-page .has-thumbnail {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  border: 1px solid var(--color-neutral-2);
+  border-left: 0px;
+  width: 100%;
+}
+section.search-page .has-thumbnail a.leia_mais {
+  color: var(--primary-color-brand);
+  font-size: 13px;
+}
+section.search-page .slider-controls {
+  margin: 64px auto 0;
+}
+section.search-page .slick-arrow.slide-m-prev {
+  transform: rotate(180deg);
+}
+section.search-page .slick-arrow {
+  margin: 0 32px;
+}
+section.search-page .slide-m-dots {
+  position: relative;
+}
+section.search-page .slide-m-dots .slick-dots {
+  padding: 0;
+  list-style-type: none;
+}
+section.search-page .slide-m-dots .slick-dots li {
+  float: left;
+  height: 44px;
+  margin-left: 16px;
+  transition: all .2s ease-in-out;
+  width: 44px;
+}
+section.search-page .slide-m-dots .slick-dots li:first-child {
+  margin-left: 0px;
+}
+section.search-page .slide-m-dots .slick-dots li button {
+  background-color: white;
+  border: 1.5px solid var(--primary-color);
+  border-radius: 50%;
+  color: var(--primary-color);
+  display: block;
+  font-family: 'Calibri';
+  font-size: 16px;
+  font-weight: bold;
+  height: 44px;
+  padding: 6px 14px;
+  text-align: center;
+  width: 44px;
+}
+section.search-page .slide-m-dots .slick-dots li.slick-active button {
+  background-color: var(--primary-color);
+  border-radius: 100%;
+  color: white;
+}
+
 /* ACTIVED */
 .main-menu.para-cooperativa.actived .bts-externos .acesse-sua-conta {
   background-color: var(--primary-color-brand) !important;
@@ -2988,7 +3100,7 @@ section.fale-conosco {
   padding: 32px;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
-  border: 1px solid var(--color-neutral);
+  border: 1px solid var(--color-neutral-2);
   border-top: 0px;
   min-height: 186px;
 }
@@ -3248,7 +3360,7 @@ section.ouvidoria {
   margin-bottom: 25px;
 }
 .bloco-consulta-protocolo input,
-.div-input-address input {
+.div-search input {
   color: var(--primary-color);
   border: 1px solid #D5D4DC;
   font-family: "Calibri" !important;
@@ -3259,11 +3371,11 @@ section.ouvidoria {
   height: 54px;
 }
 .div-input-protocolo,
-.div-input-address {
+.div-search {
   position: relative;
 }
 .bloco-consulta-protocolo .btn-consultar,
-.div-input-address .btn-consultar {
+.div-search .btn-consultar {
   background-color: var(--primary-color) !important;
   border: 1px solid var(--primary-color) !important;
   border-radius: 50px !important;
@@ -3367,17 +3479,10 @@ section.denuncias .content p {
   font-family: 'Switzerland';
 }
 /* ONDE ESTAMOS */
-.onde-estamos {
+section.onde-estamos {
   padding: 130px 0 99px;
 }
 
-.div-input-address {
-  max-width: 800px;
-  margin: 26px auto 0;
-  padding: 0px 0 62px;
-}
-.div-input-address input {
-}
 .sidebar-map {
   max-width: 495px;
   overflow: hidden scroll;
@@ -3409,8 +3514,6 @@ section.denuncias .content p {
 }
 .block-contacts {
   padding: 16px 0 32px;
-}
-.contact-email {
 }
 .address .icon-phone-white,
 .address .icon-arrow-up-down-white, 
@@ -3735,7 +3838,8 @@ footer {
     margin-left: 0px;
     padding: 10px 20px !important;
   }
-  .menu-inicial-mobile .menu-item .dropdown-content {
+  .menu-inicial-mobile .menu-item .dropdown-content,
+  .menu-mobile-search .dropdown-content {
     left: 100%;
     display: block;
     top: 0;
@@ -3748,13 +3852,16 @@ footer {
     overflow-y: auto;
     padding-bottom: 0px;
   }
-  .menu-inicial-mobile .menu-item.actived .dropdown-content {
+  .menu-inicial-mobile .menu-item.actived .dropdown-content,
+  .menu-mobile-search.actived .dropdown-content {
     left: 0;
   }
-  .menu-inicial-mobile .menu-item .dropdown-content .header-menu-mobile {
+  .menu-inicial-mobile .menu-item .dropdown-content .header-menu-mobile,
+  .menu-inicial-mobile .menu-mobile-search .dropdown-content .header-menu-mobile  {
     padding: 74px 22px 30px;
   }
-  .menu-inicial-mobile .menu-item .dropdown-content .header-content-mobile {
+  .menu-inicial-mobile .menu-item .dropdown-content .header-content-mobile,
+  .menu-inicial-mobile .menu-mobile-search .dropdown-content .header-content-mobile {
     padding: 13px 23px 21px;
 
   }
@@ -3763,6 +3870,35 @@ footer {
     border: 0px;
     transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
+  }
+  .menu-inicial-item-mobile-search {
+    position: absolute;
+    top: 62px;
+    right: 83px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+  }
+  .menu-inicial-item-mobile-search .dropdown-content-search {
+    line-height: 24px;
+  }
+  .div-search {
+    max-width: 100% !important;
+    padding: 0px 14px 62px;
+  }
+  #btn-search {
+    right: 21px;
+  }
+  .menu-search-container {
+    max-width: 100% !important;
+    margin: 0 14px;
+  }
+  .menu-search-container .menu-subitem::before {
+    left: 0px;
+  }
+  .menu-inicial-mobile .menu-item .dropdown-content .content-dropdown-mobile .menu-search-container .menu-subitem a {
+    padding: 10px 0px 30px 40px !important;
   }
   .para-empresa .menu-inicial-mobile .menu-item .dropdown-content .slick-arrow,
   .para-cooperativa .menu-inicial-mobile .menu-item .dropdown-content .slick-arrow
@@ -3804,7 +3940,7 @@ footer {
     padding-bottom: 20px;
   }
   .header-menu-banner.para-voce .menu-inicial-mobile .dropdown-content.a-uniprime .content-dropdown-mobile {
-    height: 100%;
+    /*height: 100%;*/
   }
   
   .menu-inicial-mobile .menu-item .dropdown-content .menu-subitem  a {
@@ -3904,6 +4040,33 @@ footer {
   .description-block {
     padding-top: 8px;
   }
+  /* SEARCH PAGE */
+  
+  section.search-page .slick-arrow.slide-m-prev {
+    margin-left: 0;
+    margin-right: 16px;
+  }
+  section.search-page .slick-arrow.slide-m-next {
+    margin-right: 0;
+    margin-left: 16px;
+  }
+  section.search-page .thumbnail-card {
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    height: 323px;
+    max-width: 100%;
+  }
+  section.search-page .has-thumbnail {
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-left: 1px solid var(--color-neutral-2);
+    border-top: 0px;
+  }
+  /* NOSSOS PRODUTOS */
   .nossos-produtos {
     padding: 65px 11px 63px;
   }

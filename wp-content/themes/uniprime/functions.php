@@ -889,8 +889,8 @@ function protocolo_meta_box_callback($post) {
 		<p><?php //echo esc_html($provas); ?></p> -->
 
 		<p>
-				<label for="protocolo_resposta"><div class="title-block"><?php _e('Resposta:'); ?></div></label>
-				<textarea name="protocolo_resposta" id="protocolo_resposta" rows="5" style="width:100%;"><?php echo esc_textarea($resposta); ?></textarea>
+			<label for="protocolo_resposta"><div class="title-block"><?php _e('Resposta:'); ?></div></label>
+			<textarea name="protocolo_resposta" id="protocolo_resposta" rows="5" style="width:100%;"><?php echo esc_textarea($resposta); ?></textarea>
 		</p>
 	<?php
 }
@@ -917,7 +917,7 @@ function add_query_vars($vars) {
 }
 add_filter('query_vars', 'add_query_vars');
 
-function protocolo_template_redirect() {
+/*function protocolo_template_redirect() {
 	global $wp_query;
 	if (isset($wp_query->query_vars['protocolo'])) {
 		$protocolo = $wp_query->query_vars['protocolo'];
@@ -925,6 +925,14 @@ function protocolo_template_redirect() {
 		include(get_template_directory() . '/page-protocolo.php');
 	}
 }
-add_action('template_redirect', 'protocolo_template_redirect');
+add_action('template_redirect', 'protocolo_template_redirect');*/
 add_action('init', function() { flush_rewrite_rules(); });
-
+/* BUSCA */
+function custom_search_filter($query) {
+	if ($query->is_search && !is_admin()) {
+			$post_types = ['noticia', 'sala-de-imprensa', 'campanha'];
+			$query->set('post_type', $post_types);
+	}
+	return $query;
+}
+add_filter('pre_get_posts', 'custom_search_filter');

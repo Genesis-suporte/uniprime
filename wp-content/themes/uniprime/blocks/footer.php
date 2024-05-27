@@ -81,7 +81,7 @@
           <a href="#" class="menu-dropdown">
             <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para você');?><i class="arrow right"></i></div>
           </a>
-          <div class="dropdown-content">
+          <div class="dropdown-content dc-footer">
             <div class="container">
               <div class="row">
                 <?php 
@@ -107,7 +107,7 @@
           <a href="#" class="menu-dropdown">
             <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para seu negócio');?><i class="arrow right"></i></div>
           </a>
-          <div class="dropdown-content">
+          <div class="dropdown-content dc-footer">
             <div class="container">
               <div class="row">
                 <?php 
@@ -133,7 +133,7 @@
           <a href="#" class="menu-dropdown">
             <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para sua cooperativa');?><i class="arrow right"></i></div>
           </a>
-          <div class="dropdown-content cooperativa">
+          <div class="dropdown-content dc-footer cooperativa">
             <div class="container">
               <div class="row">
                 <?php 

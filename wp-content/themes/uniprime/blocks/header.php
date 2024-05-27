@@ -1,7 +1,7 @@
 <?php
   // BLOCK WITH TOP BAR
   $top_bar_localization = get_field('top_bar_localization', $block['id']);
-  if(is_front_page()) {
+  if(is_front_page() || is_search()) {
     $currentSlug = 'para-voce';
   } else {
     global $post;
@@ -49,32 +49,9 @@
                 if(!$class_search) { 
                   $menu_top_bar .= '<a href="'. esc_html($item['link']) .'" class="menu-dropdown">'. esc_html($item['title']) .'</a>'."\n";
                 } else { 
-                  $menu_top_bar .= '<a href="'. esc_html($item['link']) .'" class="menu-dropdown search">'."\n";
-                  $menu_top_bar .= '<img src="'.get_template_directory_uri().'/assets/images/icons/icon-search.png" alt="Digite sua busca">'."\n";
-                  $menu_top_bar .= '</a>'."\n";
+                  $menu_top_bar .= '<a href="javascript:void(0)" class="menu-dropdown menu-inicial-item icon-search" id="open-search"> </a>';
                 }
-                //print_r($item['class']).'<br />';
-                //echo $class_search.'<br />';
                 
-                //print_r(@$item['childs']).'<br />';
-                /*if(isset( $item[ 'childs' ])) {
-                  
-                  //echo $item['id'].' - '.count($item['childs']).'<br />';
-                  $menu_top_bar .= '<div class="dropdown-content">' ."\n";
-                  
-                  foreach ($item[ 'childs' ] as $submenu) { 
-                    $class_child = '';
-                    if(isset( $submenu[ 'class' ])) {
-                      $class_child = esc_attr( implode( ' ', $submenu['class']));
-                      //print_r($class_child);
-                    }
-                    //print_r($submenu).'<br />';
-                    
-                    $menu_top_bar .= '<a href="'.esc_url($submenu['link']).'" class="'.$class_child.'">'.esc_html($submenu['title']).'</a>' ."\n";
-                    
-                  }
-                  $menu_top_bar .= '</div>' ."\n";
-                }*/
                 $menu_top_bar .= '</div>'."\n";
                 
                 $index++;

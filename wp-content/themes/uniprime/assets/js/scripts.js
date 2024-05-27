@@ -71,7 +71,7 @@
       
       if($('.menu-footer-solucoes')) {
         var height_footer_menu = $('.footer-menu').outerHeight();
-        $('.dropdown-content').height(height_footer_menu);      
+        $('.dc-footer').height(height_footer_menu);      
       }     
     }
     
@@ -185,7 +185,7 @@
         for (var i = 0; i < cards.length; i++) {
           if (maxHeight < $(cards[i]).outerHeight()) {
             maxHeight = $(cards[i]).outerHeight();
-            console.log(maxHeight);
+            //console.log(maxHeight);
           }
         }
         // Set ALL card bodies to this height
@@ -252,39 +252,57 @@
     logoblack = document.getElementById('logo-black'); 
     logowhite = document.getElementById('logo-white');
     const menuInicialItem = document.getElementsByClassName("menu-inicial-item");
+    const openSearchButton = document.getElementById("open-search");
+    const menuSearch = document.getElementById("menu-search");
     // função pra mudar comportamento dos elementos do menu quando um item estiver ativo
     if(menuInicialItem) {
       for (let i = 0; i < menuInicialItem.length; i++) {
         
         menuInicialItem[i].addEventListener('click', (e) => {
+          
           for (let j = 0; j < menuInicialItem.length; j++) {
-            //remove class actived dos elementos do menu, pra lá embaixo ativar o selecionado
-            menuInicialItem[j].classList.remove('actived');
-            // muda direção das arrows quando desselecionado
-            menuInicialItem[j].childNodes[1].childNodes[1].classList.add('down');
-            menuInicialItem[j].childNodes[1].childNodes[1].classList.remove('up');
-            //console.log(menuInicialItem[j].childNodes[1]);
+            //if pra excluir o botão de search quando clicado
+            if (menuInicialItem[j] != openSearchButton) {
+              //remove class actived dos elementos do menu, pra lá embaixo ativar o selecionado
+              menuInicialItem[j].classList.remove('actived');
+              // muda direção das arrows quando desselecionado
+              menuInicialItem[j].childNodes[1].childNodes[1].classList.add('down');
+              menuInicialItem[j].childNodes[1].childNodes[1].classList.remove('up');
+            } 
           }
-          mainMenu = (e.target.parentNode.parentNode.parentNode.parentNode.parentNode)
+          //if pra tratar quando o botão de search é clicado
+          /*if (e.currentTarget === openSearchButton) {
+          } else {
+            mainMenu = (e.target.parentNode.parentNode.parentNode.parentNode.parentNode)
+          }*/
+          mainMenu = document.getElementById("main-menu");
+          //console.log('mainMenu', mainMenu);
           if (!mainMenu.classList.contains('actived')) {
             mainMenu.classList.toggle('actived');
           }
+
           /*if (!e.currentTarget.classList.contains('actived')) {
             e.currentTarget.classList.toggle('actived');
           }*/
           e.currentTarget.classList.toggle('actived');
-          if (e.target.childNodes[1].classList.contains('down')) {
-            e.target.childNodes[1].classList.remove('down');
-            e.target.childNodes[1].classList.add('up');
+          if (e.currentTarget != openSearchButton) {
+            if (e.target.childNodes[1].classList.contains('down')) {
+              e.target.childNodes[1].classList.remove('down');
+              e.target.childNodes[1].classList.add('up');
+            }
+          } else {
+            menuSearch.classList.toggle('actived');
           }
-          //ajusta comportamento da fiv de modal (com fundo escuro e transparente)
+          //ajusta comportamento da div de modal (com fundo escuro e transparente)
           modalMenu.classList.remove('d-none');
           modalMenu.classList.add('d-block');
           // troca as logos 
           logoblack.classList.remove('d-none');  
           logoblack.classList.add('d-block');
-          logowhite.classList.add('d-none');
-          logowhite.classList.add('d-block');
+          if(logowhite) {
+            logowhite.classList.add('d-none');
+            logowhite.classList.add('d-block');
+          }
           //console.log('abrindo menu principal')
         });
       }
@@ -297,10 +315,13 @@
         e.currentTarget.classList.add('d-none');
         mainMenu.classList.remove('actived');
         for (let j = 0; j < menuInicialItem.length; j++) {
-          menuInicialItem[j].classList.remove('actived');
-          menuInicialItem[j].childNodes[1].childNodes[1].classList.add('down');
-          menuInicialItem[j].childNodes[1].childNodes[1].classList.remove('up');
-          //console.log(menuInicialItem[j].childNodes[1]);
+          //console.log(menuInicialItem[j]);
+          //if pra excluir o botão de search quando clicado
+          if (menuInicialItem[j] != openSearchButton) {
+            menuInicialItem[j].classList.remove('actived');
+            menuInicialItem[j].childNodes[1].childNodes[1].classList.add('down');
+            menuInicialItem[j].childNodes[1].childNodes[1].classList.remove('up');
+          }
         }
         //console.log('fechando menu principal')
         //mainMenu
@@ -336,7 +357,7 @@
         if (maxHeight < $(cardsNovidades[i]).outerHeight()) {
           maxHeight = $(cardsNovidades[i]).outerHeight();
         }
-        console.log(maxHeight);
+        //console.log(maxHeight);
       }
       // Set ALL card bodies to this height
       for (var i = 0; i < cardsNovidades.length; i++) {
@@ -348,9 +369,8 @@
     if(btn_mobile) {
       containerMenuMobile = document.getElementById('container-menu-mobile');
       btn_mobile.addEventListener('click', (e) => {
-        /*containerMenuMobile.style.display = (containerMenuMobile.style.display === 'none') ? 'block' : 'none';   */
         containerMenuMobile.classList.add('actived'); 
-        //console.log('abrindo primeiro nível menu mobile')
+        document.body.style.overflowY = "hidden";
       }); 
     }
     const menuInicialItemMobile = document.getElementsByClassName("bt-menu-inicial-item-mobile");
@@ -363,7 +383,21 @@
         })
       }
     }
-    
+    const clickSearchMobile = document.getElementsByClassName("click-search-mobile");
+    const menuInicialItemMobileSearch = document.getElementsByClassName("menu-inicial-item-mobile-search");
+    if(clickSearchMobile) {
+      for (let csm = 0; csm < clickSearchMobile.length; csm++) {
+        
+        clickSearchMobile[csm].addEventListener('click', (e) => {
+          e.currentTarget.parentNode.parentNode.parentNode.parentNode.classList.toggle('actived');
+          for (let miims = 0; miims < menuInicialItemMobileSearch.length; miims++) {
+            menuInicialItemMobileSearch[miims].classList.toggle('actived');
+          }
+          //console.log('abrindo segundo nível menu mobile')
+        })
+      }
+    }
+
     const close = document.getElementsByClassName("close");
     if(close) {
       const miim = document.getElementsByClassName("menu-inicial-item-mobile");
@@ -372,6 +406,7 @@
           containerMenuMobile.classList.remove('actived'); 
           for (let j = 0; j < miim.length; j++) {
             miim[j].classList.remove('actived');
+            document.body.style.overflowY = "auto";
           }
           //console.log('fechando primeiro nível menu mobile')
         }); 
