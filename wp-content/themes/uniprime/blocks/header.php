@@ -1,6 +1,7 @@
 <?php
   // BLOCK WITH TOP BAR
-  $top_bar_localization = get_field('top_bar_localization', $block['id']);
+  //$top_bar_localization = get_field('top_bar_localization', $block['id']);
+  $top_bar_localization = "Uniprime Central Nacional";
   if(is_front_page() || is_search()) {
     $currentSlug = 'para-voce';
   } else {
@@ -15,7 +16,7 @@
       <div class="d-flex justify-content-center justify-content-lg-between">
         <div class="first-col d-none d-lg-block">
           <img src="<?php echo get_template_directory_uri();?>/assets/images/icons/icon-localization.png" alt="Qual unidade você deseja navegar?">
-          Você está em: <strong><a href="#" blank="_SELF" class=""><?php echo esc_html($top_bar_localization);?><i class="arrow down"></i></a></strong>
+          Você está em: <strong><a href="#" blank="_SELF" class="" id="openModalSingulares"><?php echo esc_html($top_bar_localization);?><i class="arrow down"></i></a></strong>
         </div>
         <div class="second-col d-flex justify-content-center justify-content-lg-end">
           <nav class="w-100">

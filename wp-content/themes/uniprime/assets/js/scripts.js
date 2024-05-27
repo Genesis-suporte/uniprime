@@ -327,12 +327,7 @@
         //mainMenu
       })
     }
-    /*const click_onde_encontrar = document.getElementById("click-onde-encontrar");
-
-    click_onde_encontrar.addEventListener("click", (event) => {
-      Qual a sua cidade?
-    });
-    */
+    
     if($('.slide-novidades')) {
       $('.slide-novidades').not('.slick-initialized').slick({
         dots: false,
@@ -560,7 +555,7 @@
         ]
       });
     }  
-    //
+    
   });
   
   

@@ -264,21 +264,100 @@
     </div>
   </div>
 </footer>
-<div id="site-modal">
-    <!-- Adicione aqui o conteúdo do modal -->
-</div>
 
 <div id="modal-menu"></div>
+<!-- Modal -->
+<div id="singularesModal" class="singularesModal">
+  <div class="modal-content">
+    <a href="#" class="close" id="closeSingularesModal">
+      <div class="bars">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+      </div>
+    </a>
+    <div class="content-singulares">
+      <div class="label-block">
+        <?php echo esc_html('COOPERATIVAS UNIPRIME'); ?>
+      </div>
+      <div class="title-block title-36 switzerlandBold pb-4">
+        <?php echo esc_html('Qual cooperativa você gostaria de visitar?'); ?>
+      </div>
+      <div id="singularesList" class="d-flex flex-wrap"></div>
+    </div>
+    <div class="content-conveniadas">
+      <div id="conveniadasList" class="d-flex flex-wrap"></div>
+    </div>
+  </div>
+</div>
 
-<script>
-// No arquivo footer.php, antes de </body>
-jQuery(document).ready(function($) {
-    // Abra o modal ao carregar a página
-    $('#site-modal').show();
+<script type="text/javascript">
+  (function ($) {
+    $(document ).ready(function() {
+      // Abra o modal ao carregar a página
+      // MODAL SINGULARES
+      var singularesModal = document.getElementById("singularesModal");
+      var btnOpenModalSingulares = document.getElementById("openModalSingulares");
+      var span = document.getElementById("closeSingularesModal");
+      const singularesList = $('#singularesList');
+      const conveniadasList = $('#conveniadasList');
+      
+      btnOpenModalSingulares.onclick = function() {
+        console.log('clicando');
+        fetch('<?php echo get_template_directory_uri();?>/api/agencias.json')
+          .then(response => response.json())
+          .then(data => {
+            singularesList.empty();
+            //singularesList.innerHTML = ''; // Limpar a lista antes de adicionar itens
+            data.singulares.forEach(singular => {
+              let actived = '';
+              let textActived = '';
+              let target = '';
+              if(singular.url === '/') {
+                actived = 'actived';
+                let textActived = 'Continuar na<br/>';
 
-    // Adicione eventos para fechar o modal e selecionar o site
-    $('#site-modal').on('click', function() {
-        // Lógica para fechar o modal e redirecionar para o site escolhido
+              }
+              if(singular.type === 'principal' || singular.type === 'singular' || singular.type === 'prestadora') {
+                target = '_SELF'
+              } else {
+                target = '_blank';
+              }
+              const agencyHtml = `
+              <div class="card-singulares ${actived}">
+                <a href="${singular.url}" target="${target}" role="button" class="" tabindex="0">${textActived} ${singular.singular}<i class="arrow right"></i>
+                </a>
+              </div>`;
+              if(singular.type === 'principal' || singular.type === 'singular' || singular.type === 'prestadora') {
+                singularesList.append(agencyHtml);
+              } else {
+                conveniadasList.append(agencyHtml);
+              }
+              /*let item = document.createElement('div');
+              item.className = 'agency-item';
+              item.innerHTML = `<a href="${singular.url}">${singular.name}</a>`;
+              singularesList.appendChild(item);*/
+            });
+
+            /*data.conveniadas.forEach(conveniada => {
+              let item = document.createElement('div');
+              item.className = 'agency-item';
+              item.innerHTML = `<a href="${conveniada.url}" target="_blank">${conveniada.name}</a>`;
+              singularesList.appendChild(item);
+            });*/
+          });
+
+        singularesModal.style.display = "block";
+      }
+
+      span.onclick = function() {
+        singularesModal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == singularesModal) {
+          singularesModal.style.display = "none";
+        }
+      }
     });
-});
+  })(jQuery);
 </script>
