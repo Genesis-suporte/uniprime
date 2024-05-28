@@ -319,9 +319,9 @@
       function checkCookie() {
         var user = getCookie("selectedSingular");
         if (user != "") {
-          console.log("Singular já escolhida: " + user);
+          //console.log("Singular já escolhida: " + user);
         } else {
-          console.log("Nenhuma singular escolhida.");
+          //console.log("Nenhuma singular escolhida.");
           openModalSingulares();
         }
       }
@@ -348,7 +348,7 @@
               }
               const agencyHtml = `
               <div class="card-singulares ${actived}">
-                <a href="${singular.url}" target="${target}" role="button" class="" tabindex="0">${textActived} ${singular.singular}<i class="arrow right"></i>
+                <a href="${singular.url}" target="${target}" role="button" class="${classSing}" data-singular="${singular.id}" tabindex="0">${textActived} ${singular.singular}<i class="arrow right"></i>
                 </a>
               </div>`;
               if(singular.type === 'principal' || singular.type === 'singular' || singular.type === 'prestadora') {
