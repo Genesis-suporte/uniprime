@@ -272,6 +272,8 @@
             logoblack.classList.remove('d-none');  
             logoblack.classList.add('d-block');
           }
+          modalMenu.classList.remove('d-none');
+          modalMenu.classList.add('d-block');
         } else {          
           openSearchButton.classList.remove('icon-close-gold');
           openSearchButton.classList.add('icon-search');
@@ -283,6 +285,8 @@
             logoblack.classList.remove('d-block');  
             logoblack.classList.add('d-none');
           }
+          modalMenu.classList.remove('d-block');
+          modalMenu.classList.add('d-none');
         }
       });
     }
@@ -349,6 +353,8 @@
           logoblack.classList.remove('d-block');  
           logoblack.classList.add('d-none');
         }
+        modalMenu.classList.remove('d-block');
+        modalMenu.classList.add('d-none');
       }
       /*console.log(menuItem);
       if (!mainMenu.classList.contains('actived')) {
@@ -370,6 +376,19 @@
             menuInicialItem[j].childNodes[1].childNodes[1].classList.remove('up');
           }
         }
+        if(searchMenuOpened) {
+          openSearchButton.classList.remove('icon-close-gold');
+          openSearchButton.classList.add('icon-search');
+          searchMenuOpened = false;
+          mainMenu.classList.remove('actived');
+          if(logowhite) {
+            logowhite.classList.add('d-block');
+            logowhite.classList.remove('d-none');
+            logoblack.classList.remove('d-block');  
+            logoblack.classList.add('d-none');
+          }
+        }
+        
         //console.log('fechando menu principal')
         //mainMenu
       })
