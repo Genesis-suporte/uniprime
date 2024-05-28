@@ -196,7 +196,7 @@ if (!empty($agencias_data) && isset($agencias_data['singulares'])) {
 <script type="text/javascript">
   (function ($) {
     $(document ).ready(function() {
-      $('#search-protocolo-form').on('submit', function(e) {
+      /*$('#search-protocolo-form').on('submit', function(e) {
       //$('#btn-consultar').on('click', function(e) {
         
         e.preventDefault();
@@ -205,7 +205,7 @@ if (!empty($agencias_data) && isset($agencias_data['singulares'])) {
           var url = '<?php echo home_url('/protocolo/'); ?>protocolo-' + protocolo;
           window.location.href = url;
         }
-      });
+      });*/
     });
   })(jQuery);
 </script>

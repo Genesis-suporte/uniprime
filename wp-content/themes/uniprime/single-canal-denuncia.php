@@ -83,7 +83,7 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
             </div>
             <div class="div-input-protocolo">
               <form id="search-protocolo-form">
-                <input type="text" name="input-protocolo" id="input-protocolo" value="" aria-invalid="false" placeholder="Número do protocolo">
+                <input type="text" name="input-protocolo" id="input-protocolo" value="" aria-invalid="false" placeholder="Número do protocolo" required >
                 <button class="btn-consultar"><i class="icon-menu icon-search-white"></i>Consultar</button>
               </form>
             </div>
@@ -138,7 +138,8 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
 
 <script type="text/javascript">
   (function ($) {
-    $(document ).ready(function() {
+    $(document).ready(function() {
+      console.log("jQuery is working!");
       
       var section_dados_do_incidente = $('.section-dados-do-incidente').html()
       var tipo_relato = $('.tipo-relato').html()
@@ -210,13 +211,13 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
         e.preventDefault();
         var protocolo = $('#input-protocolo').val();
         if (protocolo) {
-          var url = '<?php echo home_url('/protocolo/'); ?>' + protocolo;
+          var url = '<?php echo home_url('/protocolo/'); ?>protocolo-' + protocolo;
           window.location.href = url;
         }
       });
       
     });
-  });
+  })(jQuery);
 </script>
 
 <?php get_footer(); ?>

@@ -488,7 +488,7 @@ function setMenuThreeLevels($menu) {
 	// Get the current post type and taxonomy term
 	global $post;
 	$current_term = '';
-	//echo 'tyara ';
+	
 	if (is_singular('solucoes')) {
 		$terms = wp_get_post_terms($post->ID, 'tipo-solucao');
 		//var_dump($terms[0]->slug);
@@ -939,7 +939,7 @@ function add_query_vars($vars) {
 }
 add_filter('query_vars', 'add_query_vars');
 
-/*function protocolo_template_redirect() {
+function protocolo_template_redirect() {
 	global $wp_query;
 	if (isset($wp_query->query_vars['protocolo'])) {
 		$protocolo = $wp_query->query_vars['protocolo'];
@@ -947,7 +947,7 @@ add_filter('query_vars', 'add_query_vars');
 		include(get_template_directory() . '/page-protocolo.php');
 	}
 }
-add_action('template_redirect', 'protocolo_template_redirect');*/
+add_action('template_redirect', 'protocolo_template_redirect');
 add_action('init', function() { flush_rewrite_rules(); });
 /* BUSCA */
 function custom_search_filter($query) {

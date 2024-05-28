@@ -327,9 +327,9 @@
       function checkCookie() {
         var user = getCookie("selectedSingular");
         if (user != "") {
-          console.log("Singular já escolhida: " + user);
+          //console.log("Singular já escolhida: " + user);
         } else {
-          console.log("Nenhuma singular escolhida.");
+          //console.log("Nenhuma singular escolhida.");
           openModalSingulares();
         }
       }

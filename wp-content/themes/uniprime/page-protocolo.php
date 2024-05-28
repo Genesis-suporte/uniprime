@@ -99,8 +99,11 @@ if (!empty($agencias_data) && isset($agencias_data['singulares'])) {
               <div class="label-block">Verifique os dados da sua denúncia</div>
               <div class="d-flex flex-column flex-md-row justify-content-between">
                 <div class="col-left">
-                  <?php if ($post) { ?>
-                    <div class="num-protocolo title-28 switzerlandBold"><?php echo __('Protocolo: #').get_post_meta(get_the_ID(), 'numero_protocolo', true); ?></div>
+                  <?php if ($post) { 
+                    $numero_protocolo_completo = get_post_meta(get_the_ID(), 'numero_protocolo', true);
+                    $numero_protocolo = str_replace('protocolo-', '', $numero_protocolo_completo);
+                    ?>
+                    <div class="num-protocolo title-28 switzerlandBold"><?php echo __('Protocolo: #').$numero_protocolo; ?></div>
                     <div>
                       <p>Status da denúncia: <?php echo get_post_meta(get_the_ID(), 'status', true); ?></p>
                       <p>Data da denúncia: <?php echo $data_denuncia_formatada; ?></p>
