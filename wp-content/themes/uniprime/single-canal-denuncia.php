@@ -139,8 +139,6 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
 <script type="text/javascript">
   (function ($) {
     $(document).ready(function() {
-      console.log("jQuery is working!");
-      
       var section_dados_do_incidente = $('.section-dados-do-incidente').html()
       var tipo_relato = $('.tipo-relato').html()
       $('.dados-do-incidente').html(section_dados_do_incidente + '<div class="container-portabilidade">' + tipo_relato + '</div>')

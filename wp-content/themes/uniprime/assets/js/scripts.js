@@ -241,73 +241,120 @@
       }); 
     }
     // CLICK OR MOUSEOVER EVENT FOR MENU DROP DOWN
-    /*
+    
     // - THIS IS FOR DEMO, TO CHECK IF mainMenu WAS HOVERED -
-    mainMenu.addEventListener('mouseenter', (e) => {
-      e.target.classList.add('actived');
+    /*mainMenu.addEventListener('mouseover', (e) => {
+      console.log('mouseenter');
+      mainMenu.classList.add('actived');
     });
-    mainMenu.addEventListener('mouseout', (e) => {
-      e.target.classList.remove('actived');
+    mainMenu.addEventListener('mouseleave', (e) => {
+      console.log('mouseout');
+      mainMenu.classList.remove('actived');
     });*/
     logoblack = document.getElementById('logo-black'); 
     logowhite = document.getElementById('logo-white');
     const menuInicialItem = document.getElementsByClassName("menu-inicial-item");
     const openSearchButton = document.getElementById("open-search");
     const menuSearch = document.getElementById("menu-search");
-    // função pra mudar comportamento dos elementos do menu quando um item estiver ativo
-    if(menuInicialItem) {
-      for (let i = 0; i < menuInicialItem.length; i++) {
-        
-        menuInicialItem[i].addEventListener('click', (e) => {
-          
-          for (let j = 0; j < menuInicialItem.length; j++) {
-            //if pra excluir o botão de search quando clicado
-            if (menuInicialItem[j] != openSearchButton) {
-              //remove class actived dos elementos do menu, pra lá embaixo ativar o selecionado
-              menuInicialItem[j].classList.remove('actived');
-              // muda direção das arrows quando desselecionado
-              menuInicialItem[j].childNodes[1].childNodes[1].classList.add('down');
-              menuInicialItem[j].childNodes[1].childNodes[1].classList.remove('up');
-            } 
-          }
-          //if pra tratar quando o botão de search é clicado
-          /*if (e.currentTarget === openSearchButton) {
-          } else {
-            mainMenu = (e.target.parentNode.parentNode.parentNode.parentNode.parentNode)
-          }*/
-          mainMenu = document.getElementById("main-menu");
-          //console.log('mainMenu', mainMenu);
-          if (!mainMenu.classList.contains('actived')) {
-            mainMenu.classList.toggle('actived');
-          }
+    let searchMenuOpened = false;
 
-          /*if (!e.currentTarget.classList.contains('actived')) {
-            e.currentTarget.classList.toggle('actived');
-          }*/
-          e.currentTarget.classList.toggle('actived');
-          if (e.currentTarget != openSearchButton) {
-            if (e.target.childNodes[1].classList.contains('down')) {
-              e.target.childNodes[1].classList.remove('down');
-              e.target.childNodes[1].classList.add('up');
-            }
-          } else {
-            menuSearch.classList.toggle('actived');
-          }
-          //ajusta comportamento da div de modal (com fundo escuro e transparente)
-          modalMenu.classList.remove('d-none');
-          modalMenu.classList.add('d-block');
-          // troca as logos 
-          logoblack.classList.remove('d-none');  
-          logoblack.classList.add('d-block');
+    if(openSearchButton) {
+      openSearchButton.addEventListener('click', (e) => {
+        menuSearch.classList.toggle('actived');
+        if(!searchMenuOpened) {
+          openSearchButton.classList.remove('icon-search');
+          openSearchButton.classList.add('icon-close-gold');
+          searchMenuOpened = true;
+          mainMenu.classList.add('actived');
           if(logowhite) {
             logowhite.classList.add('d-none');
-            logowhite.classList.add('d-block');
+            logowhite.classList.remove('d-block');
+            logoblack.classList.remove('d-none');  
+            logoblack.classList.add('d-block');
           }
-          //console.log('abrindo menu principal')
+        } else {          
+          openSearchButton.classList.remove('icon-close-gold');
+          openSearchButton.classList.add('icon-search');
+          searchMenuOpened = false;
+          mainMenu.classList.remove('actived');
+          if(logowhite) {
+            logowhite.classList.add('d-block');
+            logowhite.classList.remove('d-none');
+            logoblack.classList.remove('d-block');  
+            logoblack.classList.add('d-none');
+          }
+        }
+      });
+    }
+    // função pra mudar comportamento dos elementos do menu quando um item estiver ativo
+    if(menuInicialItem) {
+      for (let i = 0; i < menuInicialItem.length; i++) {        
+        menuInicialItem[i].addEventListener('mouseover', (e) => {
+          ativaMenu (e.currentTarget)
+        });
+        menuInicialItem[i].addEventListener('mouseleave', (e) => {
+          desativaMenu (e.currentTarget)
         });
       }
+        //menuInicialItem[i].addEventListener('click', (e) => {
+        
+        //});
     }
-    
+    function ativaMenu (menuItem) {
+      if(!searchMenuOpened) {
+        mainMenu.classList.add('actived');
+        for (let j = 0; j < menuInicialItem.length; j++) {
+          //remove class actived dos elementos do menu, pra lá embaixo ativar o selecionado
+          menuInicialItem[j].classList.remove('actived');
+          // muda direção das arrows quando desselecionado
+          menuInicialItem[j].childNodes[1].childNodes[1].classList.add('down');
+          menuInicialItem[j].childNodes[1].childNodes[1].classList.remove('up');
+        }
+        //if pra tratar quando o botão de search é clicado
+        
+        //mainMenu = document.getElementById("main-menu");
+        //console.log('mainMenu', mainMenu);
+        /*if (!mainMenu.classList.contains('actived')) {
+          mainMenu.classList.toggle('actived');
+        }
+        */
+        menuItem.classList.toggle('actived');
+        if (menuItem.childNodes[1].childNodes[1].classList.contains('down')) {
+          menuItem.childNodes[1].childNodes[1].classList.remove('down');
+          menuItem.childNodes[1].childNodes[1].classList.add('up');
+        }
+      
+        //ajusta comportamento da div de modal (com fundo escuro e transparente)
+        modalMenu.classList.remove('d-none');
+        modalMenu.classList.add('d-block');
+        // troca as logos 
+        
+        //console.log(logowhite.classList);
+        if(logowhite) {
+          logowhite.classList.add('d-none');
+          logowhite.classList.remove('d-block');
+          logoblack.classList.remove('d-none');  
+          logoblack.classList.add('d-block');
+        }
+      }
+      //console.log('abrindo menu principal')
+    }
+    function desativaMenu (menuItem) {
+      if(!searchMenuOpened) {
+        mainMenu.classList.remove('actived');
+        menuItem.classList.remove('actived');
+        if(logowhite) {
+          logowhite.classList.add('d-block');
+          logowhite.classList.remove('d-none');
+          logoblack.classList.remove('d-block');  
+          logoblack.classList.add('d-none');
+        }
+      }
+      /*console.log(menuItem);
+      if (!mainMenu.classList.contains('actived')) {
+        mainMenu.classList.toggle('actived');
+      }*/
+    }
     modalMenu = document.getElementById('modal-menu');
     if(modalMenu) {
       modalMenu.addEventListener('click', (e) => {

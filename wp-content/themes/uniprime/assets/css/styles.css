@@ -512,7 +512,12 @@ a {
   height: 15px;
   display: block;
   margin: 4px 0px 0 10px;
-  
+}
+.icon-close-gold {
+  background: url('../images/icons/icon-close-gold.png') no-repeat  15px 15px;
+  width: 40px;
+  height: 40px;
+  display: block;
 }
 .accordion-button::after {
   background: url('../images/icons/icon-arrow-down-gold.svg') no-repeat 0px 0px !important;
@@ -681,7 +686,7 @@ body.solucoes-para-sua-cooperativa .menu-top-bar {
   position: relative;
   width: 48px;
 }
-.menu-inicial-item.icon-search {
+.icon-search.icon-search {
   background-position: 15px;
   height: 48px !important;
   width: 48px !important;
@@ -837,14 +842,13 @@ body.solucoes-para-sua-cooperativa .menu-top-bar {
 }
 
 .menu-item .dropdown-content {
-  display: none;
+  display: block;
   position: absolute;
   top: 100%;
   left: 0;
   background-color: white;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 111;
-  transition: all .2s ease-in-out;
   box-shadow: 0 5px 5px rgba(0,0,0,.1);
   -moz-box-shadow: 0 5px 5px rgba(0,0,0,.1);
   -webkit-box-shadow: 0 5px 5px rgba(0,0,0,.1);
@@ -855,12 +859,10 @@ body.solucoes-para-sua-cooperativa .menu-top-bar {
   width: 100%;
   /* transition: opacity .5s ease-in-out 0.1s;*/
   transition-property: opacity;
-  transition-duration: 2s;
+  transition-duration: .2s;
   transition-timing-function: ease-in-out;
-  transition-delay: 1s;
 }
 .menu-inicial .menu-item.actived .dropdown-content {
-  display: block;
   visibility: visible;
   opacity: 1;
 }

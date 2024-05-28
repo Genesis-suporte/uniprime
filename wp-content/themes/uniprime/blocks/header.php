@@ -65,7 +65,7 @@
                 if(!$class_search) { 
                   $menu_top_bar .= '<a href="'. esc_html($item['link']) .'" class="menu-dropdown">'. esc_html($item['title']) .'</a>'."\n";
                 } else { 
-                  $menu_top_bar .= '<a href="javascript:void(0)" class="menu-dropdown menu-inicial-item icon-search" id="open-search"> </a>';
+                  $menu_top_bar .= '<a href="javascript:void(0)" class="menu-dropdown icon-search" id="open-search"> </a>';
                 }
                 
                 $menu_top_bar .= '</div>'."\n";
