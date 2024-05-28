@@ -484,64 +484,86 @@ function setMenuThreeLevels($menu) {
 	
 	$sub_parent = 0;
 	$menu_items = wp_get_nav_menu_items( $menu );
+
+	// Get the current post type and taxonomy term
+	global $post;
+	$current_term = '';
+	//echo 'tyara ';
+	if (is_singular('solucoes')) {
+		$terms = wp_get_post_terms($post->ID, 'tipo-solucao');
+		//var_dump($terms[0]->slug);
+		if (!empty($terms)) {
+			if($terms[0]->slug=="para-voce") {
+				$current_term = "para-voce";
+			} else if ($terms[0]->slug=="para-seu-negocio") {
+				$current_term = "para-empresa";
+			} else if ($terms[0]->slug== "para-sua-cooperativa") {
+				$current_term = "para-cooperativa";
+			}
+		}
+	}
 	
 	foreach ( $menu_items as $menu_item ) {
 		//if ( in_array( $menu_item->object, array( 'page', 'custom' ) ) ) {
-			$id = $menu_item->ID;
-			$title = $menu_item->title;
-			$link = $menu_item->url;
-			$class = $menu_item->classes;
-			$menu_item_parent = $menu_item->menu_item_parent;
-			if($menu==='solucoes-para-voce') {
-				//print_r( $link);
+		$id = $menu_item->ID;
+		$title = $menu_item->title;
+		$link = $menu_item->url;
+		$class = $menu_item->classes;
+		$menu_item_parent = $menu_item->menu_item_parent;
+		if($menu==='solucoes-para-voce') {
+			//print_r( $link);
 
+		}
+				// if menu item has no parent, means this is the top-menu.
+		if ( ! $menu_item_parent ) {
+			$menu_lists[ $id ]['child'] = false;
+			$menu_lists[ $id ]['id'] = $id;
+			$menu_lists[ $id ]['title'] = $title;
+			$menu_lists[ $id ]['link'] = $link;
+			$menu_lists[ $id ]['class'] = $class;
+
+			// add active field if current link and open url is same.
+			if ( get_permalink() === $link ) {
+				$menu_lists[ $id ]['active'] = 'current-menu-item';
 			}
-					// if menu item has no parent, means this is the top-menu.
-			if ( ! $menu_item_parent ) {
-				$menu_lists[ $id ]['child'] = false;
-				$menu_lists[ $id ]['id'] = $id;
-				$menu_lists[ $id ]['title'] = $title;
-				$menu_lists[ $id ]['link'] = $link;
-				$menu_lists[ $id ]['class'] = $class;
+			// Add active class based on current term
+			
+			if (in_array($current_term, $class)) {
+				$menu_lists[$id]['active'] = 'current-menu-item';
+			}
+		} else {
+			// if parent menu is set, means this is 2nd level menu
+			if ( isset( $menu_lists[ $menu_item_parent ] ) ) {
+				$menu_lists[ $menu_item_parent ][ 'child' ] = true;
+				$menu_lists[ $menu_item_parent ][ 'childs' ][ $id ]['child'] = false;
+				$menu_lists[ $menu_item_parent ][ 'childs' ][ $id ]['id'] = $id;
+				$menu_lists[ $menu_item_parent ][ 'childs' ][ $id ]['title'] = $title;
+				$menu_lists[ $menu_item_parent ][ 'childs' ][ $id ]['link'] = $link;
+				$menu_lists[ $menu_item_parent ][ 'childs' ][ $id ]['class'] = $class;
 
-				// add active field if current link and open url is same.
+				// add active field to current menu item and its parent menu item if current link and open url is same.
 				if ( get_permalink() === $link ) {
-					$menu_lists[ $id ]['active'] = 'current-menu-item';
+					$menu_lists[ $menu_item_parent ]['active'] = 'current-menu-item';
+					$menu_lists[ $menu_item_parent ][ 'childs' ][ $id ]['active'] = 'current-menu-item';
 				}
-			} else {
-				// if parent menu is set, means this is 2nd level menu
-				if ( isset( $menu_lists[ $menu_item_parent ] ) ) {
-					$menu_lists[ $menu_item_parent ]['child'] = true;
-					$menu_lists[ $menu_item_parent ][ 'childs' ][ $id ]['child'] = false;
-					$menu_lists[ $menu_item_parent ][ 'childs' ][ $id ]['id'] = $id;
-					$menu_lists[ $menu_item_parent ][ 'childs' ][ $id ]['title'] = $title;
-					$menu_lists[ $menu_item_parent ][ 'childs' ][ $id ]['link'] = $link;
-					$menu_lists[ $menu_item_parent ][ 'childs' ][ $id ]['class'] = $class;
 
-					// add active field to current menu item and its parent menu item if current link and open url is same.
-					if ( get_permalink() === $link ) {
-						$menu_lists[ $menu_item_parent ]['active'] = 'current-menu-item';
-						$menu_lists[ $menu_item_parent ][ 'childs' ][ $id ]['active'] = 'current-menu-item';
-					}
+				$sub_parent = $menu_item_parent;
+			} elseif ( isset( $menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ] ) ) {
+				// if parent menu is set and their parent menu is also set, means this is 3rd level menu
+				$menu_lists[ $sub_parent ][ $menu_item_parent ]['child'] = true;
+				$menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ][ 'childs' ][ $id ]['id'] = $id;
+				$menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ][ 'childs' ][ $id ]['title'] = $title;
+				$menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ][ 'childs' ][ $id ]['link'] = $link;
+				$menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ][ 'childs' ][ $id ]['class'] = $class;
 
-					$sub_parent = $menu_item_parent;
-				} elseif ( isset( $menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ] ) ) {
-					// if parent menu is set and their parent menu is also set, means this is 3rd level menu
-					$menu_lists[ $sub_parent ][ $menu_item_parent ]['child'] = true;
-					$menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ][ 'childs' ][ $id ]['id'] = $id;
-					$menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ][ 'childs' ][ $id ]['title'] = $title;
-					$menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ][ 'childs' ][ $id ]['link'] = $link;
-					$menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ][ 'childs' ][ $id ]['class'] = $class;
-
-					// add active field to current menu item and its parent menu item if current link and open url is same.
-					if ( get_permalink() === $link ) {
-						$menu_lists[ $sub_parent ]['active'] = 'current-menu-item';
-						$menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ]['active'] = 'current-menu-item';
-						$menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ][ 'childs' ][ $id ]['active'] = 'current-menu-item';
-					}
+				// add active field to current menu item and its parent menu item if current link and open url is same.
+				if ( get_permalink() === $link ) {
+					$menu_lists[ $sub_parent ]['active'] = 'current-menu-item';
+					$menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ]['active'] = 'current-menu-item';
+					$menu_lists[ $sub_parent ][ 'childs' ][ $menu_item_parent ][ 'childs' ][ $id ]['active'] = 'current-menu-item';
 				}
 			}
-		//}
+		}
 	}
 	//print_r($menu_lists);
 	return $menu_lists;

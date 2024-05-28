@@ -293,8 +293,40 @@
       const singularesList = $('#singularesList');
       const conveniadasList = $('#conveniadasList');
       
-      btnOpenModalSingulares.onclick = function() {
-        console.log('clicando');
+      function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      function checkCookie() {
+        var user = getCookie("selectedSingular");
+        if (user != "") {
+          console.log("Singular já escolhida: " + user);
+        } else {
+          console.log("Nenhuma singular escolhida.");
+          openModalSingulares();
+        }
+      }
+      checkCookie();
+      function openModalSingulares() {
         fetch('<?php echo get_template_directory_uri();?>/api/agencias.json')
           .then(response => response.json())
           .then(data => {
@@ -339,6 +371,9 @@
           });
 
         singularesModal.style.display = "block";
+      }
+      btnOpenModalSingulares.onclick = function() {
+        openModalSingulares();
       }
 
       span.onclick = function() {

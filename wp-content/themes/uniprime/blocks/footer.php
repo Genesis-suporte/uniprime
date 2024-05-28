@@ -301,8 +301,40 @@
       const singularesList = $('#singularesList');
       const conveniadasList = $('#conveniadasList');
       
-      btnOpenModalSingulares.onclick = function() {
-        console.log('clicando');
+      function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+
+      function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+          var c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+
+      function checkCookie() {
+        var user = getCookie("selectedSingular");
+        if (user != "") {
+          console.log("Singular já escolhida: " + user);
+        } else {
+          console.log("Nenhuma singular escolhida.");
+          openModalSingulares();
+        }
+      }
+      checkCookie();
+      function openModalSingulares() {
         fetch('<?php echo get_template_directory_uri();?>/api/agencias.json')
           .then(response => response.json())
           .then(data => {
@@ -312,19 +344,22 @@
               let actived = '';
               let textActived = '';
               let target = '';
+              let classSing = '';
               if(singular.url === '/') {
                 actived = 'actived';
-                let textActived = 'Continuar na<br/>';
+                textActived = '<span style="font-size: 14px; font-weight: normal">Continuar na</span><br/>';
 
               }
               if(singular.type === 'principal' || singular.type === 'singular' || singular.type === 'prestadora') {
-                target = '_SELF'
+                target = '_SELF';
+                classSing = 'singular-link';
               } else {
                 target = '_blank';
+
               }
               const agencyHtml = `
               <div class="card-singulares ${actived}">
-                <a href="${singular.url}" target="${target}" role="button" class="" tabindex="0">${textActived} ${singular.singular}<i class="arrow right"></i>
+                <a href="${singular.url}" target="${target}" role="button" class="${classSing}" data-singular="${singular.id}" tabindex="0">${textActived} ${singular.singular}<i class="arrow right"></i>
                 </a>
               </div>`;
               if(singular.type === 'principal' || singular.type === 'singular' || singular.type === 'prestadora') {
@@ -338,15 +373,17 @@
               singularesList.appendChild(item);*/
             });
 
-            /*data.conveniadas.forEach(conveniada => {
-              let item = document.createElement('div');
-              item.className = 'agency-item';
-              item.innerHTML = `<a href="${conveniada.url}" target="_blank">${conveniada.name}</a>`;
-              singularesList.appendChild(item);
-            });*/
+            document.querySelectorAll('.singular-link').forEach(link => {
+              link.addEventListener('click', function() {
+                setCookie("selectedSingular", this.dataset.singular, 365);
+              });
+            });
           });
 
         singularesModal.style.display = "block";
+      }
+      btnOpenModalSingulares.onclick = function() {
+        openModalSingulares();
       }
 
       span.onclick = function() {

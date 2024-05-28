@@ -1,5 +1,6 @@
 <?php
 $tipo_homepage = get_field('tipo-homepage');
+
 ?>
 <header class="header-menu-banner position-relative mw-100 <?php echo $tipo_homepage;?>">
   <div class="main-menu <?php echo $tipo_homepage;?>" id="main-menu">

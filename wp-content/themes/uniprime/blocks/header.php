@@ -8,10 +8,25 @@
     global $post;
     $currentSlug = $post->post_name;
   }
+  $current_term = '';
+	//echo 'tyara ';
+	if (is_singular('solucoes')) {
+		$terms = wp_get_post_terms($post->ID, 'tipo-solucao');
+		//var_dump($terms[0]->slug);
+		if (!empty($terms)) {
+			if($terms[0]->slug=="para-voce") {
+				$current_term = "para-voce";
+			} else if ($terms[0]->slug=="para-seu-negocio") {
+				$current_term = "para-empresa";
+			} else if ($terms[0]->slug== "para-sua-cooperativa") {
+				$current_term = "para-cooperativa";
+			}
+		}
+	}
  //if($currentSlug == $term->slug || (is_front_page() && $term->slug == 'para-voce')) { 
   // Verificar se há conteúdo antes de renderizar
   //if ($top_bar_localization && $a_uniprime_menu && $atendimento_menu) {?>
-  <div class="top-bar mw-100 <?php echo $currentSlug;?>">
+  <div class="top-bar mw-100 <?php echo $currentSlug; echo is_singular('solucoes') ? ' solucoes-' . $current_term : '';?>">
     <div class="container" id="top-bar-container">
       <div class="d-flex justify-content-center justify-content-lg-between">
         <div class="first-col d-none d-lg-block">

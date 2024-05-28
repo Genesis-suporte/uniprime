@@ -1,5 +1,23 @@
+<?php 
+$current_term = '';
+
+if (is_singular('solucoes')) {
+  global $post;
+  $terms = wp_get_post_terms($post->ID, 'tipo-solucao');
+  if (!empty($terms)) {
+    if($terms[0]->slug=="para-voce") {
+      $current_term = "para-voce";
+    } else if ($terms[0]->slug=="para-seu-negocio") {
+      $current_term = "para-empresa";
+    } else if ($terms[0]->slug== "para-sua-cooperativa") {
+      $current_term = "para-cooperativa";
+    }
+  }
+}
+//var_dump($current_term);
+?>
 <header class="header-menu-banner position-relative mw-100">
-  <div class="main-menu interna" id="main-menu">
+  <div class="main-menu interna <?php echo is_singular('solucoes') ? ' actived ' . $current_term : '';?>" id="main-menu">
     <div class="container d-flex justify-content-between">
       <div class="logo">
         <a href="/" class="link-logo">
@@ -85,7 +103,7 @@
                   //solucoes-para-voce
                   //solucoes-para-empresa
                   //solucoes-para-cooperativa .$tipo_homepage
-                    $menu_lists = setMenuThreeLevels('solucoes-para-voce');
+                    $menu_lists = setMenuThreeLevels('solucoes-'.$current_term);
                     $menu_solucoes = "";
                     foreach ($menu_lists as $item) { 
                       $class = '';

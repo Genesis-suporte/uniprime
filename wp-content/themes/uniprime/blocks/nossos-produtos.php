@@ -30,16 +30,19 @@
             'post_type'   => 'solucoes'
           );
           $get_solucoes = get_posts( $get_solucoes_id );
-          foreach($get_solucoes as $get_colucao) {
-            //echo $get_colucao;
-            $terms = get_the_terms( $get_colucao, 'tipo-solucao' ); 
+          foreach($get_solucoes as $get_solucao) {
+            //echo $get_solucao;
+            $terms = get_the_terms( $get_solucao, 'tipo-solucao' ); 
             //$index_nh = 0;
             foreach($terms as $term) {
               //echo $currentSlug.' - '.$term->slug;
-              if($currentSlug == $term->slug || (is_front_page() && $term->slug == 'para-voce')) { ?>
+              if($currentSlug == $term->slug || (is_front_page() && $term->slug == 'para-voce')) { 
+                //var_dump( $term->slug );
+                ?>
+                
                 <div class="col col-4 card-nossos-produtos">
-                  <a href="<?php echo $get_colucao->guid;?>" target="_SELF" role="button" class="icon-menu icon-<?php echo $get_colucao->post_name;?>-gold">
-                    <?php echo $get_colucao->post_title; ?>
+                  <a href="<?php echo $get_solucao->guid;?>" target="_SELF" role="button" class="icon-menu icon-<?php echo $get_solucao->post_name;?>-gold">
+                    <?php echo $get_solucao->post_title; ?>
                     <i class="arrow right"></i>
                   </a>
                 </div>

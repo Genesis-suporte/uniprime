@@ -637,6 +637,18 @@ li.select2-results__option .icon-menu {
   background-color: var(--primary-color-para-cooperativa);
   color: white;
 }
+/*
+body.solucoes-para-voce .menu-top-bar {
+  background-color: var(--primary-color-para-voce);
+}
+
+body.solucoes-para-seu-negocio .menu-top-bar {
+  background-color: var(--primary-color-brand);
+}
+
+body.solucoes-para-sua-cooperativa .menu-top-bar {
+  background-color: var(--primary-color-para-cooperativa);
+}*/
 /* ANIMAÇÕES */
 /* .main-menu.menu-fixed.para-voce, 
 .main-menu.para-voce.actived {
@@ -3735,6 +3747,9 @@ footer {
 #conveniadasList .card-singulares a:hover {
   background: var(--primary-color-para-cooperativa);
   color: white;
+}
+.card-singulares.actived a {
+  padding: 19px 30px 19px 24px !important;
 }
 .card-singulares a .arrow.right {
   right: 20px;

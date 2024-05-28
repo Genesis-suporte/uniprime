@@ -23,7 +23,7 @@
   <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> >
   <?php wp_body_open(); ?>
   <header id="masthead" class="site-header">
 
@@ -35,11 +35,12 @@
     } else {
       global $post;
       $currentSlug = $post->post_name;
+      
     }
     //if($currentSlug == $term->slug || (is_front_page() && $term->slug == 'para-voce')) { 
     // Verificar se há conteúdo antes de renderizar
     //if ($top_bar_localization && $a_uniprime_menu && $atendimento_menu) { ?>
-    <div class="top-bar mw-100 <?php echo $currentSlug; ?>">
+    <div class="top-bar mw-100 <?php echo $currentSlug; echo is_singular('solucoes') ? 'solucoes-' . $current_term : '';?>">
       <div class="container" id="top-bar-container">
         <div class="d-flex justify-content-center justify-content-lg-between">
           <div class="first-col d-none d-lg-block">
@@ -68,12 +69,6 @@
                   if (isset($item['active'])) {
                     $class .= ' ' . $item['active'];
                   }
-
-                  /*if ($index==2) {
-                    $class = $class. ' flex-fill';
-                  } else {
-                    $class = $class. ' flex-shrink-1';
-                  }*/
                   if ($index != 0 && $index != (count($menu_lists) - 1)) {
                     $menu_top_bar .= '<div class="separador-top-menu"></div>' . "\n";
                   }
