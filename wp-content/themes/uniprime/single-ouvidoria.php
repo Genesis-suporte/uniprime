@@ -21,8 +21,6 @@ $texto2_bloco_direita = get_field('texto2_bloco_direita');
 ?>
 
 
-?>
-
 <div class="banner-internas position-relative">
   <div class="hero-image">
     <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);">
@@ -52,7 +50,7 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
 <section class="ouvidoria mw-100">
   <div class="container">
     <div class="content">
-    <div class="d-flex flex-column flex-lg-row">
+      <div class="d-flex flex-column flex-lg-row">
         <div class="container-fale-conosco col-12 col-lg-6 d-flex flex-column">
           <div class="label-block">
             <?php echo esc_html($label); ?>
@@ -101,6 +99,20 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
               <div class="description-contato">
                 <?php echo ($texto2_bloco_direita); ?>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="main-protocolo row content-lgpd">
+        <div class="content-protocolo">
+          <div class="num-protocolo title-28 switzerlandBold">Proteção de dados (LGPD)</div>
+          <div class="d-flex flex-column flex-md-row justify-content-between">
+            <div class="col-left">
+              <p>Para exercer seus direitos enquanto titular de dados pessoais, dirija-se à sua agência ou entre em contrato pelo e-mail <a href="mailto:privacidade@uniprimecentral.com.br" target="_blank" class="color-actived">privacidade@uniprimecentral.com.br</a></p>
+            </div>
+            <div class="col-right">
+              <p>*Para saber como tratamos seus dados pessoais, consulte nossa <a href="#" class="color-actived">Política de Privacidade</a></p>
             </div>
           </div>
         </div>

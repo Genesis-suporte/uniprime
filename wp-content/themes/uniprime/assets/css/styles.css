@@ -6,6 +6,7 @@
   --primary-color-para-voce: #F8FAFB;
   --primary-color-para-cooperativa: #004F71;
   --color-actived: #B78B20;
+  --color-actived-2: #DAB157;
   --color-neutral: #6C6C6C;
   --color-neutral-2: #B7C9d3;
   --color-neutral-alpha: rgba(183, 201, 211, 0.3);
@@ -27,6 +28,10 @@
 .body, .body.editor-styles-wrapper {
   font-family: 'Calibri' !important;
   font-size: 15px;
+}
+body {
+  padding: 0;  
+  transition: padding-top .5s ease-in-out;
 }
 a {
   text-decoration: none !important;
@@ -64,12 +69,17 @@ a {
   height: 44px;
   border-radius: 25px !important;
   font-size: 15px !important;
+  font-family: 'Calibri';
 }
 .btn-primary {
   color: white !important;
   background-color: var(--primary-color) !important;
-  border: 0px !important;
-
+  border: 1px solid var(--primary-color) !important;
+}
+.btn-primary:hover {
+  color: var(--primary-color) !important;
+  background-color: white !important;
+  border: 1px solid var(--primary-color) !important;
 }
 .btn-secondary {
   color: var(--primary-color) !important;
@@ -79,13 +89,29 @@ a {
 .btn-actived {
   color: white !important;
   background-color: var(--color-actived)  !important;
-  border: 0px !important;
+  border: 1px solid var(--color-actived) !important;
+  transition: all .2s ease-in-out;
+}
+.btn-actived:hover {
+  color: var(--primary-color) !important;
+  background-color: white  !important;
+  border: 1px solid var(--primary-color)!important;
 }
 .btn-download {  
   color: white !important;
   font-size: 14px;
   background-color: transparent !important;
   border: 1px solid white !important;
+  transition: all .2s ease-in-out;
+}
+.btn-download:hover {  
+  color: var(--primary-color) !important;
+  background-color: white !important;
+  border: 1px solid var(--primary-color) !important;
+}
+.btn-download:hover .icon-download-white {  
+  background: url(../images/icons/icon-download.svg) no-repeat 0px 0px;
+  background-size: 13px;
 }
 /* ICONS */
 .dashicons-uniprime {
@@ -129,6 +155,9 @@ a {
 .icon-phone-white {
   background: url('../images/icons/icon-phone-white.png') no-repeat 0px 0px;
 }
+.icon-phone-white-svg {
+  background: url('../images/icons/icon-phone-white-svg.svg') no-repeat 0px 0px;
+}
 .icon-arrow-up-down-white {
   background: url('../images/icons/icon-arrow-up-down-white.png') no-repeat 0px 0px;
 }
@@ -138,7 +167,14 @@ a {
 .icon-chat-white {
   background: url('../images/icons/icon-chat-white.png') no-repeat 0px 0px;
 }
-
+.icon-whatsapp-white {
+  background: url('../images/icons/icon-whatsapp-white.png') no-repeat 0px 0px;
+  background-size: 16px;
+}
+.icon-email-white {
+  background: url('../images/icons/icon-email-white.png') no-repeat 0px 0px;
+  background-size: 16px;
+}
 
 
 .icon-central {
@@ -194,6 +230,7 @@ a {
 }
 .icon-zero {
   background: url('../images/icons/icon-zero.svg') no-repeat 0px 0px;
+  background-size: 36px;
 }
 /* ICONS SOLUÇÔES */
 
@@ -531,7 +568,7 @@ a {
 }
 .slick-arrow {
   background: url('../images/icons/icon-right-arrow.png') no-repeat 10px 10px;
-  background-color: white;
+  background-color: rgb(255,255,255,0.6);
   background-position: center;
   border-radius: 50%;
   display: inline-block;
@@ -609,9 +646,18 @@ li.select2-results__option .icon-menu {
   position: relative;
   background-color: white;
   font-family: 'Calibri' !important;
+  transition: opacity  .5s ease-in-out;
 }
-
-
+.top-bar.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 111;
+}
+body.admin-bar .top-bar {
+  /*top: 32px !important;*/
+}
 .top-bar .first-col {
   padding-top: 12px;
 }
@@ -642,18 +688,7 @@ li.select2-results__option .icon-menu {
   background-color: var(--primary-color-para-cooperativa);
   color: white;
 }
-/*
-body.solucoes-para-voce .menu-top-bar {
-  background-color: var(--primary-color-para-voce);
-}
 
-body.solucoes-para-seu-negocio .menu-top-bar {
-  background-color: var(--primary-color-brand);
-}
-
-body.solucoes-para-sua-cooperativa .menu-top-bar {
-  background-color: var(--primary-color-para-cooperativa);
-}*/
 /* ANIMAÇÕES */
 /* .main-menu.menu-fixed.para-voce, 
 .main-menu.para-voce.actived {
@@ -748,7 +783,9 @@ body.solucoes-para-sua-cooperativa .menu-top-bar {
 }
 .header-menu-banner {
   max-height: 800px;
+  padding-top: 0px;
   font-family: 'Calibri' !important;
+  transition: all .5s ease-in-out;
 }
 .main-menu {
   height: 125px;
@@ -879,7 +916,7 @@ body.solucoes-para-sua-cooperativa .menu-top-bar {
   color: var(--primary-color-para-cooperativa);
   display: block;
   font-family: "Calibri";
-  font-size: 17px;
+  font-size: 16px;
   font-weight: bold;
   padding: 8px 0px 8px 53px !important;
   position: relative;
@@ -924,6 +961,7 @@ body.solucoes-para-sua-cooperativa .menu-top-bar {
   color: var(--primary-color-para-cooperativa);
   line-height: 28px;
   font-size: 15px;
+  font-weight: normal;
 } 
 
 .menu-inicial .menu-item .dropdown-content .container .menu-item a:hover {
@@ -1172,12 +1210,18 @@ section.search-page .slide-m-dots .slick-dots li.slick-active button {
   line-height: 34px;
   padding-bottom: 40px;
 }
-.hero-banner .hero-image .copy .cta a{
+.hero-banner .hero-image .copy .cta a {
   font-size: 18px !important;
   font-family: 'Calibri';
   padding: 12px 20px 0 25px !important;
   height: 52px;
   border-radius: 30px !important;
+  transition: all .2s ease-in-out;
+  border: 1px solid transparent;
+}
+.hero-banner .hero-image .copy .cta a:hover {
+  border: 1px solid var(--color-actived) !important;
+
 }
 .hero-banner .hero-image .image {
   width:100%; 
@@ -1258,6 +1302,11 @@ section.search-page .slide-m-dots .slick-dots li.slick-active button {
   height: 823px;
   width: 811px;
 }
+.div-logo-uniprime .logo-uniprime-background.conta-corrente {
+  top: 95px;
+  height: auto;
+  width: auto;
+}
 .label-block {
   font-family: 'Calibri';
   font-size: 14px;
@@ -1336,7 +1385,7 @@ section.search-page .slide-m-dots .slick-dots li.slick-active button {
 .description-block {
   color: var(--color-neutral);
   font-family: 'Calibri';
-  font-size: 16px;
+  font-size: 18px;
   padding-top: 5px;
   line-height: 27px;
 }
@@ -1363,11 +1412,14 @@ section.search-page .slide-m-dots .slick-dots li.slick-active button {
   font-size: 14px;
   color: var(--color-neutral);
 }
+.nav-breadcrumb ol li a:hover {
+  text-decoration: underline !important;
+}
 .nav-breadcrumb li.separator {
   padding: 0px 13px 2px 4px;
 }
 .nav-breadcrumb ol li b {
-  color: var(vs);
+  color: var(--primary-color-brand);
 }
 /* NOSSOS PRODUTOS */
 .nossos-produtos {
@@ -1417,7 +1469,7 @@ section.search-page .slide-m-dots .slick-dots li.slick-active button {
   background-position: 32px 45px;
   color: var(--primary-color-para-cooperativa);
   display: block;
-  font-size: 17px;
+  font-size: 19px;
   font-weight: bold;
   padding: 46px 30px 48px 86px !important;
   position: relative;
@@ -1450,7 +1502,7 @@ section.search-page .slide-m-dots .slick-dots li.slick-active button {
 .nossos-produtos-shorts .block-content {
 }
 .nossos-produtos .description-block .col-left {
-  padding: 0 70px 50px 0;
+  padding: 0 0px 50px 0;
 }
 .nossos-produtos-shorts .card-nossos-produtos {
   background-color: rgba(248, 250, 251, .9);
@@ -1548,7 +1600,7 @@ section.search-page .slide-m-dots .slick-dots li.slick-active button {
 .nossa-historia .card-nossa-historia .content-card .description {
   color: white;
   font-family: 'Calibri';
-  font-size: 16px;
+  font-size: 17px;
   padding-top: 0px;
   line-height: 27px;
 }
@@ -1575,12 +1627,22 @@ section.canais-digitais {
 .canais-digitais .canais-digitais-image {
   position: relative;
 }
-.canais-digitais .canais-digitais-image img{
-  position: relative;
-  left: 0px;
-  width: 100%;
-  margin: -108px 0 -205px;
+.canais-digitais.layout-3 .canais-digitais-image {
+  padding-right: 50px;
 }
+.canais-digitais .canais-digitais-image img{
+  height: auto;
+  left: 0px;
+  margin: -108px 0 -205px;
+  position: relative;
+  width: auto;
+}
+/*.canais-digitais.layout-1 .canais-digitais-image img {
+  right: -50px;
+  left: unset;
+  height: auto;
+  width: auto;
+}*/
 .home .canais-digitais .col-right{
   padding: 129px 0 100px 10px;
 }
@@ -1590,10 +1652,26 @@ section.canais-digitais {
 .canais-digitais .description-block {
   padding-bottom: 34px;
 }
-
+.canais-digitais .btn-primary-color {
+  padding: 9px 23px !important;
+}
 .canais-digitais .card-canais-digitais img {
   width: 100%;
-  max-width: 180px;
+  /*max-width: 180px;*/
+}
+.canais-digitais.layout-2 .canais-digitais-image img {
+  margin: 0px 0 0px;
+  position: absolute;
+  left: unset;
+  right: 0;
+  bottom: 0px;
+}
+.fundo-cinza {
+  background-color: var(--primary-color-para-voce);
+  border-radius: 16px;
+  height: 83%;
+  bottom: 0px;
+  z-index: -1;
 }
 /* ONDE ENCONTRAR */
 .onde-encontrar {
@@ -1692,7 +1770,7 @@ section.canais-digitais {
   padding: 32px;
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
-  border: 1px solid var(--color-neutral);
+  border: 1px solid var(--color-neutral-2);
   border-top: 0px;
   min-height: 186px;
 }
@@ -1733,11 +1811,16 @@ section.canais-digitais {
 .novidades .artigos .card-post .title-block a {
   color: var(--primary-color-brand);
 }
+.novidades .artigos .card-post .title-block a:hover {
+  text-decoration: underline !important;
+}
 .novidades .artigos .card-post .cta a.leia_mais {
   color: var(--primary-color-brand);
-  font-size: 13px;
+  font-size: 16px;
 }
-
+a.leia_mais:hover {
+  text-decoration: underline !important;
+}
 /* ATENDIMENTO */
 .atendimento {
   padding: 25px 0 0px;
@@ -1762,14 +1845,20 @@ section.canais-digitais {
   padding: 6px 0px;
 }
 .atendimento .col-right .description {
+  color: var(--color-neutral);
   line-height: 27px;
   padding: 0 117px 33px 0px;
-  font-size: 15px;
+  font-size: 17px;
 }
-.atendimento .col-right .btn {
+.atendimento .col-right .btn-primary {
   font-size: 17px !important;
   padding: 12px 23px !important;
   height: 51px;
+  border: 1px solid var(--primary-color) !important;
+}
+.atendimento .col-right .btn-primary:hover {
+  color: var(--primary-color) !important;
+  background-color:  white !important;
 }
 .atendimento .col-right .col-9{
   padding: 0 151px 0 30px;
@@ -1779,6 +1868,9 @@ section.canais-digitais {
   padding: 0px 150px 0 30px;
 }
 /* INSTITUCIONAL */
+.banner-internas .hero-image .container {
+  position: relative;
+}
 .banner-internas .hero-image .copy {
   bottom: 0;
   color: white;
@@ -1820,7 +1912,7 @@ section.canais-digitais {
   padding: 27px 12px;
 }
 .content-internas  {
-  padding: 163px 0 114px;
+  padding: 160px 0 160px;
 }
 .content-internas .copy {
   padding: 0 115px;
@@ -1876,6 +1968,8 @@ section.canais-digitais {
   top: 0;
   width: 100%;
   z-index: -1;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 .bloco-mvv .card-azul .title {
   color: white;
@@ -1898,7 +1992,7 @@ section.canais-digitais {
 }
 /* BENEFICIOS */
 .beneficios-institucional {
-  padding: 128px 0;
+  padding: 64px 0 128px;
   overflow: hidden;
 }
 .beneficios-institucional .description-block {
@@ -1932,6 +2026,7 @@ section.canais-digitais {
   font-family: 'Switzerland';
   line-height: 26px;
   color: white;
+  max-width: 75%;
 }
 .beneficios-institucional .slide-beneficios .sub-description {  
   color: white;
@@ -1960,6 +2055,9 @@ section.canais-digitais {
   padding: 64px 106px 34px;
   margin-bottom: 24px;
 }
+.diretoria-e-conselhos .content-diretoria .label-block {
+  color: var(--color-actived-2);
+}
 .diretoria-e-conselhos .content-diretoria .title-block {
   color: white;
   padding: 7px 0 22px;
@@ -1986,10 +2084,9 @@ section.canais-digitais {
   color: var(--color-neutral-2);
 }
 .diretoria-e-conselhos .content-diretoria .diretoria-card .cargo{
-  color: var(--color-actived);
+  color: var(--color-actived-2);
   text-align: right;
 }
-/* @TODO -> fix */
 .diretoria-e-conselhos .conselhos .container-diretoria {
   width: 49%;
   /*gap: 24px;*/
@@ -2001,8 +2098,9 @@ section.canais-digitais {
 .blocos-canais-digitais .canais-digitais-col {
   width: 50%;
   background-size: cover !important;
-  height: 548px;
-  padding: 64px 20px 0px 109px;
+  height: 100%;
+  min-height: 548px;
+  padding: 64px 0px 0px 109px;
   overflow: hidden;
 }
 .blocos-canais-digitais .acf-block-preview .canais-digitais-col {
@@ -2079,10 +2177,59 @@ section.canais-digitais {
   line-height: 62px;
   padding: 13px 0 6px;
 }
+
 .canais-digitais.layout-4 .btn {
   padding: 11px 23px !important;
   height: 52px;
   font-size: 18px !important;
+}
+/* DUPLO */
+.canais-digitais-duplo {
+
+}
+.canais-digitais-duplo .canais-digitais-col {
+  background-size: cover !important;
+  height: 100%;
+  overflow: hidden;
+  min-height: 548px;
+}
+
+.canais-digitais-duplo .canais-digitais-col .title-block {
+  color: white;
+  font-size: 28px;
+  font-family: 'Switzerland';
+  line-height: 36px;
+  padding: 8px 0;  
+}
+.canais-digitais-duplo .description-block {
+  color: var(--color-neutral-2);
+  padding-left: 0;
+}
+.canais-digitais-duplo .canais-digitais-col .coluna-1 {
+  padding: 64px 64px 0px 0px;
+}
+.canais-digitais-duplo .canais-digitais-col .coluna-2 {
+  padding: 64px 0px 0px 106px;
+}
+.canais-digitais-duplo .canais-digitais-col .coluna-2 .description-block{
+  padding-right: 64px;
+}
+.canais-digitais-duplo .content-bts {
+  padding-top: 29px;  
+  padding-left: 0;
+  width: 100%;
+}
+.canais-digitais-duplo .card-canais-digitais {
+  padding-bottom: 24px;  
+}
+.canais-digitais-duplo a.button img {
+  width: auto !important;
+}
+.canais-digitais-duplo .canais-digitais-image img {
+  position: relative;
+  left: unset;
+  width: auto !important;
+  margin: 0px !important;
 }
 /* SINGLE POLITICA */
 section.single-politica {
@@ -2186,18 +2333,27 @@ section.single-politica {
 .single-politica .content h3 {
   margin-left: 0px;
 }
-.single-politica .content p {
+.single-politica .content p,
+.single-politica .content li {
   font-family: 'Calibri';
   font-size: 16px;
   color: var(--color-neutral);
 }
 /* ASSEMBLEIAS */
 .assembleias {
-  padding: 113px 0;
+  padding: 60px 0;
   overflow: hidden;
+  background-color: white;
 }
 .assembleias .search-by-units {
-  padding-bottom: 197px;
+  padding-bottom: 64px;
+}
+.assembleias .results {
+  background-color: var(--primary-color-para-voce);
+  padding: 128px 0 0;
+}
+.assembleias .proximas {
+  padding: 128px 0 0;
 }
 .assembleias .search-by-units .title-block{
   text-align: center;
@@ -2208,10 +2364,10 @@ section.single-politica {
 }
 .assembleias .description-block {
   padding-bottom: 32px;
-  width: 65%;
+  width: 70%;
 }
 .assembleias .slide-assembleias {
-  padding-bottom: 229px;
+  padding-bottom: 126px;
 }
 .assembleias .slide-proximas-assembleias { 
   padding-bottom: 29px;
@@ -2280,6 +2436,7 @@ section.single-politica {
 }
 .bloco-relatorios .container-relatorios .description-block{
   padding-top: 23px;
+  max-width: 85%;
 }
 .bloco-relatorios .container-relatorios {
   background-color: var(--primary-color-para-voce);
@@ -2317,9 +2474,11 @@ section.single-politica {
 }
 .bloco-relatorios .container-segundo-grupo-relatorios {
   padding: 120px 0 125px;
+  overflow: hidden;
 }
 .bloco-relatorios .description-block {
   padding: 0;
+  max-width: 70%;
 }
 
 .bloco-relatorios .container-segundo-grupo-relatorios .card-relatorio .content-card .ano {
@@ -2361,7 +2520,7 @@ section.single-politica {
   border-top: 1px solid var(--color-actived);
 }
 .bloco-relatorios .card-relatorio .content-card .label {
-  color: var(--color-actived);
+  color: var(--color-actived-2);
   font-family: 'Calibri';
   font-size: 14px;
   padding: 16px 0 19px;
@@ -2375,7 +2534,7 @@ section.single-politica {
 .bloco-relatorios .card-relatorio .content-card .linkpdf a {
   display: flex;
   flex-direction: row;
-  padding: 3px 22px !important;
+  padding: 4px 22px !important;
   height: 32px;
   font-size: 13px !important;
 }
@@ -2434,9 +2593,19 @@ section.single-politica {
   width: 100% !important;
   height: 42px;
   background-color: white !important;
+  transition: all .2s ease-in-out;
 }
 .bloco-relatorios .cards-quarto-grupo-relatorios .linkpdf_riscos a .icon-download {
   margin: 4px 12px 0 10px;
+}
+
+.bloco-relatorios .cards-quarto-grupo-relatorios .linkpdf_riscos a:hover { 
+  color: white !important;
+  background-color: var(--primary-color-brand) !important;
+}
+.bloco-relatorios .cards-quarto-grupo-relatorios .linkpdf_riscos a:hover .icon-download {
+  background: url(../images/icons/icon-download-white.svg) no-repeat 0px -2px;
+  background-size: 20px;
 }
 /* FALE CONOSCO */ 
 section.fale-conosco {
@@ -2878,15 +3047,16 @@ section.fale-conosco {
   width: calc(25% - 25px) !important;
   margin: 0px 0px 25px 25px;
 }
-.bloco-cards .link {
-  padding-top: 23px;
-}
-.bloco-cards .link a {
+.bloco-cards a.link  {
   color: var(--primary-color);
   font-family: 'Calibri' !important;
   font-size: 14px;
   line-height: 24px; 
+  padding-top: 23px;
 }
+.bloco-cards a.link:hover {
+  text-decoration: underline !important;
+} 
 .bloco-cards .link a .arrow {
   bottom: 0px;
 }
@@ -2918,6 +3088,9 @@ section.fale-conosco {
 .card-default .description ul li::marker {
   color: var(--color-actived);
 }
+.bt-interest-end {
+  padding-top: 64px;
+}
 /* BLOCO CARTÕES */
 .bloco-cartoes {
   padding: 60px 0 167px;
@@ -2945,13 +3118,25 @@ section.fale-conosco {
   line-height: 27px;
   padding-right: 40px;
 }
-.bloco-cartoes .content-cards .frases {
-
+.bloco-cartoes .content-cards .icon-cta-blue,
+.canais-digitais .icon-cta-blue,
+.content-bloco-cards .icon-cta-blue,
+.bt-interest-end .icon-cta-blue {
+  margin: 1px 0px 0 10px;
 }
 .bloco-cartoes .content-cards .frases .frase {
   color: var(--primary-color);
   font-size: 15px;
   background-position-y: 2px;
+}
+.bloco-cartoes .content-cards .frases .frase.icon-zero {
+  background-position-y: 6px;
+}
+.bloco-cartoes .content-cards .frases .frase.icon-heart-01 {
+  background-position-x: -2px;
+}
+.bloco-cartoes .content-cards .frases .frase.icon-mobile {
+  background-position-x: -3px;
 }
 .bloco-cartoes .content-cards .frases .frase p {
   margin-bottom: 15px;
@@ -2964,13 +3149,28 @@ section.fale-conosco {
   background-color: transparent !important;
   border: 1px solid var(--primary-color) !important;
   color: var(--primary-color) !important;
-  display: flex !important;
-  flex-direction: row;
-  font-size: 14px !important;
+  /* display: flex !important;
+  flex-direction: row; */
+  font-size: 15px !important;
+  font-family: Calibri;
   height: 43px;
-  max-width: 200px;
-  padding:9px 9px 9px 23px !important;
+  /* max-width: 200px; */
+  padding: 9px 15px 9px 23px !important;
   margin-top: 34px;  
+  position: relative;
+}
+.btn-primary-color .icon-cta-blue {
+  /* position: absolute;
+  right: 0; */
+  float: right;
+}
+.btn-primary-color:hover {
+  background-color: var(--primary-color) !important;
+  border: 1px solid white !important;
+  color: white !important;
+}
+.btn-primary-color:hover .icon-cta-blue {
+  background: url(../images/icons/icon-right-arrow-white.png) no-repeat -1px -1px;
 }
 .bloco-cartoes .final-content {
   padding: 95px 0 0;
@@ -3159,7 +3359,7 @@ section.fale-conosco {
   padding-bottom: 64px;
 }
 .content p {
-  padding: 0 104px;
+  padding: 0 0px; /*104px*/
 }
 /* BLOCO BAIXE CONTEUDO EXCLUSIVO */
 .bloco-conteudo-exclusivo {
@@ -3357,8 +3557,12 @@ section.ouvidoria {
 .cards-canal-denuncia {
   padding: 0px 80px 32px 127px;
 }
+.ouvidoria .container-canal-denuncia {
+  padding: 0px 0px 32px 104px;
+}
 .cards-canal-denuncia .color-actived,
-.denuncias .color-actived {
+.denuncias .color-actived,
+.content-protocolo .color-actived {
   color: var(--color-actived);
   padding-bottom: 24px;
 }
@@ -3425,7 +3629,7 @@ section.ouvidoria {
 section.denuncias {
   padding: 130px 0 99px;
 }
-.container-denuncias .main-protocolo{
+.main-protocolo{
   background-color: var(--primary-color-brand);
   border-radius: 16px;
   color: white;
@@ -3473,14 +3677,14 @@ section.denuncias .content p {
 .div-nao-encontrado .content-nao-encontrado .title-block {
   padding-bottom: 4px !important;
 }
-.container-denuncias .content-lgpd {
-  margin-top: 128px;
+.content-lgpd {
+  margin-top: 128px !important;
   background-color: var(--primary-color);
 }
-.container-denuncias .content-lgpd .col-left {
+.content-lgpd .col-left {
   padding-right: 24px;
 }
-.container-denuncias .content-lgpd .content-protocolo {
+.content-lgpd .content-protocolo {
   padding: 48px 106px 32px !important;
 }
 .block-protocolo {
@@ -3533,7 +3737,7 @@ section.onde-estamos {
 .address .icon-arrow-up-down-white, 
 .address .icon-message-white,
 .address .icon-chat-white {
-  background-position: 15px 13px;
+  background-position: 15px 13px !important;
 } 
 .address .btn.icon-menu {
   padding-left: 40px !important;
@@ -3568,7 +3772,8 @@ footer {
   border-right: 1px solid var(--color-neutral-alpha);
 }
 .footer-top .label-footer {
-  font-size: 15px;
+  color: var(--primary-color);
+  font-size: 16px;
 }
 .footer-top .telefone-footer, .footer-top .telefone-footer a {
   font-size: 15px;
@@ -3592,7 +3797,7 @@ footer {
 }
 .footer-menu .label-footer-menu {
   color: var(--primary-color-brand);
-  font-size: 22px;
+  font-size: 20px;
   font-family: 'Switzerland';
   font-weight: bold;
   padding: 0px 0px 30px;
@@ -3600,13 +3805,13 @@ footer {
 .footer-menu .col-solucoes {
   position: relative;
   flex: 0 0 auto;
-  width: 29%;
+  width: 27%;
 }
 .footer-menu .col-solucoes .solucoes {
   padding: 0 60px 13px 107px;
 }
 .footer-menu .description-menu {
-  font-size: 13px;
+  font-size: 16px;
   line-height: 24px;
 }
 .footer-menu .menu-item .dropdown-content {
@@ -3616,7 +3821,7 @@ footer {
   z-index: 9;
   transition: all .2s ease-in-out;
   padding: 60px 60px 40px;
-  width: 244%;
+  width: 270%;
   background-color: #fff;
   margin: -91px 0 0 0;
 }
@@ -3631,7 +3836,6 @@ footer {
 }
 .footer-menu .menu-footer-solucoes .menu-item .menu-dropdown .container-solucoes {
   background-position: 108px 0px;
-  padding-left: 140px !important;
 }
 .footer-menu .menu-footer-solucoes .menu-item:hover .menu-dropdown{
   color: white;
@@ -3653,6 +3857,9 @@ footer {
 .footer-menu .menu-item .dropdown-content.cooperativa .container .menu-subitem {
   margin: 0px 0px 6px 0px;
 }
+.footer-menu .menu-item .dropdown-content.cooperativa .container .menu-subitem a {
+  padding: 18px 0px 18px 53px !important;
+}
 .footer-menu .menu-item .dropdown-content .container .menu-subitem a {
   color: white;
   padding: 20px 0px 20px 53px !important;
@@ -3662,12 +3869,15 @@ footer {
   color: var(--color-actived);
 }
 .footer-menu .menu-item .dropdown-content .container .menu-subitem .arrow.right{
-  top: 26px;
+  position: relative;
+  top: unset;
+  left: unset;
 }
 
 .footer-menu .col-right {
   flex: 0 0 auto;
-  width: 71%;
+  width: 73%;
+  padding-left: 20px;
 }
 .footer-menu .col-right .menu-footer ul {
   padding-left: 20px;
@@ -3681,17 +3891,31 @@ footer {
 .footer-menu .col-right .menu-footer .menu-item a {
   color: var(--primary-color-para-cooperativa);
   line-height: 28px;
-  font-size: 15px;
+  font-size: 16px;
+}
+.footer-menu .col-right .menu-footer .menu-item a:hover {
+  color: var(--color-actived);
+  text-decoration: underline !important;
 }
 .footer-copyrigth {
   background-color: var(--color-footer);
   color: #919294;
-  padding: 24px 0 95px;
+  padding: 24px 0px 60px 0;
   position: relative;
   font-size: 13px;
 }
+.footer-copyrigth .container {
+  padding: 0;
+}
+.footer-copyrigth a {
+  color: #919294;
+}
+.footer-copyrigth a:hover {
+  color: var(--color-actived);
+  text-decoration: underline !important;
+}
 /* MODAL SINGULARES */
-.singularesModal {
+.defaultModal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -3706,7 +3930,7 @@ footer {
   z-index: 120;
 }
 
-.singularesModal .modal-content {
+.defaultModal .modal-content {
   background-color: var(--primary-color-para-voce);
   border: 0px;
   border-radius: 16px;
@@ -3770,7 +3994,7 @@ footer {
   background-color: var(--primary-color-para-voce);
 }
 
-.singularesModal .close {
+.defaultModal .close-modal {
   background: white;
   border: 1px solid var(--primary-color);
   border-radius: 50%;
@@ -3781,29 +4005,90 @@ footer {
   top: 16px;
   width: 40px;
 }
-.singularesModal .close .bars {
+.defaultModal .close-modal .bars {
   padding: 14px 0px;
 }
-.singularesModal .bar {
+.defaultModal .bar {
   border-bottom: 2px solid var(--primary-color-para-cooperativa);
   height: 2px;
   width: 24px;
   margin-bottom: 8px;
 }
-.singularesModal .close .bar1 {
+.defaultModal .close-modal .bar1 {
   transform: rotate(-135deg);
   margin-bottom: -2px;
 }
-.singularesModal .close .bar2 {
+.defaultModal .close-modal .bar2 {
   transform: rotate(135deg);
 }
-.singularesModal .close:hover,
-.singularesModal .close:focus {
-  /*color: black;*/
+.defaultModal .close-modal:hover,
+.defaultModal .close-modal:focus {
   text-decoration: none;
   cursor: pointer;
 }
+/* MODAL TENHO INTERESSE */ 
+#modalTenhoInteresse .modal-content{
+  max-width: 800px;
+}
+#modalTenhoInteresse .icon-menu {
+  padding: 11px 46px 11px 66px !important;
+  background-position: 40px 15px;
+}
+#modalTenhoInteresse .icon-menu.icon-whatsapp-white {
+  background-position: 40px 13px;
+}
+.icon-phone-white:hover {
+  background: url(../images/icons/icon-phone.png) no-repeat 0px 0px;
+  background-size: 16px;
+}
+.icon-whatsapp-white:hover {
+  background: url(../images/icons/icon-whatsapp.png) no-repeat 0px 0px;
+  background-size: 16px;
+}
 
+.icon-email-white:hover {
+  background: url(../images/icons/icon-email.png) no-repeat 0px 0px;
+  background-size: 16px;
+}
+#modalTenhoInteresse .content-interesse {
+  display: none;
+  padding: 64px 104px;
+}
+#modalTenhoInteresse #content-interesse-1.content-interesse {
+  display: block;
+}
+#modalTenhoInteresse .content-interesse .gfield {
+  padding-bottom: 23px;
+}
+#modalTenhoInteresse .content-interesse .gfield_label {
+  padding-bottom: 8px;
+}
+#modalTenhoInteresse .content-interesse .gfield select,
+#modalTenhoInteresse .content-interesse .gfield input,
+#modalTenhoInteresse .content-interesse .gfield textarea,
+#modalTenhoInteresse .content-interesse .gform_fields {
+  width: 100%;
+  max-width: 455px;
+}
+#modalTenhoInteresse .content-interesse .gfield input.gfield-choice-input {
+  width: 10%;
+  margin-right: 10px;
+}
+#modalTenhoInteresse .content-interesse .gfield_radio {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#modalTenhoInteresse .content-interesse .gchoice {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+  margin-right: 0px;
+}
+.buttons-contato {
+  padding-top: 36px;
+}
 @media (max-width: 1399.98px) {   
   .atendimento .col-redes {
     padding: 0px 80px 0 0px;
@@ -4285,6 +4570,13 @@ footer {
   .canais-digitais.layout-3 .card-canais-digitais,  
   .canais-digitais.layout-4 .card-canais-digitais {
     width: 100%;
+  }
+  .canais-digitais-duplo .canais-digitais-col .coluna-1,
+  .canais-digitais-duplo .canais-digitais-col .coluna-2 {
+    padding: 64px 12px 0px !important;
+  }
+  .canais-digitais-duplo .canais-digitais-col .coluna-2 .canais-digitais-image img{
+    right: -50px !important;
   }
   .page-id-55 section.canais-digitais {
     padding: 57px 0 0px 0px;
@@ -4988,7 +5280,11 @@ footer {
     margin-bottom: 34px;
   }
   .footer-copyrigth {
-    padding: 4px 36px 95px;
+    padding: 4px 0px 95px;
+  }
+  .footer-copyrigth .copyrigth{
+    width: 71%;
+    margin: 0 auto;
   }
 }
 @media (max-width: 767.98px) { 

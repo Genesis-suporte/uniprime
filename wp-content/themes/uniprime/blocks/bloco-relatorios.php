@@ -65,7 +65,7 @@ $descricao_quarto_grupo = get_field('descricao_quarto_grupo', $block['id']);
         <div class="title-block title-40 switzerlandLight">
           <h2><?php echo esc_html($titulo_segundo_grupo); ?></h2>
         </div>
-        <div class="d-flex">
+        <div class="d-flex justify-content-between">
           <div class="description-block flex-grow-1">
             <?php echo esc_html($descricao_segundo_grupo); ?>
           </div>

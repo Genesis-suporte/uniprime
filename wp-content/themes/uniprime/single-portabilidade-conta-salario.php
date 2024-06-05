@@ -108,14 +108,15 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
       $('.conta-origem').html('')
 
       var destino_div = $('.destino-div').html()
-      var coop_destino = $('.select-cooperativa').html()
-      var agencia_destino = $('.select-agencia').html()
+      var coop_destino = $('.gfield--type-select.select-cooperativa').html()
+      var agencia_destino = $('.gfield--type-select.select-agencia').html()
       var conta_destino = $('.conta-destino').html()
-      $('.right-container').html(destino_div + '<div class="container-portabilidade">' + coop_destino + '' + agencia_destino + '' + conta_destino+ '</div>')
+      $('.right-container').html(destino_div + '<div class="container-portabilidade"><div class="select-cooperativa"' + coop_destino + '</div><div class="select-agencia">' + agencia_destino + '</div>' + conta_destino+ '</div>')
       $('.destino-div').html('')
-      $('.select-cooperativa').html('')
-      $('.select-agencia').html('')
+      $('.gfield--type-select.select-cooperativa').hide('')
+      $('.gfield--type-select.select-agencia').hide('')
       $('.conta-destino').html('')
+      //carregarSelects();
     });
   })(jQuery);
 

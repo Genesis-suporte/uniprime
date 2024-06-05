@@ -14,8 +14,38 @@
     }
     
     mainMenu = document.querySelector('#main-menu');
+    body = document.querySelector('body');
     window.addEventListener('resize', checkResize);
 
+    const topBar = document.querySelector('.top-bar');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY < 48) {
+        topBar.classList.remove('fixed');
+        $('body').css('paddingTop', 0);
+        $('.top-bar').css('top', 0);
+      } else {
+        // Scrolling up
+        if (window.scrollY < lastScrollY) {
+          topBar.classList.add('fixed');        
+          $('.top-bar').css('opacity', '1');
+          if(body.classList.contains('admin-bar')) {
+            $('.top-bar').css('top', 32);
+          } 
+          //$('body').css('paddingTop', 48);
+        } else {
+          // Scrolling down
+          topBar.classList.remove('fixed');
+          if(body.classList.contains('admin-bar')) {
+            $('.top-bar').css('top', 32);
+          } 
+          $('body').css('paddingTop', 0);
+          $('.top-bar').css('opacity', '0');
+        }
+        lastScrollY = window.scrollY;
+      }
+    });
     function checkResize () {      
       
       var height_dots = $('.slick-dots').height();
@@ -62,10 +92,24 @@
         var width_topBarContainer = topBarContainer.offsetWidth;
         var calculo = ( width_screen - width_topBarContainer ) / 2;
         var fixPL = document.getElementsByClassName('fix-padding-left');
+        var fixPLMenu = document.getElementsByClassName('fix-padding-left-menu');
+        var fixPR = document.getElementsByClassName('fix-padding-right');
+
         for (var i = 0; i < fixPL.length; i++) {
-          fixPL[i].style.paddingLeft = calculo +'px';
-          //console.log(maxHeight);
-          
+          if(fixPL) {
+            fixPL[i].style.paddingLeft = calculo +'px';
+          }       
+        }
+        for (var i = 0; i < fixPLMenu.length; i++) {
+          if(fixPLMenu) {
+            fixPLMenu[i].style.paddingLeft = (calculo+30) +'px';
+            fixPLMenu[i].style.backgroundPosition = (calculo) +'px';
+          }
+        }
+        for (var i = 0; i < fixPR.length; i++) {
+          if(fixPR) {
+            fixPR[i].style.paddingRight = calculo +'px';
+          }
         }
       } 
       
@@ -81,7 +125,12 @@
         $('.hero-banner').slick({
           dots: true,
           infinite: false,
-          appendDots: '.dots-hero'
+          appendDots: '.dots-hero',
+          autoplay: true,
+          autoplaySpeed: 6000,
+          fade: true,
+          cssEase: 'linear'
+          
         });
       }
       if($('.slide-nossos-produtos')) {
@@ -242,15 +291,15 @@
     }
     // CLICK OR MOUSEOVER EVENT FOR MENU DROP DOWN
     
-    // - THIS IS FOR DEMO, TO CHECK IF mainMenu WAS HOVERED -
-    /*mainMenu.addEventListener('mouseover', (e) => {
-      console.log('mouseenter');
-      mainMenu.classList.add('actived');
-    });
-    mainMenu.addEventListener('mouseleave', (e) => {
-      console.log('mouseout');
-      mainMenu.classList.remove('actived');
-    });*/
+    const path = window.location.pathname;
+
+    let isParaVoce = false;
+    if (path.includes('para-seu-negocio') || path.includes('para-sua-cooperativa')) {
+      isParaVoce = false;
+    } else {
+      isParaVoce = true;
+    } 
+
     logoblack = document.getElementById('logo-black'); 
     logowhite = document.getElementById('logo-white');
     const menuInicialItem = document.getElementsByClassName("menu-inicial-item");
@@ -266,7 +315,7 @@
           openSearchButton.classList.add('icon-close-gold');
           searchMenuOpened = true;
           mainMenu.classList.add('actived');
-          if(logowhite) {
+          if(logowhite && isParaVoce) {
             logowhite.classList.add('d-none');
             logowhite.classList.remove('d-block');
             logoblack.classList.remove('d-none');  
@@ -279,7 +328,7 @@
           openSearchButton.classList.add('icon-search');
           searchMenuOpened = false;
           mainMenu.classList.remove('actived');
-          if(logowhite) {
+          if(logowhite && isParaVoce) {
             logowhite.classList.add('d-block');
             logowhite.classList.remove('d-none');
             logoblack.classList.remove('d-block');  
@@ -314,14 +363,6 @@
           menuInicialItem[j].childNodes[1].childNodes[1].classList.add('down');
           menuInicialItem[j].childNodes[1].childNodes[1].classList.remove('up');
         }
-        //if pra tratar quando o botão de search é clicado
-        
-        //mainMenu = document.getElementById("main-menu");
-        //console.log('mainMenu', mainMenu);
-        /*if (!mainMenu.classList.contains('actived')) {
-          mainMenu.classList.toggle('actived');
-        }
-        */
         menuItem.classList.toggle('actived');
         if (menuItem.childNodes[1].childNodes[1].classList.contains('down')) {
           menuItem.childNodes[1].childNodes[1].classList.remove('down');
@@ -334,7 +375,7 @@
         // troca as logos 
         
         //console.log(logowhite.classList);
-        if(logowhite) {
+        if(logowhite && isParaVoce) {
           logowhite.classList.add('d-none');
           logowhite.classList.remove('d-block');
           logoblack.classList.remove('d-none');  
@@ -345,9 +386,16 @@
     }
     function desativaMenu (menuItem) {
       if(!searchMenuOpened) {
+        for (let j = 0; j < menuInicialItem.length; j++) {
+          //remove class actived dos elementos do menu, pra lá embaixo ativar o selecionado
+          menuInicialItem[j].classList.remove('actived');
+          // muda direção das arrows quando desselecionado
+          menuInicialItem[j].childNodes[1].childNodes[1].classList.add('down');
+          menuInicialItem[j].childNodes[1].childNodes[1].classList.remove('up');
+        }
         mainMenu.classList.remove('actived');
         menuItem.classList.remove('actived');
-        if(logowhite) {
+        if(logowhite && isParaVoce) {
           logowhite.classList.add('d-block');
           logowhite.classList.remove('d-none');
           logoblack.classList.remove('d-block');  
@@ -393,6 +441,8 @@
         //mainMenu
       })
     }
+
+
     
     if($('.slide-novidades')) {
       $('.slide-novidades').not('.slick-initialized').slick({
@@ -621,8 +671,127 @@
         ]
       });
     }  
+
+    //modal tenho interesse
+    var modalTenhoInteresse = document.getElementById("modalTenhoInteresse");
+    var closemodalTenhoInteresse = document.getElementById("closemodalTenhoInteresse");
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+      var expires = "expires=" + d.toUTCString();
+      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+    if(closemodalTenhoInteresse){
+      closemodalTenhoInteresse.onclick = function() {
+        modalTenhoInteresse.style.display = "none";
+        $('.content-interesse').hide();
+        $('#content-interesse-1').show();
+      }
+    }
+    window.onclick = function(event) {
+      if (event.target == modalTenhoInteresse) {
+        modalTenhoInteresse.style.display = "none";
+      }
+    }    
     
-  });
-  
-  
+    //var btnOpenModalInteresse = document.getElementsByClassName("openModalInteresse");
+    /*if(btnOpenModalInteresse) {
+      for (let bomi = 0; bomi < btnOpenModalInteresse.length; bomi++) {
+        btnOpenModalInteresse[bomi].onclick = function(e) {
+          e.preventDefault();
+          
+          //form_modal_interesse
+          //
+          //
+          //
+          //
+
+          
+        }
+      }
+    }*/
+    
+ 
+    
+    
+  });  
 })(jQuery); 
+
+jQuery(document).ready(function($) {
+  window.abreContentModalContato = function(id) {
+    $('.content-interesse').hide();
+    $('#content-interesse-'+id).show();
+  }
+
+  // Sua função abreModalInteresse
+  window.abreModalInteresse = function(button) {
+    // Obtenha os valores dos atributos data-* do botão clicado
+    const title_card = $(button).data('title_card');
+    const label_interesse = $(button).data('label_interesse');
+    const title_interesse = $(button).data('title_interesse');
+    const description_interesse = $(button).data('description_interesse');
+    const habilitar = $(button).data('habilitar');
+    const texto_telefone = $(button).data('texto_telefone');
+    const texto_whatsapp = $(button).data('texto_whatsapp');
+    const numero_whatsapp = $(button).data('numero_whatsapp');
+    const id_form = $(button).data('id_form');
+    let whats = '';
+    // Trate as diferentes opções do array 'habilitar'
+    habilitar.forEach(opcao => {
+      switch (opcao) {
+        case 'Telefone':
+          $("#btn-telefone").show()
+          break;
+        case 'Whatsapp':
+          $("#btn-whatsapp").show()
+          break;
+        case 'E-mail':
+          $("#btn-email").show()
+          break;
+      }
+    });
+    // remove white space and - on "45 3252-5030"
+    let num_whatsapp = numero_whatsapp.replace(/\s/g, '').replace(/-/g, '');
+    let mensagem = encodeURIComponent("Olá, tenho interesse em mais informações sobre "+title_card); // Mensagem predefinida
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+      // true for mobile device
+      whats = '<a class="btn btn-primary" onclick="window.open(\'whatsapp://send?phone=55'+num_whatsapp+ '?text=' + mensagem + '\')">' + numero_whatsapp + '</a>';
+    }else{
+      // false for not mobile device
+      whats = '<a class="btn btn-primary" onclick="window.open(\'https://wa.me/55'+num_whatsapp+ '?text=' + mensagem + '\')">' + numero_whatsapp + '</a>';
+    }
+    
+    $("#label-block-interesse").html(label_interesse);
+    $("#title-block-interesse").html(title_interesse);
+    $("#description-block-interesse").html(description_interesse);
+    $("#content-telefone").html(texto_telefone);
+    $("#content-whatsapp").html(texto_whatsapp);
+    $("#number-whatsapp").html(whats);
+    $("#description-block-interesse").html(description_interesse);
+
+    modalTenhoInteresse.style.display = "block";
+
+    // Faz a chamada AJAX para carregar o formulário
+    $.ajax({
+      url: ajax_object.ajax_url,
+      type: 'POST',
+      data: {
+        action: 'load_assunto',
+        form_id: id_form,
+        mensagem: mensagem
+      },
+      success: function(response) {
+        // Insere o formulário carregado no modal
+        //$('#content-form-interesse').html(response.data.form_html);
+        //let mensagemDecodificada = decodeURIComponent(response.data.mensagem);
+        console.log(response.data);
+        //$('#select-assunto').val(mensagemDecodificada);
+        // Certifica-se de que os scripts do Gravity Forms são executados
+        
+      },
+      error: function(error) {
+        console.log('Erro ao carregar o formulário:', error);
+      }
+    });
+  }
+});

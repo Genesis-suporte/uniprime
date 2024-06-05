@@ -58,7 +58,6 @@
         $taxonomy = 'tipo-solucao';
         
         $terms = wp_get_post_terms($post->ID, $taxonomy);
-        
         if ($terms) {
           foreach ($terms as $term) {
             // Get the term ancestors
@@ -75,6 +74,8 @@
             
             if($term->slug == 'investimentos' ) {
               $link_url = site_url('/investimentos/');
+            } else if($term->slug == 'investimentos-para-seu-negocio' ) {
+              $link_url = site_url('/investimentos-para-seu-negocio/');
             } else {
               $link_url = "#";
             }

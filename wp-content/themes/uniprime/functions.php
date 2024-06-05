@@ -27,7 +27,7 @@ if ( ! function_exists( 'Uniprime' ) ) :
 			acf_register_block_type(array(
 				'name'      			=> 'main-menu',
 				'title' 					=> __('Main menu'),
-				'description' 		=> __('Menu principal da'),
+				'description' 		=> __('Menu principal'),
 				"render_template"	=> "blocks/main-menu.php",
 				'category' 				=> 'navigation',
 				'icon' 						=> 'uniprime',
@@ -74,6 +74,14 @@ if ( ! function_exists( 'Uniprime' ) ) :
 				'title' 					=> __('canais-digitais'),
 				'description' 		=> __('Quinto bloco da Homepage, onde mostra o texto e imagem dos canais digitais'),
 				"render_template"	=> "blocks/canais-digitais.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime'
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'Bloco canais digitais duplo',
+				'title' 					=> __('canais-digitais-duplo'),
+				'description' 		=> __('Bloco onde mostra texto e imagem dos canais digitais, duplo'),
+				"render_template"	=> "blocks/canais-digitais-duplo.php",
 				'category' 				=> 'layout',
 				'icon' 						=> 'uniprime'
 			));
@@ -190,16 +198,7 @@ if ( ! function_exists( 'Uniprime' ) ) :
 				'category' 				=> 'layout',
 				'icon' 						=> 'uniprime',
 				'keywords' => 		array( 'institucional' )
-			));			
-			acf_register_block_type(array(
-				'name'      			=> 'bloco-fale-conosco',
-				'title' 					=> __('Bloco Fale conosco'),
-				'description' 		=> __('Bloco com o formulário Fale conosco'),
-				"render_template"	=> "blocks/bloco-fale-conosco.php",
-				'category' 				=> 'layout',
-				'icon' 						=> 'uniprime',
-				'keywords' => 		array( 'institucional' )
-			));			
+			));					
 			acf_register_block_type(array(
 				'name'      			=> 'bloco-investimentos',
 				'title' 					=> __('Bloco Investimentos'),
@@ -267,10 +266,9 @@ function my_block_plugin_editor_scripts() {
 	wp_enqueue_style( 'fonts' ,  get_template_directory_uri() . '/assets/css/fonts.css' );
 
 	$dependencies = array('jquery','wp-blocks', 'wp-element' );
-	$dependencies2 = array('jquery','wp-blocks', 'wp-element','slick' );
-	wp_enqueue_script('bootstrap', get_template_directory_uri().'/assets/js/bootstrap.bundle.min.js', $dependencies );
-	wp_enqueue_script('slick', get_template_directory_uri().'/assets/js/slick.js', $dependencies );
-	wp_enqueue_script('scripts', get_template_directory_uri().'/assets/js/scripts.js', $dependencies2 );
+	wp_enqueue_script('bootstrap', get_template_directory_uri().'/assets/js/bootstrap.bundle.min.js', $dependencies, null, true );
+	wp_enqueue_script('slick', get_template_directory_uri().'/assets/js/slick.js', $dependencies, null, true );
+	wp_enqueue_script('scripts', get_template_directory_uri().'/assets/js/scripts.js', array_merge($dependencies, array('bootstrap', 'slick')), null, true);
 	// Passe o caminho de admin-ajax.php para o script JavaScript
 	wp_localize_script('scripts', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
 
@@ -456,29 +454,6 @@ function custom_post_type_column_content($column, $post_id) {
 add_action('manage_noticias_posts_custom_column', 'custom_post_type_column_content', 10, 2);
 
 
-/*
-function my_acf_editor( $mceInit ) {
-	$mceInit['setup'] = 'editShortcut_tiny_mce_init';
-	// What goes into the 'formatselect' list
-	$mceInit['block_formats'] = 'Marcadores Uniprime=bullist;Título 1=h1;Título 2=h2;Título 3=h3;Título 4=h4;Título 5=h5;Título 6=h6;Paragraph=p;Code=code';
-	$mceInit['paste_word_valid_elements'] = '-strong/b,-em/i,-p,-ol,-ul,-li,-h3,-h4,-h5,-h6,-p,-table[width],-tr,-td[colspan|rowspan|width],-th,-thead,-tfoot,-tbody,-a[href|name],br,del';
-		
-	$mceInit['paste_strip_class_attributes'] = 'all';
-	$mceInit['toolbar1'] = 'bold,italic,formatselect,bullist,numlist,blockquote,link,unlink,undo,redo';
-
-	return $mceInit;
-}
-add_filter('tiny_mce_before_init', 'my_acf_editor');*/
-/*
-FUNTION DO ADD STICKY ON CPT
-function addbox($post, $metabox) {  
-	$entered = get_post_meta($post->ID, 'pseudosticky', true);
-	?>
-    <label><input name="pseudosticky" type="checkbox"<?if($entered=="on")echo' checked="checked"';?>> Is sticky</label>
-    <?
-}
-add_meta_box('pseudosticky', 'Is sticky', 'addbox', 'campanha', 'normal', 'high');
-*/
 function setMenuThreeLevels($menu) {
 	$menu_lists = array();
 	
@@ -602,24 +577,24 @@ function my_custom_action_callback() {
     wp_die(); // Encerra a execução
 }
 
-/* FUNÇÃO PRO GRAVITY FORMS RETORNAR CAMPO ASSUNTO */
-/*add_filter( 'gform_field_value_assuntos', 'pre_select_assuntos' );
-function pre_select_assuntos( $value ) {
-	return 'assunto_2';
-}*/
-
 add_filter( 'gform_field_value_select-cooperativa-data', 'populate_select_cooperativa' );
 function populate_select_cooperativa( $value ) {?>
 	<script type='text/javascript'>
 		(function($){
 			$(document).on('gform_post_render', function(event, form_id, current_page){
-				// Verifica se é o formulário correto pelo ID
-				//console.log('formId',form_id);
-				//if (form_id == 7) {
-					const selectCooperativa = document.querySelectorAll(".select-cooperativa select");
-					const selectAgencia = document.querySelectorAll(".select-agencia select");
+				carregarSelects();
+			})
+			// Chame a função de carregar selects após mover os campos
+			$(document).ready(function() {
+        carregarSelects();
+    	});
+			// Verifica se é o formulário correto pelo ID
+			function carregarSelects() {
+				
+				const selectCooperativa = document.querySelectorAll(".select-cooperativa select");
+				const selectAgencia = document.querySelectorAll(".select-agencia select");
 
-					if(selectCooperativa && selectAgencia) {
+				if(selectCooperativa && selectAgencia) {
 						$.ajax({
 							url: ajax_object.ajax_url + '?action=my_custom_action',
 							type: 'GET',
@@ -671,8 +646,8 @@ function populate_select_cooperativa( $value ) {?>
 							}
 						});
 					}
-				//}
-			})
+			}
+		
 		})(jQuery); 
 	</script>
 	<?php
@@ -958,3 +933,92 @@ function custom_search_filter($query) {
 	return $query;
 }
 add_filter('pre_get_posts', 'custom_search_filter');
+
+/*function load_gravity_form_interest() {
+	if (!isset($_POST['form_id'])) {
+			wp_send_json_error('Form ID missing.');
+			wp_die();
+	}
+
+	$form_id = intval($_POST['form_id']);
+	$mensagem = sanitize_text_field($_POST['mensagem']);
+
+	// Enfileirar os scripts necessários do Gravity Forms
+	//GFFormDisplay::enqueue_form_scripts($form_id, true);
+	// Enfileirar os scripts necessários do Gravity Forms
+	gravity_form_enqueue_scripts($form_id, true);
+
+	// Capturar o HTML do formulário
+	ob_start();
+	gravity_form($form_id, false, false, false, null, true);
+	$form_html = ob_get_clean();
+
+	// Retornar o HTML do formulário
+	wp_send_json_success(array(
+		'form_html' => $form_html,
+		'mensagem' => $mensagem
+	));
+	wp_die();
+}
+add_action('wp_ajax_load_gravity_form', 'load_gravity_form_interest');
+add_action('wp_ajax_nopriv_load_gravity_form', 'load_gravity_form_interest');*/
+
+//add_filter( 'gform_field_value_select-assunto-data', 'populate_select_assunto' );
+function load_assunto_interest( ) {
+	$form_id = intval($_POST['form_id']);
+	$mensagem = ($_POST['mensagem']);
+	wp_send_json_success(array(
+		'form_html' => $form_id,
+		'mensagem' => $mensagem
+	));
+	wp_die();
+	?>
+	<script type='text/javascript'>
+		(function($){
+			$(document).on('gform_post_render', function(event, form_id, current_page){
+				carregarSelectsAssunto();
+			})
+		})
+	</script>
+	<?php
+}
+
+add_action('wp_ajax_load_assunto', 'load_assunto_interest');
+add_action('wp_ajax_nopriv_load_assunto', 'load_assunto_interest');
+
+function filter_post_type_link($post_link, $post) {
+	if ($post->post_type == 'solucoes') {
+		$taxonomies = get_object_taxonomies(get_post_type($post->ID), 'objects');
+		
+		
+		// Verifica se há taxonomias
+		if ($taxonomies) {
+			foreach ($taxonomies as $taxonomy) {
+				// Verifica se o post tem termos associados à taxonomia atual
+				$terms = get_the_terms($post->ID, $taxonomy->name);
+				//var_dump($terms);
+				//$post_link = str_replace('%tipo-solucoes%', array_pop($terms)->slug, $post_link);
+				/*if ($terms && !is_wp_error($terms)) {
+					$taxonomy_names = array();
+					foreach ($terms as $term) {
+							$taxonomy_names[] = $term->name;
+					}
+					echo implode(', ', $taxonomy_names);
+					return; // Termina a função após encontrar a primeira taxonomia com termos associados
+				}*/
+			}
+		}
+		
+		if ($terms = get_the_terms($post->ID, 'tipo-solucao')) {
+			$post_link = str_replace('%tipo-solucao%', array_pop($terms)->slug, $post_link);
+		}
+	}
+	return $post_link;
+}
+add_filter('post_type_link', 'filter_post_type_link', 10, 2);
+
+function my_rewrite_flush() {
+	my_custom_post_type();
+	flush_rewrite_rules();
+}
+add_action('after_switch_theme', 'my_rewrite_flush');

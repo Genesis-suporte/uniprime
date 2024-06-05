@@ -44,7 +44,7 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
 <section class="ouvidoria mw-100">
   <div class="container">
     <div class="content">
-    <div class="d-flex flex-column flex-lg-row">
+      <div class="d-flex flex-column flex-lg-row">
         <div class="container-canal-denuncia col-12 col-lg-6 d-flex flex-column">
           <div class="label-block">
             <?php echo esc_html($label); ?>
@@ -132,6 +132,20 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
           </div>
         </div>
       </div>
+      
+      <div class="main-protocolo row content-lgpd">
+        <div class="content-protocolo">
+          <div class="num-protocolo title-28 switzerlandBold">Proteção de dados (LGPD)</div>
+          <div class="d-flex flex-column flex-md-row justify-content-between">
+            <div class="col-left">
+              <p>Para exercer seus direitos enquanto titular de dados pessoais, dirija-se à sua agência ou entre em contrato pelo e-mail <a href="mailto:privacidade@uniprimecentral.com.br" target="_blank" class="color-actived">privacidade@uniprimecentral.com.br</a></p>
+            </div>
+            <div class="col-right">
+              <p>*Para saber como tratamos seus dados pessoais, consulte nossa <a href="#" class="color-actived">Política de Privacidade</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -139,32 +153,29 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
 <script type="text/javascript">
   (function ($) {
     $(document).ready(function() {
-      var section_dados_do_incidente = $('.section-dados-do-incidente').html()
+      /*var section_dados_do_incidente = $('.section-dados-do-incidente').html()
       var tipo_relato = $('.tipo-relato').html()
       $('.dados-do-incidente').html(section_dados_do_incidente + '<div class="container-portabilidade">' + tipo_relato + '</div>')
       $('.section-dados-do-incidente').html('')
       $('.tipo-relato').html('')
 
       var section_onde_ocorreu = $('.section-onde-ocorreu').html()
-      var tipo_ocorreu = $('.onde-ocorreu').html()
       var select_estado = $('.select-estado').html() 
       var select_cidade = $('.select-cidade').html()
       var nome_agencia = $('.nome-agencia').html()
-      $('.onde-ocorreu').html(section_onde_ocorreu + '<div class="container-portabilidade">' + tipo_ocorreu + '' + select_estado + '' + select_cidade + '' + nome_agencia +'</div>');
+      $('.onde-ocorreu').html(section_onde_ocorreu + '<div class="container-portabilidade">' + select_estado + '' + select_cidade + '' + nome_agencia +'</div>');
       $('.section-onde-ocorreu').html('')
-      $('.onde-ocorreu').html('')
       $('.select-estado').html('')
       $('.select-cidade').html('')
       $('.nome-agencia').html('')
 
       var section_responsavel = $('.section-responsavel').html()
-      var block_responsavel = $('.block-responsavel').html()
       var nome_responsavel = $('.nome-responsavel').html() 
       var select_departamento = $('.select-departamento').html()
       var funcao_responsavel = $('.funcao-responsavel').html() 
       var empresa_responsavel = $('.empresa-responsavel').html() 
       var outros_detalhes_responsavel = $('.outros-detalhes-responsavel').html() 
-      $('.block-responsavel').append(section_responsavel + '<div class="container-portabilidade">' + block_responsavel + '' + nome_responsavel + '' + select_departamento + '' + funcao_responsavel + '' + empresa_responsavel + '' + outros_detalhes_responsavel +'</div>');
+      $('.block-responsavel').append(section_responsavel + '<div class="container-portabilidade">' + nome_responsavel + '' + select_departamento + '' + funcao_responsavel + '' + empresa_responsavel + '' + outros_detalhes_responsavel +'</div>');
       $('.section-responsavel').html('')
       $('.nome-responsavel').html('')
       $('.select-departamento').html('')
@@ -175,17 +186,14 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
       var section_detalhamento = $('.section-detalhamento').html()
       var block_detalhamento = $('.block-detalhamento').html()
       var detalhamento = $('.detalhamento').html()
-      $('.block-detalhamento').append(section_detalhamento + '<div class="container-portabilidade">' + block_detalhamento + '' + detalhamento + '</div>')
+      $('.block-detalhamento').append(section_detalhamento + '<div class="container-portabilidade">' + detalhamento + '</div>')
       $('.section-detalhamento').html('')
-      $('.block-detalhamento').html('')
       $('.detalhamento').html('')
 
       var section_testemunhas = $('.section-testemunhas').html()
-      var block_testemunhas = $('.block-testemunhas').html()
       var testemunhas = $('.testemunhas').html()
-      $('.block-testemunhas').append(section_testemunhas + '<div class="container-portabilidade">' + block_testemunhas + '' + testemunhas + '</div>')
+      $('.block-testemunhas').append(section_testemunhas + '<div class="container-portabilidade">' + testemunhas + '</div>')
       $('.section-testemunhas').html('')
-      $('.block-testemunhas').html('')
       $('.testemunhas').html('')
 
 

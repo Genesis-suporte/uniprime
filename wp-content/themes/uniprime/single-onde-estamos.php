@@ -171,9 +171,9 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
                   ${whatsapp2}
                 </div>
                 <div class="d-flex gap-4 flex-column flex-lg-row">
-                  <div class="col-12 col-lg-6">
+                  <!--<div class="col-12 col-lg-6">
                     <a href="javascript:void(0)" class="btn-primary btn icon-menu icon-arrow-up-down-white btn-directions">Direções</a>
-                  </div>
+                  </div>-->
                   ${agency_email2}
                 </div>
               </div>
@@ -263,6 +263,19 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
       });
     }
 
+    function getQueryParameter(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    // Preencher o input com o valor da cidade e chamar a função geocodeAddress
+    document.addEventListener('DOMContentLoaded', function() {
+      const city = getQueryParameter('city');
+      if (city) {
+        document.getElementById('input-address').value = city;
+        geocodeAddress(city);
+      }
+    });
   })(jQuery);
 </script>
 

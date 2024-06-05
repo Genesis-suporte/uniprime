@@ -11,7 +11,7 @@
   
 
 ?>
-<section class="assembleias mw-100 z-13">
+<section class="assembleias mw-100 z-12">
   <div class="container">
     <div class="row d-flex justify-content-between">
       <div class="search-by-units">          
@@ -26,7 +26,9 @@
         </div>
       </div>
     </div>
-    <div class="row d-flex justify-content-between results">
+  </div>
+  <div class="results">
+    <div class="container">
       <div class="col">
         <div class="label-block">
           <?php echo esc_html($label_ultimas); ?>
@@ -34,8 +36,8 @@
         <div class="title-block title-40 switzerlandLight">
           <h2><?php echo esc_html($titulo_ultimas); ?></h2>
         </div>
-        <div class="d-flex">
-          <div class="description-block flex-grow-1">
+        <div class="d-flex justify-content-between">
+          <div class="description-block">
             <?php echo esc_html($descricao_ultimas_assembleias); ?>
           </div>
           <div class="arrows-assembleias-desktop d-none d-md-flex"></div>
@@ -121,16 +123,19 @@
         <div class="arrows-assembleias-mobile arrows-mobile d-flex d-md-none justify-content-center"></div>
       </div>
     </div>
+  </div>
+  <div class="proximas">
+    <div class="container">
     <div class="row d-flex justify-content-between proximas-assembleias">
       <div class="col">
         <div class="label-block">
           <?php echo esc_html($label_proximas); ?>
         </div>
-        <div class="title-block title-28 switzerlandBold">
+        <div class="title-block title-40 switzerlandLight">
           <h2><?php echo esc_html($titulo_proximas); ?></h2>
         </div>
-        <div class="d-flex">
-          <div class="description-block flex-grow-1">
+        <div class="d-flex justify-content-between">
+          <div class="description-block">
             <?php echo esc_html($descricao_proximas); ?>
           </div>
           <div class="arrows-proximas-assembleias-desktop d-none d-md-flex"></div>

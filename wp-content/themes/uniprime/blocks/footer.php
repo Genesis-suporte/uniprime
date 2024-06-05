@@ -68,18 +68,18 @@
   </div>
   <div class="footer-menu mw-100 d-flex">
     <div class="col-solucoes d-none d-lg-flex flex-column">
-      <div class="solucoes">
+      <div class="solucoes fix-padding-left">
         <div class="label-footer-menu">
-          <?php echo esc_html('Soluções'); ?>
+          Soluções
         </div>
         <div class="description-menu">
-          <?php echo esc_html($texto_solucoes); ?>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna ex, vulputate sed cursus ac, bibendum aliquet tortor. 
         </div>
       </div>
       <nav class="menu-footer-solucoes">
         <div class="menu-item">
-          <a href="#" class="menu-dropdown">
-            <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para você');?><i class="arrow right"></i></div>
+          <a href="javascript:void(0)" class="menu-dropdown">
+            <div class="container-solucoes fix-padding-left-menu icon-logo"><?php echo esc_html('Para você');?><i class="arrow right"></i></div>
           </a>
           <div class="dropdown-content dc-footer">
             <div class="container">
@@ -104,8 +104,8 @@
           </div>
         </div>
         <div class="menu-item">
-          <a href="#" class="menu-dropdown">
-            <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para seu negócio');?><i class="arrow right"></i></div>
+          <a href="javascript:void(0)" class="menu-dropdown">
+            <div class="container-solucoes fix-padding-left-menu icon-logo"><?php echo esc_html('Para seu negócio');?><i class="arrow right"></i></div>
           </a>
           <div class="dropdown-content dc-footer">
             <div class="container">
@@ -130,8 +130,8 @@
           </div>
         </div>
         <div class="menu-item">
-          <a href="#" class="menu-dropdown">
-            <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para sua cooperativa');?><i class="arrow right"></i></div>
+          <a href="javascript:void(0)" class="menu-dropdown">
+            <div class="container-solucoes fix-padding-left-menu icon-logo"><?php echo esc_html('Para sua cooperativa');?><i class="arrow right"></i></div>
           </a>
           <div class="dropdown-content dc-footer cooperativa">
             <div class="container">
@@ -158,7 +158,7 @@
         
       </nav>
     </div>
-    <div class="col-right d-flex flex-column flex-lg-row">
+    <div class="col-right fix-padding-right d-flex flex-column flex-lg-row">
       <div class="col">
         <div class="label-footer-menu">
           <?php echo esc_html('Atendimento'); ?>
@@ -260,16 +260,23 @@
   </div>
   <div class="footer-copyrigth">
     <div class="container">
-        ©Copyright <?php echo date("Y"); ?> Uniprime Cooperativa de Crédito. Todos os Direitos Reservados.
+      <div class="copyrigth d-flex justify-content-between">
+        <div>
+          ©Copyright <?php echo date("Y"); ?> Uniprime Cooperativa de Crédito. Todos os Direitos Reservados.
+        </div>
+        <div>
+          <a href="https://www.genesis.digital" target="_blank">GENESiS</a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>
 
 <div id="modal-menu"></div>
 <!-- Modal -->
-<div id="singularesModal" class="singularesModal">
+<div id="singularesModal" class="defaultModal">
   <div class="modal-content">
-    <a href="#" class="close" id="closeSingularesModal">
+    <a href="#" class="close-modal" id="closeSingularesModal">
       <div class="bars">
         <div class="bar bar1"></div>
         <div class="bar bar2"></div>

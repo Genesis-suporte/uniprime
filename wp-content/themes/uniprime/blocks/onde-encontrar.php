@@ -22,10 +22,19 @@
       </div>
       <div class="col">
         <div class="input-onde-encontrar z-13">
-          <input type="text" class="input z-13" id="click-onde-encontrar" onfocus="this.value='';" value="Qual a sua cidade?"></input>
-          <button class="icon icon-search-white"></button>
+          <form id="search-agency-form" action="/onde-estamos" method="GET">
+            <input type="text" class="input z-13" id="click-onde-encontrar" onfocus="this.value='';" value="Qual a sua cidade?"></input>
+            <button class="icon icon-search-white"></button>
+          </form>
         </div>
       </div>
     </div>
   </div>
 </section>
+<script type="text/javascript">
+  document.getElementById('search-agency-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const city = document.getElementById('click-onde-encontrar').value;
+    window.location.href = `/onde-estamos?city=${encodeURIComponent(city)}`;
+});
+</script>

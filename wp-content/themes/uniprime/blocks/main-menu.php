@@ -1,6 +1,5 @@
 <?php 
-$current_term = '';
-
+$current_term = "para-voce";
 if (is_singular('solucoes')) {
   global $post;
   $terms = wp_get_post_terms($post->ID, 'tipo-solucao');
@@ -14,7 +13,6 @@ if (is_singular('solucoes')) {
     }
   }
 }
-//var_dump($current_term);
 ?>
 <header class="header-menu-banner position-relative mw-100">
   <div class="main-menu interna <?php echo is_singular('solucoes') ? ' actived ' . $current_term : '';?>" id="main-menu">

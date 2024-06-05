@@ -1,6 +1,6 @@
 <?php 
   $label = get_field('label', $block['id']);
-  $titulo = get_field('titulo', $block['id']);  
+  $titulo = get_field('titulo', $block['id']); 
   $descricao = get_field('descricao', $block['id']);
   $texto_final = get_field('texto_final', $block['id']);
 ?>
@@ -14,7 +14,7 @@
           </div>
         <?php }
         if($titulo) { ?>
-          <div class="title-block <?php echo $tamanho_titulo;?> switzerlandLight">
+          <div class="title-block switzerlandLight">
             <?php echo esc_html($titulo); ?>
           </div>
         <?php } 
@@ -79,13 +79,22 @@
                         }
                         ?>
                         <div class="d-block">
-                          <a class="button btn-primary-color btn" href="<?php echo esc_url( $link_cartoes['url'] ); ?>"><?php echo esc_html( $link_cartoes['title'] ); ?><i class="icon-cta-blue right"></i></a>
+                          <a class="button btn-primary-color btn" href="javascript:void(0)" 
+                            data-title_card="<?php echo esc_html( $titulo_cartoes ); ?>"
+                            data-label_interesse="<?php echo esc_html( get_field('label_modal_interesse', $block['id']) ); ?>"
+                            data-title_interesse="<?php echo esc_html( get_field('titulo_modal_interesse', $block['id']) ); ?>"
+                            data-description_interesse="<?php echo esc_html( get_field('descricao_modal_interesse', $block['id']) ); ?>"
+                            data-habilitar="<?php echo esc_html( json_encode(get_field('habilitar_botoes', $block['id'])) ); ?>"
+                            data-texto_telefone="<?php echo esc_html( get_field('texto_telefone', $block['id']) ); ?>"
+                            data-texto_whatsapp="<?php echo esc_html( get_field('texto_whatsapp', $block['id']) ); ?>"
+                            data-numero_whatsapp="<?php echo esc_html( get_field('numero_whatsapp', $block['id']) ); ?>"
+                            data-id_form="<?php echo esc_html( get_field('id_form', $block['id']) ); ?>"
+                            onclick="abreModalInteresse(this)"><?php echo esc_html( $link_cartoes['title'] ); ?><i class="icon-cta-blue right"></i></a>
                         </div>
                       </div>
                     </div>
                   <?php
                   }
-                  
                 endwhile;
               } else {
                 // Do something...

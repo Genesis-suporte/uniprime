@@ -99,7 +99,7 @@
                               <?php echo esc_html($text_label); ?>
                             </a>
                           </div>
-                          <div class="title-block title-28 switzerlandBold">
+                          <div class="title-block title-16 switzerlandBold">
                             <a href="<?php echo esc_url($post->guid); ?>" target="_SELF">
                               <?php echo esc_html($post->post_title); ?>
                             </a>

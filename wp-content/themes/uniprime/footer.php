@@ -59,7 +59,7 @@
       </div>
       <div class="footer-menu mw-100 d-flex">
         <div class="col-solucoes d-none d-lg-flex flex-column">
-          <div class="solucoes">
+          <div class="solucoes fix-padding-left">
             <div class="label-footer-menu">
               Soluções
             </div>
@@ -69,8 +69,8 @@
           </div>
           <nav class="menu-footer-solucoes">
             <div class="menu-item">
-              <a href="#" class="menu-dropdown">
-                <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para você');?><i class="arrow right"></i></div>
+              <a href="javascript:void(0)" class="menu-dropdown">
+                <div class="container-solucoes fix-padding-left-menu icon-logo"><?php echo esc_html('Para você');?><i class="arrow right"></i></div>
               </a>
               <div class="dropdown-content dc-footer">
                 <div class="container">
@@ -95,8 +95,8 @@
               </div>
             </div>
             <div class="menu-item">
-              <a href="#" class="menu-dropdown">
-                <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para seu negócio');?><i class="arrow right"></i></div>
+              <a href="javascript:void(0)" class="menu-dropdown">
+                <div class="container-solucoes fix-padding-left-menu icon-logo"><?php echo esc_html('Para seu negócio');?><i class="arrow right"></i></div>
               </a>
               <div class="dropdown-content dc-footer">
                 <div class="container">
@@ -121,8 +121,8 @@
               </div>
             </div>
             <div class="menu-item">
-              <a href="#" class="menu-dropdown">
-                <div class="container-solucoes icon-menu icon-logo"><?php echo esc_html('Para sua cooperativa');?><i class="arrow right"></i></div>
+              <a href="javascript:void(0)" class="menu-dropdown">
+                <div class="container-solucoes fix-padding-left-menu icon-logo"><?php echo esc_html('Para sua cooperativa');?><i class="arrow right"></i></div>
               </a>
               <div class="dropdown-content dc-footer cooperativa">
                 <div class="container">
@@ -149,7 +149,7 @@
             
           </nav>
         </div>
-        <div class="col-right d-flex flex-column flex-lg-row">
+        <div class="col-right fix-padding-right d-flex flex-column flex-lg-row">
           <div class="col">
             <div class="label-footer-menu">
               <?php echo esc_html('Atendimento'); ?>
@@ -251,143 +251,192 @@
       </div>
       <div class="footer-copyrigth">
         <div class="container">
-            ©Copyright <?php echo date("Y"); ?> Uniprime Cooperativa de Crédito. Todos os Direitos Reservados.
+          <div class="copyrigth d-flex justify-content-between">
+            <div>
+              ©Copyright <?php echo date("Y"); ?> Uniprime Cooperativa de Crédito. Todos os Direitos Reservados.
+            </div>
+            <div>
+              <a href="https://www.genesis.digital" target="_blank">GENESiS</a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
 
     <div id="modal-menu"></div>
     <!-- Modal -->
-    <!-- Modal -->
-<div id="singularesModal" class="singularesModal">
-  <div class="modal-content">
-    <a href="#" class="close" id="closeSingularesModal">
-      <div class="bars">
-        <div class="bar bar1"></div>
-        <div class="bar bar2"></div>
+    <div id="singularesModal" class="defaultModal">
+      <div class="modal-content">
+        <a href="javascript:void(0)" class="close-modal" id="closeSingularesModal">
+          <div class="bars">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+          </div>
+        </a>
+        <div class="content-singulares">
+          <div class="label-block">
+            <?php echo esc_html('COOPERATIVAS UNIPRIME'); ?>
+          </div>
+          <div class="title-block title-36 switzerlandBold pb-4">
+            <?php echo esc_html('Qual cooperativa você gostaria de visitar?'); ?>
+          </div>
+          <div id="singularesList" class="d-flex flex-wrap"></div>
+        </div>
+        <div class="content-conveniadas">
+          <div id="conveniadasList" class="d-flex flex-wrap"></div>
+        </div>
       </div>
-    </a>
-    <div class="content-singulares">
-      <div class="label-block">
-        <?php echo esc_html('COOPERATIVAS UNIPRIME'); ?>
-      </div>
-      <div class="title-block title-36 switzerlandBold pb-4">
-        <?php echo esc_html('Qual cooperativa você gostaria de visitar?'); ?>
-      </div>
-      <div id="singularesList" class="d-flex flex-wrap"></div>
     </div>
-    <div class="content-conveniadas">
-      <div id="conveniadasList" class="d-flex flex-wrap"></div>
+
+    
+    <div id="modalTenhoInteresse" class="defaultModal">
+      <div class="modal-content">
+        <a href="javascript:void(0)" class="close-modal" id="closemodalTenhoInteresse">
+          <div class="bars">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+          </div>
+        </a>
+        <div class="content-interesse" id="content-interesse-1">
+          <div class="label-block" id="label-block-interesse"></div>
+          <div class="title-block title-28 switzerlandBold" id="title-block-interesse"></div>
+          <div class="description-block" id="description-block-interesse"></div>
+          <div class="buttons-contato d-flex flex-row justify-content-between">
+            <div id="btn-telefone" style="display: none">
+              <a class="button btn-primary btn icon-menu icon-phone-white" onclick="abreContentModalContato(2)" href="javascript:void(0)">Telefone</a>
+            </div>
+            <div id="btn-whatsapp" style="display: none">
+              <a class="button btn-primary btn icon-menu icon-whatsapp-white" onclick="abreContentModalContato(3)" href="javascript:void(0)">Whatsapp</a>
+            </div>
+            <div id="btn-email" style="display: none">
+              <a class="button btn-primary btn icon-menu icon-email-white" onclick="abreContentModalContato(4)" href="javascript:void(0)">E-mail</a>
+            </div>
+          </div>
+        </div>
+        <div class="content-interesse" id="content-interesse-2">
+          <div class="label-block">ATENDIMENTO</div>
+          <div class="title-block title-28 switzerlandBold pb-4">Fale conosco</div>
+          <div class="description-block" id="content-telefone"></div>
+        </div>
+        <div class="content-interesse" id="content-interesse-3">
+          <div class="label-block">ATENDIMENTO</div>
+          <div class="title-block title-28 switzerlandBold pb-4">Fale conosco</div>
+          <div class="description-block" id="content-whatsapp"></div>
+          <div class="description-block" id="number-whatsapp"></div>
+          <div > </div>
+        </div>
+        <div class="content-interesse" id="content-interesse-4">
+          <div class="label-block">ATENDIMENTO</div>
+          <div class="title-block title-28 switzerlandBold pb-4">Fale conosco</div>
+          <div class="description-block">Preencha o formulário abaixo para dar continuidade a sua solicitação:</div>
+          <div id="content-form-interesse">
+            <?php if (function_exists('do_shortcode')) {
+                  // Exibe o formulário usando do_shortcode()
+                  echo do_shortcode('[gravityform id="8" title="false" ajax="true" description="false"]');
+              } ?>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+    <script type="text/javascript">
+      (function ($) {
+        $(document ).ready(function() {
+          // Abra o modal ao carregar a página
+          // MODAL SINGULARES
+          var singularesModal = document.getElementById("singularesModal");
+          var btnOpenModalSingulares = document.getElementById("openModalSingulares");
+          var closeSingularesModal = document.getElementById("closeSingularesModal");
+          const singularesList = $('#singularesList');
+          const conveniadasList = $('#conveniadasList');
+          
 
-<script type="text/javascript">
-  (function ($) {
-    $(document ).ready(function() {
-      // Abra o modal ao carregar a página
-      // MODAL SINGULARES
-      var singularesModal = document.getElementById("singularesModal");
-      var btnOpenModalSingulares = document.getElementById("openModalSingulares");
-      var span = document.getElementById("closeSingularesModal");
-      const singularesList = $('#singularesList');
-      const conveniadasList = $('#conveniadasList');
-      
-      function setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-      }
-
-      function getCookie(cname) {
-        var name = cname + "=";
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var ca = decodedCookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0) == ' ') {
-            c = c.substring(1);
+          function getCookie(cname) {
+            var name = cname + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var ca = decodedCookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+              var c = ca[i];
+              while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+              }
+              if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+              }
+            }
+            return "";
           }
-          if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
+
+          function checkCookie() {
+            var user = getCookie("selectedSingular");
+            if (user != "") {
+              //console.log("Singular já escolhida: " + user);
+            } else {
+              //console.log("Nenhuma singular escolhida.");
+              openModalSingulares();
+            }
           }
-        }
-        return "";
-      }
+          checkCookie();
+          function openModalSingulares() {
+            fetch('<?php echo get_template_directory_uri();?>/api/agencias.json')
+              .then(response => response.json())
+              .then(data => {
+                singularesList.empty();
+                //singularesList.innerHTML = ''; // Limpar a lista antes de adicionar itens
+                data.singulares.forEach(singular => {
+                  let actived = '';
+                  let textActived = '';
+                  let target = '';
+                  let classSing = '';
+                  if(singular.url === '/') {
+                    actived = 'actived';
+                    textActived = '<span style="font-size: 14px; font-weight: normal">Continuar na</span><br/>';
 
-      function checkCookie() {
-        var user = getCookie("selectedSingular");
-        if (user != "") {
-          //console.log("Singular já escolhida: " + user);
-        } else {
-          //console.log("Nenhuma singular escolhida.");
-          openModalSingulares();
-        }
-      }
-      checkCookie();
-      function openModalSingulares() {
-        fetch('<?php echo get_template_directory_uri();?>/api/agencias.json')
-          .then(response => response.json())
-          .then(data => {
-            singularesList.empty();
-            //singularesList.innerHTML = ''; // Limpar a lista antes de adicionar itens
-            data.singulares.forEach(singular => {
-              let actived = '';
-              let textActived = '';
-              let target = '';
-              if(singular.url === '/') {
-                actived = 'actived';
-                let textActived = 'Continuar na<br/>';
+                  }
+                  if(singular.type === 'principal' || singular.type === 'singular' || singular.type === 'prestadora') {
+                    target = '_SELF';
+                    classSing = 'singular-link';
+                  } else {
+                    target = '_blank';
 
-              }
-              if(singular.type === 'principal' || singular.type === 'singular' || singular.type === 'prestadora') {
-                target = '_SELF'
-              } else {
-                target = '_blank';
-              }
-              const agencyHtml = `
-              <div class="card-singulares ${actived}">
-                <a href="${singular.url}" target="${target}" role="button" class="${classSing}" data-singular="${singular.id}" tabindex="0">${textActived} ${singular.singular}<i class="arrow right"></i>
-                </a>
-              </div>`;
-              if(singular.type === 'principal' || singular.type === 'singular' || singular.type === 'prestadora') {
-                singularesList.append(agencyHtml);
-              } else {
-                conveniadasList.append(agencyHtml);
-              }
-              /*let item = document.createElement('div');
-              item.className = 'agency-item';
-              item.innerHTML = `<a href="${singular.url}">${singular.name}</a>`;
-              singularesList.appendChild(item);*/
-            });
+                  }
+                  const agencyHtml = `
+                  <div class="card-singulares ${actived}">
+                    <a href="${singular.url}" target="${target}" role="button" class="${classSing}" data-singular="${singular.id}" tabindex="0">${textActived} ${singular.singular}<i class="arrow right"></i>
+                    </a>
+                  </div>`;
+                  if(singular.type === 'principal' || singular.type === 'singular' || singular.type === 'prestadora') {
+                    singularesList.append(agencyHtml);
+                  } else {
+                    conveniadasList.append(agencyHtml);
+                  }
+                });
 
-            /*data.conveniadas.forEach(conveniada => {
-              let item = document.createElement('div');
-              item.className = 'agency-item';
-              item.innerHTML = `<a href="${conveniada.url}" target="_blank">${conveniada.name}</a>`;
-              singularesList.appendChild(item);
-            });*/
-          });
+                document.querySelectorAll('.singular-link').forEach(link => {
+                  link.addEventListener('click', function() {
+                    setCookie("selectedSingular", this.dataset.singular, 365);
+                  });
+                });
+              });
 
-        singularesModal.style.display = "block";
-      }
-      btnOpenModalSingulares.onclick = function() {
-        openModalSingulares();
-      }
+            singularesModal.style.display = "block";
+          }
+          btnOpenModalSingulares.onclick = function() {
+            openModalSingulares();
+          }
+          
+          closeSingularesModal.onclick = function() {
+            singularesModal.style.display = "none";
+          }
 
-      span.onclick = function() {
-        singularesModal.style.display = "none";
-      }
-
-      window.onclick = function(event) {
-        if (event.target == singularesModal) {
-          singularesModal.style.display = "none";
-        }
-      }
-    });
-  })(jQuery);
-</script>
+          window.onclick = function(event) {
+            if (event.target == singularesModal) {
+              singularesModal.style.display = "none";
+            }
+          }
+          
+        });
+      })(jQuery);
+    </script>
 	<?php wp_footer(); ?>
 </body>
 </html>
