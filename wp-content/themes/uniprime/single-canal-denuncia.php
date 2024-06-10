@@ -28,9 +28,9 @@ $titulo_consultar_protocolo = get_field('titulo_consultar_protocolo');
           </h1>
         <?php } ?>
         <?php if($description_banner) { ?>
-          <h1 class="description title-24 switzerlandBold">
+          <h2 class="description title-24 switzerlandBold">
             <?php echo esc_html($description_banner); ?>
-          </h1>
+          </h2>
         <?php } ?>
       </div>
     </div>
@@ -133,7 +133,7 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
         </div>
       </div>
       
-      <div class="main-protocolo row content-lgpd">
+      <div class="main-protocolo content-lgpd">
         <div class="content-protocolo">
           <div class="num-protocolo title-28 switzerlandBold">Proteção de dados (LGPD)</div>
           <div class="d-flex flex-column flex-md-row justify-content-between">

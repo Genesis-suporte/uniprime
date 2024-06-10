@@ -857,7 +857,8 @@ body.admin-bar .top-bar {
 .menu-inicial .menu-item .menu-dropdown {
   color: white;
   padding: 50px 10px 49px;
-  position: relative;
+  position: relative;  
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
 }
 
 .main-menu.actived .menu-inicial .menu-item.actived .menu-dropdown {
@@ -1203,12 +1204,14 @@ section.search-page .slide-m-dots .slick-dots li.slick-active button {
 }
 .hero-banner .hero-image .copy .title{
   padding-bottom: 28px;
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
 }
 .hero-banner .hero-image .copy .description{
   font-size: 20px;
   font-family: 'Calibri';
   line-height: 34px;
   padding-bottom: 40px;
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
 }
 .hero-banner .hero-image .copy .cta a {
   font-size: 18px !important;
@@ -1306,6 +1309,9 @@ section.search-page .slide-m-dots .slick-dots li.slick-active button {
   top: 95px;
   height: auto;
   width: auto;
+}.div-logo-uniprime .logo-uniprime-background.seguros {
+  height: 795px;
+  width: 811px;
 }
 .label-block {
   font-family: 'Calibri';
@@ -1613,11 +1619,21 @@ section.canais-digitais {
   position: relative;
   font-family: 'Calibri' !important;
 }
-.wp-admin section.canais-digitais,
-.page-id-55 section.canais-digitais {
+.wp-admin section.canais-digitais {
   padding: 97px 0 200px 100px;
 }
-
+.page-id-55 section.canais-digitais.layout-1 {
+  padding: 97px 0 80px 100px;
+  z-index: 11 ;
+}
+.page-id-55 section.canais-digitais.layout-4 {
+  padding: 240px 0 12px !important;
+  z-index: 10 ;
+  overflow: hidden;
+}
+.page-id-55 section.canais-digitais.layout-4 .canais-digitais-image img {
+  left: unset;
+}
 .home .canais-digitais {
   padding: 0px !important;
 }
@@ -1666,7 +1682,7 @@ section.canais-digitais {
   right: 0;
   bottom: 0px;
 }
-.fundo-cinza {
+.canais-digitais.layout-2 .fundo-cinza {
   background-color: var(--primary-color-para-voce);
   border-radius: 16px;
   height: 83%;
@@ -1885,8 +1901,10 @@ a.leia_mais:hover {
 .banner-internas .hero-image .copy .title{
   padding-bottom: 10px;
   margin: 0;
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
 }
 .banner-internas .hero-image .copy .description{
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
 }
 .banner-internas .hero-image .copy .cta a{
   font-size: 18px !important;
@@ -2629,7 +2647,8 @@ section.fale-conosco {
 }
 .gform_wrapper.gravity-theme input, 
 .gform_wrapper.gravity-theme textarea,
-.gform_wrapper.gravity-theme select {
+.gform_wrapper.gravity-theme select,
+.search-block select {
   color: var(--primary-color);
   border: 1px solid #D5D4DC;
   font-family: "Calibri" !important;
@@ -2647,7 +2666,8 @@ section.fale-conosco {
   background-color: #ffffff; /* Cor de fundo do select */
   cursor: pointer;
 }
-.gform_wrapper.gravity-theme select:after {
+.gform_wrapper.gravity-theme select:after,
+.search-block select:after {
   position: absolute;
   content: "";
   top: 14px;
@@ -2661,7 +2681,8 @@ section.fale-conosco {
   position: relative;
   cursor: pointer;
 }
-.ginput_container_select::after {
+.ginput_container_select::after,
+.search-block::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -2673,6 +2694,7 @@ section.fale-conosco {
   height: 8px; 
   pointer-events: none; 
 }
+
 .gfield_radio {
   display: flex;
   flex-direction: row;
@@ -2930,7 +2952,7 @@ section.fale-conosco {
   padding: 4px 0 7px;
   width: 100%;
 }
-.bloco-cards .description-block {
+.bloco-cards .content-bloco-text {
   padding-bottom: 60px;
 }
 .bloco-cards .slick-list {
@@ -3392,8 +3414,7 @@ section.fale-conosco {
 }
 .bloco-conteudo-exclusivo input,
 .bloco-conteudo-exclusivo textarea,
-.bloco-conteudo-exclusivo select,
-.search-block select {
+.bloco-conteudo-exclusivo select {
   background-color: transparent;
   border: 1px solid white;
   color: white;
@@ -3592,7 +3613,7 @@ section.ouvidoria {
 .div-search {
   position: relative;
 }
-.bloco-consulta-protocolo .btn-consultar,
+.bloco-consulta-protocolo .btn-consultar, 
 .div-search .btn-consultar {
   background-color: var(--primary-color) !important;
   border: 1px solid var(--primary-color) !important;
@@ -3994,7 +4015,8 @@ footer {
   background-color: var(--primary-color-para-voce);
 }
 
-.defaultModal .close-modal {
+.defaultModal .close-modal,
+#fixed-footer .close-modal{
   background: white;
   border: 1px solid var(--primary-color);
   border-radius: 50%;
@@ -4005,24 +4027,30 @@ footer {
   top: 16px;
   width: 40px;
 }
-.defaultModal .close-modal .bars {
+.defaultModal .close-modal .bars,
+#fixed-footer .close-modal .bars{
   padding: 14px 0px;
 }
-.defaultModal .bar {
+.defaultModal .bar,
+#fixed-footer .bar {
   border-bottom: 2px solid var(--primary-color-para-cooperativa);
   height: 2px;
   width: 24px;
   margin-bottom: 8px;
 }
-.defaultModal .close-modal .bar1 {
+.defaultModal .close-modal .bar1,
+#fixed-footer .close-modal .bar1 {
   transform: rotate(-135deg);
   margin-bottom: -2px;
 }
-.defaultModal .close-modal .bar2 {
+.defaultModal .close-modal .bar2,
+#fixed-footer .close-modal .bar2 {
   transform: rotate(135deg);
 }
 .defaultModal .close-modal:hover,
-.defaultModal .close-modal:focus {
+.defaultModal .close-modal:focus,
+#fixed-footer .close-modal:hover,
+#fixed-footer .close-modal:focus {
   text-decoration: none;
   cursor: pointer;
 }
@@ -4088,6 +4116,61 @@ footer {
 }
 .buttons-contato {
   padding-top: 36px;
+}
+#fixed-footer {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  padding: 0px;
+  z-index: 9999;
+  width: 380px;
+}
+
+#fixed-footer-content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  bottom: 20px;
+  right: 20px;
+  position: absolute;
+}
+#fixed-footer-text {
+  opacity: 0;
+  transition: all .3s ease-in-out;
+  margin-right: 0px;
+  width: 310px;
+  color: white;
+  font-size: 14px;
+  font-family: 'Calibri';
+  text-align: right;
+  line-height: 28px;
+  text-decoration: underline;
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+}
+#fixed-footer-text.actived {
+  opacity: 1;
+  margin-right: 20px;
+}
+#fixed-footer-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  transform: scale(1); 
+}
+#fixed-footer-button:hover {
+  transform: scale(1.2); 
+}
+
+#fixed-footer-form {
+  margin-right: 10px;
+  background-color: white;
+  padding: 20px;
+  border-top-left-radius: 19px;
+  border-top-right-radius: 19px;
+}
+.ginput_counter {
+  display: none !important;
 }
 @media (max-width: 1399.98px) {   
   .atendimento .col-redes {
@@ -4296,7 +4379,14 @@ footer {
   }
   .div-search {
     max-width: 100% !important;
-    padding: 0px 14px 62px;
+    padding: 0px 0px 62px;
+  }
+  .div-search .btn-consultar {
+    text-indent: 8px;
+    width: 60px;
+  }
+  .map-onde-estamos #map {
+    height: 400px !important;
   }
   #btn-search {
     right: 21px;
@@ -4352,6 +4442,9 @@ footer {
   }
   .header-menu-banner.para-voce .menu-inicial-mobile .dropdown-content.a-uniprime .content-dropdown-mobile {
     /*height: 100%;*/
+  }
+  .menu-inicial-item-mobile-search .content-dropdown-mobile {
+    padding: 24px;
   }
   
   .menu-inicial-mobile .menu-item .dropdown-content .menu-subitem  a {
@@ -4567,9 +4660,11 @@ footer {
     padding-right: 0px;
     width: 100%;
   }
-  .canais-digitais.layout-3 .card-canais-digitais,  
-  .canais-digitais.layout-4 .card-canais-digitais {
+  .canais-digitais.layout-3 .card-canais-digitais {
     width: 100%;
+  }
+  .canais-digitais.layout-4 .card-canais-digitais {
+    width: auto;
   }
   .canais-digitais-duplo .canais-digitais-col .coluna-1,
   .canais-digitais-duplo .canais-digitais-col .coluna-2 {
@@ -4599,10 +4694,10 @@ footer {
   }
   .page-id-55 .canais-digitais.layout-4 .col-right {
     margin-left: 0px;
-    padding: 125px 0 40px 0px;
+    padding: 125px 16px 40px 16px !important;
   }
   .page-id-55 .canais-digitais.layout-4 .col-right > div {
-    margin-left: 24px;
+    margin-left: 0px;
     padding-top: 0px;
     padding-bottom: 11px;
   }
@@ -4614,7 +4709,7 @@ footer {
     line-height: 47px;
   }
   .canais-digitais .container {
-    height: 602px;
+    min-height: 602px;
     justify-content: center;
     display: flex;
   }
@@ -4627,7 +4722,7 @@ footer {
     padding: 0 20px 0 20px;
     width: auto;
     max-height: 407px;
-    margin: -97px 0 -55px;
+    margin: 0px;
   }
   .home .canais-digitais {
     padding: 0px 0 68px !important;
@@ -4636,12 +4731,38 @@ footer {
   .canais-digitais .col-right {
     padding: 0px 24px 0;
     position: relative;
-    margin: -90px 0 0px 0;
+    margin: 0px 0 0px 0;
   }
   .canais-digitais .card-canais-digitais {
     width: 48%;
   }
-
+  .canais-digitais .card-canais-digitais a.button {
+    display: block;
+    text-align: center;
+  }
+  .canais-digitais .card-canais-digitais a.button img {
+    width: 100%;
+    max-width: 180px;
+  }
+  .canais-digitais.layout-2 .container {
+    height: 472px;
+  }
+  .canais-digitais.layout-2 .canais-digitais-image {
+    height: 100%;
+    max-height: 185px;
+    width: auto;
+  }
+  .canais-digitais.layout-2 .canais-digitais-image img {
+    max-height: 205px;
+    width: auto;
+  }
+  .canais-digitais.layout-2 .col-right {
+    margin: -40px 0 0px 0;
+    z-index: 14;
+  }
+  .canais-digitais.layout-2 .fundo-cinza {
+    height: 100%;
+  }
   
   /* ONDE ENCONTRAR */
   .onde-encontrar {
@@ -4734,6 +4855,9 @@ footer {
     margin-top: 32px;
     width: 100%;
     padding: 0 !important;
+  }
+  .content-internas .img.direita {
+    margin: 0px 0 30px 0px;
   }
   /* BLOCO MVV */
   .beneficios-institucional {
@@ -4868,7 +4992,10 @@ footer {
     padding-bottom: 111px;
   }
   .assembleias .results {
-    padding: 0 12px;
+    padding: 64px 12px;
+  }
+  .assembleias .proximas {
+    padding: 0px 12px;
   }
   .assembleias .slick-list {
     margin: 0 0px;
@@ -4887,7 +5014,7 @@ footer {
     padding-top: 27px;
   }
   .assembleias .proximas-assembleias {
-    padding: 130px 12px 160px;
+    padding: 30px 12px 160px;
   }
   .assembleias .slide-proximas-assembleias .slick-slide {
     margin: 0px 12px 30px 12px;
@@ -5184,6 +5311,38 @@ footer {
   .bloco-cards .title-block {
     padding: 12px 0 7px;
   }
+  /* BLOCO DE CARTÕES */
+  .bloco-cartoes {
+    padding: 60px 0;  
+  }
+  .bloco-cartoes .card-default {
+    width: 100%;
+  }
+  .bloco-cartoes .thumbnail-card {
+    height: auto;
+    width: 100%;
+    max-height: 450px;
+  }
+  .bloco-cartoes .thumbnail-card img {
+    width: 100%;
+    height: auto;
+  }
+  .bloco-cartoes .content-cards {
+    padding: 0 16px;
+    margin-top: 0px;
+  }
+  .bloco-cartoes .final-content {
+    padding: 95px 24px 0;
+  }
+  .bloco-cartoes .final-content .final-labels ul {
+    list-style-position: inside;
+  }
+  .bloco-cartoes .final-content .final-labels li {
+    width: 100%;
+    text-align: center;
+    padding: 0 40px 14px;
+  }
+  
   /* PÁGINA LISTAGEM DE NOTÍCIAS */
   .botoes-fique-por-dentro .button-fique-por-dentro {
     padding: 0 10px 10px 0;
@@ -5248,6 +5407,24 @@ footer {
     margin: 0 0px 32px;
     padding: 48px 24px 32px;
   }
+  /* OUVIDORIA */
+  .ouvidoria .container-canal-denuncia,
+  .cards-canal-denuncia,
+  .content-lgpd,
+  .container-fale-conosco,
+  .cards-ouvidoria {
+    padding: 0px 16px 32px;
+  }
+  .content-lgpd .content-protocolo  {
+    padding: 48px 16px 32px !important;
+  }
+  .cards-ouvidoria .bloco-contato {
+    max-width: 100%;
+  }
+  .div-logo-uniprime .logo-uniprime-background.investimentos {
+    width: 50% !important;
+    height: auto !important;
+  }
   /* FOOTER */
   .footer-top {
     padding: 60px 0px 4px 43px;
@@ -5285,6 +5462,15 @@ footer {
   .footer-copyrigth .copyrigth{
     width: 71%;
     margin: 0 auto;
+  }
+  /* MODAL SINGULARES*/
+  .content-singulares,
+  .content-conveniadas {
+    padding: 64px 24px;
+  }
+  .card-singulares {
+    width: 100%;
+    margin-right: 0px;
   }
 }
 @media (max-width: 767.98px) { 

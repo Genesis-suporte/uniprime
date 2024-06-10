@@ -33,9 +33,9 @@ $descricao_bloco_observacoes = get_field('descricao_bloco_observacoes');
           </h1>
         <?php } ?>
         <?php if($description_banner) { ?>
-          <h1 class="description title-24 switzerlandBold">
+          <h2 class="description title-24 switzerlandBold">
             <?php echo esc_html($description_banner); ?>
-          </h1>
+          </h2>
         <?php } ?>
       </div>
     </div>

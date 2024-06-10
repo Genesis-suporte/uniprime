@@ -271,7 +271,9 @@ function my_block_plugin_editor_scripts() {
 	wp_enqueue_script('scripts', get_template_directory_uri().'/assets/js/scripts.js', array_merge($dependencies, array('bootstrap', 'slick')), null, true);
 	// Passe o caminho de admin-ajax.php para o script JavaScript
 	wp_localize_script('scripts', 'ajax_object', array('ajax_url' => admin_url('admin-ajax.php')));
-
+	// Carregar e passar o JSON para o JavaScript
+	$agencias_json = file_get_contents(get_template_directory() . '/api/agencias.json');
+	wp_localize_script('scripts', 'agenciasData', json_decode($agencias_json, true));
 }
 add_action( 'wp_enqueue_scripts', 'my_block_plugin_editor_scripts' );
 add_action( 'enqueue_block_editor_assets', 'my_block_plugin_editor_scripts' );
@@ -1022,3 +1024,96 @@ function my_rewrite_flush() {
 	flush_rewrite_rules();
 }
 add_action('after_switch_theme', 'my_rewrite_flush');
+
+function filtrar_assembleias() {
+	$unidade = sanitize_text_field($_POST['unidade']);
+	$args = array(
+		'post_type'      => 'assembleia',
+		'posts_per_page' => -1,
+		'meta_key'       => 'data_assembleia',
+		'orderby'        => 'meta_value',
+		'order'          => 'DESC'
+	);
+
+	if ($unidade) {
+		$args['meta_query'] = array(
+			array(
+				'key'   => 'unidade',
+				'value' => $unidade
+			)
+		);
+	}
+
+	$assembleias = get_posts($args);
+
+	ob_start();
+	foreach ($assembleias as $assembleia) :
+		$titulo = get_field( 'titulo', $assembleia->ID );
+		$descricao = get_field( 'descricao', $assembleia->ID );
+		$data_assembleia = (get_field( 'data_assembleia', $assembleia->ID ));
+		$data_inicio_timestamp = DateTime::createFromFormat( 'd/m/Y', $data_assembleia )->format('Y-m-d');
+		$data_inicio_ano = DateTime::createFromFormat( 'd/m/Y', $data_assembleia )->format('Y');
+		$data_atual = date('Y-m-d');
+		$data_da_publicacao = get_field( 'data_da_publicacao', $assembleia->ID );
+		$unidade = get_field( 'unidade', $assembleia->ID );
+		$link_download = get_field( 'link_download', $assembleia->ID );
+		
+		if ( $data_inicio_timestamp < $data_atual ) { ?>
+			<div class="card-assembleias">
+				<div class="content-card d-flex flex-column justify-content-start">
+					<div class="ano icon-menu icon-logo">
+						<?php echo esc_html($data_inicio_ano); ?>
+					</div>
+					<div class="title title-block flex-grow-1 title-36 switzerlandLight">
+						<h2><?php echo esc_html($titulo); ?></h2>
+					</div>
+					<div class="d-flex justify-content-between align-items-start align-items-lg-end flex-column flex-lg-row">
+						<div class="description flex-grow-1">
+							<div class="unidade"><?php echo esc_html($unidade); ?></div>
+							<?php 
+								echo esc_html($link_download['title']). "<br>";
+								echo esc_html('Data da assembleia: '.$data_assembleia). "<br>";
+								echo esc_html('Data da publicação: '.$data_da_publicacao). "<br>";
+							?>
+						</div>
+						<div class="linkpdf">
+							<a href="<?php echo esc_html($link_download['url']); ?>" class="btn btn-download"><?php echo __('Baixar edital');?><i class="icon-download-white right"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php
+		} else {
+			$prox_assembleias .= '<div class="card-assembleias">';
+			$prox_assembleias .= '<div class="content-card d-flex flex-column justify-content-start">';
+			$prox_assembleias .= '<div class="ano icon-menu icon-logo">PRÓXIMA ASSEMBLEIA</div>';
+			$prox_assembleias .= '<div class="title title-block flex-grow-1 title-36 switzerlandLight"><h2>'. esc_html($data_assembleia) .'</h2></div>';
+			$prox_assembleias .= '<div class="d-flex justify-content-between align-items-start align-items-lg-end flex-column flex-lg-row">';
+			$prox_assembleias .= '<div class="description flex-grow-1">';
+			$prox_assembleias .= '<div class="unidade"><strong>'. esc_html($unidade) .'</strong></div>';
+			$prox_assembleias .= ''. esc_html($link_download['title']). '<br>';
+			$prox_assembleias .= '</div>';
+			$prox_assembleias .= '<div class="linkpdf">';
+			$prox_assembleias .= '<a href="'. esc_html($link_download['url']). '" class="btn btn-download">'.__('Baixar edital').' <i class="icon-download-white right"></i></a>';
+			$prox_assembleias .= '</div>';
+			$prox_assembleias .= '</div>';
+			$prox_assembleias .= '</div>';
+			$prox_assembleias .= '</div>';
+		}
+	endforeach;
+
+	$content = ob_get_clean();
+	wp_send_json_success($content);
+}
+add_action('wp_ajax_filtrar_assembleias', 'filtrar_assembleias');
+add_action('wp_ajax_nopriv_filtrar_assembleias', 'filtrar_assembleias');
+
+function getCurrentPath() {
+	return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+}
+
+function getBasePath() {
+	$currentUrl = $_SERVER['REQUEST_URI'];
+	$pathSegments = explode('/', trim($currentUrl, '/'));
+	return isset($pathSegments[0]) ? '/' . $pathSegments[0] : '/';
+}

@@ -276,10 +276,11 @@ if (is_singular('solucoes')) {
                           <div class="title-menu-mobile">Soluções</div>
                         </div>
                         <?php 
+                        
                           //solucoes-para-voce
                           //solucoes-para-empresa
                           //solucoes-para-cooperativa
-                          $menu_lists = setMenuThreeLevels('solucoes-'.$tipo_homepage);
+                          $menu_lists = setMenuThreeLevels('solucoes-'.$current_term);
                           $menu_solucoes = "";
                           foreach ($menu_lists as $item) { 
                             $class = '';
@@ -345,7 +346,7 @@ if (is_singular('solucoes')) {
               <div class="footer-menu-mobile">
                 <div class="content-footer">
                   <img src="<?php echo get_template_directory_uri();?>/assets/images/icons/icon-localization.png" alt="Qual unidade você deseja navegar?">
-                  Você está em: <br />
+                  Você está em: aqui3<br />
                   <div class="unidades">
                     <a href="#" blank="_SELF"><strong>Uniprime Central Nacional</strong><i class="arrow down"></i></a>
                   </div>

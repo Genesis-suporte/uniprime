@@ -17,10 +17,10 @@
   </title>
   <link rel="profile" href="https://gmpg.org/xfn/11" />
   <link rel="pingback" href="<?php echo esc_url(get_bloginfo('pingback_url')); ?>">
-  <?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions.  ?>
   <!--[if lt IE 9]>
 <![endif]-->
   <?php wp_head(); ?>
+  
 </head>
 
 <body <?php body_class(); ?> >
@@ -46,8 +46,7 @@
           <div class="first-col d-none d-lg-block">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icons/icon-localization.png"
               alt="Qual unidade você deseja navegar?">
-            Você está em: <strong><a href="#" blank="_SELF" class="" id="openModalSingulares">
-                <?php echo esc_html($top_bar_localization); ?><i class="arrow down"></i>
+              Você está em: aqui<strong style="float: right;"><a href="#" blank="_SELF" class="d-flex flex-row" id="openModalSingulares"><div id="singular-name"></div><i class="arrow down" style="margin-top: 7px;"></i></a></strong>
               </a></strong>
           </div>
           <div class="second-col d-flex justify-content-center justify-content-lg-end">
@@ -58,6 +57,9 @@
                 $menu_top_bar = "";
                 $index = 0;
                 foreach ($menu_lists as $item) {
+                  if ($item['title'] === "Para Sua Cooperativa" && !is_main_site()) {
+                    continue; // Pule este item
+                  }
                   $class = '';
                   $class_search = false;
                   if (isset($item['class'])) {
@@ -349,7 +351,7 @@
                                   $class = esc_attr( implode( ' ', $item['class']));
                                 }
                                 $menu_a_uniprime .= '<div class="menu-subitem '.$class.'">'."\n";
-                                $menu_a_uniprime .= '<a href="#" class="icon-menu icon-'.$class.'">'. esc_html($item['title']) ."\n";
+                                $menu_a_uniprime .= '<a href="'. esc_html($item['link']) .'" class="icon-menu icon-'.$class.'">'. esc_html($item['title']) ."\n";
                                 $menu_a_uniprime .= '<i class="arrow right"></i></a>'."\n";
                                 $menu_a_uniprime .= '</div>'."\n";
                               }
@@ -396,7 +398,7 @@
                                   $class = esc_attr( implode( ' ', $item['class']));
                                 }
                                 $menu_solucoes .= '<div class="menu-subitem '.$class.'">'."\n";
-                                $menu_solucoes .= '<a href="#" class="icon-menu icon-'.$class.'-gold">'. esc_html($item['title']) ."\n";
+                                $menu_solucoes .= '<a href="'. esc_html($item['link']) .'" class="icon-menu icon-'.$class.'-gold">'. esc_html($item['title']) ."\n";
                                 $menu_solucoes .= '<i class="arrow right"></i></a>'."\n";
                                 $menu_solucoes .= '</div>'."\n";
                               }
@@ -440,7 +442,7 @@
                                   $class = esc_attr( implode( ' ', $item['class']));
                                 }
                                 $menu_atendimento .= '<div class="menu-subitem '.$class.'">'."\n";
-                                $menu_atendimento .= '<a href="#" class="icon-menu icon-'.$class.'-gold">'. esc_html($item['title']) ."\n";
+                                $menu_atendimento .= '<a href="'. esc_html($item['link']) .'" class="icon-menu icon-'.$class.'-gold">'. esc_html($item['title']) ."\n";
                                 $menu_atendimento .= '<i class="arrow right"></i></a>'."\n";
                                 $menu_atendimento .= '</div>'."\n";
                               }
@@ -505,7 +507,7 @@
                       <img src="<?php echo get_template_directory_uri();?>/assets/images/icons/icon-localization.png" alt="Qual unidade você deseja navegar?">
                       Você está em: <br />
                       <div class="unidades">
-                        <a href="#" blank="_SELF"><strong>Uniprime Central Nacional</strong><i class="arrow down"></i></a>
+                        <a href="#" blank="_SELF"><span id="singular-name-mobile"></span><i class="arrow down"></i></a>
                       </div>
                       <div class="d-flex justify-content-between bts-externos">
                         <?php 

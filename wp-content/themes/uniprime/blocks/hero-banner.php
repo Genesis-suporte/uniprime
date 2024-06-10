@@ -415,9 +415,9 @@ $tipo_homepage = get_field('tipo-homepage');
               <div class="footer-menu-mobile">
                 <div class="content-footer">
                   <img src="<?php echo get_template_directory_uri();?>/assets/images/icons/icon-localization.png" alt="Qual unidade você deseja navegar?">
-                  Você está em: <br />
+                  Você está em:<br />
                   <div class="unidades">
-                    <a href="#" blank="_SELF"><strong>Uniprime Central Nacional</strong><i class="arrow down"></i></a>
+                    <a href="javascript:void(0);" blank="_SELF" id="openModalSingularesMobile"><strong><span id="singular-name-mobile"></span></strong><i class="arrow down"></i></a>
                   </div>
                   <div class="d-flex justify-content-between bts-externos">
                     <?php 

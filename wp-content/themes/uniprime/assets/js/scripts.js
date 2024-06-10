@@ -111,6 +111,7 @@
             fixPR[i].style.paddingRight = calculo +'px';
           }
         }
+        $('.page-id-55 section.canais-digitais.layout-4 .canais-digitais-image img').css('right', -(calculo-40));
       } 
       
       if($('.menu-footer-solucoes')) {
@@ -718,6 +719,119 @@
 })(jQuery); 
 
 jQuery(document).ready(function($) {
+  // Abra o modal ao carregar a página
+  // MODAL SINGULARES
+  var singularesModal = document.getElementById("singularesModal");
+  var btnOpenModalSingulares = document.getElementById("openModalSingulares");
+  var btnOpenModalSingularesMobile = document.getElementById("openModalSingularesMobile");
+  
+  var closeSingularesModal = document.getElementById("closeSingularesModal");
+  const singularesList = $('#singularesList');
+  const conveniadasList = $('#conveniadasList');
+  // Obtém a URL atual
+  var currentUrl = window.location.pathname;
+          
+
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  function checkCookie() {
+    var user = getCookie("selectedSingular");
+    if (user != "") {
+      //console.log("Singular já escolhida: " + user);
+    } else {
+      //console.log("Nenhuma singular escolhida.");
+      openModalSingulares();
+    }
+  }
+  checkCookie();
+
+  function getSingularName() {    
+    let isCentral = true;
+    var basePath = currentUrl.split('/')[1] ? '/' + currentUrl.split('/')[1] : '/';
+    
+    const singularesList = $('#singularesList');
+    const conveniadasList = $('#conveniadasList');
+    singularesList.innerHTML = ''; // Limpar a lista antes de adicionar itens
+    
+    agenciasData.singulares.find(function(data) {      
+      let actived = '';
+      let textActived = '';
+      let target = '';
+      let classSing = '';
+      //console.log('isCentral: ', data.url,data.type,basePath);
+      if(basePath == data.url) {
+        actived = 'actived';
+        textActived = '<span style="font-size: 14px; font-weight: normal">Continuar na</span><br/>';
+        $('#singular-name').html(data.singular);
+        $('#singular-name-mobile').html(data.singular); 
+        isCentral = false;
+      } 
+      
+      if(data.type === 'principal' || data.type === 'singular' || data.type === 'prestadora') {
+        target = '_SELF';
+        classSing = 'singular-link';
+      } else {
+        target = '_blank';
+
+      }
+      const agencyHtml = `
+      <div class="card-singulares ${actived}">
+        <a href="${data.url}" target="${target}" role="button" class="${classSing}" data-singular="${data.id}" tabindex="0">${textActived} ${data.singular}<i class="arrow right"></i>
+        </a>
+      </div>`;
+      if(data.type === 'principal' || data.type === 'singular' || data.type === 'prestadora') {
+        singularesList.append(agencyHtml);
+      } else {
+        conveniadasList.append(agencyHtml);
+      }
+    });
+    
+    if(isCentral) {
+      $('#singular-name').html('Uniprime Central Nacional');
+      $('#singular-name-mobile').html('Uniprime Central Nacional'); 
+    }
+  }
+  
+  getSingularName()
+  document.querySelectorAll('.singular-link').forEach(link => {
+    link.addEventListener('click', function() {
+      setCookie("selectedSingular", this.dataset.singular, 365);
+    });
+  });
+  function openModalSingulares() {
+    singularesModal.style.display = "block";
+  }
+  btnOpenModalSingulares.onclick = function() {
+    openModalSingulares();
+  }
+  btnOpenModalSingularesMobile.onclick = function() {
+    openModalSingulares();
+  }
+  
+  closeSingularesModal.onclick = function() {
+    singularesModal.style.display = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == singularesModal) {
+      singularesModal.style.display = "none";
+    }
+  }
+
   window.abreContentModalContato = function(id) {
     $('.content-interesse').hide();
     $('#content-interesse-'+id).show();
@@ -750,15 +864,15 @@ jQuery(document).ready(function($) {
           break;
       }
     });
-    // remove white space and - on "45 3252-5030"
-    let num_whatsapp = numero_whatsapp.replace(/\s/g, '').replace(/-/g, '');
+    // remove parentheses on "num_whatsapp = (45)32525030"
+    let num_whatsapp = numero_whatsapp.replace(/\s/g, '').replace(/-/g, '').replace(/[()]/g, '');
     let mensagem = encodeURIComponent("Olá, tenho interesse em mais informações sobre "+title_card); // Mensagem predefinida
     if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
       // true for mobile device
-      whats = '<a class="btn btn-primary" onclick="window.open(\'whatsapp://send?phone=55'+num_whatsapp+ '?text=' + mensagem + '\')">' + numero_whatsapp + '</a>';
+      whats = '<a class="button btn-primary btn icon-menu icon-whatsapp-white" onclick="window.open(\'whatsapp://send?phone=55'+num_whatsapp+ '?text=' + mensagem + '\')">Whatsapp</a>';
     }else{
       // false for not mobile device
-      whats = '<a class="btn btn-primary" onclick="window.open(\'https://wa.me/55'+num_whatsapp+ '?text=' + mensagem + '\')">' + numero_whatsapp + '</a>';
+      whats = '<a class="button btn-primary btn icon-menu icon-whatsapp-white" onclick="window.open(\'https://wa.me/55'+num_whatsapp+ '?text=' + mensagem + '\')">Whatsapp</a>';
     }
     
     $("#label-block-interesse").html(label_interesse);
@@ -766,7 +880,8 @@ jQuery(document).ready(function($) {
     $("#description-block-interesse").html(description_interesse);
     $("#content-telefone").html(texto_telefone);
     $("#content-whatsapp").html(texto_whatsapp);
-    $("#number-whatsapp").html(whats);
+    $("#btn-whatsapp").html(whats);
+    
     $("#description-block-interesse").html(description_interesse);
 
     modalTenhoInteresse.style.display = "block";
@@ -794,4 +909,21 @@ jQuery(document).ready(function($) {
       }
     });
   }
+  fixedFooterButton = document.getElementById('fixed-footer-button');
+  fixedFooterContent = document.getElementById('fixed-footer-content');
+  $('#fixed-footer-button').on('click', function() {
+    $('#fixed-footer-form').toggle();
+    $('#fixed-footer-content').toggle();
+  });
+  $('#closeFooterForm').on('click', function() {
+    $('#fixed-footer-form').toggle();
+    $('#fixed-footer-content').toggle();
+  });
+  
+  fixedFooterContent.addEventListener('mouseover', (e) => {
+    $('#fixed-footer-text').addClass('actived');
+  });
+  fixedFooterContent.addEventListener('mouseleave', (e) => {
+    $('#fixed-footer-text').removeClass('actived');
+  });    
 });

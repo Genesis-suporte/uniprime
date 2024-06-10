@@ -19,6 +19,12 @@
     $num_colunas = 4;
   }
   
+  $fonte_titulo = get_field('fonte_titulo', $block['id']);
+  if($fonte_titulo == 'Normal') {
+    $fonte_style = '';
+  } else {
+    $fonte_style = $fonte_titulo;
+  }
   $class_grid_cols = '';
   if(!$slide) {
     $class_grid_cols = ' d-grid container-grid-'.$quantidade_colunas.'-col';
@@ -46,28 +52,30 @@
   <div class="container">
     <div class="row d-flex justify-content-between flex-column flex-lg-row">
       <div class="content-bloco-cards">
-        <?php if($label) { ?>
-        <div class="label-block">
-          <?php echo esc_html($label); ?>
-        </div>
-        <?php }
-        if($titulo) { ?>
-        <div class="title-block <?php echo $tamanho_titulo;?> switzerlandLight">
-          <?php echo esc_html($titulo); ?>
-        </div>
-        <?php } ?>
-        <?php if($descricao || $slide) { ?>
-          <div class="d-flex">
-            <div class="description-block flex-grow-1">
-              <?php if($descricao) { ?>
-                <?php echo esc_html($descricao); ?>
+        <div class="content-bloco-text">
+          <?php if($label) { ?>
+          <div class="label-block">
+            <?php echo esc_html($label); ?>
+          </div>
+          <?php }
+          if($titulo) { ?>
+          <div class="title-block <?php echo $tamanho_titulo;?> switzerland<?php echo $fonte_style;?>">
+            <?php echo esc_html($titulo); ?>
+          </div>
+          <?php } ?>
+          <?php if($descricao || $slide) { ?>
+            <div class="d-flex">
+              <div class="description-block flex-grow-1">
+                <?php if($descricao) { ?>
+                  <?php echo esc_html($descricao); ?>
+                <?php } ?>
+              </div>
+              <?php if($slide) { ?>
+                <div class="arrows-cards-desktop d-none d-md-flex arrows-cards-desktop-<?php echo $block['id'];?>"></div>
               <?php } ?>
-            </div>
-            <?php if($slide) { ?>
-              <div class="arrows-cards-desktop d-none d-md-flex arrows-cards-desktop-<?php echo $block['id'];?>"></div>
-            <?php } ?>
-          </div>  
-        <?php } ?>
+            </div>  
+          <?php } ?>
+        </div>
         <div class="container-cards">
           <div class="cards <?php echo $class_grid_cols; echo ($slide) ? $class_slide : '';?>">
             <?php 
@@ -105,6 +113,8 @@
                       $classBtn = 'button btn-primary-color btn';
                     } else if($estilo_do_botao == 'link') {
                       $classBtn = 'link';
+                    } else {
+                      $estilo_do_botao = 'nenhum';
                     }
                     //
                     ?>
@@ -127,7 +137,8 @@
                           <?php echo __($descricao_card); ?>
                         </div>
                         <?php 
-                        /*if($estilo_do_botao != 'nenhum') {
+                        //var_dump($estilo_do_botao);
+                        if($estilo_do_botao != 'nenhum') {
                             if($habilitar_modal) { ?>
                             <div class="d-block">
                               <a class="button <?php echo $classBtn;?>"  
@@ -179,7 +190,7 @@
                               </a>
                             </div>
                           <?php } 
-                          }*/
+                        }
                         ?>
                       </div>
                       <?php if ($has_thumbnail) {?>
@@ -218,58 +229,62 @@
       $classBtn = 'button btn-primary-color btn';
     } else if($estilo_do_botao == 'link') {
       $classBtn = 'link';
+    } else {
+      $estilo_do_botao = 'nenhum';
     }
+    
     if($estilo_do_botao != 'nenhum') {
+      
       if($habilitar_modal) { ?>
-      <div class="d-flex w-100 justify-content-center bt-interest-end enabled">
-        <a class="button <?php echo $classBtn;?>"  
-          href="javascript:void(0)" 
-          data-title_card="<?php echo esc_html( $titulo ); ?>"
-          data-label_interesse="<?php echo esc_html( get_field('label_modal_interesse', $block['id']) ); ?>"
-          data-title_interesse="<?php echo esc_html( get_field('titulo_modal_interesse', $block['id']) ); ?>"
-          data-description_interesse="<?php echo esc_html( get_field('descricao_modal_interesse', $block['id']) ); ?>"
-          data-habilitar="<?php echo esc_html( json_encode(get_field('habilitar_botoes', $block['id'])) ); ?>"
-          data-texto_telefone="<?php echo esc_html( get_field('texto_telefone', $block['id']) ); ?>"
-          data-texto_whatsapp="<?php echo esc_html( get_field('texto_whatsapp', $block['id']) ); ?>"
-          data-numero_whatsapp="<?php echo esc_html( get_field('numero_whatsapp', $block['id']) ); ?>"
-          data-id_form="<?php echo esc_html( get_field('id_form', $block['id']) ); ?>"
-          onclick="abreModalInteresse(this)"
-        >
-          <?php if($estilo_do_botao == 'imagem') { ?>
-            <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
-          <?php } else { ?> 
-            <?php echo esc_html( $link['title'] ); ?>
-            <?php if($estilo_do_botao == 'branco') {
-              echo '<i class="icon-cta-blue right"></i>';
-            } ?>
-            <?php if($estilo_do_botao == 'link') {
-              echo '<i class="arrow right"></i>';
-            } ?>
-          <?php } ?>
-        </a>
-      </div>
+        <div class="d-flex w-100 justify-content-center bt-interest-end enabled">
+          <a class="button <?php echo $classBtn;?>"  
+            href="javascript:void(0)" 
+            data-title_card="<?php echo esc_html( $titulo ); ?>"
+            data-label_interesse="<?php echo esc_html( get_field('label_modal_interesse', $block['id']) ); ?>"
+            data-title_interesse="<?php echo esc_html( get_field('titulo_modal_interesse', $block['id']) ); ?>"
+            data-description_interesse="<?php echo esc_html( get_field('descricao_modal_interesse', $block['id']) ); ?>"
+            data-habilitar="<?php echo esc_html( json_encode(get_field('habilitar_botoes', $block['id'])) ); ?>"
+            data-texto_telefone="<?php echo esc_html( get_field('texto_telefone', $block['id']) ); ?>"
+            data-texto_whatsapp="<?php echo esc_html( get_field('texto_whatsapp', $block['id']) ); ?>"
+            data-numero_whatsapp="<?php echo esc_html( get_field('numero_whatsapp', $block['id']) ); ?>"
+            data-id_form="<?php echo esc_html( get_field('id_form', $block['id']) ); ?>"
+            onclick="abreModalInteresse(this)"
+          >
+            <?php if($estilo_do_botao == 'imagem') { ?>
+              <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
+            <?php } else { ?> 
+              <?php echo esc_html( $link['title'] ); ?>
+              <?php if($estilo_do_botao == 'branco') {
+                echo '<i class="icon-cta-blue right"></i>';
+              } ?>
+              <?php if($estilo_do_botao == 'link') {
+                echo '<i class="arrow right"></i>';
+              } ?>
+            <?php } ?>
+          </a>
+        </div>
       <?php } else { ?>
-      <div class="d-flex w-100 justify-content-center bt-interest-end disabled">
-        <a 
-          href="<?php echo esc_url( $link['url'] ); ?>" 
-          class=" <?php echo $classBtn;?>" 
-          <?php if($estilo_do_botao == 'imagem') { ?>
-            target="<?php echo esc_html( $link['target'] ); ?>"
-          <?php } ?>
-        >
-          <?php if($estilo_do_botao == 'imagem') { ?>
-            <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
-          <?php } else { ?> 
-            <?php echo esc_html( $link['title'] ); ?>
-            <?php if($estilo_do_botao == 'branco') {
-              echo '<i class="icon-cta-blue right"></i>';
-            } ?>
-            <?php if($estilo_do_botao == 'link') {
-              echo '<i class="arrow right"></i>';
-            } ?>
-          <?php } ?>
-        </a>
-      </div>
+        <div class="d-flex w-100 justify-content-center bt-interest-end disabled">
+          <a 
+            href="<?php echo esc_url( $link['url'] ); ?>" 
+            class=" <?php echo $classBtn;?>" 
+            <?php if($estilo_do_botao == 'imagem') { ?>
+              target="<?php echo esc_html( $link['target'] ); ?>"
+            <?php } ?>
+          >
+            <?php if($estilo_do_botao == 'imagem') { ?>
+              <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
+            <?php } else { ?> 
+              <?php echo esc_html( $link['title'] ); ?>
+              <?php if($estilo_do_botao == 'branco') {
+                echo '<i class="icon-cta-blue right"></i>';
+              } ?>
+              <?php if($estilo_do_botao == 'link') {
+                echo '<i class="arrow right"></i>';
+              } ?>
+            <?php } ?>
+          </a>
+        </div>
       <?php } 
       }
     ?>

@@ -179,7 +179,7 @@
                 //print_r($item['class']).'<br />';
                 //echo $class_search.'<br />';
                 $menu_atendimento .= '<li class="menu-item '.$class.'">'."\n";
-                $menu_atendimento .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
+                $menu_atendimento .= '<a href="'. esc_attr($item['link']).'">'. esc_html($item['title']) .'</a>'."\n";              
                 $menu_atendimento .= '</li>'."\n";
               }
               echo $menu_atendimento;
@@ -202,7 +202,7 @@
                   $class = esc_attr( implode( ' ', $item['class']));
                 }
                 $menu_a_uniprime .= '<li class="menu-item '.$class.'">'."\n";
-                $menu_a_uniprime .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
+                $menu_a_uniprime .= '<a href="'. esc_attr($item['link']).'">'. esc_html($item['title']) .'</a>'."\n";              
                 $menu_a_uniprime .= '</li>'."\n";
               }
               echo $menu_a_uniprime;
@@ -225,7 +225,7 @@
                   $class = esc_attr( implode( ' ', $item['class']));
                 }
                 $menu_governanca .= '<li class="menu-item '.$class.'">'."\n";
-                $menu_governanca .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
+                $menu_governanca .= '<a href="'. esc_attr($item['link']).'">'. esc_html($item['title']) .'</a>'."\n";              
                 $menu_governanca .= '</li>'."\n";
               }
               echo $menu_governanca;
@@ -248,7 +248,7 @@
                   $class = esc_attr( implode( ' ', $item['class']));
                 }
                 $menu_fique_por_dentro .= '<li class="menu-item '.$class.'">'."\n";
-                $menu_fique_por_dentro .= '<a href="#">'. esc_html($item['title']) .'</a>'."\n";              
+                $menu_fique_por_dentro .= '<a href="'. esc_attr($item['link']).'">'. esc_html($item['title']) .'</a>'."\n";              
                 $menu_fique_por_dentro .= '</li>'."\n";
               }
               echo $menu_fique_por_dentro;
@@ -296,112 +296,24 @@
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-  (function ($) {
-    $(document ).ready(function() {
-      // Abra o modal ao carregar a página
-      // MODAL SINGULARES
-      var singularesModal = document.getElementById("singularesModal");
-      var btnOpenModalSingulares = document.getElementById("openModalSingulares");
-      var span = document.getElementById("closeSingularesModal");
-      const singularesList = $('#singularesList');
-      const conveniadasList = $('#conveniadasList');
-      
-      function setCookie(cname, cvalue, exdays) {
-        var d = new Date();
-        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-        var expires = "expires=" + d.toUTCString();
-        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-      }
-
-      function getCookie(cname) {
-        var name = cname + "=";
-        var decodedCookie = decodeURIComponent(document.cookie);
-        var ca = decodedCookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-          }
-          if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-          }
-        }
-        return "";
-      }
-
-      function checkCookie() {
-        var user = getCookie("selectedSingular");
-        if (user != "") {
-          //console.log("Singular já escolhida: " + user);
-        } else {
-          //console.log("Nenhuma singular escolhida.");
-          openModalSingulares();
-        }
-      }
-      checkCookie();
-      function openModalSingulares() {
-        fetch('<?php echo get_template_directory_uri();?>/api/agencias.json')
-          .then(response => response.json())
-          .then(data => {
-            singularesList.empty();
-            //singularesList.innerHTML = ''; // Limpar a lista antes de adicionar itens
-            data.singulares.forEach(singular => {
-              let actived = '';
-              let textActived = '';
-              let target = '';
-              let classSing = '';
-              if(singular.url === '/') {
-                actived = 'actived';
-                textActived = '<span style="font-size: 14px; font-weight: normal">Continuar na</span><br/>';
-
-              }
-              if(singular.type === 'principal' || singular.type === 'singular' || singular.type === 'prestadora') {
-                target = '_SELF';
-                classSing = 'singular-link';
-              } else {
-                target = '_blank';
-
-              }
-              const agencyHtml = `
-              <div class="card-singulares ${actived}">
-                <a href="${singular.url}" target="${target}" role="button" class="${classSing}" data-singular="${singular.id}" tabindex="0">${textActived} ${singular.singular}<i class="arrow right"></i>
-                </a>
-              </div>`;
-              if(singular.type === 'principal' || singular.type === 'singular' || singular.type === 'prestadora') {
-                singularesList.append(agencyHtml);
-              } else {
-                conveniadasList.append(agencyHtml);
-              }
-              /*let item = document.createElement('div');
-              item.className = 'agency-item';
-              item.innerHTML = `<a href="${singular.url}">${singular.name}</a>`;
-              singularesList.appendChild(item);*/
-            });
-
-            document.querySelectorAll('.singular-link').forEach(link => {
-              link.addEventListener('click', function() {
-                setCookie("selectedSingular", this.dataset.singular, 365);
-              });
-            });
-          });
-
-        singularesModal.style.display = "block";
-      }
-      btnOpenModalSingulares.onclick = function() {
-        openModalSingulares();
-      }
-
-      span.onclick = function() {
-        singularesModal.style.display = "none";
-      }
-
-      window.onclick = function(event) {
-        if (event.target == singularesModal) {
-          singularesModal.style.display = "none";
-        }
-      }
-    });
-  })(jQuery);
-</script>
+<div id="fixed-footer">
+  <div id="fixed-footer-content">
+    <div id="fixed-footer-text">
+      Precisando de ajuda?<br />Fale com a gente a qualquer momento
+    </div>
+    <button id="fixed-footer-button">
+      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/button-whatsapp.png" alt="Botão whatsapp" />
+    </button>
+  </div>
+  <div id="fixed-footer-form" style="display:none;">
+    <a href="#" class="close-modal" id="closeFooterForm">
+      <div class="bars">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+      </div>
+    </a>
+      <?php if (function_exists('do_shortcode')) {
+        echo do_shortcode('[gravityform id="9" title="false" ajax="true" description="false"]');
+      } ?>
+  </div>
+</div>

@@ -31,33 +31,36 @@
       <div class="d-flex justify-content-center justify-content-lg-between">
         <div class="first-col d-none d-lg-block">
           <img src="<?php echo get_template_directory_uri();?>/assets/images/icons/icon-localization.png" alt="Qual unidade você deseja navegar?">
-          Você está em: <strong><a href="#" blank="_SELF" class="" id="openModalSingulares"><?php echo esc_html($top_bar_localization);?><i class="arrow down"></i></a></strong>
+          Você está em: <strong style="float: right;"><a href="#" blank="_SELF" class="d-flex flex-row" id="openModalSingulares"><div id="singular-name"></div><i class="arrow down" style="margin-top: 7px;"></i></a></strong>
         </div>
         <div class="second-col d-flex justify-content-center justify-content-lg-end">
           <nav class="w-100">
             <div class="menu-top-bar d-flex justify-content-center justify-content-md-between">
             <?php 
+            /*$currentPath = getCurrentPath();
+            $basePath = getBasePath();
+            var_dump();*/
+            //var_dump($basePath);
+
               $menu_lists = setMenuThreeLevels('top-bar');
               $menu_top_bar = "";
               $index = 0;
               foreach ($menu_lists as $item) { 
+                if ($item['title'] === "Para Sua Cooperativa" && !is_main_site()) {
+                  continue; // Pule este item
+                }
                 $class = '';
                 $class_search = false;
                 if(isset( $item[ 'class' ])) {
                   $class = esc_attr( implode( ' ', $item['class']));
                 }
+                
                 if (in_array("search", $item['class'])) {
                   $class_search = true;
                 }
                 if(isset( $item[ 'active' ])) {
                   $class .= ' '.$item[ 'active' ];
                 }
-                
-                /*if ($index==2) {
-                  $class = $class. ' flex-fill';
-                } else {
-                  $class = $class. ' flex-shrink-1';
-                }*/
                 if($index != 0 && $index != (count($menu_lists) - 1) ) { 
                   $menu_top_bar .= '<div class="separador-top-menu"></div>'."\n";
                 }

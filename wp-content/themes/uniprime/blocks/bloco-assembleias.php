@@ -8,20 +8,40 @@
   $titulo_proximas = get_field('titulo_proximas', $block['id']);
   $descricao_proximas = get_field('descricao_proximas', $block['id']);
   $descricao_pos_proximas = get_field('descricao_pos_proximas', $block['id']);
-  
+
+  $assembleias = get_posts( array(
+    'post_type'      => 'assembleia',
+    'posts_per_page' => -1,
+    'meta_key'       => 'data_assembleia',
+    'orderby'        => 'meta_value',
+    'order'          => 'DESC'
+  ) );
+  $prox_assembleias = "";
+  date_default_timezone_set('America/Sao_Paulo');
+
+  $unidades = array();
+  foreach ($assembleias as $assembleia) {
+      $unidade = get_field('unidade', $assembleia->ID); // Supondo que o campo é 'unidade'
+      if (!in_array($unidade, $unidades)) {
+          $unidades[] = $unidade;
+      }
+  }
+
 
 ?>
 <section class="assembleias mw-100 z-12">
   <div class="container">
     <div class="row d-flex justify-content-between">
-      <div class="search-by-units">          
-        <div class="title-block title-28 switzerlandBold">
+      <div class="">          
+        <div class="title-block title-28 switzerlandBold pb-4">
           <?php echo __('Editais de Convocação'); ?>
         </div>       
-        <div class="search-block d-flex justify-content-center">
-          <select class="form-control" name="search_by_units" id="search_by_units">
+        <div class="search-block d-flex justify-content-center position-relative">
+          <select class="form-control btn-consultar" name="search_assembleias" id="search_assembleias">
             <option value="0">Selecione uma cooperativa</option>
-            <option value="1">Central</option>
+            <<?php foreach ($unidades as $unidade) : ?>
+              <option value="<?php echo esc_attr($unidade); ?>"><?php echo esc_html($unidade); ?></option>
+            <?php endforeach; ?>
           </select>
         </div>
       </div>
@@ -43,17 +63,9 @@
           <div class="arrows-assembleias-desktop d-none d-md-flex"></div>
         </div>
         <div class="artigos">
-          <div class="slide-assembleias row">
+          <div class="slide-assembleias row" id="slide-assembleias">
             <?php 
-            $assembleias = get_posts( array(
-              'post_type'      => 'assembleia',
-              'posts_per_page' => -1,
-              'meta_key'       => 'data_assembleia',
-              'orderby'        => 'meta_value',
-              'order'          => 'DESC'
-            ) );
-            $prox_assembleias = "";
-            date_default_timezone_set('America/Sao_Paulo');
+            
             if ( $assembleias ) {
               // Loop pelos posts
               foreach ( $assembleias as $assembleia ) {
@@ -158,5 +170,65 @@
     </div>
   </div>
 </section>
+<script type="text/javascript">
+(function ($) {
+  document.getElementById('search_assembleias').addEventListener('change', function() {
+    var selectedUnidade = this.value.toLowerCase();
+    console.log(selectedUnidade);
+    var assembleiaItems = document.querySelectorAll('.assembleia-item');
+
+    assembleiaItems.forEach(function(item) {
+      var itemUnidade = item.getAttribute('data-unidade').toLowerCase();
+
+      if (selectedUnidade === "" || itemUnidade === selectedUnidade) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+    var selectedUnidade = this.value;
+    $.ajax({
+      url: ajax_object.ajax_url,
+      type: 'POST',
+      data: {
+        action: 'filtrar_assembleias',
+        unidade: selectedUnidade
+      },
+      success: function(response) {
+        if (response.success) {
+          console.log('Assembleias filtradas:', response.data);
+          $('.slide-assembleias').slick('unslick');
+
+          // Atualizar o conteúdo do slider
+          $('#slide-assembleias').html(response.data);
+
+          // Reinicializar o slider
+          $('.slide-assembleias').slick({
+            dots: false,
+            slidesToScroll: 1,
+            infinite: false,
+            appendArrows: '.arrows-assembleias-desktop',
+            slidesPerRow: 2,
+            rows: 3,
+            responsive: [
+              {
+                breakpoint: 992,
+                settings: {
+                  slidesPerRow: 1,
+                  rows: 1,
+                  appendArrows: '.arrows-assembleias-mobile',
+                }
+              }
+            ]
+          });
+        }
+      },
+      error: function(error) {
+        console.log('Erro ao filtrar assembleias:', error);
+      }
+    });
+  });
+})(jQuery);
+</script>
 
 

@@ -33,9 +33,9 @@ $get_fique_por_dentro = get_posts( $array_fique_por_dentro );
           </h1>
         <?php } ?>
         <?php if($description_banner) { ?>
-          <h1 class="description title-24 switzerlandBold">
+          <h2 class="description title-24 switzerlandBold">
             <?php echo esc_html($description_banner); ?>
-          </h1>
+          </h2>
         <?php } ?>
         <div class="botoes-fique-por-dentro">
           <div class="d-flex flex-wrap">

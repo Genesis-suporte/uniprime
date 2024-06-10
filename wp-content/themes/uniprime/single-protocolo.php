@@ -22,9 +22,9 @@ $image_banner = get_field('image_banner', '60');
           </h1>
         <?php } ?>
         <?php if($description_banner) { ?>
-          <h1 class="description title-24 switzerlandBold">
+          <h2 class="description title-24 switzerlandBold">
             <?php echo esc_html($description_banner); ?>
-          </h1>
+          </h2>
         <?php } ?>
       </div>
     </div>
@@ -174,7 +174,7 @@ if (!empty($agencias_data) && isset($agencias_data['singulares'])) {
               <div class="dados-protocolo"><p><?php echo get_post_meta(get_the_ID(), 'detalhamento_denuncia', true); ?></p></div>
             </div>
           </div>
-          <div class="main-protocolo row content-lgpd">
+          <div class="main-protocolo content-lgpd">
             <div class="content-protocolo">
               <div class="num-protocolo title-28 switzerlandBold">Proteção de dados (LGPD)</div>
               <div class="d-flex flex-column flex-md-row justify-content-between">
