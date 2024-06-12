@@ -14,7 +14,7 @@ if (is_singular('solucoes')) {
   }
 }
 ?>
-<header class="header-menu-banner position-relative mw-100">
+<header class="header-menu-banner position-relative mw-100" id="header-menu-banner">
   <div class="main-menu interna <?php echo is_singular('solucoes') ? ' actived ' . $current_term : '';?>" id="main-menu">
     <div class="container d-flex justify-content-between">
       <div class="logo">

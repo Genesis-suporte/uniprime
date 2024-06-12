@@ -21,7 +21,7 @@
     let lastScrollY = window.scrollY;
 
     window.addEventListener('scroll', () => {
-      console.log(window.scrollY);
+      //console.log(window.scrollY);
       if (window.scrollY < 55) {
         mainMenu.classList.remove('fixed');
         $('#main-menu').css('top', 'unset');
@@ -30,7 +30,7 @@
       
       if (window.scrollY < 1) {
         topBar.classList.remove('fixed');
-        $('body').css('paddingTop', 0);
+        //$('body').css('paddingTop', 0);
         $('.top-bar').css('top', 'unset');
         $('.top-bar').css('opacity', '1');
       } else {
@@ -47,7 +47,18 @@
               $('#main-menu').css('top', 80);
               $('#main-menu').css('opacity', '1');
             }
-          } 
+          } else {
+            if(window.scrollY > 48) {
+              $('.top-bar').css('top', 0);
+              $('.top-bar').css('opacity', '1');
+              topBar.classList.add('fixed');
+            }
+            if(window.scrollY > 178) {
+              mainMenu.classList.add('fixed');
+              $('#main-menu').css('top', 48);
+              $('#main-menu').css('opacity', '1');
+            }
+          }
           //$('body').css('paddingTop', 48);
         } else {
           // Scrolling down
@@ -63,8 +74,20 @@
               $('#main-menu').css('opacity', '0');
               mainMenu.classList.remove('fixed');
             }
-          } 
-          $('body').css('paddingTop', 0);
+          } else {
+            if(window.scrollY > 48) {
+              $('.top-bar').css('top', 0);
+              $('.top-bar').css('opacity', '0');
+              topBar.classList.remove('fixed');
+            }
+            
+            if(window.scrollY > 178) {
+              $('#main-menu').css('top', 48);
+              $('#main-menu').css('opacity', '0');
+              mainMenu.classList.remove('fixed');
+            }
+          }
+          //$('body').css('paddingTop', 0);
         }
         lastScrollY = window.scrollY;
       }
@@ -80,8 +103,8 @@
           if (!mainMenu.classList.contains('isMobile')) {
             mainMenu.classList.toggle('isMobile');
             if (mainMenu.classList.contains('para-voce')) {
-              $(".logo-black").removeClass('d-none') 
-              $(".logo-white").addClass('d-none') 
+              //$(".logo-black").removeClass('d-none') 
+              //$(".logo-white").addClass('d-none') 
               /*$("#modal-menu").addClass('d-block')*/
             }
           }
@@ -333,10 +356,10 @@
           searchMenuOpened = true;
           mainMenu.classList.add('actived');
           if(logowhite && mainMenu.classList.contains('para-voce') ) {
-            logowhite.classList.add('d-none');
+            /*logowhite.classList.add('d-none');
             logowhite.classList.remove('d-block');
             logoblack.classList.remove('d-none');  
-            logoblack.classList.add('d-block');
+            logoblack.classList.add('d-block');*/
           }
           modalMenu.classList.remove('d-none');
           modalMenu.classList.add('d-block');
@@ -346,10 +369,10 @@
           searchMenuOpened = false;
           mainMenu.classList.remove('actived');
           if(logowhite && mainMenu.classList.contains('para-voce') ) {
-            logowhite.classList.add('d-block');
+            /*logowhite.classList.add('d-block');
             logowhite.classList.remove('d-none');
             logoblack.classList.remove('d-block');  
-            logoblack.classList.add('d-none');
+            logoblack.classList.add('d-none');*/
           }
           modalMenu.classList.remove('d-block');
           modalMenu.classList.add('d-none');
@@ -396,10 +419,10 @@
       //console.log('ativando menu',mainMenu.classList.contains('isMobile'));
         //console.log(logowhite.classList);
         if( logowhite && mainMenu.classList.contains('para-voce') ) {
-          logowhite.classList.add('d-none');
+          /*logowhite.classList.add('d-none');
           logowhite.classList.remove('d-block');
           logoblack.classList.remove('d-none');  
-          logoblack.classList.add('d-block');
+          logoblack.classList.add('d-block');*/
         }
       }
       //console.log('abrindo menu principal')
@@ -419,10 +442,10 @@
         }
         menuItem.classList.remove('actived');
         if(logowhite && mainMenu.classList.contains('para-voce') ) {
-          logowhite.classList.add('d-block');
+          /*logowhite.classList.add('d-block');
           logowhite.classList.remove('d-none');
           logoblack.classList.remove('d-block');  
-          logoblack.classList.add('d-none');
+          logoblack.classList.add('d-none');*/
         }
         modalMenu.classList.remove('d-block');
         modalMenu.classList.add('d-none');
@@ -710,28 +733,7 @@
       if (event.target == modalTenhoInteresse) {
         modalTenhoInteresse.style.display = "none";
       }
-    }    
-    
-    //var btnOpenModalInteresse = document.getElementsByClassName("openModalInteresse");
-    /*if(btnOpenModalInteresse) {
-      for (let bomi = 0; bomi < btnOpenModalInteresse.length; bomi++) {
-        btnOpenModalInteresse[bomi].onclick = function(e) {
-          e.preventDefault();
-          
-          //form_modal_interesse
-          //
-          //
-          //
-          //
-
-          
-        }
-      }
-    }*/
-    
- 
-    
-    
+    } 
   });  
 })(jQuery); 
 

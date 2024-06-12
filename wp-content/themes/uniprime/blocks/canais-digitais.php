@@ -8,7 +8,8 @@
   } else {
     $fonte_style = $fonte_titulo;
   }
-  
+  $telefone_para_discar = get_field('telefone_para_discar', $block['id']);
+  $texto_caixinha = get_field('texto_caixinha', $block['id']);
   $descricao = get_field('descricao', $block['id']);
   $img = get_field('imagem_do_bloco', $block['id']);
   $layout = get_field('layout', $block['id']);
@@ -430,6 +431,42 @@
         </div>
         <div class="col-12 col-lg-7 canais-digitais-image z-13">
           <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" >
+        </div>
+      </div>
+    </section>
+  <?php } 
+  if ($layout == 'layout5') { ?>
+    <section class="canais-digitais mw-100 layout-5" <?php echo $bg_image;?>>
+      <div class="container h-100">
+        <div class="d-flex justify-content-lg-between align-items-center h-100">
+          <div class="col-12">
+            <?php if($label) { ?>
+              <div class="label-block">
+                <?php echo esc_html($label); ?>
+              </div>
+            <?php }
+            if($titulo) { ?>
+              <div class="title-block <?php echo $tamanho_titulo;?> switzerland<?php echo $fonte_style;?>">
+                <?php echo esc_html($titulo); ?>
+              </div>
+            <?php }             
+            if($texto_caixinha) { 
+              if($telefone_para_discar) {
+                echo '<a href="tel:'.esc_html($telefone_para_discar).'">';
+              } ?>
+                <div class="description-box switzerland">
+                  <?php echo __($texto_caixinha); ?>
+                  <i class="icon-arrow-left"></i>
+                </div>
+            <?php 
+              if($telefone_para_discar) {
+                echo '</a>';
+              }
+            } ?>
+            <div class="description-block">
+              <?php echo esc_html($descricao); ?>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -550,6 +550,12 @@ a {
   display: block;
   margin: 4px 0px 0 10px;
 }
+.icon-arrow-left {
+  background: url('../images/icons/icon-arrow-left.svg') no-repeat 0px 0px;
+  width: 16px;
+  height: 16px;
+  display: block;
+}
 .icon-close-gold {
   background: url('../images/icons/icon-close-gold.png') no-repeat  15px 15px;
   width: 40px;
@@ -806,6 +812,7 @@ body.admin-bar .top-bar {
 .main-menu.para-voce.actived,
 .main-menu.para-voce.isMobile,
 .main-menu.interna,
+ #main-menu.fixed,
 .header-menu-banner.para-voce .hero-banner,
 .header-menu-banner.para-voce .menu-inicial-mobile,
 .header-menu-banner.para-voce .menu-inicial-mobile .dropdown-content .content-dropdown-mobile,
@@ -818,6 +825,7 @@ body.admin-bar .top-bar {
 .main-menu.menu-fixed.para-empresa, 
 .main-menu.para-empresa.actived,
 .main-menu.para-empresa.isMobile,
+#main-menu.para-empresa.fixed, 
 .header-menu-banner.para-empresa .hero-banner,
 .header-menu-banner.para-empresa .menu-inicial-mobile,
 .header-menu-banner.para-empresa .footer-menu-mobile,
@@ -830,6 +838,7 @@ body.admin-bar .top-bar {
 .main-menu.menu-fixed.para-cooperativa, 
 .main-menu.para-cooperativa.actived,
 .main-menu.para-cooperativa.isMobile,
+#main-menu.para-cooperativa.fixed, 
 .header-menu-banner.para-cooperativa .hero-banner,
 .header-menu-banner.para-cooperativa .menu-inicial-mobile,
 .header-menu-banner.para-cooperativa .footer-menu-mobile,
@@ -843,11 +852,33 @@ body.admin-bar .top-bar {
 .main-menu .logo {
   padding: 39px 60px 0 0;
 }
+.main-menu.para-voce #logo-black,
+.main-menu.para-cooperativa #logo-black,
+.main-menu.para-empresa #logo-black {
+  display: none;
+}
+.main-menu.para-voce #logo-white,
+.main-menu.para-cooperativa #logo-white,
+.main-menu.para-empresa #logo-white {
+  display: block;
+}
+.main-menu.para-voce.actived #logo-white,
+.main-menu.para-voce.fixed #logo-white,
+.main-menu.para-voce.isMobile #logo-white {
+  display: none;
+}
+.main-menu.para-voce.actived #logo-black,
+.main-menu.para-voce.fixed #logo-black,
+.main-menu.para-voce.isMobile #logo-black {
+  display: block;
+}
+
 .menu-inicial .menu-item {
   display: flex;
   box-sizing: border-box;
 }
 .main-menu.para-voce.actived .menu-inicial .menu-item .menu-dropdown,
+.main-menu.para-voce.fixed .menu-inicial .menu-item .menu-dropdown,
 .main-menu.para-voce.isMobile .menu-inicial .menu-item .menu-dropdown,
 .main-menu.interna .menu-inicial .menu-item .menu-dropdown {
   color: var(--primary-color);
@@ -881,7 +912,9 @@ page-id-401 = para-seu-negocio
 .page-id-401 .main-menu.actived .menu-dropdown {
   text-shadow: none;
 }
-.main-menu.actived .menu-inicial .menu-item.actived .menu-dropdown {
+.main-menu.actived .menu-inicial .menu-item.actived .menu-dropdown,
+.main-menu.fixed .menu-inicial .menu-item.actived .menu-dropdown
+ {
   color: var(--color-actived);
   border-bottom: 2px solid var(--color-actived);
 }
@@ -892,13 +925,14 @@ page-id-401 = para-seu-negocio
 }
 .main-menu.para-voce.actived .menu-inicial .menu-item .menu-dropdown .arrow,
 .main-menu.para-voce.isMobile .menu-inicial .menu-item .menu-dropdown .arrow,
+.main-menu.para-voce.fixed .menu-inicial .menu-item .menu-dropdown .arrow,
 .main-menu.interna .menu-inicial .menu-item .menu-dropdown .arrow {
   border-color: var(--primary-color);
 }
 .main-menu.para-voce.actived .menu-inicial .menu-item.actived .menu-dropdown .arrow,
-.main-menu.para-voce.isMobile .menu-inicial .menu-item.actived .menu-dropdown .arrow {
+.main-menu.para-voce.isMobile .menu-inicial .menu-item.actived .menu-dropdown .arrow,
+.main-menu.para-voce.fixed .menu-inicial .menu-item.actived .menu-dropdown .arrow  {
   border-color: var(--color-actived);
-
 }
 
 .menu-item .dropdown-content {
@@ -1710,6 +1744,35 @@ section.canais-digitais {
   height: 83%;
   bottom: 0px;
   z-index: -1;
+}
+
+.canais-digitais.layout-5 {
+  background-size: cover !important;
+  background-position: center center !important;
+  height: 505px !important;
+  padding: 0;
+}
+.canais-digitais.layout-5 .title-block,
+.canais-digitais.layout-5 .description-block {
+  color: white;
+}
+.canais-digitais.layout-5 .description-box {
+  background-color: var(--primary-color-para-voce);
+  border-radius: 16px;
+  color: var(--primary-color-brand);
+  padding: 24px 24px 8px 24px;
+  max-width: 470px;
+  margin: 24px 0;
+  position: relative;
+}
+.canais-digitais.layout-5 .description-box .icon-arrow-left {
+  position: absolute;
+  right: 20px;
+  top: calc(50% - 8px);
+}
+.canais-digitais.layout-5 .col-12 {
+  padding-left: 114px;
+  width: 65%;
 }
 /* ONDE ENCONTRAR */
 .onde-encontrar {
@@ -4806,7 +4869,10 @@ footer {
   .canais-digitais.layout-2 .fundo-cinza {
     height: 100%;
   }
-  
+  .canais-digitais.layout-5 {
+    padding-left: 14px;
+    width: 100%;
+  }
   /* ONDE ENCONTRAR */
   .onde-encontrar {
     padding: 66px 0 30px;

@@ -94,7 +94,7 @@
       </div>
     </div>
     <div class="header-menu-banner position-relative mw-100">
-      <div class="main-menu interna" id="main-menu">
+      <div class="main-menu interna header-main-menu" id="main-menu">
         <div class="container d-flex justify-content-between">
           <div class="logo">
             <a href="/" class="link-logo">

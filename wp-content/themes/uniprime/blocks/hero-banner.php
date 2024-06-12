@@ -7,7 +7,7 @@ $tipo_homepage = get_field('tipo-homepage');
     <div class="container d-flex justify-content-between">
       <div class="logo">
         <a href="/" class="link-logo">
-          <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black d-none" id="logo-black" alt="Logo Uniprime">
+          <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" id="logo-black" alt="Logo Uniprime">
           <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo-branco.png" class="logo-white" id="logo-white" alt="Logo Uniprime">
         </a>
       </div>
