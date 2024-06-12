@@ -20,6 +20,7 @@ $descricao = get_field('descricao');
   <div class="hero-image">
     <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);">
       <!--<img src="<?php echo esc_url($image_banner['url']); ?>" alt="<?php echo esc_html($image_banner['alt']); ?>" >-->
+      <div class="overlay d-block d-sm-none"></div>
     </div>
     <div class="container">
       <div class="position-absolute copy">

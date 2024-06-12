@@ -21,27 +21,50 @@
     let lastScrollY = window.scrollY;
 
     window.addEventListener('scroll', () => {
-      if (window.scrollY < 48) {
+      console.log(window.scrollY);
+      if (window.scrollY < 55) {
+        mainMenu.classList.remove('fixed');
+        $('#main-menu').css('top', 'unset');
+        $('#main-menu').css('opacity', '1');
+      }
+      
+      if (window.scrollY < 1) {
         topBar.classList.remove('fixed');
         $('body').css('paddingTop', 0);
-        $('.top-bar').css('top', 0);
+        $('.top-bar').css('top', 'unset');
+        $('.top-bar').css('opacity', '1');
       } else {
         // Scrolling up
-        if (window.scrollY < lastScrollY) {
-          topBar.classList.add('fixed');        
-          $('.top-bar').css('opacity', '1');
+        if (window.scrollY < lastScrollY) {          
           if(body.classList.contains('admin-bar')) {
-            $('.top-bar').css('top', 32);
+            if(window.scrollY > 48) {
+              $('.top-bar').css('top', 32);
+              $('.top-bar').css('opacity', '1');
+              topBar.classList.add('fixed');
+            }
+            if(window.scrollY > 258) {
+              mainMenu.classList.add('fixed');
+              $('#main-menu').css('top', 80);
+              $('#main-menu').css('opacity', '1');
+            }
           } 
           //$('body').css('paddingTop', 48);
         } else {
           // Scrolling down
-          topBar.classList.remove('fixed');
           if(body.classList.contains('admin-bar')) {
-            $('.top-bar').css('top', 32);
+            if(window.scrollY > 48) {
+              $('.top-bar').css('top', 32);
+              $('.top-bar').css('opacity', '0');
+              topBar.classList.remove('fixed');
+            }
+            
+            if(window.scrollY > 258) {
+              $('#main-menu').css('top', 80);
+              $('#main-menu').css('opacity', '0');
+              mainMenu.classList.remove('fixed');
+            }
           } 
           $('body').css('paddingTop', 0);
-          $('.top-bar').css('opacity', '0');
         }
         lastScrollY = window.scrollY;
       }
@@ -292,14 +315,7 @@
     }
     // CLICK OR MOUSEOVER EVENT FOR MENU DROP DOWN
     
-    const path = window.location.pathname;
-
-    let isParaVoce = false;
-    if (path.includes('para-seu-negocio') || path.includes('para-sua-cooperativa')) {
-      isParaVoce = false;
-    } else {
-      isParaVoce = true;
-    } 
+    //const path = window.location.pathname;
 
     logoblack = document.getElementById('logo-black'); 
     logowhite = document.getElementById('logo-white');
@@ -316,7 +332,7 @@
           openSearchButton.classList.add('icon-close-gold');
           searchMenuOpened = true;
           mainMenu.classList.add('actived');
-          if(logowhite && isParaVoce) {
+          if(logowhite && mainMenu.classList.contains('para-voce') ) {
             logowhite.classList.add('d-none');
             logowhite.classList.remove('d-block');
             logoblack.classList.remove('d-none');  
@@ -329,7 +345,7 @@
           openSearchButton.classList.add('icon-search');
           searchMenuOpened = false;
           mainMenu.classList.remove('actived');
-          if(logowhite && isParaVoce) {
+          if(logowhite && mainMenu.classList.contains('para-voce') ) {
             logowhite.classList.add('d-block');
             logowhite.classList.remove('d-none');
             logoblack.classList.remove('d-block');  
@@ -374,9 +390,12 @@
         modalMenu.classList.remove('d-none');
         modalMenu.classList.add('d-block');
         // troca as logos 
-        
+        //para-cooperativa
+        //para-empresa
+
+      //console.log('ativando menu',mainMenu.classList.contains('isMobile'));
         //console.log(logowhite.classList);
-        if(logowhite && isParaVoce) {
+        if( logowhite && mainMenu.classList.contains('para-voce') ) {
           logowhite.classList.add('d-none');
           logowhite.classList.remove('d-block');
           logoblack.classList.remove('d-none');  
@@ -394,9 +413,12 @@
           menuInicialItem[j].childNodes[1].childNodes[1].classList.add('down');
           menuInicialItem[j].childNodes[1].childNodes[1].classList.remove('up');
         }
-        mainMenu.classList.remove('actived');
+        console.log('mainMenu', mainMenu.classList.contains('hero-banner-menu'));
+        if(!mainMenu.classList.contains('para-cooperativa') && !mainMenu.classList.contains('para-empresa') || mainMenu.classList.contains('hero-banner-menu')) {
+          mainMenu.classList.remove('actived');
+        }
         menuItem.classList.remove('actived');
-        if(logowhite && isParaVoce) {
+        if(logowhite && mainMenu.classList.contains('para-voce') ) {
           logowhite.classList.add('d-block');
           logowhite.classList.remove('d-none');
           logoblack.classList.remove('d-block');  
@@ -676,12 +698,7 @@
     //modal tenho interesse
     var modalTenhoInteresse = document.getElementById("modalTenhoInteresse");
     var closemodalTenhoInteresse = document.getElementById("closemodalTenhoInteresse");
-    function setCookie(cname, cvalue, exdays) {
-      var d = new Date();
-      d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-      var expires = "expires=" + d.toUTCString();
-      document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-    }
+
     if(closemodalTenhoInteresse){
       closemodalTenhoInteresse.onclick = function() {
         modalTenhoInteresse.style.display = "none";
@@ -730,7 +747,14 @@ jQuery(document).ready(function($) {
   const conveniadasList = $('#conveniadasList');
   // Obtém a URL atual
   var currentUrl = window.location.pathname;
-          
+      
+  function setCookie(cname, cvalue, exdays) {
+    //console.log(cname, cvalue, exdays);
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
 
   function getCookie(cname) {
     var name = cname + "=";
@@ -809,21 +833,27 @@ jQuery(document).ready(function($) {
   getSingularName()
   document.querySelectorAll('.singular-link').forEach(link => {
     link.addEventListener('click', function() {
+      //console.log(this.dataset.singular);
       setCookie("selectedSingular", this.dataset.singular, 365);
     });
   });
   function openModalSingulares() {
     singularesModal.style.display = "block";
   }
-  btnOpenModalSingulares.onclick = function() {
-    openModalSingulares();
+  if(btnOpenModalSingulares) {
+    btnOpenModalSingulares.onclick = function() {
+      openModalSingulares();
+    }
   }
-  btnOpenModalSingularesMobile.onclick = function() {
-    openModalSingulares();
+  if(btnOpenModalSingularesMobile) {
+    btnOpenModalSingularesMobile.onclick = function() {
+      openModalSingulares();
+    }
   }
-  
-  closeSingularesModal.onclick = function() {
-    singularesModal.style.display = "none";
+  if(closeSingularesModal) {    
+    closeSingularesModal.onclick = function() {
+      singularesModal.style.display = "none";
+    }
   }
 
   window.onclick = function(event) {
@@ -887,7 +917,7 @@ jQuery(document).ready(function($) {
     modalTenhoInteresse.style.display = "block";
 
     // Faz a chamada AJAX para carregar o formulário
-    $.ajax({
+    /*$.ajax({
       url: ajax_object.ajax_url,
       type: 'POST',
       data: {
@@ -907,7 +937,7 @@ jQuery(document).ready(function($) {
       error: function(error) {
         console.log('Erro ao carregar o formulário:', error);
       }
-    });
+    });*/
   }
   fixedFooterButton = document.getElementById('fixed-footer-button');
   fixedFooterContent = document.getElementById('fixed-footer-content');

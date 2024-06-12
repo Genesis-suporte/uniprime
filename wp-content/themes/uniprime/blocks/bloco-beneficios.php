@@ -40,13 +40,32 @@
                 $descricao_card = get_sub_field('descricao_card');
                 $sub_descricao_card = get_sub_field('sub_descricao');
                 $imagem_card = get_sub_field('imagem_card');
-                $link_card = get_sub_field('link'); 
-                $tipo_link_card = get_sub_field('tipo_link'); 
-                //->filename url alt
-                //print_r( $destaque);?>
+
+                $estilo_do_botao = get_sub_field('estilo_do_botao'); 
+                $habilitar_modal = get_sub_field('habilitar_modal');
+                $link_card = get_sub_field('link');
+                
+                $classBtn = '';
+                if($estilo_do_botao == 'imagem') {
+                  $classBtn = 'btn-actived';
+                  $imagem_cta = get_sub_field('imagem_cta');
+                } else if($estilo_do_botao == 'azul') {
+                  $classBtn = 'button btn-primary btn';
+                } else if($estilo_do_botao == 'amarelo') {
+                  $classBtn = 'button btn-actived btn';
+                } else if($estilo_do_botao == 'branco') {
+                  $classBtn = 'button btn-primary-color btn';
+                } else if($estilo_do_botao == 'link') {
+                  $classBtn = 'link';
+                } else {
+                  $estilo_do_botao = 'nenhum';
+                }
+                
+                ?>
                 <div class="card-beneficios position-relative">
                   <div class="image d-flex justify-content-center">
                     <img src="<?php echo esc_url($imagem_card['url']); ?>" alt="<?php echo esc_html($imagem_card['alt']); ?>" >
+                    <div class="overlay d-block"></div>
                   </div>
                   <div class="position-absolute copy">
                     <?php if($titulo_card) { ?>
@@ -64,17 +83,61 @@
                         <?php echo __($sub_descricao_card); ?>
                       </div>
                     <?php }  
-                    if($link_card) { 
-                      if ($tipo_link_card == 'link' ) { ?>
-                        <div class="d-block link">
-                          <a href="<?php echo esc_html($link_card['url']); ?>" class=""><?php echo esc_html($link_card['title']); ?><i class="arrow right"></i></a>
+                    
+                    if($estilo_do_botao != 'nenhum') {
+      
+                      if($habilitar_modal) {  ?>
+                        <div class="d-flex w-100 justify-content-start enabled">
+                          <a class="button <?php echo $classBtn;?>"  
+                            href="javascript:void(0)" 
+                            data-title_card="<?php echo esc_html( $titulo ); ?>"
+                            data-label_interesse="<?php echo esc_html( get_field('label_modal_interesse', $block['id']) ); ?>"
+                            data-title_interesse="<?php echo esc_html( get_field('titulo_modal_interesse', $block['id']) ); ?>"
+                            data-description_interesse="<?php echo esc_html( get_field('descricao_modal_interesse', $block['id']) ); ?>"
+                            data-habilitar="<?php echo esc_html( json_encode(get_field('habilitar_botoes', $block['id'])) ); ?>"
+                            data-texto_telefone="<?php echo esc_html( get_field('texto_telefone', $block['id']) ); ?>"
+                            data-texto_whatsapp="<?php echo esc_html( get_field('texto_whatsapp', $block['id']) ); ?>"
+                            data-numero_whatsapp="<?php echo esc_html( get_field('numero_whatsapp', $block['id']) ); ?>"
+                            data-id_form="<?php echo esc_html( get_field('id_form', $block['id']) ); ?>"
+                            onclick="abreModalInteresse(this)"
+                          >
+                            <?php if($estilo_do_botao == 'imagem') { ?>
+                              <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
+                            <?php } else { ?> 
+                              <?php echo esc_html( $link_card['title'] ); ?>
+                              <?php if($estilo_do_botao == 'branco') {
+                                echo '<i class="icon-cta-blue right"></i>';
+                              } ?>
+                              <?php if($estilo_do_botao == 'link') {
+                                echo '<i class="arrow right"></i>';
+                              } ?>
+                            <?php } ?>
+                          </a>
                         </div>
                       <?php } else { ?>
-                        <div class="d-block">
-                          <a class="button btn-actived btn-secondary btn" href="<?php echo esc_url( $link_card['url'] ); ?>"><?php echo esc_html( $link_card['title'] ); ?></a>
+                        <div class="d-flex w-100 justify-content-start disabled">
+                          <a 
+                            href="<?php echo esc_url( $link_card['url'] ); ?>" 
+                            class=" <?php echo $classBtn;?>" 
+                            <?php if($estilo_do_botao == 'imagem') { ?>
+                              target="<?php echo esc_html( $link_card['target'] ); ?>"
+                            <?php } ?>
+                          >
+                            <?php if($estilo_do_botao == 'imagem') { ?>
+                              <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
+                            <?php } else { ?> 
+                              <?php echo esc_html( $link_card['title'] ); ?>
+                              <?php if($estilo_do_botao == 'branco') {
+                                echo '<i class="icon-cta-blue right"></i>';
+                              } ?>
+                              <?php if($estilo_do_botao == 'link_card') {
+                                echo '<i class="arrow right"></i>';
+                              } ?>
+                            <?php } ?>
+                          </a>
                         </div>
                       <?php } 
-                      } ?>
+                      }?>
                   </div>
                 </div>
                 <?php

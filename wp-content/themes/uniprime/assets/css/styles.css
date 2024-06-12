@@ -646,7 +646,7 @@ li.select2-results__option .icon-menu {
   position: relative;
   background-color: white;
   font-family: 'Calibri' !important;
-  transition: opacity  .5s ease-in-out;
+  transition: opacity  .2s ease-in-out;
 }
 .top-bar.fixed {
   position: fixed;
@@ -793,7 +793,14 @@ body.admin-bar .top-bar {
   position: relative;
   z-index: 110;
   transition: all .2s ease-in-out;
-  
+}
+
+#main-menu.fixed {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  right: 0;
+  z-index: 111;
 }
 .main-menu.menu-fixed.para-voce, 
 .main-menu.para-voce.actived,
@@ -858,14 +865,29 @@ body.admin-bar .top-bar {
   color: white;
   padding: 50px 10px 49px;
   position: relative;  
+}
+/* 
+page-id-405 = para-sua-cooperativa
+page-id-401 = para-seu-negocio
+*/
+
+.home .menu-inicial .menu-item .menu-dropdown,
+.page-id-405 .menu-inicial .menu-item .menu-dropdown,
+.page-id-401 .menu-inicial .menu-item .menu-dropdown {
   text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
 }
-
+.home .main-menu.actived .menu-dropdown,
+.page-id-405 .main-menu.actived .menu-dropdown,
+.page-id-401 .main-menu.actived .menu-dropdown {
+  text-shadow: none;
+}
 .main-menu.actived .menu-inicial .menu-item.actived .menu-dropdown {
   color: var(--color-actived);
   border-bottom: 2px solid var(--color-actived);
 }
-.menu-inicial .menu-item .menu-dropdown .arrow {
+.menu-inicial .menu-item .menu-dropdown .arrow,
+.main-menu.para-empresa.actived.interna .menu-inicial .menu-item .menu-dropdown .arrow,
+.main-menu.para-cooperativa.actived.interna .menu-inicial .menu-item .menu-dropdown .arrow {
   border-color: white;
 }
 .main-menu.para-voce.actived .menu-inicial .menu-item .menu-dropdown .arrow,
@@ -897,7 +919,7 @@ body.admin-bar .top-bar {
   width: 100%;
   /* transition: opacity .5s ease-in-out 0.1s;*/
   transition-property: opacity;
-  transition-duration: .2s;
+  transition-duration: .1s;
   transition-timing-function: ease-in-out;
 }
 .menu-inicial .menu-item.actived .dropdown-content {
@@ -2028,6 +2050,7 @@ a.leia_mais:hover {
   color: white;
   max-width: 100%;
   padding: 104px 104px 52px;
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
 }
 .beneficios-institucional .slide-beneficios .image {
   width: 100%;
@@ -2038,6 +2061,7 @@ a.leia_mais:hover {
 .beneficios-institucional .slide-beneficios .title {
   color: white;
   padding-bottom: 8px;
+  text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
 }
 .beneficios-institucional .slide-beneficios .description {
   font-size: 20px;
@@ -2051,17 +2075,28 @@ a.leia_mais:hover {
   font-family: 'Calibri';
   font-size: 16px;
   line-height: 28px;
-  padding: 15px 0 0;
+  padding: 0px 0 0;
 }
 .beneficios-institucional .btn {
   padding: 11px 23px !important;
   height: 52px;
   font-size: 18px !important;
-  margin-top: 20px;
+  margin-top: 0px;
+}
+.beneficios-institucional .slide-beneficios .image .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 43, 65, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none; /* Para garantir que a sobreposição não interfira com a interação da imagem abaixo */
+  border-radius: 16px;
 }
 /* DIRETORIA */
-.diretoria-e-conselhos {
+section.diretoria-e-conselhos {
   padding: 128px 0 106px;
+  background: white;
 }
 .diretoria-e-conselhos .description-block {
   padding-bottom: 50px;
@@ -3826,7 +3861,7 @@ footer {
 .footer-menu .col-solucoes {
   position: relative;
   flex: 0 0 auto;
-  width: 27%;
+  width: 31%;
 }
 .footer-menu .col-solucoes .solucoes {
   padding: 0 60px 13px 107px;
@@ -3842,7 +3877,7 @@ footer {
   z-index: 9;
   transition: all .2s ease-in-out;
   padding: 60px 60px 40px;
-  width: 270%;
+  width: 222%;
   background-color: #fff;
   margin: -91px 0 0 0;
 }
@@ -3897,7 +3932,7 @@ footer {
 
 .footer-menu .col-right {
   flex: 0 0 auto;
-  width: 73%;
+  width: 69%;
   padding-left: 20px;
 }
 .footer-menu .col-right .menu-footer ul {
@@ -4176,6 +4211,9 @@ footer {
   .atendimento .col-redes {
     padding: 0px 80px 0 0px;
   }
+  .content-internas .copy {
+    padding: 0 64px;
+  }
 }
 @media (max-width: 1199.98px) { 
   .main-menu .logo {
@@ -4197,6 +4235,9 @@ footer {
   }
   .atendimento .col-left .img {
     padding-left: 0px;
+  }
+  .content-internas .img.direita {
+    width: 50%;
   }
   
   .bloco-cards .cards-bbc {
@@ -4647,13 +4688,15 @@ footer {
   }
   /* FIX PRA PÁGINA CANAIS DIGITAIS */
   .canais-digitais.layout-3 {
-  padding: 55px 0 0px 0 !important
+    padding: 55px 0 0px 0 !important;
+    background-position: 65% !important;
+    height: 544px !important;
   }
   .canais-digitais.layout-3 .container {
     height: auto;
   }
   .canais-digitais.layout-3 .col-right {
-    padding: 148px 24px 100px;
+    padding: 93px 24px 0px;
   }
   .canais-digitais.layout-3 .title-block, 
   .canais-digitais.layout-3 .description-block {
@@ -4661,7 +4704,7 @@ footer {
     width: 100%;
   }
   .canais-digitais.layout-3 .card-canais-digitais {
-    width: 100%;
+    width: auto;
   }
   .canais-digitais.layout-4 .card-canais-digitais {
     width: auto;
@@ -4709,7 +4752,7 @@ footer {
     line-height: 47px;
   }
   .canais-digitais .container {
-    min-height: 602px;
+    min-height: 488px;
     justify-content: center;
     display: flex;
   }
@@ -4857,7 +4900,8 @@ footer {
     padding: 0 !important;
   }
   .content-internas .img.direita {
-    margin: 0px 0 30px 0px;
+    margin: 32px 0 30px 0px;
+    width: 100%;
   }
   /* BLOCO MVV */
   .beneficios-institucional {
@@ -4880,12 +4924,28 @@ footer {
     padding: 32px;
   }
   .beneficios-institucional .slide-beneficios .title {
-    font-size: 36px;
-    line-height: 47px;
-    padding-bottom: 28px;
+    font-size: 36px !important;
+    line-height: 47px !important;
+    padding-bottom: 16px;
+  }
+  .beneficios-institucional .slide-beneficios .description {
+    max-width: 100%;
   }
   .beneficios-institucional .arrows-beneficios-mobile {
     padding-top: 34px;
+  }
+  .beneficios-institucional .slide-beneficios .sub-description {
+    line-height: 21px;
+  }
+  .beneficios-institucional .btn {
+    padding-top: 0px;
+    margin-top: 0px;
+  }
+  .beneficios-institucional .slide-beneficios .image .overlay {
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: rgba(0, 43, 65, 0.8); /* Cor com 80% de transparência */
   }
   /* DIRETORIA */
   .diretoria-e-conselhos {
@@ -5358,6 +5418,10 @@ footer {
 
   .content p {
     padding: 0 0px;
+  }
+  
+  .content-internas .copy {
+    padding: 0 14px;
   }
   /* BLOCO BAIXE CONTEUDO EXCLUSIVO */
   .bloco-conteudo-exclusivo {

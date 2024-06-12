@@ -249,7 +249,7 @@
                 <?php echo esc_html($descricao); ?>
               </div>
             <?php } ?>
-            <div class="d-flex justify-content-center justify-content-md-between gap-2 flex-wrap flex-md-nowrap">
+            <div class="d-flex justify-content-start justify-content-md-between gap-2 flex-wrap flex-md-nowrap">
               <?php 
               if( have_rows('botoes') ):
                 while ( have_rows('botoes') ) : the_row();

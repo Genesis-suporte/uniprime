@@ -19,7 +19,11 @@ if (is_singular('solucoes')) {
     <div class="container d-flex justify-content-between">
       <div class="logo">
         <a href="/" class="link-logo">
-          <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" alt="Logo Uniprime">
+          <?php if ($current_term == "para-voce") { ?>
+            <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" id="logo-black" alt="Logo Uniprime">
+          <?php } else { ?>
+            <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo-branco.png" class="logo-white" id="logo-white" alt="Logo Uniprime">
+          <?php } ?>
         </a>
       </div>
       <div class="flex-grow-1 d-none d-lg-block">
