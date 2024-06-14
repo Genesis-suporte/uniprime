@@ -333,7 +333,7 @@
       </div>
     </div>
     <div id="fixed-footer">
-      <div id="fixed-footer-content">
+      <div id="fixed-footer-content" class="actived">
         <div id="fixed-footer-text">
           Precisando de ajuda?<br />Fale com a gente a qualquer momento
         </div>

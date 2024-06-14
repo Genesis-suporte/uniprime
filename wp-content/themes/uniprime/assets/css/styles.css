@@ -1916,7 +1916,7 @@ section.canais-digitais {
   text-decoration: underline !important;
 }
 .novidades .artigos .card-post .cta a.leia_mais {
-  color: var(--primary-color-brand);
+  color: var(--primary-color);
   font-size: 16px;
 }
 a.leia_mais:hover {
@@ -3875,6 +3875,7 @@ footer {
   z-index: 12;
   position: relative;
   font-family: 'Calibri' !important;
+  overflow: hidden;
 }
 .footer-top {
   background-color:  var(--primary-color-para-voce);
@@ -3924,12 +3925,13 @@ footer {
 .footer-menu .col-solucoes {
   position: relative;
   flex: 0 0 auto;
-  width: 31%;
+  width: 28%;
 }
 .footer-menu .col-solucoes .solucoes {
-  padding: 0 60px 13px 107px;
+  padding: 0 5px 13px 117px;
 }
 .footer-menu .description-menu {
+  color: var(--color-neutral);
   font-size: 16px;
   line-height: 24px;
 }
@@ -3939,8 +3941,8 @@ footer {
   background-color: var(--primary-color-para-cooperativa);
   z-index: 9;
   transition: all .2s ease-in-out;
-  padding: 60px 60px 40px;
-  width: 222%;
+  padding: 60px 20px 40px 60px;
+  width: 257%;
   background-color: #fff;
   margin: -91px 0 0 0;
 }
@@ -3969,9 +3971,13 @@ footer {
   opacity: 1;
   background-color: var(--primary-color-para-cooperativa);
 }
-
+.footer-menu .menu-item:hover .dropdown-content .container {
+  padding-left: 0;
+  padding-right: 0;
+}
 .footer-menu .menu-item .dropdown-content .container .menu-subitem {
   margin: 0px 0px 20px 0px;
+  padding: 0 0 0 12px;
 }
 .footer-menu .menu-item .dropdown-content.cooperativa .container .menu-subitem {
   margin: 0px 0px 6px 0px;
@@ -3995,7 +4001,7 @@ footer {
 
 .footer-menu .col-right {
   flex: 0 0 auto;
-  width: 69%;
+  width: 72%;
   padding-left: 20px;
 }
 .footer-menu .col-right .menu-footer ul {
@@ -4233,21 +4239,24 @@ footer {
   position: absolute;
 }
 #fixed-footer-text {
-  opacity: 0;
-  transition: all .3s ease-in-out;
-  margin-right: 0px;
-  width: 310px;
   color: white;
-  font-size: 14px;
+  /* display: none; */
   font-family: 'Calibri';
-  text-align: right;
+  font-size: 14px;
   line-height: 28px;
+  margin-right: -240px;
+  opacity: 0;
+  text-align: right;
   text-decoration: underline;
   text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+  transition: all .3s ease-in-out;
+  width: 240px;
+  cursor: pointer;
 }
-#fixed-footer-text.actived {
+#fixed-footer-content.actived #fixed-footer-text {
+  /* display: block; */
+  margin-right: 20px;  
   opacity: 1;
-  margin-right: 20px;
 }
 #fixed-footer-button {
   background: transparent;
@@ -4256,7 +4265,7 @@ footer {
   transition: all .3s ease-in-out;
   transform: scale(1); 
 }
-#fixed-footer-button:hover {
+#fixed-footer-content.actived #fixed-footer-button {
   transform: scale(1.2); 
 }
 

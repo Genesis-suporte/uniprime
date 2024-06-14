@@ -22,6 +22,11 @@
 
     window.addEventListener('scroll', () => {
       //console.log(window.scrollY);
+      if (window.scrollY > 1) {
+        $('#fixed-footer-content').removeClass('actived');
+      } else {
+        $('#fixed-footer-content').addClass('actived');
+      }
       if (window.scrollY < 55) {
         mainMenu.classList.remove('fixed');
         $('#main-menu').css('top', 'unset');
@@ -943,7 +948,7 @@ jQuery(document).ready(function($) {
   }
   fixedFooterButton = document.getElementById('fixed-footer-button');
   fixedFooterContent = document.getElementById('fixed-footer-content');
-  $('#fixed-footer-button').on('click', function() {
+  $('#fixed-footer-content').on('click', function() {
     $('#fixed-footer-form').toggle();
     $('#fixed-footer-content').toggle();
   });
@@ -953,9 +958,9 @@ jQuery(document).ready(function($) {
   });
   
   fixedFooterContent.addEventListener('mouseover', (e) => {
-    $('#fixed-footer-text').addClass('actived');
+    $('#fixed-footer-content').addClass('actived');
   });
   fixedFooterContent.addEventListener('mouseleave', (e) => {
-    $('#fixed-footer-text').removeClass('actived');
+    $('#fixed-footer-content').removeClass('actived');
   });    
 });
