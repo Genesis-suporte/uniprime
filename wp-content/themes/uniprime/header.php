@@ -25,9 +25,7 @@
 
 <body <?php body_class(); ?> >
   <?php wp_body_open(); ?>
-  <header id="masthead" class="site-header">
-
-    <?php
+  <?php
     // BLOCK WITH TOP BAR
     $top_bar_localization = "Uniprime Central Nacional";//get_field('top_bar_localization', $block['id']);
     if (is_front_page() || is_search()) {
@@ -37,10 +35,9 @@
       $currentSlug = $post->post_name;
       
     }
-    //if($currentSlug == $term->slug || (is_front_page() && $term->slug == 'para-voce')) { 
-    // Verificar se há conteúdo antes de renderizar
-    //if ($top_bar_localization && $a_uniprime_menu && $atendimento_menu) { ?>
-    <div class="top-bar mw-100 <?php echo $currentSlug; echo is_singular('solucoes') ? 'solucoes-' . $current_term : '';?>">
+  ?>
+  <header class="top-bar mw-100 <?php echo $currentSlug; echo is_singular('solucoes') ? ' solucoes-' . $current_term : '';?>">
+    <div class="bg-white">
       <div class="container" id="top-bar-container">
         <div class="d-flex justify-content-center justify-content-lg-between">
           <div class="first-col d-none d-lg-block">
@@ -93,12 +90,12 @@
         </div>
       </div>
     </div>
-    <div class="header-menu-banner position-relative mw-100">
-      <div class="main-menu interna header-main-menu" id="main-menu">
+    <div class="header-menu-banner position-relative mw-100 <?php echo $tipo_homepage;?>">
+      <div class="main-menu interna header-main-menu <?php echo $tipo_homepage;?>" id="main-menu">
         <div class="container d-flex justify-content-between">
           <div class="logo">
             <a href="/" class="link-logo">
-              <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" class="logo-black" id="logo-black" alt="Logo Uniprime">
+              <img src="<?php echo get_template_directory_uri();?>/assets/images/UniPrime-logo.png" alt="Logo Uniprime">
             </a>
           </div>
           <div class="flex-grow-1 d-none d-lg-block">
@@ -543,5 +540,4 @@
         </div>
       </div>
     </div>
-    
   </header>

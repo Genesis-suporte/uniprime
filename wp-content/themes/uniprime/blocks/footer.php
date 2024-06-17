@@ -12,12 +12,13 @@
   $descricao_3_direita = get_field('descricao_3_direita', $block['id']);
   $texto_solucoes = get_field('texto_solucoes', $block['id']);
 ?>
-<footer class="footer mw-100">
+<footer class="footer mw-100">  
   <div class="footer-top">
     <div class="container">
       <div class="row d-flex flex-column flex-md-row">
         <div class="col-12 col-lg-4 logo-footer">
           <img src="<?php echo esc_url($logo_footer['url']); ?>" alt="<?php echo esc_attr($logo_footer['alt']); ?>" />
+          <div class="border-img-footer"></div>
         </div>
         <div class="col-12 col-lg-3 ouvidoria">
           <div class="label-footer bloco-central icon-phone icon-menu">

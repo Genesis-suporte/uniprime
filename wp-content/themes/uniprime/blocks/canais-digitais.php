@@ -52,9 +52,13 @@
                     $link = get_sub_field('link');
                     
                     if($estilo_do_botao == 'imagem') {
-                      $classBtn = 'btn-actived';
                       $imagem_cta = get_sub_field('imagem_cta');
-                      $classBtn = '';
+                      $imagem_cta_hover = get_sub_field('imagem_cta_hover');
+                      if($imagem_cta_hover) {
+                        $classBtn = 'img-has-hover position-relative';
+                      } else {
+                        $classBtn = 'img-has-no-hover';
+                      }
                     } else if($estilo_do_botao == 'azul') {
                       $classBtn = 'btn-primary btn';
                     } else if($estilo_do_botao == 'amarelo') {
@@ -80,7 +84,10 @@
                           data-id_form="<?php echo esc_html( get_field('id_form', $block['id']) ); ?>"
                           onclick="abreModalInteresse(this)">
                           <?php if($estilo_do_botao == 'imagem') { ?>
-                            <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
+                            <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" class="<?php echo ($imagem_cta_hover) ? 'has-hover' : '';?>"/>
+                            <?php if($imagem_cta_hover) { ?>
+                              <img src="<?php echo esc_url($imagem_cta_hover['url']); ?>" alt="<?php echo esc_html($imagem_cta_hover['alt']); ?>" class="is-hover" />
+                            <?php } ?>
                           <?php } else { ?> 
                             <?php echo esc_html( $link['title'] ); ?>
                           <?php } ?>
@@ -93,7 +100,10 @@
                             target="<?php echo esc_html( $link['target'] ); ?>"
                           <?php } ?>>
                             <?php if($estilo_do_botao == 'imagem') { ?>
-                              <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
+                              <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" class="<?php echo ($imagem_cta_hover) ? 'has-hover' : '';?>"/>
+                            <?php if($imagem_cta_hover) { ?>
+                              <img src="<?php echo esc_url($imagem_cta_hover['url']); ?>" alt="<?php echo esc_html($imagem_cta_hover['alt']); ?>" class="is-hover" />
+                            <?php } ?>
                             <?php } else { ?> 
                               <?php echo esc_html( $link['title'] ); ?>
                             <?php } ?>
@@ -150,9 +160,12 @@
                       $link = get_sub_field('link');
                       
                       if($estilo_do_botao == 'imagem') {
-                        $classBtn = 'btn-actived';
-                        $imagem_cta = get_sub_field('imagem_cta');
-                        $classBtn = '';
+                        $imagem_cta_hover = get_sub_field('imagem_cta_hover');
+                        if($imagem_cta_hover) {
+                          $classBtn = 'img-has-hover position-relative';
+                        } else {
+                          $classBtn = 'img-has-no-hover';
+                        }
                       } else if($estilo_do_botao == 'azul') {
                         $classBtn = 'btn-primary btn';
                       } else if($estilo_do_botao == 'amarelo') {
@@ -181,7 +194,10 @@
                               target="<?php echo esc_html( $link['target'] ); ?>"
                             <?php } ?> >
                             <?php if($estilo_do_botao == 'imagem') { ?>
-                              <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
+                              <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" class="<?php echo ($imagem_cta_hover) ? 'has-hover' : '';?>"/>
+                            <?php if($imagem_cta_hover) { ?>
+                              <img src="<?php echo esc_url($imagem_cta_hover['url']); ?>" alt="<?php echo esc_html($imagem_cta_hover['alt']); ?>" class="is-hover" />
+                            <?php } ?>
                             <?php } else { ?> 
                               <?php echo esc_html( $link['title'] ); ?>
                               <?php if($estilo_do_botao == 'branco') {
@@ -196,8 +212,11 @@
                             <?php if($estilo_do_botao == 'imagem') { ?>
                               target="<?php echo esc_html( $link['target'] ); ?>"
                             <?php } ?>>
-                              <?php if($estilo_do_botao == 'imagem') { ?>
-                                <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
+                            <?php if($estilo_do_botao == 'imagem') { ?>
+                              <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" class="<?php echo ($imagem_cta_hover) ? 'has-hover' : '';?>"/>
+                              <?php if($imagem_cta_hover) { ?>
+                                <img src="<?php echo esc_url($imagem_cta_hover['url']); ?>" alt="<?php echo esc_html($imagem_cta_hover['alt']); ?>" class="is-hover" />
+                              <?php } ?>
                               <?php } else { ?> 
                                 <?php echo esc_html( $link['title'] ); ?>
                                 <?php if($estilo_do_botao == 'branco') {
@@ -261,9 +280,12 @@
                     $link = get_sub_field('link');
                     
                     if($estilo_do_botao == 'imagem') {
-                      $classBtn = 'btn-actived';
-                      $imagem_cta = get_sub_field('imagem_cta');
-                      $classBtn = '';
+                      $imagem_cta_hover = get_sub_field('imagem_cta_hover');
+                      if($imagem_cta_hover) {
+                        $classBtn = 'img-has-hover position-relative';
+                      } else {
+                        $classBtn = 'img-has-no-hover';
+                      }
                     } else if($estilo_do_botao == 'azul') {
                       $classBtn = 'btn-primary btn';
                     } else if($estilo_do_botao == 'amarelo') {
@@ -292,7 +314,10 @@
                             target="<?php echo esc_html( $link['target'] ); ?>"
                           <?php } ?> >
                           <?php if($estilo_do_botao == 'imagem') { ?>
-                            <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
+                            <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" class="<?php echo ($imagem_cta_hover) ? 'has-hover' : '';?>"/>
+                            <?php if($imagem_cta_hover) { ?>
+                              <img src="<?php echo esc_url($imagem_cta_hover['url']); ?>" alt="<?php echo esc_html($imagem_cta_hover['alt']); ?>" class="is-hover" />
+                            <?php } ?>
                           <?php } else { ?> 
                             <?php echo esc_html( $link['title'] ); ?>
                             <?php if($estilo_do_botao == 'branco') {
@@ -308,7 +333,10 @@
                             target="<?php echo esc_html( $link['target'] ); ?>"
                           <?php } ?>>
                             <?php if($estilo_do_botao == 'imagem') { ?>
-                              <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
+                              <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" class="<?php echo ($imagem_cta_hover) ? 'has-hover' : '';?>"/>
+                              <?php if($imagem_cta_hover) { ?>
+                                <img src="<?php echo esc_url($imagem_cta_hover['url']); ?>" alt="<?php echo esc_html($imagem_cta_hover['alt']); ?>" class="is-hover" />
+                              <?php } ?>
                             <?php } else { ?> 
                               <?php echo esc_html( $link['title'] ); ?>
                             <?php } ?>
@@ -362,9 +390,12 @@
                   $link = get_sub_field('link');
                   
                   if($estilo_do_botao == 'imagem') {
-                    $classBtn = 'btn-actived';
-                    $imagem_cta = get_sub_field('imagem_cta');
-                    $classBtn = '';
+                    $imagem_cta_hover = get_sub_field('imagem_cta_hover');
+                    if($imagem_cta_hover) {
+                      $classBtn = 'img-has-hover position-relative';
+                    } else {
+                      $classBtn = 'img-has-no-hover';
+                    }
                   } else if($estilo_do_botao == 'azul') {
                     $classBtn = 'btn-primary btn';
                   } else if($estilo_do_botao == 'amarelo') {
@@ -393,7 +424,10 @@
                           target="<?php echo esc_html( $link['target'] ); ?>"
                         <?php } ?> >
                         <?php if($estilo_do_botao == 'imagem') { ?>
-                          <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
+                          <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" class="<?php echo ($imagem_cta_hover) ? 'has-hover' : '';?>"/>
+                          <?php if($imagem_cta_hover) { ?>
+                            <img src="<?php echo esc_url($imagem_cta_hover['url']); ?>" alt="<?php echo esc_html($imagem_cta_hover['alt']); ?>" class="is-hover" />
+                          <?php } ?>
                         <?php } else { ?> 
                           <?php echo esc_html( $link['title'] ); ?>
                           <?php if($estilo_do_botao == 'branco') {
@@ -409,7 +443,10 @@
                           target="<?php echo esc_html( $link['target'] ); ?>"
                         <?php } ?>>
                           <?php if($estilo_do_botao == 'imagem') { ?>
-                            <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
+                            <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" class="<?php echo ($imagem_cta_hover) ? 'has-hover' : '';?>"/>
+                            <?php if($imagem_cta_hover) { ?>
+                              <img src="<?php echo esc_url($imagem_cta_hover['url']); ?>" alt="<?php echo esc_html($imagem_cta_hover['alt']); ?>" class="is-hover" />
+                            <?php } ?>
                           <?php } else { ?> 
                             <?php echo esc_html( $link['title'] ); ?>
                           <?php } ?>

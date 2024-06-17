@@ -1,4 +1,4 @@
-<?php /* Template Name: Uniprime */ ?>
+<?php /* Template Name: Para seu Negócio */ ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>

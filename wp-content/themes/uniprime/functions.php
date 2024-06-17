@@ -244,6 +244,13 @@ if ( ! function_exists( 'Uniprime' ) ) :
 				'icon' 						=> 'uniprime',
 				'keywords' => 		array( 'institucional' , 'content-noticias')
 			));	
+			acf_add_options_page(array(
+        'page_title'    => 'Footer Settings',
+        'menu_title'    => 'Footer Settings',
+        'menu_slug'     => 'footer-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
 		}
 		
 		add_theme_support( 'wp-block-styles' );

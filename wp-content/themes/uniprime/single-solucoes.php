@@ -1,4 +1,7 @@
-<?php /* Template Name: Uniprime */ ?>
+<?php /**
+ * Template Name: Página de soluções
+ */
+ ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -8,6 +11,8 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<!-- Inclua o arquivo main-menu.php -->
+<?php get_template_part('blocks/main-menu'); ?>
 <?php 
 //edit_post_link(); 
 get_post_type()

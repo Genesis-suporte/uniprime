@@ -38,16 +38,21 @@
                 // Case: Paragraph layout.
                 if( get_row_layout() == 'botao' ) {
                   //print_r(get_sub_field('imagem_cta'));
-                  $imagem_cta = get_sub_field('imagem_cta');
                   $link = get_sub_field('link');
-                  /*if($link) {
-                    $link_url = $link['url'];
-                    //$link_title = $link['title'];
-                    //$link_target = $link['target'] ? $link['target'] : '_self';
-                  }*/
+                  $classBtn = '';
+                  $imagem_cta = get_sub_field('imagem_cta');
+                  $imagem_cta_hover = get_sub_field('imagem_cta_hover');
+                  if($imagem_cta_hover) {
+                    $classBtn = 'img-has-hover position-relative';
+                  } else {
+                    $classBtn = 'img-has-no-hover';
+                  }
                   ?>
-                    <a class="button" href="<?php echo esc_url( $link ); ?>" target="_blank">
-                      <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_attr($imagem_cta['alt']); ?>" />
+                    <a class="button <?php echo $classBtn;?>" href="<?php echo esc_url( $link ); ?>" target="_blank">
+                      <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_attr($imagem_cta['alt']); ?>" class="<?php echo ($imagem_cta_hover) ? 'has-hover' : '';?>" />
+                      <?php if($imagem_cta_hover) { ?>
+                        <img src="<?php echo esc_url($imagem_cta_hover['url']); ?>" alt="<?php echo esc_html($imagem_cta_hover['alt']); ?>" class="is-hover" />
+                      <?php } ?>
                     </a>
                   <?php
                 }

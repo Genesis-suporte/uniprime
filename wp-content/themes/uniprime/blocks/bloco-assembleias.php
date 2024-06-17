@@ -33,10 +33,10 @@
   <div class="container">
     <div class="row d-flex justify-content-between">
       <div class="">          
-        <div class="title-block title-28 switzerlandBold pb-4">
+        <div class="title-block title-28 switzerlandBold pb-4 text-center">
           <?php echo __('Editais de Convocação'); ?>
         </div>       
-        <div class="search-block d-flex justify-content-center position-relative">
+        <div class="search-block d-flex justify-content-center position-relative search-assembleias-content">
           <select class="form-control btn-consultar" name="search_assembleias" id="search_assembleias">
             <option value="0">Selecione uma cooperativa</option>
             <<?php foreach ($unidades as $unidade) : ?>
