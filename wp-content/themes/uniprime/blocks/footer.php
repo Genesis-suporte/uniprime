@@ -130,32 +130,34 @@
             </div>
           </div>
         </div>
-        <div class="menu-item">
-          <a href="javascript:void(0)" class="menu-dropdown">
-            <div class="container-solucoes fix-padding-left-menu icon-logo"><?php echo esc_html('Para sua cooperativa');?><i class="arrow right"></i></div>
-          </a>
-          <div class="dropdown-content dc-footer cooperativa">
-            <div class="container">
-              <div class="row">
-                <?php 
-                  $menu_lists_cooperativa = setMenuThreeLevels('solucoes-para-cooperativa');
-                  $menu_solucoes_cooperativa = "";
-                  foreach ($menu_lists_cooperativa as $item) { 
-                    $class = '';
-                    if(isset( $item[ 'class' ])) {
-                      $class = esc_attr( implode( ' ', $item['class']));
+        <?php if(is_main_site()) {?>
+          <div class="menu-item">
+            <a href="javascript:void(0)" class="menu-dropdown">
+              <div class="container-solucoes fix-padding-left-menu icon-logo"><?php echo esc_html('Para sua cooperativa');?><i class="arrow right"></i></div>
+            </a>
+            <div class="dropdown-content dc-footer cooperativa">
+              <div class="container">
+                <div class="row">
+                  <?php 
+                    $menu_lists_cooperativa = setMenuThreeLevels('solucoes-para-cooperativa');
+                    $menu_solucoes_cooperativa = "";
+                    foreach ($menu_lists_cooperativa as $item) { 
+                      $class = '';
+                      if(isset( $item[ 'class' ])) {
+                        $class = esc_attr( implode( ' ', $item['class']));
+                      }
+                      $menu_solucoes_cooperativa .= '<div class="col-4 menu-subitem '.$class.'">'."\n";
+                      $menu_solucoes_cooperativa .= '<a href="'. esc_attr($item['link']).'" class="icon-menu icon-'.$class.'-white">'. esc_html($item['title']) ."\n";
+                      $menu_solucoes_cooperativa .= '<i class="arrow right"></i></a>'."\n";
+                      $menu_solucoes_cooperativa .= '</div>'."\n";
                     }
-                    $menu_solucoes_cooperativa .= '<div class="col-4 menu-subitem '.$class.'">'."\n";
-                    $menu_solucoes_cooperativa .= '<a href="'. esc_attr($item['link']).'" class="icon-menu icon-'.$class.'-white">'. esc_html($item['title']) ."\n";
-                    $menu_solucoes_cooperativa .= '<i class="arrow right"></i></a>'."\n";
-                    $menu_solucoes_cooperativa .= '</div>'."\n";
-                  }
-                  echo $menu_solucoes_cooperativa;
-                ?>
+                    echo $menu_solucoes_cooperativa;
+                  ?>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </div>     
+        <?php } ?>
         
       </nav>
     </div>
@@ -195,7 +197,7 @@
         <nav class="menu-footer">
           <ul>
             <?php 
-              $menu_lists = setMenuThreeLevels('menu-a-uniprime-footer');
+              $menu_lists = setMenuThreeLevels('menu-a-uniprime');
               $menu_a_uniprime = "";
               foreach ($menu_lists as $item) { 
                 $class = '';

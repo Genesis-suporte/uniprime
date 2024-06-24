@@ -105,6 +105,7 @@ $texto_solucoes = get_field('texto_solucoes', 'option');
             </div>
           </div>
         </div>
+        
         <div class="menu-item">
           <a href="javascript:void(0)" class="menu-dropdown">
             <div class="container-solucoes fix-padding-left-menu icon-logo"><?php echo esc_html('Para seu negócio');?><i class="arrow right"></i></div>
@@ -131,32 +132,34 @@ $texto_solucoes = get_field('texto_solucoes', 'option');
             </div>
           </div>
         </div>
-        <div class="menu-item">
-          <a href="javascript:void(0)" class="menu-dropdown">
-            <div class="container-solucoes fix-padding-left-menu icon-logo"><?php echo esc_html('Para sua cooperativa');?><i class="arrow right"></i></div>
-          </a>
-          <div class="dropdown-content dc-footer cooperativa">
-            <div class="container">
-              <div class="row">
-                <?php 
-                  $menu_lists_cooperativa = setMenuThreeLevels('solucoes-para-cooperativa');
-                  $menu_solucoes_cooperativa = "";
-                  foreach ($menu_lists_cooperativa as $item) { 
-                    $class = '';
-                    if(isset( $item[ 'class' ])) {
-                      $class = esc_attr( implode( ' ', $item['class']));
+        <?php if(is_main_site()) {?>
+          <div class="menu-item">
+            <a href="javascript:void(0)" class="menu-dropdown">
+              <div class="container-solucoes fix-padding-left-menu icon-logo"><?php echo esc_html('Para sua cooperativa');?><i class="arrow right"></i></div>
+            </a>
+            <div class="dropdown-content dc-footer cooperativa">
+              <div class="container">
+                <div class="row">
+                  <?php 
+                    $menu_lists_cooperativa = setMenuThreeLevels('solucoes-para-cooperativa');
+                    $menu_solucoes_cooperativa = "";
+                    foreach ($menu_lists_cooperativa as $item) { 
+                      $class = '';
+                      if(isset( $item[ 'class' ])) {
+                        $class = esc_attr( implode( ' ', $item['class']));
+                      }
+                      $menu_solucoes_cooperativa .= '<div class="col-4 menu-subitem '.$class.'">'."\n";
+                      $menu_solucoes_cooperativa .= '<a href="'. esc_attr($item['link']).'" class="icon-menu icon-'.$class.'-white">'. esc_html($item['title']) ."\n";
+                      $menu_solucoes_cooperativa .= '<i class="arrow right"></i></a>'."\n";
+                      $menu_solucoes_cooperativa .= '</div>'."\n";
                     }
-                    $menu_solucoes_cooperativa .= '<div class="col-4 menu-subitem '.$class.'">'."\n";
-                    $menu_solucoes_cooperativa .= '<a href="'. esc_attr($item['link']).'" class="icon-menu icon-'.$class.'-white">'. esc_html($item['title']) ."\n";
-                    $menu_solucoes_cooperativa .= '<i class="arrow right"></i></a>'."\n";
-                    $menu_solucoes_cooperativa .= '</div>'."\n";
-                  }
-                  echo $menu_solucoes_cooperativa;
-                ?>
+                    echo $menu_solucoes_cooperativa;
+                  ?>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <?php } ?>
         
       </nav>
     </div>
@@ -196,7 +199,7 @@ $texto_solucoes = get_field('texto_solucoes', 'option');
         <nav class="menu-footer">
           <ul>
             <?php 
-              $menu_lists = setMenuThreeLevels('menu-a-uniprime-footer');
+              $menu_lists = setMenuThreeLevels('menu-a-uniprime');
               $menu_a_uniprime = "";
               foreach ($menu_lists as $item) { 
                 $class = '';
@@ -262,7 +265,7 @@ $texto_solucoes = get_field('texto_solucoes', 'option');
   </div>
   <div class="footer-copyrigth">
     <div class="container">
-      <div class="copyrigth d-flex justify-content-between">
+      <div class="copyrigth d-flex justify-content-between flex-column flex-md-row">
         <div>
           ©Copyright <?php echo date("Y"); ?> Uniprime Cooperativa de Crédito. Todos os Direitos Reservados.
         </div>
@@ -295,6 +298,49 @@ $texto_solucoes = get_field('texto_solucoes', 'option');
     </div>
     <div class="content-conveniadas">
       <div id="conveniadasList" class="d-flex flex-wrap"></div>
+    </div>
+  </div>
+</div>
+<div id="modalTenhoInteresse" class="defaultModal">
+  <div class="modal-content">
+    <a href="javascript:void(0)" class="close-modal" id="closemodalTenhoInteresse">
+      <div class="bars">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+      </div>
+    </a>
+    <div class="content-interesse" id="content-interesse-1">
+      <div class="label-block" id="label-block-interesse"></div>
+      <div class="title-block title-28 switzerlandBold" id="title-block-interesse"></div>
+      <div class="description-block" id="description-block-interesse"></div>
+      <div class="buttons-contato d-flex flex-row justify-content-between">
+        <div id="btn-telefone" style="display: none">
+          <a class="button btn-primary btn icon-menu icon-phone-white" onclick="abreContentModalContato(2)" href="javascript:void(0)">Telefone</a>
+        </div>
+        <div id="btn-whatsapp" style="display: none">
+          <a class="button btn-primary btn icon-menu icon-whatsapp-white" target="_blank" href="javascript:void(0)" id="number-whatsapp">Whatsapp</a>
+        </div>
+        <div id="btn-email" style="display: none">
+          <a class="button btn-primary btn icon-menu icon-email-white" onclick="abreContentModalContato(4)" href="javascript:void(0)">E-mail</a>
+        </div>
+      </div>
+    </div>
+    <div class="content-interesse" id="content-interesse-2">
+      <div class="label-block">ATENDIMENTO</div>
+      <div class="title-block title-28 switzerlandBold pb-4">Fale conosco</div>
+      <div class="description-block" id="content-telefone"></div>
+    </div>
+    
+    <div class="content-interesse" id="content-interesse-4">
+      <div class="label-block">ATENDIMENTO</div>
+      <div class="title-block title-28 switzerlandBold pb-4">Fale conosco</div>
+      <div class="description-block">Preencha o formulário abaixo para dar continuidade a sua solicitação:</div>
+      <div id="content-form-interesse">
+        <?php if (function_exists('do_shortcode')) {
+              // Exibe o formulário usando do_shortcode()
+              echo do_shortcode('[gravityform id="8" title="false" ajax="true" description="false"]');
+          } ?>
+      </div>
     </div>
   </div>
 </div>

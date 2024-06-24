@@ -181,7 +181,7 @@ if (!empty($agencias_data) && isset($agencias_data['singulares'])) {
             </div>
           </div>
           <?php } else { ?>
-            <div class="div-dados-protocolo div-nao-encontrado bg-gray">
+            <div class="div-dados-protocolo div-nao-encontrado bg-gray row">
               <div class="row gap-4 content-protocolo">
                 <div class="col ">
                   <div class="title-block title-28 switzerlandBold">Não encontrou seu protocolo?</div>

@@ -8,6 +8,7 @@ get_header();
 $title_banner = get_field('title_banner');
 $description_banner = get_field('description_banner');
 $image_banner = get_field('image_banner');
+$image_banner_mobile = get_field('image_banner_mobile', $block['id']);
 
 $array_fique_por_dentro = array(
   'post_type'   => array( 'campanha' ),
@@ -19,12 +20,129 @@ $array_fique_por_dentro = array(
 
 $get_fique_por_dentro = get_posts( $array_fique_por_dentro );
 
+$tipo_conteudo = get_field('tipo_conteudo');
+$array_fique_por_dentro = array(
+  'post_type'   => array( 'noticia', 'campanha', 'sala-de-imprensa' ),
+  'posts_per_page' => -1,
+  'orderby'        => 'date',
+  'order'          => 'DESC'
+);
+
+$get_fique_por_dentro = get_posts( $array_fique_por_dentro );
+$label = get_field('label');
+$titulo = get_field('titulo');
+$descricao = get_field('descricao');
+
+$label_canais_digitais = get_field('label_canais_digitais');
+  $titulo_canais_digitais = get_field('titulo_canais_digitais'); 
+  $tamanho_titulo = get_field('tamanho_titulo');
+  $fonte_titulo = get_field('fonte_titulo');
+  if($fonte_titulo == 'Normal') {
+    $fonte_style = '';
+  } else {
+    $fonte_style = $fonte_titulo;
+  }
+  $descricao_canais_digitais = get_field('descricao_canais_digitais');
+  $img = get_field('imagem_do_bloco');
+  $imagem_de_fundo = get_field('imagem_de_fundo');
+  if($imagem_de_fundo) {
+    $bg_image = 'style="background: url('.esc_html($imagem_de_fundo).') no-repeat; z-index:13"';
+  } else {
+    $bg_image = "";
+  }
+  $botoes_canais_digitais = '';
+  
+  if( have_rows('botoes') ):
+    while ( have_rows('botoes') ) : the_row();
+      // Case: Paragraph layout.
+      if( get_row_layout() == 'botao' ) {
+        $estilo_do_botao = get_sub_field('estilo_do_botao'); 
+        $habilitar_modal = get_sub_field('habilitar_modal');
+        $link = get_sub_field('link');
+        
+        if($estilo_do_botao == 'imagem') {
+          $imagem_cta = get_sub_field('imagem_cta');
+          $imagem_cta_hover = get_sub_field('imagem_cta_hover');
+          if($imagem_cta_hover) {
+            $classBtn = 'img-has-hover position-relative';
+          } else {
+            $classBtn = 'img-has-no-hover';
+          }
+        } else if($estilo_do_botao == 'azul') {
+          $classBtn = 'btn-primary btn';
+        } else if($estilo_do_botao == 'amarelo') {
+          $classBtn = 'btn-actived btn';
+        } else if($estilo_do_botao == 'branco') {
+          $classBtn = 'btn-primary-color btn';
+        }
+        
+        $botoes_canais_digitais .= `<div class="card-canais-digitais">`;
+        
+        if($habilitar_modal) { 
+          $botoes_canais_digitais .= '<a class="button '.$classBtn.'"
+            href="javascript:void(0)" 
+            data-title_card="'.esc_html( get_field('titulo_modal_interesse') ).'"
+            data-label_interesse="'.esc_html( get_field('label_modal_interesse') ).'"
+            data-title_interesse="'.esc_html( get_field('titulo_modal_interesse') ).'"
+            data-description_interesse="'.esc_html( get_field('descricao_modal_interesse') ).'"
+            data-habilitar="'.esc_html( json_encode(get_field('habilitar_botoes')) ).'"
+            data-texto_telefone="'.esc_html( get_field('texto_telefone') ).'"
+            data-texto_whatsapp="'.esc_html( get_field('texto_whatsapp') ).'"
+            data-numero_whatsapp="'.esc_html( get_field('numero_whatsapp') ).'"
+            data-id_form="'.esc_html( get_field('id_form') ).'"
+            onclick="abreModalInteresse(this)"';
+            if($estilo_do_botao == 'imagem') { 
+              $botoes_canais_digitais .= 'target="'.esc_html( $link['target'] ).'"';
+            } 
+          $botoes_canais_digitais .= '>';
+          if($estilo_do_botao == 'imagem') { 
+            $botoes_canais_digitais .= '<img src="'.esc_url($imagem_cta['url']).'" alt="'.esc_html($imagem_cta['alt']).'" 
+            class="'.($imagem_cta_hover) ? 'has-hover' : ''.'"/>';
+            if($imagem_cta_hover) {
+              $botoes_canais_digitais .= '<img src="'.esc_url($imagem_cta_hover['url']).'" alt="'.esc_html($imagem_cta_hover['alt']).'" class="is-hover" />';
+            }
+          } else {
+            $botoes_canais_digitais .= esc_html( $link['title'] );
+            if($estilo_do_botao == 'branco') {
+                $botoes_canais_digitais .= '<i class="icon-cta-blue right"></i>';
+            }
+          }
+        $botoes_canais_digitais .= '</a>';
+        } else {
+          $botoes_canais_digitais .= '<a 
+            href="'.esc_url( $link['url'] ).'" 
+            class="button '.$classBtn.'"';
+            if($estilo_do_botao == 'imagem') {
+              $botoes_canais_digitais .= 'target="'.esc_html( $link['target'] ).'"';
+            } 
+            $botoes_canais_digitais .= '>';
+              if($estilo_do_botao == 'imagem') {
+                $botoes_canais_digitais .= '<img src="'.esc_url($imagem_cta['url']).'" alt="'.esc_html($imagem_cta['alt']).'" class="'. ($imagem_cta_hover) ? 'has-hover' : ''.'/>';
+                if($imagem_cta_hover) {
+                  $botoes_canais_digitais .= '<img src="'.esc_url($imagem_cta_hover['url']).'" alt="'.esc_html($imagem_cta_hover['alt']).'" class="is-hover" />';
+                }
+              } else { 
+                $botoes_canais_digitais .= esc_html( $link['title'] );
+              }
+          $botoes_canais_digitais .= '</a>';
+        }
+
+      $botoes_canais_digitais .= '</div>';
+    }
+      
+    // End loop.
+    endwhile;
+  // No value.
+  else :
+    // Do something...
+  endif;
 ?>
 <div class="banner-internas position-relative">
   <div class="hero-image">
-    <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);">
-      <!--<img src="<?php echo esc_url($image_banner['url']); ?>" alt="<?php echo esc_html($image_banner['alt']); ?>" >-->
-    </div>
+    <div class="image <?php echo $image_banner_mobile ? 'd-none d-sm-block' : ''; ?>" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);"></div>
+    <?php if($image_banner_mobile) { ?>
+      <div class="image d-block d-sm-none" style="background-image: url(<?php echo esc_url($image_banner_mobile['url']); ?>);"></div>
+    <?php } ?>
     <div class="container">
       <div class="position-absolute copy">
         <?php if($title_banner) { ?>
@@ -58,14 +176,20 @@ $get_fique_por_dentro = get_posts( $array_fique_por_dentro );
 if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
   include(get_template_directory() . '/blocks/breadcrumbs.php');
 }
+$upload_dir = wp_upload_dir();
+$upload_url = $upload_dir['baseurl']; 
+
 ?>
+<div class="wp-block-group alignfull div-logo-uniprime d-none d-md-block is-layout-constrained wp-block-group-is-layout-constrained wp-container-1-noticias is-position-sticky">
+<figure class="wp-block-image alignright size-full is-resized logo-uniprime-background"><img fetchpriority="high" decoding="async" width="674" height="739" src="<?php echo $upload_url;?>/2024/03/logo-uniprime-gigante.png" alt="" class="wp-image-530" style="width:674px;height:auto" srcset="<?php echo $upload_url;?>/2024/03/logo-uniprime-gigante.png 674w, <?php echo $upload_url;?>/2024/03/logo-uniprime-gigante-274x300.png 274w" sizes="(max-width: 674px) 100vw, 674px"></figure>
+</div>
 <?php   
   $label_novidades = get_field('label_novidades');
   $titulo_novidades = get_field('titulo_novidades');
   $descricao_novidades = get_field('descricao_novidades');
 ?>
 
-<section class="bloco-noticias z-13">
+<section class="bloco-noticias z-13 page-campanhas">
   <div class="container">
     <div class="row d-flex justify-content-between flex-column flex-lg-row">
       <div class="content-bloco-destaque">
@@ -152,7 +276,19 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
       </div>
     </div>
   </div>
+  
 </section>
+<div class="content">
+  <?php 
+  while ( have_posts() ) :
+    the_post();
+
+    // Display the content of the page.
+    the_content();
+    
+  // End the loop.
+  endwhile; ?>
+</div>
 <script type="text/javascript">
   (function($){
   window.addEventListener("load", ()=>{

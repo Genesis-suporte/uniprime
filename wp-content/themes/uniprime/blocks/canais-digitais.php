@@ -160,6 +160,7 @@
                       $link = get_sub_field('link');
                       
                       if($estilo_do_botao == 'imagem') {
+                        $imagem_cta = get_sub_field('imagem_cta');
                         $imagem_cta_hover = get_sub_field('imagem_cta_hover');
                         if($imagem_cta_hover) {
                           $classBtn = 'img-has-hover position-relative';
@@ -253,7 +254,7 @@
           <div class="col canais-digitais-image z-13 d-none d-lg-flex justify-content-lg-end">
             <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" >
           </div>
-          <div class="col col-right">
+          <div class="col col-right d-flex flex-column justify-content-center">
             <?php if($label) { ?>
               <div class="label-block">
                 <?php echo esc_html($label); ?>
@@ -271,6 +272,7 @@
             <?php } ?>
             <div class="d-flex justify-content-start justify-content-md-between gap-2 flex-wrap flex-md-nowrap">
               <?php 
+              //var_dump( $block['id']); 
               if( have_rows('botoes') ):
                 while ( have_rows('botoes') ) : the_row();
                   // Case: Paragraph layout.
@@ -280,6 +282,7 @@
                     $link = get_sub_field('link');
                     
                     if($estilo_do_botao == 'imagem') {
+                      $imagem_cta = get_sub_field('imagem_cta');
                       $imagem_cta_hover = get_sub_field('imagem_cta_hover');
                       if($imagem_cta_hover) {
                         $classBtn = 'img-has-hover position-relative';
@@ -390,6 +393,7 @@
                   $link = get_sub_field('link');
                   
                   if($estilo_do_botao == 'imagem') {
+                    $imagem_cta = get_sub_field('imagem_cta');
                     $imagem_cta_hover = get_sub_field('imagem_cta_hover');
                     if($imagem_cta_hover) {
                       $classBtn = 'img-has-hover position-relative';

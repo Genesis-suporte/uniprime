@@ -521,7 +521,7 @@
                             }
                             
                             if($class_cooperado) { 
-                              $menu_one_level .= '<a href="'. esc_url($item['link']) .'" class="'.$class.'"><img src="'.get_template_directory_uri().'/assets/images/icons/icon-users.png" alt="Seja o cooperado" id="icon-users"><img src="'.get_template_directory_uri().'/assets/images/icons/icon-users-white.png" alt="Seja o cooperado" class="d-none" id="icon-users-white">'. esc_html($item['title']) .'</a>'."\n";
+                              $menu_one_level .= '<a href="'. esc_url($item['link']) .'" class="'.$class.'"><img src="'.get_template_directory_uri().'/assets/images/icons/icon-users-white.png" alt="Seja o cooperado" class="" id="icon-users-white"><img src="'.get_template_directory_uri().'/assets/images/icons/icon-users.png" alt="Seja o cooperado" id="icon-users" style="display: none;">'. esc_html($item['title']) .'</a>'."\n";
                             } else {
                               $menu_one_level .= '<a href="'. esc_url($item['link']) .'" class="'.$class.'">'. esc_html($item['title']) .'</a>'."\n";
 

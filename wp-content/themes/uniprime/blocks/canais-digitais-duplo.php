@@ -102,8 +102,13 @@ if( have_rows('colunas') ) {
                         $link = get_sub_field('link');
                         $classBtn = '';
                         if($estilo_do_botao == 'imagem') {
-                          $classBtn = 'btn-actived';
                           $imagem_cta = get_sub_field('imagem_cta');
+                          $imagem_cta_hover = get_sub_field('imagem_cta_hover');
+                          if($imagem_cta_hover) {
+                            $classBtn = 'img-has-hover position-relative';
+                          } else {
+                            $classBtn = 'img-has-no-hover';
+                          }
                         } else if($estilo_do_botao == 'azul') {
                           $classBtn = 'btn-primary';
                         } else if($estilo_do_botao == 'amarelo') {
@@ -114,8 +119,11 @@ if( have_rows('colunas') ) {
                         ?>
                         <div class="card-canais-digitais">
                           <?php if($estilo_do_botao == 'imagem') { ?>
-                            <a class="button" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_html( $link['target'] ); ?>">
-                              <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
+                            <a class="button <?php echo $classBtn;?>" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_html( $link['target'] ); ?>">
+                              <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" class="<?php echo ($imagem_cta_hover) ? 'has-hover' : '';?>"/>
+                              <?php if($imagem_cta_hover) { ?>
+                                <img src="<?php echo esc_url($imagem_cta_hover['url']); ?>" alt="<?php echo esc_html($imagem_cta_hover['alt']); ?>" class="is-hover" />
+                              <?php } ?>
                             </a>
                           <?php } else { 
                             if($habilitar_modal) { ?>

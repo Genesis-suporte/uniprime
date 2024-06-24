@@ -20,7 +20,7 @@ $post_author_id = get_post_field('post_author', $post_id);
 $post_author = get_the_author_meta('nickname', $post_author_id);
 
 $date_published = get_the_date();
-$date_published_brazilian = date_i18n('d/m/Y', strtotime($date_published));
+$date_published_brazilian = date_i18n('d M Y', strtotime($date_published));
 
 // Obtenha o conteúdo do post
 $content = get_the_content();
@@ -36,26 +36,26 @@ $reading_time_minutes = ceil($word_count / $average_reading_speed);
     <div class="d-grid cols-noticia">
       <div class="content">
         <div class="tab-content" id="tab-content">
-          <?php //while ( have_posts() ) : the_post(); ?>
-            <div class="">
-              <div class="title-block title-28 switzerlandBold">
-                <h1><?php the_title(); ?></h1>
-              </div>
-              <div class="post-date">
-                <?php echo $date_published_brazilian . ' · ' . $reading_time_minutes . ' min de leitura'; ?>
-              </div>
-              
-              <div class="content">
-                <?php the_content(); ?>
-              </div>
+          <div class="">
+            <div class="title-block title-28 switzerlandBold">
+              <h1><?php the_title(); ?></h1>
             </div>
-
-            <?php //endwhile; // end of the loop. ?>
+            <div class="post-date">
+              <?php echo $date_published_brazilian . ' · ' . $reading_time_minutes . ' min de leitura'; ?>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  
+  <div class="content">
+    <?php 
+      the_content();
+    ?>
+  </div>
 </section>
+
 
 <script type="text/javascript">
   (function($){

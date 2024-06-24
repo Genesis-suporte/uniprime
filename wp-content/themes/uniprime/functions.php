@@ -244,13 +244,51 @@ if ( ! function_exists( 'Uniprime' ) ) :
 				'icon' 						=> 'uniprime',
 				'keywords' => 		array( 'institucional' , 'content-noticias')
 			));	
+			acf_register_block_type(array(
+				'name'      			=> 'acesse-noticias',
+				'title' 					=> __('Bloco Acesse de Notícias'),
+				'description' 		=> __('Bloco que pode ser colocado ao final da página de notícia'),
+				"render_template"	=> "blocks/acesse-noticias.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime'
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-saiba-mais-noticias',
+				'title' 					=> __('Bloco Saiba Mais Notícias'),
+				'description' 		=> __('Bloco que pode ser colocado ao final da página de notícia'),
+				"render_template"	=> "blocks/bloco-saiba-mais-noticias.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime'
+			));
+			acf_register_block_type(array(
+				'name'      			=> 'bloco-lgpd',
+				'title' 					=> __('Bloco LGPD'),
+				'description' 		=> __('Bloco do texto de LGPD'),
+				"render_template"	=> "blocks/bloco-lgpd.php",
+				'category' 				=> 'layout',
+				'icon' 						=> 'uniprime'
+			));
 			acf_add_options_page(array(
         'page_title'    => 'Footer Settings',
         'menu_title'    => 'Footer Settings',
         'menu_slug'     => 'footer-settings',
         'capability'    => 'edit_posts',
         'redirect'      => false
-    ));
+    	));
+			acf_register_block_type(array(
+        'name'              => 'bootstrap-container',
+        'title'             => __('Bootstrap Container'),
+        'description'       => __('A custom Bootstrap container block.'),
+        'render_template'   => 'blocks/bootstrap-container.php',
+        'category'          => 'layout',
+        'icon'              => 'admin-comments',
+        'keywords'          => array('container', 'bootstrap'),
+        'supports'          => array(
+            'align' => false,
+            'mode' => false,
+            'jsx' => true,
+        ),
+    	));
 		}
 		
 		add_theme_support( 'wp-block-styles' );
@@ -285,7 +323,15 @@ function my_block_plugin_editor_scripts() {
 add_action( 'wp_enqueue_scripts', 'my_block_plugin_editor_scripts' );
 add_action( 'enqueue_block_editor_assets', 'my_block_plugin_editor_scripts' );
 add_action( 'admin_enqueue_scripts', 'my_block_plugin_editor_scripts' );
+function mytheme_setup() {
+	// Suporte para estilos de edição do editor de blocos.
+	add_theme_support( 'editor-styles' );
 
+	// Adicione o estilo do editor
+	add_editor_style( get_template_directory_uri( '/assets/css/editor-style.css') );
+}
+
+add_action( 'after_setup_theme', 'mytheme_setup' );
 /* ADICIONANDO COLUNA TAXONOMIA NAS POST-LIST DOS CUSTOM POST TYPE */
 function custom_taxonomy_column($columns) {
 	$new_columns = array();
@@ -1124,3 +1170,41 @@ function getBasePath() {
 	$pathSegments = explode('/', trim($currentUrl, '/'));
 	return isset($pathSegments[0]) ? '/' . $pathSegments[0] : '/';
 }
+
+function remove_menu_items() {
+	// Remove menu de Posts
+	remove_menu_page('edit.php');
+
+	// Remove menu de Comentários
+	remove_menu_page('edit-comments.php');
+}
+add_action('admin_menu', 'remove_menu_items');
+function remove_menu_items_for_non_admins() {
+	// Verifica se o usuário não é administrador
+	if (!current_user_can('manage_options')) {
+			// Remove menu de Aparência
+			remove_menu_page('themes.php');
+
+			// Remove menu de Plugins
+			remove_menu_page('plugins.php');
+
+			// Remove menu de Ferramentas
+			remove_menu_page('tools.php');
+
+			// Remove menu de Configurações
+			remove_menu_page('options-general.php');
+
+			// Remove menu de ACF
+			remove_menu_page('edit.php?post_type=acf-field-group');
+	}
+}
+add_action('admin_menu', 'remove_menu_items_for_non_admins');
+/*
+function get_default_post_thumbnail($post_id, $size = 'thumbnail') {
+	if (has_post_thumbnail($post_id)) {
+			return get_the_post_thumbnail($post_id, $size);
+	} else {
+			$default_thumbnail = get_template_directory_uri() . '/path/to/default-thumbnail.jpg'; // Substitua pelo caminho da sua imagem padrão
+			return '<img src="' . $default_thumbnail . '" alt="' . get_the_title($post_id) . '" class="default-thumbnail">';
+	}
+}*/

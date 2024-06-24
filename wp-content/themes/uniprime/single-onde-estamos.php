@@ -8,6 +8,7 @@ get_header();
 $title_banner = get_field('title_banner');
 $description_banner = get_field('description_banner');
 $image_banner = get_field('image_banner');
+$image_banner_mobile = get_field('image_banner_mobile', $block['id']);
 
 $label = get_field('label');
 $titulo = get_field('titulo');
@@ -18,10 +19,10 @@ $descricao = get_field('descricao');
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDksl0bKghCnaXqIwDOxoJOhpQW_lEEuGY&token=103284"></script>
 <div class="banner-internas position-relative">
   <div class="hero-image">
-    <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);">
-      <!--<img src="<?php echo esc_url($image_banner['url']); ?>" alt="<?php echo esc_html($image_banner['alt']); ?>" >-->
-      <div class="overlay d-block d-sm-none"></div>
-    </div>
+    <div class="image <?php echo $image_banner_mobile ? 'd-none d-sm-block' : ''; ?>" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);"></div>
+    <?php if($image_banner_mobile) { ?>
+      <div class="image d-block d-sm-none" style="background-image: url(<?php echo esc_url($image_banner_mobile['url']); ?>);"></div>
+    <?php } ?>
     <div class="container">
       <div class="position-absolute copy">
         <?php if($title_banner) { ?>
@@ -72,6 +73,9 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
       </div>
     </div>
   </div>
+  <div class="content" style="padding-top: 126px">
+    <?php the_content(); ?>
+  </div>
 </section>
 <script type="text/javascript">
   (function ($) {
@@ -93,8 +97,18 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
           geocodeAddress(address);
         }
       });
+      
+      // Adicionar evento de tecla ao campo de entrada
+      $('#input-address').on('keydown', function(event) {
+        if (event.keyCode === 13) {
+          event.preventDefault(); // Prevenir comportamento padrão de submit de formulário
+          const address = $(this).val();
+          if (address) {
+            geocodeAddress(address);
+          }
+        }
+      });
     });
-    
 
     function initMap() {
       map = new google.maps.Map(document.getElementById('map'), {
@@ -118,17 +132,12 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
           whatsapp1 = '';
           whatsapp2 = '';
           if(agencia.agency_whatsapp) {
-            /*if(is_mobile()) { 
-              whats = ';
-            } else { 
-              whats = 'https://wa.me/55'+agencia.agency_whatsapp+'/';
-            }*/
             whatsapp1 = `<div class="phone d-flex flex-lg-column flex-row">
                           <div>WhatsApp: </div>
                           <div class="title-block title-16 switzerlandBold">${agencia.agency_whatsapp}</div>
                         </div>`;
             whatsapp2 = `<div class="col-12 col-lg-6">
-                           <a href="whatsapp://send?phone=55'${agencia.agency_whatsapp}" class="btn-primary btn icon-menu icon-message-white">Conversar</a>
+                           <a href="whatsapp://send?phone=55${agencia.agency_whatsapp}" class="btn-primary btn icon-menu icon-message-white">Conversar</a>
                          </div>`;
           }
           agency_email1 = '';
@@ -144,7 +153,7 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
           }
           
           const agencyHtml = `
-            <div class="content-agency" data-lat="${agencia.agency_address_lat}" data-lng="${agencia.agency_address_lon}">
+            <div class="content-agency" data-lat="${agencia.agency_address_lat}" data-lng="${agencia.agency_address_lon}" data-city="${agencia.agency_address_city.toLowerCase()}" data-title="${agencia.agency_title}" data-content="${agencia.agency_content}">
               <div class="label-block">AGÊNCIA ${agencia.agency_number}</div>
               <div class="title-block title-agency title-28 switzerlandBold">${agencia.agency_title}</div>
               <div class="address">
@@ -158,10 +167,6 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
                       <div class="title-block title-16 switzerlandBold">${agencia.agency_phone}</div>
                     </div>
                     ${whatsapp1}
-                    <div class="phone d-flex flex-lg-column flex-row d-none">
-                      <div>Distância: </div>
-                      <div class="title-block title-16 switzerlandBold distance"></div>
-                    </div>
                   </div>
                   ${agency_email1}
                 </div>
@@ -172,9 +177,6 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
                   ${whatsapp2}
                 </div>
                 <div class="d-flex gap-4 flex-column flex-lg-row">
-                  <!--<div class="col-12 col-lg-6">
-                    <a href="javascript:void(0)" class="btn-primary btn icon-menu icon-arrow-up-down-white btn-directions">Direções</a>
-                  </div>-->
                   ${agency_email2}
                 </div>
               </div>
@@ -219,48 +221,33 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
           const location = results[0].geometry.location;
           map.setCenter(location);
           map.setZoom(12);
-          calculateDistances(location);
+          reorderAgencies(address.toLowerCase());
         } else {
           alert('Geocode was not successful for the following reason: ' + status);
         }
       });
     }
 
-    function calculateDistances(location) {
-      const service = new google.maps.DistanceMatrixService();
-      const destinations = allMarkers.map(marker => {
-        return marker.getPosition();
-      });
+    function reorderAgencies(city) {
+      const listaAgencias = $('#sidebar-map');
+      const agencies = listaAgencias.find('.content-agency').get();
 
-      service.getDistanceMatrix({
-        origins: [location],
-        destinations: destinations,
-        travelMode: 'DRIVING',
-        unitSystem: google.maps.UnitSystem.METRIC
-      }, function(response, status) {
-        if (status === 'OK') {
-          const results = response.rows[0].elements;
-          $('.content-agency').each(function(index) {
-            const distanceText = results[index].distance.text;
-            $(this).find('.distance').text(distanceText);
-          });
+      agencies.sort((a, b) => {
+        const cityA = $(a).data('city');
+        const cityB = $(b).data('city');
+
+        if (cityA === city && cityB !== city) {
+          return -1;
+        } else if (cityA !== city && cityB === city) {
+          return 1;
         } else {
-          console.error('Error with distance matrix: ' + status);
+          return 0;
         }
       });
-    }
 
-    function calculateAndDisplayRoute(originAddress, destination) {
-      directionsService.route({
-        origin: originAddress,
-        destination: destination,
-        travelMode: 'DRIVING'
-      }, function(response, status) {
-        if (status === 'OK') {
-          directionsRenderer.setDirections(response);
-        } else {
-            window.alert('Directions request failed due to ' + status);
-        }
+      listaAgencias.empty();
+      agencies.forEach(agency => {
+        listaAgencias.append(agency);
       });
     }
 
@@ -279,5 +266,6 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
     });
   })(jQuery);
 </script>
+
 
 <?php get_footer(); ?>

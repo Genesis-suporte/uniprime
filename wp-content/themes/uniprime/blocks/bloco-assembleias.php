@@ -22,17 +22,16 @@
   $unidades = array();
   foreach ($assembleias as $assembleia) {
       $unidade = get_field('unidade', $assembleia->ID); // Supondo que o campo é 'unidade'
+      //var_dump($unidade);
       if (!in_array($unidade, $unidades)) {
           $unidades[] = $unidade;
       }
   }
-
-
 ?>
 <section class="assembleias mw-100 z-12">
   <div class="container">
     <div class="row d-flex justify-content-between">
-      <div class="">          
+      <div class="d-flex flex-column justify-content-center">          
         <div class="title-block title-28 switzerlandBold pb-4 text-center">
           <?php echo __('Editais de Convocação'); ?>
         </div>       
@@ -174,7 +173,6 @@
 (function ($) {
   document.getElementById('search_assembleias').addEventListener('change', function() {
     var selectedUnidade = this.value.toLowerCase();
-    console.log(selectedUnidade);
     var assembleiaItems = document.querySelectorAll('.assembleia-item');
 
     assembleiaItems.forEach(function(item) {

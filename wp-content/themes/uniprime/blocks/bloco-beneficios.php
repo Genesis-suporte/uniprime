@@ -83,7 +83,7 @@
                         <?php echo __($sub_descricao_card); ?>
                       </div>
                     <?php }  
-                    
+                    //var_dump($estilo_do_botao);
                     if($estilo_do_botao != 'nenhum') {
       
                       if($habilitar_modal) {  ?>

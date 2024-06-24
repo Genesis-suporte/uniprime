@@ -19,6 +19,13 @@
 
     const topBar = document.querySelector('.top-bar');
     let lastScrollY = window.scrollY;
+    
+    const colNav = document.querySelector('.col-nav');
+    single_politica = document.querySelector('.single-politica');
+    if(single_politica) {
+    const colNavOffsetTop = colNav.offsetTop;
+    copy_politica = document.querySelector('.copy-politica');
+    }
 
     window.addEventListener('scroll', () => {
       //console.log(window.scrollY);
@@ -36,7 +43,7 @@
         }
       } else {
         // Scrolling up
-        if (window.scrollY < lastScrollY) {          
+        if (window.scrollY < lastScrollY) {
           if(body.classList.contains('admin-bar')) {
             if(!topBar.classList.contains('sticky-top')) {
               $('.top-bar').addClass('sticky-top');
@@ -50,6 +57,9 @@
               $('.top-bar').css('opacity', '1');
             }
           }
+          if(single_politica) {
+            $('.col-nav').css('top', '223px');
+          }
         } else {
           // Scrolling down
           if(topBar.classList.contains('sticky-top')) {
@@ -57,8 +67,25 @@
             $('.top-bar').css('top', 0);
             $('.top-bar').css('opacity', '1');
           }
+          if(single_politica) {
+            $('.col-nav').css('top', '50px');
+          }
         }
         lastScrollY = window.scrollY;
+      }
+      /* Políticas Panel fixed when scrolled */
+      if(single_politica) {
+        if (window.scrollY >= colNavOffsetTop) {
+          colNav.classList.add('fixed');
+          copy_politica.classList.add('fixed');
+          console.log(window.scrollY, lastScrollY);
+          
+        } else {
+          colNav.classList.remove('fixed');
+          copy_politica.classList.remove('fixed');
+          $('.col-nav').css('top', '0px');
+        }
+        //lastScrollY2 = window.scrollY;
       }
     });
     function checkResize () {      
@@ -138,7 +165,7 @@
     var initializeBlock = function() {
       checkResize ()
       if($('.hero-banner')) {
-        $('.hero-banner').slick({
+        $('.hero-banner').not('.slick-initialized').slick({
           dots: true,
           infinite: false,
           appendDots: '.dots-hero',
@@ -383,15 +410,6 @@
         // troca as logos 
         //para-cooperativa
         //para-empresa
-
-      //console.log('ativando menu',mainMenu.classList.contains('isMobile'));
-        //console.log(logowhite.classList);
-        if( logowhite && mainMenu.classList.contains('para-voce') ) {
-          /*logowhite.classList.add('d-none');
-          logowhite.classList.remove('d-block');
-          logoblack.classList.remove('d-none');  
-          logoblack.classList.add('d-block');*/
-        }
       }
       //console.log('abrindo menu principal')
     }
@@ -404,24 +422,14 @@
           menuInicialItem[j].childNodes[1].childNodes[1].classList.add('down');
           menuInicialItem[j].childNodes[1].childNodes[1].classList.remove('up');
         }
-        console.log('mainMenu', mainMenu.classList.contains('hero-banner-menu'));
+        
         if(!mainMenu.classList.contains('para-cooperativa') && !mainMenu.classList.contains('para-empresa') || mainMenu.classList.contains('hero-banner-menu')) {
           mainMenu.classList.remove('actived');
         }
         menuItem.classList.remove('actived');
-        if(logowhite && mainMenu.classList.contains('para-voce') ) {
-          /*logowhite.classList.add('d-block');
-          logowhite.classList.remove('d-none');
-          logoblack.classList.remove('d-block');  
-          logoblack.classList.add('d-none');*/
-        }
         modalMenu.classList.remove('d-block');
         modalMenu.classList.add('d-none');
       }
-      /*console.log(menuItem);
-      if (!mainMenu.classList.contains('actived')) {
-        mainMenu.classList.toggle('actived');
-      }*/
     }
     modalMenu = document.getElementById('modal-menu');
     if(modalMenu) {
@@ -665,11 +673,11 @@
         appendArrows: '.arrows-relatorios-balanco-desktop',
         responsive: [
           {
-            breakpoint: 1400,
+            breakpoint: 1200,
             settings: {
-              slidesPerRow: 2,
-              slidesToScroll: 2,
-              rows: 3,
+              slidesPerRow: 3,
+              slidesToScroll: 3,
+              rows: 4,
               appendArrows: '.arrows-relatorios-balanco-desktop',
             }
           },
@@ -713,8 +721,6 @@ jQuery(document).ready(function($) {
   var btnOpenModalSingularesMobile = document.getElementById("openModalSingularesMobile");
   
   var closeSingularesModal = document.getElementById("closeSingularesModal");
-  const singularesList = $('#singularesList');
-  const conveniadasList = $('#conveniadasList');
   // Obtém a URL atual
   var currentUrl = window.location.pathname;
       
@@ -755,6 +761,7 @@ jQuery(document).ready(function($) {
 
   function getSingularName() {    
     let isCentral = true;
+    let isStillCentral = true;
     var basePath = currentUrl.split('/')[1] ? '/' + currentUrl.split('/')[1] : '/';
     
     const singularesList = $('#singularesList');
@@ -766,7 +773,6 @@ jQuery(document).ready(function($) {
       let textActived = '';
       let target = '';
       let classSing = '';
-      //console.log('isCentral: ', data.url,data.type,basePath);
       if(basePath == data.url) {
         actived = 'actived';
         textActived = '<span style="font-size: 14px; font-weight: normal">Continuar na</span><br/>';
@@ -774,13 +780,24 @@ jQuery(document).ready(function($) {
         $('#singular-name-mobile').html(data.singular); 
         isCentral = false;
       } 
-      
+      isStillCentral = true;
+      agenciasData.singulares.find(function(searchSingular) { 
+        if(basePath == searchSingular.url) {
+          isStillCentral = false;
+        }
+      });
       if(data.type === 'principal' || data.type === 'singular' || data.type === 'prestadora') {
         target = '_SELF';
         classSing = 'singular-link';
       } else {
         target = '_blank';
-
+      }
+      
+      if(isCentral && isStillCentral && data.type === 'principal') {
+        actived = 'actived';
+        target = '_SELF';
+        classSing = 'singular-link';
+        textActived = '<span style="font-size: 14px; font-weight: normal">Continuar na</span><br/>';
       }
       const agencyHtml = `
       <div class="card-singulares ${actived}">

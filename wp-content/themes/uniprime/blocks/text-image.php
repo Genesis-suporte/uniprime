@@ -4,6 +4,7 @@
   $descricao = get_field('descricao', $block['id']);
   $posicao_imagem = get_field('posicao_imagem', $block['id']);
   $img = get_field('imagem', $block['id']);
+  $image_mobile = get_field('image_mobile', $block['id']);
 
 ?>
 
@@ -23,9 +24,12 @@
             <h1 class="title-block title-28 switzerlandBold"><?php echo esc_html($titulo); ?></h1>
             <?php echo __($descricao); ?>
             
-            <?php if ($posicao_imagem != 'nenhuma') { ?>
-              <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" class="img <?php echo $posicao_imagem;?> d-flex d-lg-none">
+            <?php if ($image_mobile) { ?>
+              <img src="<?php echo esc_url($image_mobile['url']); ?>" alt="<?php echo esc_html($image_mobile['alt']); ?>" class="img <?php echo $posicao_imagem;?> d-flex d-lg-none pb-4">
+            <?php } else if (!$image_mobile && $posicao_imagem != 'nenhuma'){ ?>
+              <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_html($img['alt']); ?>" class="img <?php echo $posicao_imagem;?> d-flex d-lg-none pb-4">
             <?php } ?>
+            
             <?php 
               $estilo_do_botao = get_field('estilo_do_botao', $block['id']);
               $habilitar_modal = get_field('habilitar_modal', $block['id']);

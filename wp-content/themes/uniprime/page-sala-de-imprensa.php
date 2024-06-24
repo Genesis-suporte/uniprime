@@ -8,6 +8,7 @@ get_header();
 $title_banner = get_field('title_banner');
 $description_banner = get_field('description_banner');
 $image_banner = get_field('image_banner');
+$image_banner_mobile = get_field('image_banner_mobile', $block['id']);
 
 $array_fique_por_dentro = array(
   'post_type'   => array( 'sala-de-imprensa' ),
@@ -19,12 +20,26 @@ $array_fique_por_dentro = array(
 
 $get_fique_por_dentro = get_posts( $array_fique_por_dentro );
 
+$tipo_conteudo = get_field('tipo_conteudo');
+$array_fique_por_dentro = array(
+  'post_type'   => array( 'noticia', 'campanha', 'sala-de-imprensa' ),
+  'posts_per_page' => -1,
+  'orderby'        => 'date',
+  'order'          => 'DESC'
+);
+
+$get_fique_por_dentro = get_posts( $array_fique_por_dentro );
+$label = get_field('label');
+$titulo = get_field('titulo');
+$descricao = get_field('descricao');
+
 ?>
 <div class="banner-internas position-relative">
   <div class="hero-image">
-    <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);">
-      <!--<img src="<?php echo esc_url($image_banner['url']); ?>" alt="<?php echo esc_html($image_banner['alt']); ?>" >-->
-    </div>
+    <div class="image <?php echo $image_banner_mobile ? 'd-none d-sm-block' : ''; ?>" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);"></div>
+    <?php if($image_banner_mobile) { ?>
+      <div class="image d-block d-sm-none" style="background-image: url(<?php echo esc_url($image_banner_mobile['url']); ?>);"></div>
+    <?php } ?>
     <div class="container">
       <div class="position-absolute copy">
         <?php if($title_banner) { ?>
@@ -58,14 +73,19 @@ $get_fique_por_dentro = get_posts( $array_fique_por_dentro );
 if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
   include(get_template_directory() . '/blocks/breadcrumbs.php');
 }
+$upload_dir = wp_upload_dir();
+$upload_url = $upload_dir['baseurl']; 
 ?>
+<div class="wp-block-group alignfull div-logo-uniprime d-none d-md-block is-layout-constrained wp-block-group-is-layout-constrained wp-container-1-noticias is-position-sticky">
+<figure class="wp-block-image alignright size-full is-resized logo-uniprime-background"><img fetchpriority="high" decoding="async" width="674" height="739" src="<?php echo $upload_url;?>/2024/03/logo-uniprime-gigante.png" alt="" class="wp-image-530" style="width:674px;height:auto" srcset="<?php echo $upload_url;?>/2024/03/logo-uniprime-gigante.png 674w, <?php echo $upload_url;?>/2024/03/logo-uniprime-gigante-274x300.png 274w" sizes="(max-width: 674px) 100vw, 674px"></figure>
+</div>
 <?php   
   $label_novidades = get_field('label_novidades');
   $titulo_novidades = get_field('titulo_novidades');
   $descricao_novidades = get_field('descricao_novidades');
 ?>
 
-<section class="bloco-noticias z-13">
+<section class="bloco-noticias z-13 page-sala-de-imprensa">
   <div class="container">
     <div class="row d-flex justify-content-between flex-column flex-lg-row">
       <div class="content-bloco-destaque">
@@ -157,6 +177,17 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
     </div>
   </div>
 </section>
+<div class="content">
+  <?php 
+  while ( have_posts() ) :
+    the_post();
+
+    // Display the content of the page.
+    the_content();
+    
+  // End the loop.
+  endwhile; ?>
+</div>
 <script type="text/javascript">
   (function($){
   window.addEventListener("load", ()=>{

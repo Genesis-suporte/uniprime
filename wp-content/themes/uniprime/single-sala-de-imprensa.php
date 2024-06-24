@@ -34,24 +34,22 @@ $reading_time_minutes = ceil($word_count / $average_reading_speed);
     <div class="d-grid cols-noticia">
       <div class="content">
         <div class="tab-content" id="tab-content">
-          <?php //while ( have_posts() ) : the_post(); ?>
-            <div class="">
-              <div class="title-block title-28 switzerlandBold">
-                <h1><?php the_title(); ?></h1>
-              </div>
-              <div class="post-date">
-                <?php echo $date_published_brazilian . ' · ' . $reading_time_minutes . ' min de leitura'; ?>
-              </div>
-              
-              <div class="content">
-                <?php the_content(); ?>
-              </div>
+          <div class="">
+            <div class="title-block title-28 switzerlandBold">
+              <h1><?php the_title(); ?></h1>
             </div>
-
-            <?php //endwhile; // end of the loop. ?>
+            <div class="post-date">
+              <?php echo $date_published_brazilian . ' · ' . $reading_time_minutes . ' min de leitura'; ?>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  
+            
+  <div class="content">
+    <?php the_content(); ?>
   </div>
 </section>
 

@@ -9,15 +9,17 @@ get_header();
 $title_banner = get_field('title_banner');
 $description_banner = get_field('description_banner');
 $image_banner = get_field('image_banner');
+$image_banner_mobile = get_field('image_banner_mobile', $block['id']);
 
 ?>
 
 
 <div class="banner-internas position-relative">
   <div class="hero-image">
-    <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);">
-      <!--<img src="<?php echo esc_url($image_banner['url']); ?>" alt="<?php echo esc_html($image_banner['alt']); ?>" >-->
-    </div>
+    <div class="image <?php echo $image_banner_mobile ? 'd-none d-sm-block' : ''; ?>" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);"></div>
+    <?php if($image_banner_mobile) { ?>
+      <div class="image d-block d-sm-none" style="background-image: url(<?php echo esc_url($image_banner_mobile['url']); ?>);"></div>
+    <?php } ?>
     <div class="container">
       <div class="position-absolute copy">
         <?php if($title_banner) { ?>
@@ -38,7 +40,12 @@ $image_banner = get_field('image_banner');
 if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
   include(get_template_directory() . '/blocks/breadcrumbs.php');
 }
+$upload_dir = wp_upload_dir();
+$upload_url = $upload_dir['baseurl']; 
 ?>
+<div class="wp-block-group alignfull div-logo-uniprime d-none d-md-block is-layout-constrained wp-block-group-is-layout-constrained wp-container-1-noticias is-position-sticky">
+<figure class="wp-block-image alignright size-full is-resized logo-uniprime-background"><img fetchpriority="high" decoding="async" width="674" height="739" src="<?php echo $upload_url;?>/2024/03/logo-uniprime-gigante.png" alt="" class="wp-image-530" style="width:674px;height:auto" srcset="<?php echo $upload_url;?>/2024/03/logo-uniprime-gigante.png 674w, <?php echo $upload_url;?>/2024/03/logo-uniprime-gigante-274x300.png 274w" sizes="(max-width: 674px) 100vw, 674px"></figure>
+</div>
 <?php 
   $label = get_field('label', $block['id']);
   $titulo = get_field('titulo', $block['id']);
@@ -171,21 +178,19 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
 
         </div>
       </div>
-      <div class="main-protocolo content-lgpd">
-        <div class="content-protocolo">
-          <div class="num-protocolo title-28 switzerlandBold">Proteção de dados (LGPD)</div>
-          <div class="d-flex flex-column flex-md-row justify-content-between">
-            <div class="col-left">
-              <p>Para exercer seus direitos enquanto titular de dados pessoais, dirija-se à sua agência ou entre em contrato pelo e-mail <a href="mailto:privacidade@uniprimecentral.com.br" target="_blank" class="color-actived">privacidade@uniprimecentral.com.br</a></p>
-            </div>
-            <div class="col-right">
-              <p>*Para saber como tratamos seus dados pessoais, consulte nossa <a href="#" class="color-actived">Política de Privacidade</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
+  <div class="content">
+  <?php 
+  while ( have_posts() ) :
+    the_post();
+
+    // Display the content of the page.
+    the_content();
+    
+  // End the loop.
+  endwhile; ?>
+</div>
 </section>
 <?php 
 // @TODO -> Render onde-encontrar block

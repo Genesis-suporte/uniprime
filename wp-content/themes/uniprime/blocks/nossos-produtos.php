@@ -3,7 +3,7 @@
   $titulo = get_field('titulo', $block['id']);
   $descricao = get_field('descricao', $block['id']);
 ?>
-<section class="nossos-produtos mw-100">
+<section class="nossos-produtos mw-100 z-13">
   <div class="container">
     <div class="label-block">
       <?php echo esc_html($label); ?>
@@ -27,16 +27,19 @@
           
           $get_solucoes_id = array(
             'numberposts'      => -1,
-            'post_type'   => 'solucoes'
+            'post_type'   => 'solucoes',
+            'orderby'          => 'date',
+            'order'            => 'DESC'
           );
           $get_solucoes = get_posts( $get_solucoes_id );
+         
           foreach($get_solucoes as $get_solucao) {
-            //echo $get_solucao;
+           
             $terms = get_the_terms( $get_solucao, 'tipo-solucao' ); 
             //$index_nh = 0;
             foreach($terms as $term) {
-              //echo $currentSlug.' - '.$term->slug;
-              if($currentSlug == $term->slug || (is_front_page() && $term->slug == 'para-voce')) { 
+              //echo 'tyara '.$post->post_name.'<br />';
+              if($currentSlug == $term->slug || (is_front_page() && $term->slug == 'para-voce') || (is_admin() && $term->slug == 'para-voce') ) { 
                 //var_dump( $term->slug );
                 ?>
                 

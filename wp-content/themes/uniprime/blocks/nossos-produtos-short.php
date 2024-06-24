@@ -3,7 +3,7 @@
   $titulo = get_field('titulo', $block['id']);
   $descricao = get_field('descricao', $block['id']);
 ?>
-<section class="nossos-produtos nossos-produtos-shorts mw-100">
+<section class="nossos-produtos nossos-produtos-shorts mw-100 z-12 bg-white">
   <div class="container">
     <div class="label-block">
       <?php echo esc_html($label); ?>

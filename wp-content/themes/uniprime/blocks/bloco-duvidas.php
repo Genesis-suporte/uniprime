@@ -28,7 +28,7 @@
               $descricao = get_sub_field('descricao');?>
               <div class="accordion-item">
                 <h3 class="accordion-header">
-                  <button class="accordion-button title-duvida" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $count;?>" aria-expanded="false" aria-controls="collapse<?php echo $count;?>">
+                  <button class="accordion-button title-duvida collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $count;?>" aria-expanded="false" aria-controls="collapse<?php echo $count;?>">
                     <?php echo esc_html($titulo); ?>
                   </button>
                 </h3>

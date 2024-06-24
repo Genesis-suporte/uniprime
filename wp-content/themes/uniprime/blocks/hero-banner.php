@@ -516,7 +516,7 @@
                           }
                           
                           if($class_cooperado) { 
-                            $menu_one_level .= '<a href="'. esc_url($item['link']) .'" class="'.$class.'"><img src="'.get_template_directory_uri().'/assets/images/icons/icon-users.png" alt="Seja o cooperado" id="icon-users"><img src="'.get_template_directory_uri().'/assets/images/icons/icon-users-white.png" alt="Seja o cooperado" class="d-none" id="icon-users-white">'. esc_html($item['title']) .'</a>'."\n";
+                            $menu_one_level .= '<a href="'. esc_url($item['link']) .'" class="'.$class.'"><img src="'.get_template_directory_uri().'/assets/images/icons/icon-users-white.png" alt="Seja o cooperado" class="" id="icon-users-white"><img src="'.get_template_directory_uri().'/assets/images/icons/icon-users.png" alt="Seja o cooperado" id="icon-users" style="display: none;">'. esc_html($item['title']) .'</a>'."\n";
                           } else {
                             $menu_one_level .= '<a href="'. esc_url($item['link']) .'" class="'.$class.'">'. esc_html($item['title']) .'</a>'."\n";
 
@@ -536,43 +536,45 @@
     </div>
   </div>
 </header>
-<div class="hero-banner position-relative mw-100 <?php echo $tipo_homepage;?>">
-  <?php 
-  if( have_rows('banner_container') ):
-    while ( have_rows('banner_container') ) : the_row();
-      // Case: Paragraph layout.
-      if( get_row_layout() == 'banner' ) {
-        $title_banner = get_sub_field('title_banner');
-        $description_banner = get_sub_field('description_banner');
-        $cta_banner = get_sub_field('cta_banner');
-        $image_banner = get_sub_field('image_banner');
-        //->filename url alt
-        //print_r( $image_banner);?>
-        <div class="hero-image">
-          <div class="container position-relative">
-            <div class="copy position-absolute">
-              <div class="title title-48 switzerlandLight">
-                <?php echo esc_html($title_banner); ?>
-              </div>
-              <div class="description">
-                <?php echo esc_html($description_banner); ?>
-              </div>
-              <div class="cta">
-                <?php echo '<a href="'. esc_url($cta_banner['url']) .'" class="btn btn-actived">'. esc_html($cta_banner['title']) .'<i class="icon icon-cta"></i></a>'; ?>
+<div class="position-relative">
+  <div class="hero-banner position-relative mw-100 <?php echo $tipo_homepage;?>">
+    <?php 
+    if( have_rows('banner_container') ):
+      while ( have_rows('banner_container') ) : the_row();
+        // Case: Paragraph layout.
+        if( get_row_layout() == 'banner' ) {
+          $title_banner = get_sub_field('title_banner');
+          $description_banner = get_sub_field('description_banner');
+          $cta_banner = get_sub_field('cta_banner');
+          $image_banner = get_sub_field('image_banner');
+          //->filename url alt
+          //print_r( $image_banner);?>
+          <div class="hero-image">
+            <div class="container position-relative">
+              <div class="copy position-absolute">
+                <div class="title title-48 switzerlandLight">
+                  <?php echo esc_html($title_banner); ?>
+                </div>
+                <div class="description">
+                  <?php echo esc_html($description_banner); ?>
+                </div>
+                <div class="cta">
+                  <?php echo '<a href="'. esc_url($cta_banner['url']) .'" class="btn btn-actived">'. esc_html($cta_banner['title']) .'<i class="icon icon-cta"></i></a>'; ?>
+                </div>
               </div>
             </div>
+            <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);"></div>
           </div>
-          <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);"></div>
-        </div>
-        <?php
-      }
-      
-    // End loop.
-    endwhile;
-  // No value.
-  else :
-    // Do something...
-  endif;
-  ?>
+          <?php
+        }
+        
+      // End loop.
+      endwhile;
+    // No value.
+    else :
+      // Do something...
+    endif;
+    ?>
+  </div>
+  <div class="dots-hero"></div>
 </div>
-<div class="dots-hero"></div>
