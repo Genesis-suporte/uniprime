@@ -27,6 +27,7 @@
     copy_politica = document.querySelector('.copy-politica');
     }
 
+    let timeoutId;
     window.addEventListener('scroll', () => {
       //console.log(window.scrollY);
       if (window.scrollY > 1) {
@@ -60,12 +61,17 @@
           if(single_politica) {
             $('.col-nav').css('top', '223px');
           }
+          // Clear the timeout if it's already set
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+          }
         } else {
           // Scrolling down
           if(topBar.classList.contains('sticky-top')) {
-            $('.top-bar').removeClass('sticky-top');
-            $('.top-bar').css('top', 0);
-            $('.top-bar').css('opacity', '1');
+            $('.top-bar').css('opacity', '0');
+            timeoutId = setTimeout(function() {
+              $('.top-bar').removeClass('sticky-top');
+            }, 200); // 300ms delay matches the transition duration
           }
           if(single_politica) {
             $('.col-nav').css('top', '50px');
@@ -945,3 +951,4 @@ jQuery(document).ready(function($) {
     });   
   } 
 });
+

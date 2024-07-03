@@ -91,6 +91,11 @@ a {
   background-color: white !important;
   border: 0px !important;
 }
+.btn-secondary:hover {
+  color: white !important;
+  background-color: var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
+}
 
 .btn-actived {
   color: white !important;
@@ -257,13 +262,19 @@ a {
   background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* boleto-bancario */
-.icon-boleto-bancario-cobranca {
+.icon-boleto-bancario-cobranca,
+.icon-para-seu-negocio-boleto-bancario-cobranca,
+.icon-boleto-bancario-cobranca-para-cooperativas  {
   background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
-.icon-boleto-bancario-cobranca-gold, .icon-boleto-bancario-cobranca-2-gold, .icon-boleto-bancario-cobranca-3-gold {
+.icon-boleto-bancario-cobranca-gold,
+.icon-para-seu-negocio-boleto-bancario-cobranca-gold,
+.icon-boleto-bancario-cobranca-para-cooperativas-gold {
   background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
-.icon-boleto-bancario-cobranca-white {
+.icon-boleto-bancario-cobranca-white,
+.icon-para-seu-negocio-boleto-bancario-cobranca-white,
+.icon-boleto-bancario-cobranca-para-cooperativas-white  {
   background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* cambio */
@@ -287,13 +298,19 @@ a {
   background: url('../images/icons/icon-cartao-credito-white.png') no-repeat 0px 0px;
 }
 /* cartoes */
-.icon-cartoes {
+.icon-cartoes,
+.icon-para-seu-negocio-cartoes,
+.icon-cartoes-para-cooperativas {
   background: url('../images/icons/icon-cartao-credito.png') no-repeat 0px 0px;
 }
-.icon-cartoes-gold, .icon-cartoes-2-gold, .icon-cartoes-3-gold {
+.icon-cartoes-gold,
+.icon-para-seu-negocio-cartoes-gold,
+.icon-cartoes-para-cooperativas-gold {
   background: url('../images/icons/icon-cartao-credito-gold.png') no-repeat 0px 0px;
 }
-.icon-cartoes-white {
+.icon-cartoes-white,
+.icon-para-seu-negocio-cartoes-white,
+.icon-cartoes-para-cooperativas-white {
   background: url('../images/icons/icon-cartao-credito-white.png') no-repeat 0px 0px;
 }
 /* cobranca */
@@ -307,43 +324,67 @@ a {
   background: url('../images/icons/icon-cobranca-white.png') no-repeat 0px 0px;
 }
 /* consorcios */
-.icon-consorcios {
+.icon-consorcios,
+.icon-para-seu-negocio-consorcios,
+.icon-consorcios-para-cooperativas {
   background: url('../images/icons/icon-consorcios.png') no-repeat 0px 0px;
 }
-.icon-consorcios-gold, .icon-consorcios-2-gold, .icon-consorcios-3-gold {
+.icon-consorcios-gold,
+.icon-para-seu-negocio-consorcios-gold,
+.icon-consorcios-para-cooperativas-gold {
   background: url('../images/icons/icon-consorcios-gold.png') no-repeat 0px 0px;
 }
-.icon-consorcios-white {
+.icon-consorcios-white,
+.icon-para-seu-negocio-consorcios-white,
+.icon-consorcios-para-cooperativas-white {
   background: url('../images/icons/icon-consorcios-white.png') no-repeat 0px 0px;
 }
 /*conta-corrente */
-.icon-conta-corrente {
+.icon-conta-corrente,
+.icon-para-seu-negocio-conta-corrente,
+.icon-conta-corrente-para-cooperativas {
   background: url('../images/icons/icon-conta-corrente.png') no-repeat 0px 0px;
 }
-.icon-conta-corrente-gold, .icon-conta-corrente-2-gold, .icon-conta-corrente-3-gold {
+.icon-conta-corrente-gold,
+.icon-para-seu-negocio-conta-corrente-gold,
+.icon-conta-corrente-para-cooperativas-gold  {
   background: url('../images/icons/icon-conta-corrente-gold.png') no-repeat 0px 0px;
 }
-.icon-conta-corrente-white {
+.icon-conta-corrente-white,
+.icon-para-seu-negocio-conta-corrente-white,
+.icon-conta-corrente-para-cooperativas-white  {
   background: url('../images/icons/icon-conta-corrente-white.png') no-repeat 0px 0px;
 }
 /* credito */
-.icon-credito {
+.icon-credito,
+.icon-para-seu-negocio-credito,
+.icon-credito-para-cooperativas {
   background: url('../images/icons/icon-credito.png') no-repeat 0px 0px;
 }
-.icon-credito-gold, .icon-credito-2-gold, .icon-credito-3-gold {
+.icon-credito-gold,
+.icon-para-seu-negocio-credito-gold,
+.icon-credito-para-cooperativas-gold {
   background: url('../images/icons/icon-credito-gold.png') no-repeat 0px 0px;
 }
-.icon-credito-white {
+.icon-credito-white,
+.icon-para-seu-negocio-credito-white,
+.icon-credito-para-cooperativas-white {
   background: url('../images/icons/icon-credito-white.png') no-repeat 0px 0px;
 }
 /* domicilio-bancario */
-.icon-domicilio-bancario {
+.icon-domicilio-bancario,
+.icon-para-seu-negocio-domicilio-bancario,
+.icon-domicilio-bancario-para-cooperativas {
   background: url('../images/icons/icon-domicilio-bancario.png') no-repeat 0px 0px;
 }
-.icon-domicilio-bancario-gold, .icon-domicilio-bancario-2-gold, .icon-domicilio-bancario-3-gold {
+.icon-domicilio-bancario-gold,
+.icon-para-seu-negocio-domicilio-bancario-gold,
+.icon-domicilio-bancario-para-cooperativas-gold {
   background: url('../images/icons/icon-domicilio-bancario-gold.png') no-repeat 0px 0px;
 }
-.icon-domicilio-bancario-white {
+.icon-domicilio-bancario-white,
+.icon-para-seu-negocio-domicilio-bancario-white,
+.icon-domicilio-bancario-para-cooperativas-white {
   background: url('../images/icons/icon-domicilio-bancario-white.png') no-repeat 0px 0px;
 }
 /* financiamento */
@@ -357,74 +398,106 @@ a {
   background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* investimentos */
-.icon-investimentos {
+.icon-investimentos,
+.icon-investimentos-para-seu-negocio,
+.icon-produtos-de-investimentos {
   background: url('../images/icons/icon-investimentos.png') no-repeat 0px 0px;
 }
-.icon-investimentos-gold {
+.icon-investimentos-gold,
+.icon-investimentos-para-seu-negocio-gold,
+.icon-produtos-de-investimentos-gold {
   background: url('../images/icons/icon-investimentos-gold.png') no-repeat 0px 0px;
 }
-.icon-investimentos-white {
+.icon-investimentos-white,
+.icon-investimentos-para-seu-negocio-white,
+.icon-produtos-de-investimentos-white {
   background: url('../images/icons/icon-investimentos-white.png') no-repeat 0px 0px;
 }
 /* maquina-de-cartao */
-
-.icon-maquina-de-cartao {
+.icon-maquina-de-cartao,
+.icon-para-seu-negocio-maquina-de-cartao {
   background: url('../images/icons/icon-maquina-de-cartao.png') no-repeat 0px 0px;
 }
-.icon-maquina-de-cartao-gold {
+.icon-maquina-de-cartao-gold,
+.icon-para-seu-negocio-maquina-de-cartao-gold {
   background: url('../images/icons/icon-maquina-de-cartao-gold.png') no-repeat 0px 0px;
 }
-.icon-maquina-de-cartao-white {
+.icon-maquina-de-cartao-white,
+.icon-para-seu-negocio-maquina-de-cartao-white {
   background: url('../images/icons/icon-maquina-de-cartao-white.png') no-repeat 0px 0px;
 }
 /* -open-banking */
-.icon-open-banking {
+.icon-open-banking,
+.icon-open-banking-para-cooperativas {
   background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
-.icon-open-banking-gold {
+.icon-open-banking-gold,
+.icon-open-banking-para-cooperativas-gold {
   background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
-.icon-open-banking-white {
+.icon-open-banking-white,
+.icon-open-banking-para-cooperativas-white {
   background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* open-finance */
-.icon-open-finance {
+.icon-open-finance,
+.icon-para-seu-negocio-open-finance,
+.icon-open-finance-para-cooperativas  {
   background: url('../images/icons/icon-open-finance.png') no-repeat 0px 0px;
 }
-.icon-open-finance-gold, .icon-open-finance-2-gold, .icon-open-finance-3-gold {
+.icon-open-finance-gold, 
+.icon-para-seu-negocio-open-finance-gold,
+.icon-open-finance-para-cooperativas-gold {
   background: url('../images/icons/icon-open-finance-gold.png') no-repeat 0px 0px;
 }
-.icon-open-finance-white {
+.icon-open-finance-white,
+.icon-para-seu-negocio-open-finance-white,
+.icon-open-finance-para-cooperativas-white  {
   background: url('../images/icons/icon-open-finance-white.png') no-repeat 0px 0px;
 }
 /* portabilidade-de-conta-salario */
-.icon-portabilidade-de-conta-salario {
+.icon-portabilidade-de-conta-salario,
+.icon-portabilidade-de-conta-salario-para-cooperativas {
   background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
-.icon-portabilidade-de-conta-salario-gold {
+.icon-portabilidade-de-conta-salario-gold,
+.icon-portabilidade-de-conta-salario-para-cooperativas-gold {
   background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
-.icon-portabilidade-de-conta-salario-white {
+.icon-portabilidade-de-conta-salario-white,
+.icon-portabilidade-de-conta-salario-para-cooperativas-white {
   background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* pix */
-.icon-pix {
+.icon-pix,
+.icon-para-seu-negocio-pix,
+.icon-pix-para-cooperativas {
   background: url('../images/icons/icon-pix.png') no-repeat 0px 0px;
 }
-.icon-pix-gold, .icon-pix-2-gold, .icon-pix-3-gold {
+.icon-pix-gold,
+.icon-para-seu-negocio-pix-gold,
+.icon-pix-para-cooperativas-gold {
   background: url('../images/icons/icon-pix-gold.png') no-repeat 0px 0px;
 }
-.icon-pix-white {
+.icon-pix-white,
+.icon-para-seu-negocio-pix-white,
+.icon-pix-para-cooperativas-white {
   background: url('../images/icons/icon-pix-white.png') no-repeat 0px 0px;
 }
 /* previdencia */
-.icon-previdencia {
+.icon-previdencia,
+.icon-para-seu-negocio-previdencia,
+.icon-previdencia-para-cooperativas {
   background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
-.icon-previdencia-gold, .icon-previdencia-2-gold, .icon-previdencia-3-gold  {
+.icon-previdencia-gold,
+.icon-para-seu-negocio-previdencia-gold,
+.icon-previdencia-para-cooperativas-gold  {
   background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
-.icon-previdencia-white {
+.icon-previdencia-white,
+.icon-para-seu-negocio-previdencia-white,
+.icon-previdencia-para-cooperativas-white {
   background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* produtos-de-investimento */
@@ -438,13 +511,16 @@ a {
   background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* remessa-internacional */
-.icon-remessa-internacional {
+.icon-remessa-internacional,
+.icon-remessa-internacional-para-cooperativas {
   background: url('../images/icons/icon-previdencia.png') no-repeat 0px 0px;
 }
-.icon-remessa-internacional-gold {
+.icon-remessa-internacional-gold,
+.icon-remessa-internacional-para-cooperativas-gold {
   background: url('../images/icons/icon-previdencia-gold.png') no-repeat 0px 0px;
 }
-.icon-remessa-internacional-white {
+.icon-remessa-internacional-white,
+.icon-remessa-internacional-para-cooperativas-white {
   background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* repasse-mediante-convenios */
@@ -458,33 +534,48 @@ a {
   background: url('../images/icons/icon-previdencia-white.png') no-repeat 0px 0px;
 }
 /* seguros */
-.icon-seguros {
+.icon-seguros,
+.icon-para-seu-negocio-seguros,
+.icon-seguros-para-cooperativas {
   background: url('../images/icons/icon-seguros.png') no-repeat 0px 0px;
 }
-.icon-seguros-gold, .icon-seguros-2-gold, .icon-seguros-3-gold {
+.icon-seguros-gold,
+.icon-para-seu-negocio-seguros-gold,
+.icon-seguros-para-cooperativas-gold {
   background: url('../images/icons/icon-seguros-gold.png') no-repeat 0px 0px;
 }
-.icon-seguros-white {
+.icon-seguros-white,
+.icon-para-seu-negocio-seguros-white,
+.icon-seguros-para-cooperativas-white {
   background: url('../images/icons/icon-seguros-white.png') no-repeat 0px 0px;
 }
 /* servicos-e-assessoria */
-.icon-servicos-e-assessoria {
+.icon-servicos-e-assessoria,
+.icon-outros-servicos-e-assessorias-uniprime {
   background: url('../images/icons/icon-servicos-e-assessoria.png') no-repeat 0px 0px;
 }
-.icon-servicos-e-assessoria-gold {
+.icon-servicos-e-assessoria-gold,
+.icon-outros-servicos-e-assessorias-uniprime-gold {
   background: url('../images/icons/icon-servicos-e-assessoria-gold.png') no-repeat 0px 0px;
 }
-.icon-servicos-e-assessoria-white {
+.icon-servicos-e-assessoria-white,
+.icon-outros-servicos-e-assessorias-uniprime-white {
   background: url('../images/icons/icon-servicos-e-assessoria-white.png') no-repeat 0px 0px;
 }
 /* servicos-internacionais */
-.icon-servicos-internacionais {
+.icon-servicos-internacionais,
+.icon-para-seu-negocio-servicos-internacionais,
+.icon-servicos-internacionais-para-cooperativas {
   background: url('../images/icons/icon-servicos-internacionais.png') no-repeat 0px 0px;
 }
-.icon-servicos-internacionais-gold, .icon-servicos-internacionais-2-gold, .icon-servicos-internacionais-3-gold {
+.icon-servicos-internacionais-gold,
+.icon-para-seu-negocio-servicos-internacionais-gold,
+.icon-servicos-internacionais-para-cooperativas-gold {
   background: url('../images/icons/icon-servicos-internacionais-gold.png') no-repeat 0px 0px;
 }
-.icon-servicos-internacionais-white {
+.icon-servicos-internacionais-white,
+.icon-para-seu-negocio-servicos-internacionais-white,
+.icon-servicos-internacionais-para-cooperativas-white {
   background: url('../images/icons/icon-servicos-internacionais-white.png') no-repeat 0px 0px;
 }
 /* icon-custodia-cheques */
@@ -508,15 +599,22 @@ a {
   background: url('../images/icons/icon-pagamentos-recebimentos-white.png') no-repeat 0px 0px;
 }
 /* tag */
-.icon-tag {
+.icon-tag,
+.icon-para-seu-negocio-tag,
+.icon-tag-para-cooperativas {
   background: url('../images/icons/icon-tag.png') no-repeat 0px 0px;
 }
-.icon-tag-gold, .icon-tag-2-gold, .icon-tag-3-gold {
+.icon-tag-gold,
+.icon-para-seu-negocio-tag-gold,
+.icon-tag-para-cooperativas-gold {
   background: url('../images/icons/icon-tag-gold.png') no-repeat 0px 0px;
 }
-.icon-tag-white {
+.icon-tag-white,
+.icon-para-seu-negocio-tag-white,
+.icon-tag-para-cooperativas-white {
   background: url('../images/icons/icon-tag-white.png') no-repeat 0px 0px;
 }
+
 .icon-missao {
   background: url('../images/icons/icon-missao.svg') no-repeat 0px 0px;
   width: 64px;
@@ -573,6 +671,14 @@ a {
   height: 40px;
   display: block;
 }
+.icon-check-white {
+  background: url('../images/icons/icon-check-white.png') no-repeat  0px 0px;
+  width: 56px;
+  height: 56px;
+  display: block;
+}
+
+
 .accordion-button::after {
   background: url('../images/icons/icon-arrow-down-gold.svg') no-repeat 0px 0px !important;
   width: 12px !important;
@@ -665,7 +771,7 @@ li.select2-results__option .icon-menu {
   font-size: 14px;
   padding: 0px 0;
   position: relative;
-  transition: all .2s ease-in-out;
+  transition: all .25s ease-in-out;
   z-index: 120;
 }
 .top-bar.sticky-top {
@@ -1296,9 +1402,11 @@ section.search-page .slide-m-dots .slick-dots li.slick-active button {
 }
 .hero-banner .hero-image .copy .cta a:hover {
   border: 1px solid var(--color-actived) !important;
-
 }
-
+.hero-banner .hero-image .copy .cta a:hover .icon-cta{
+  transition: all .2s ease-in-out;
+  background: url(../images/icons/icon-right-arrow.png) no-repeat 0px 0px;
+}
 .hero-banner .hero-image .image {
   width:100%; 
   max-height: 800px; 
@@ -1532,7 +1640,7 @@ section.search-page .slide-m-dots .slick-dots li.slick-active button {
 .nossos-produtos .slick-slide > div {
   margin: 0px 0px 30px 25px;
   background-color: rgba(248, 250, 251, .9);
-  border-radius: 16px;
+  border-radius: 19px;
 }
 .nossos-produtos .card-nossos-produtos {  
   border-radius: 16px;
@@ -2996,11 +3104,11 @@ section.fale-conosco {
   background:  url(../images/bg-sucesso-form.png) no-repeat 0px 0px;
   position: relative;
   width: 496px;
-  height: 526px;
+  height: 636px;
   border-radius: 16px;
 }
 .msg-sucess .container {
-  padding: 51px 41px;
+  padding: 128px 41px 0;
 }
 .msg-sucess .titulo {
   color: white;
@@ -3015,15 +3123,18 @@ section.fale-conosco {
   font-family: 'Calibri' !important;
   font-size: 16px;
   line-height: 27px; 
-  padding-bottom: 32px;
+  padding-bottom: 22px;
 }
 .msg-sucess .msg a {
   color: var(--color-actived);
   font-weight: bold;
   padding-bottom: 24px;
 }
-.msg-sucess .msg a {
+.msg-sucess .num_protocolo {
   color: var(--color-actived);
+  font-family: 'SwitzerlandBold';
+  font-size: 24px;
+  padding-bottom: 22px;
 }
 .msg-sucess .btn {
   width: 217px;
@@ -4166,6 +4277,14 @@ footer {
     max-width: 500px;
   }
 }
+@media (max-width: 1399.98px) { 
+  .ouvidoria .container-canal-denuncia {
+    padding: 0px 0px 115px 64px;
+  }
+  .cards-canal-denuncia {
+    padding: 0px 64px 32px 64px;
+  }
+}
 @media (max-width: 1199.98px) { 
   .footer-menu .col-solucoes {
     width: 28%;
@@ -4175,6 +4294,13 @@ footer {
   }
   .bloco-acesse-noticias {
     padding: 32px 64px;
+  }
+  
+  .ouvidoria .container-canal-denuncia {
+    padding: 0px 0px 115px 0px;
+  }
+  .cards-canal-denuncia {
+    padding: 0px 0px 32px 32px;
   }
 }
 .footer-menu .col-solucoes .solucoes {

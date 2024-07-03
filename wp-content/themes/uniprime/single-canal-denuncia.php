@@ -72,16 +72,6 @@ $upload_url = $upload_dir['baseurl'];
                   echo 'A função do_shortcode() não está disponível.';
               }
             ?>
-          <div class="msg-sucess d-none">
-            <div class="container d-flex flex-column justify-content-center text-center">
-              <div class="icone d-flex justify-content-center">
-                <i class="icon icon-sucesso"></i>
-              </div>
-              <div class="titulo">A sua mensagem foi enviada com sucesso!</div>
-              <div class="msg">Enviamos uma cópia da sua mensagem para o email informado: <a href="#">alessandro@clinicamedica.com.br</a></div>
-              <a href="#" class="btn btn-secondary">Enviar nova mensagem</a>
-            </div>
-          </div>
         </div>
         <div class="cards-canal-denuncia col-12 col-lg-6 fale-conosco">
           <div class="bloco-consulta-protocolo card-canais-digitais">
@@ -149,65 +139,6 @@ $upload_url = $upload_dir['baseurl'];
   (function ($) {
     $(document).ready(function() {
       
-      var tipo_relato = $('.tipo-relato').html()
-      $('.dados-do-incidente').html(section_dados_do_incidente + '<div class="container-portabilidade">' + tipo_relato + '</div>')
-      $('.section-dados-do-incidente').html('')
-      $('.tipo-relato').html('')
-
-      var section_onde_ocorreu = $('.section-onde-ocorreu').html()
-      var select_estado = $('.select-estado').html() 
-      var select_cidade = $('.select-cidade').html()
-      var nome_agencia = $('.nome-agencia').html()
-      $('.onde-ocorreu').html(section_onde_ocorreu + '<div class="container-portabilidade">' + select_estado + '' + select_cidade + '' + nome_agencia +'</div>');
-      $('.section-onde-ocorreu').html('')
-      $('.select-estado').html('')
-      $('.select-cidade').html('')
-      $('.nome-agencia').html('')
-
-      var section_responsavel = $('.section-responsavel').html()
-      var nome_responsavel = $('.nome-responsavel').html() 
-      var select_departamento = $('.select-departamento').html()
-      var funcao_responsavel = $('.funcao-responsavel').html() 
-      var empresa_responsavel = $('.empresa-responsavel').html() 
-      var outros_detalhes_responsavel = $('.outros-detalhes-responsavel').html() 
-      $('.block-responsavel').append(section_responsavel + '<div class="container-portabilidade">' + nome_responsavel + '' + select_departamento + '' + funcao_responsavel + '' + empresa_responsavel + '' + outros_detalhes_responsavel +'</div>');
-      $('.section-responsavel').html('')
-      $('.nome-responsavel').html('')
-      $('.select-departamento').html('')
-      $('.funcao-responsavel').html('')
-      $('.empresa-responsavel').html('')
-      $('.outros-detalhes-responsavel').html('')
-
-      var section_detalhamento = $('.section-detalhamento').html()
-      var block_detalhamento = $('.block-detalhamento').html()
-      var detalhamento = $('.detalhamento').html()
-      $('.block-detalhamento').append(section_detalhamento + '<div class="container-portabilidade">' + detalhamento + '</div>')
-      $('.section-detalhamento').html('')
-      $('.detalhamento').html('')
-
-      var section_testemunhas = $('.section-testemunhas').html()
-      var testemunhas = $('.testemunhas').html()
-      $('.block-testemunhas').append(section_testemunhas + '<div class="container-portabilidade">' + testemunhas + '</div>')
-      $('.section-testemunhas').html('')
-      $('.testemunhas').html('')
-
-
-      // AJAX PROTOCOLOS
-    //.select-agencias
-      /*$('.user-organization').hide();
-        // do a POST ajax call
-      $(".select-cooperativa").change(function(){
-        var care_setting = $(".select-cooperativa option:selected").val();
-        var zip = $('#input_3_6').val();
-        if(zip != '')
-          getOrgName(zip,care_setting);
-      });
-      $("#input_3_6").focusout(function(){
-        var zip = $('#input_3_6').val();
-        var care_setting = $("#input_3_7 option:selected").val();
-        if(care_setting != '')
-          getOrgName(zip,care_setting);
-      });*/
       $('#search-protocolo-form').on('submit', function(e) {
         e.preventDefault();
         var protocolo = $('#input-protocolo').val();

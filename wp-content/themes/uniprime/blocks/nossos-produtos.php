@@ -36,11 +36,13 @@
           foreach($get_solucoes as $get_solucao) {
            
             $terms = get_the_terms( $get_solucao, 'tipo-solucao' ); 
+            
             //$index_nh = 0;
             foreach($terms as $term) {
+              //var_dump( $term->slug );
+              //echo '<br />';
               //echo 'tyara '.$post->post_name.'<br />';
               if($currentSlug == $term->slug || (is_front_page() && $term->slug == 'para-voce') || (is_admin() && $term->slug == 'para-voce') ) { 
-                //var_dump( $term->slug );
                 ?>
                 
                 <div class="col col-4 card-nossos-produtos">

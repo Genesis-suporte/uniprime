@@ -714,8 +714,7 @@ function criar_protocolo_cpt($entry, $form) {
 	if ($form['id'] != 7) { // Substitua pelo ID do seu formulário
 			return;
 	}
-	$entry_id = rgar($entry, 'id'); // Obter o ID da entrada
-	$protocolo = date('YmdHis') . $entry_id;
+	$protocolo = rgar($entry, '39');
 
 	// Campos do formulário
 	$nome = rgar($entry, '12');
@@ -767,25 +766,28 @@ function criar_protocolo_cpt($entry, $form) {
 			'outros_detalhes' => $outros_detalhes,
 			'detalhamento_denuncia' => $detalhamento_denuncia,
 			'testemunhas' => $testemunhas,
-			'status' => 'aguardando resposta', // Status inicial
+			'status' => 'aguardando resposta', // Stcatus inicial
 			'data_denuncia' => $data_denuncia,
 			'resposta' => '',
 			'data_resposta' => '',
 		),
 	);
 	$post_id = wp_insert_post($post_data);
-	?>
-	<script type='text/javascript'>
-		(function($){
-			$(document).on('gform_post_render', function(event, form_id, current_page){
-				num_protocolo = document.getElementById('num_protocolo');
-				num_protocolo.innerHTML = '<?php echo $protocolo; ?>';
-			})
-		})(jQuery); 
-	</script>
-	<?php
 }
 
+add_filter('gform_entry_id_pre_save_lead', 'gerar_numero_protocolo', 10, 2);
+function gerar_numero_protocolo($entry_id, $form) {
+    // Verifique o ID do formulário
+    if ($form['id'] != 7) { // Substitua pelo ID do seu formulário
+        return $entry_id;
+    }
+    // Gere o número do protocolo
+    $protocolo = date('YmdHis') . $entry_id;
+    // Armazene o número do protocolo no campo oculto (ID 39)
+    $_POST['input_39'] = $protocolo;
+
+    return $entry_id;
+}
 
 // Adicionar colunas personalizadas à lista de Protocolos
 add_filter('manage_protocolo_posts_columns', 'set_custom_edit_protocolo_columns');
