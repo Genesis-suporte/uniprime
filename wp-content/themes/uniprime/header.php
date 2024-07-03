@@ -36,7 +36,8 @@
       
     }
   ?>
-  <header class="top-bar mw-100 <?php echo $currentSlug; echo is_singular('solucoes') ? ' solucoes-' . $current_term : '';?>">
+<header class="header-top-bar main-header position-relative  mw-100">
+  <div class="top-bar mw-100 <?php echo $currentSlug; echo is_singular('solucoes') ? ' solucoes-' . $current_term : '';?>">
     <div class="bg-white">
       <div class="container" id="top-bar-container">
         <div class="d-flex justify-content-center justify-content-lg-between">
@@ -540,4 +541,5 @@
         </div>
       </div>
     </div>
-  </header>
+  </div>
+</header>

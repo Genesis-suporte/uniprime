@@ -7,7 +7,7 @@
   $breadcrumb_content = '';
   
   if (!is_front_page()) {
-      $breadcrumb_content .= '<nav class=\'nav-breadcrumb\' style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'8\' height=\'8\'%3E%3Cpath d=\'M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z\' fill=\'%236c757d\'\/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">';
+      $breadcrumb_content .= '<div class=\'position-relative\'><nav class=\'nav-breadcrumb\' style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'8\' height=\'8\'%3E%3Cpath d=\'M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z\' fill=\'%236c757d\'\/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">';
       $breadcrumb_content .= "<div class='container'>\n";
       $breadcrumb_content .= "<div class='content-breadcrumbs'>\n<ol class='breadcrumb'>\n";
   
@@ -93,6 +93,11 @@
       }
       $breadcrumb_content .= "</ol>\n</div>\n</div>\n</nav>\n";
 
-      echo $breadcrumb_content;
+      echo $breadcrumb_content;?>
+      <!-- <div class="logo-risk d-none d-sm-flex">
+      <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/logo-risk.png' ); ?>" alt="Traço do logo">
+      </div> -->
+      </div>
+      <?php
   }
   //}
