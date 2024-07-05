@@ -132,7 +132,7 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
           whatsapp1 = '';
           whatsapp2 = '';
           if(agencia.agency_whatsapp) {
-            whatsapp1 = `<div class="phone d-flex flex-lg-column flex-row">
+            whatsapp1 = `<div class="phone d-flex flex-column">
                           <div>WhatsApp: </div>
                           <div class="title-block title-16 switzerlandBold">${agencia.agency_whatsapp}</div>
                         </div>`;
@@ -162,7 +162,7 @@ if (file_exists(get_template_directory() . '/blocks/breadcrumbs.php')) {
                   ${agencia.agency_content}
                 <div class="block-contacts">
                   <div class="contact d-flex flex-column flex-lg-row justify-content-between">
-                    <div class="phone d-flex flex-lg-column flex-row">
+                    <div class="phone d-flex flex-column">
                       <div>Telefone: </div>
                       <div class="title-block title-16 switzerlandBold">${agencia.agency_phone}</div>
                     </div>

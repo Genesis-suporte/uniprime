@@ -51,7 +51,7 @@
               
               if($estilo_do_botao != 'nenhum') {
                 if($habilitar_modal) { ?>
-                <div class="d-block pt-4">
+                <div class="d-block pt-4  text-center text-sm-left">
                   <a class="button <?php echo $classBtn;?>"  
                     href="javascript:void(0)" 
                     data-title_card="<?php echo esc_html( $titulo_card ); ?>"

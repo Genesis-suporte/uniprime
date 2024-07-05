@@ -35,7 +35,6 @@
         
         //mainMenu.target.classList.add('actived');
         if(mainMenu && !mainMenu.classList.contains('isMobile')) {
-          console.log('tyara1',mainMenu, mainMenu.classList.contains('isMobile'));
           if (!mainMenu.classList.contains('actived')) {
             $('#main-menu').addClass('actived');
           }
@@ -43,7 +42,6 @@
       } else {
         $('#fixed-footer-content').addClass('actived');
         if(mainMenu && !mainMenu.classList.contains('isMobile')) {
-          console.log('tyara2',mainMenu, mainMenu.classList.contains('isMobile'));
           if (mainMenu.classList.contains('actived')) {
             $('#main-menu').removeClass('actived');
           }

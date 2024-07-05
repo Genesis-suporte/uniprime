@@ -52,6 +52,17 @@ $upload_url = $upload_dir['baseurl'];
   <div class="container">
     <div class="content">
       <div class="d-flex flex-column flex-lg-row">
+        <div class="bloco-consulta-protocolo card-canais-digitais d-block d-lg-none">
+          <div class="title-block title-20 switzerlandBold color-actived">
+            <?php echo $titulo_consultar_protocolo; ?>
+          </div>
+          <div class="div-input-protocolo">
+            <form id="search-protocolo-form">
+              <input type="text" name="input-protocolo" id="input-protocolo" value="" aria-invalid="false" placeholder="Número do protocolo" required >
+              <button class="btn-consultar"><i class="icon-menu icon-search-white"></i>Consultar</button>
+            </form>
+          </div>
+        </div>
         <div class="container-canal-denuncia col-12 col-lg-6 d-flex flex-column">
           <div class="label-block">
             <?php echo esc_html($label); ?>
@@ -74,7 +85,7 @@ $upload_url = $upload_dir['baseurl'];
             ?>
         </div>
         <div class="cards-canal-denuncia col-12 col-lg-6 fale-conosco">
-          <div class="bloco-consulta-protocolo card-canais-digitais">
+          <div class="bloco-consulta-protocolo card-canais-digitais d-none d-lg-block">
             <div class="title-block title-20 switzerlandBold color-actived">
               <?php echo $titulo_consultar_protocolo; ?>
             </div>

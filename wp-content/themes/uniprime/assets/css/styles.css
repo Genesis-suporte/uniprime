@@ -2789,7 +2789,7 @@ section.single-politica {
 .assembleias .card-assembleias .content-card .linkpdf a {
   display: flex;
   flex-direction: row;
-  padding: 3px 15px !important;
+  padding: 4px 15px !important;
   height: 32px;
 }
 .assembleias .proximas-assembleias {
@@ -3583,7 +3583,7 @@ section.fale-conosco {
   color: white !important;
 }
 .btn-primary-color:hover .icon-cta-blue {
-  background: url(../images/icons/icon-right-arrow-white.png) no-repeat -1px -1px;
+  background: url(../images/icons/icon-right-arrow-white.png) no-repeat 0px 0px;
 }
 .bloco-cartoes .final-content {
   padding: 95px 0 0;
@@ -4756,7 +4756,7 @@ footer {
   }
   .btn {
     font-size: 14px !important;
-    /*padding: 9px 9px !important;*/
+    padding: 10px 23px !important;
   }
   .main-menu .btn {
     padding: 9px 9px !important;
@@ -5162,7 +5162,7 @@ footer {
   }
   /* NOSSOS PRODUTOS */
   .nossos-produtos {
-    padding: 190px 11px 63px;
+    padding: 64px 11px;
   }
   .nossos-produtos .description-block .col-left {
     width: 100%;
@@ -5241,16 +5241,15 @@ footer {
     padding: 0px;
   }
   /* FIX PRA PÁGINA CANAIS DIGITAIS */
-  .canais-digitais.layout-3 {
+  .page-id-55 section.canais-digitais.layout-3 {
     padding: 0px 0 0px 0 !important;
     background-position: 65% !important;
-    height: 544px !important;
   }
   .canais-digitais.layout-3 .container {
     height: auto;
   }
   .canais-digitais.layout-3 .col-right {
-    padding: 93px 24px 0px;
+    padding: 0px 24px 0px;
   }
   .canais-digitais.layout-3 .title-block, 
   .canais-digitais.layout-3 .description-block {
@@ -5270,8 +5269,12 @@ footer {
   .canais-digitais-duplo .canais-digitais-col .coluna-2 .canais-digitais-image img{
     right: -50px !important;
   }
+  
+  .page-id-55 .wp-block-spacer {
+    height: 0 !important;
+  }
   .page-id-55 section.canais-digitais {
-    padding: 57px 0 0px 0px;
+    padding: 64px 0 !important;
   }
   .page-id-55 .canais-digitais.layout-4 .canais-digitais-image {
     text-align: right;
@@ -5285,13 +5288,14 @@ footer {
     width: 100%;
     height: auto !important;
     max-height: none;
+    right: 0px !important;
   }
-  .page-id-55 .canais-digitais.layout-4 {
+  .page-id-55 section.canais-digitais.layout-4 {
     padding: 76px 0 12px !important;
   }
   .page-id-55 .canais-digitais.layout-4 .col-right {
     margin-left: 0px;
-    padding: 125px 16px 40px 16px !important;
+    padding: 64px 24px 40px !important;
   }
   .page-id-55 .canais-digitais.layout-4 .col-right > div {
     margin-left: 0px;
@@ -5321,6 +5325,9 @@ footer {
     max-height: 307px;
     margin: -96px 0 -21px ;
   }
+  .canais-digitais.layout-2 .canais-digitais-image img {
+    right: -20px;
+  }
   .home .canais-digitais {
     padding: 0px 0 68px !important;
   }
@@ -5337,6 +5344,7 @@ footer {
   .canais-digitais .card-canais-digitais a.button {
     display: block;
     text-align: center;
+    margin-top: 0px;
   }
   .canais-digitais .card-canais-digitais a.button img {
     width: 100%;
@@ -5458,6 +5466,13 @@ footer {
     width: 100%;
     padding: 0 !important;
   }
+  .postid-409 .content-internas .img.nenhuma {
+    border-radius: 0px;
+    right: -25px;
+    position: relative;
+    margin-bottom: 24px;
+  }
+
   .content-internas .img.direita {
     margin: 32px 0 30px 0px;
     width: 100%;
@@ -5578,7 +5593,7 @@ footer {
   }
   /* FALE CONOSCO */
   section.fale-conosco {
-    padding: 35px 0 90px;
+    padding: 35px 0 0px;
   }
   .fale-conosco .container-fale-conosco {
     padding: 0px 12px 32px 12px;
@@ -5608,7 +5623,7 @@ footer {
     width: 100%;
   }
   .assembleias .search-assembleias-content {
-    padding-bottom: 64px;
+    width: 90%;
   }
   .assembleias .results {
     padding: 64px 12px;
@@ -5930,6 +5945,10 @@ footer {
   .bloco-cards .title-block {
     padding: 12px 0 7px;
   }
+  
+  .content-bloco-cards .icon-cta-blue {
+    margin: 0px 0px 0 10px;
+  }
   /* BLOCO DE CARTÕES */
   .bloco-cartoes {
     padding: 60px 0;  
@@ -6040,6 +6059,13 @@ footer {
     padding: 64px !important;
   }
   /* OUVIDORIA */
+  section.ouvidoria {
+    padding: 64px 0 0px;
+  }
+  .bloco-consulta-protocolo {
+    padding: 46px 36px 35px;
+    margin-bottom: 64px;
+  }
   .banner-internas.canal-denuncia .hero-image .copy .description {
     font-size: 17px !important;
     line-height: 24px !important;
@@ -6056,11 +6082,53 @@ footer {
   }
   .cards-ouvidoria .bloco-contato {
     max-width: 100%;
+    margin-bottom: 32px;
   }
-  
+  .fale-conosco .bloco-contato {
+    padding: 48px 24px;
+  }
+  .fale-conosco .bloco-contato .description-contato:last-child p {
+    padding-bottom: 0;
+  }
+  .bloco-interno-contato {
+    padding-bottom: 0px;
+  }
   .div-logo-uniprime .logo-uniprime-background.investimentos {
     width: 50% !important;
     height: auto !important;
+  }
+  .bootstrap-container {
+    padding: 64px 12px !important;
+  }
+  /* ONDE ESTAMOS */
+  section.onde-estamos {
+    padding: 64px 0 0px;
+  }
+  .content-agency {
+    padding: 48px 24px;
+}
+  /* PORTABILIDADE DE CONTA SALÁRIO */ 
+  section.portabilidade {
+    padding: 64px 0 ;
+  }
+  section.portabilidade .content {
+    padding: 0 24px;
+  }
+  .portabilidade .left-container, .portabilidade .right-container {
+    padding-top: 0px;
+  }
+  .gform_wrapper.gravity-theme input[type="submit"] {
+    padding: 6px 23px !important;
+  }
+  .bloco-observacoes {
+    padding: 64px 33px;
+    margin-top: 64px;
+  }
+  .ouvidoria .container-fale-conosco {
+    padding: 0px 0px 64px 24px;
+  }
+  .page-id-58 .gform_wrapper.gravity-theme .gform_fields {
+    margin-bottom: -70px;
   }
   /* FOOTER */
   .footer-top {

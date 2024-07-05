@@ -1210,3 +1210,259 @@ function get_default_post_thumbnail($post_id, $size = 'thumbnail') {
 			return '<img src="' . $default_thumbnail . '" alt="' . get_the_title($post_id) . '" class="default-thumbnail">';
 	}
 }*/
+
+
+// FUNCTION PRA CLONAR SINGULARES
+function add_clone_site_column($links, $blog_id) {
+	$clone_link = 'admin.php?' . http_build_query(
+			array(
+					'action' => 'clone_site',
+					'site_id' => $blog_id
+			)
+	);
+
+	$links['clone'] = '
+	<div class="clone-site-container">
+			<span class="clone">
+					<a href="#" class="clone-site-button" data-site-id="' . $blog_id . '">Clonar site</a>
+			</span>
+			<div class="clone-site-fields" style="display:none;">
+					<form id="cloneSiteForm-' . $blog_id . '" action="' . network_admin_url($clone_link) . '" method="get">
+							<input type="hidden" name="action" value="clone_site">
+							<input type="hidden" name="site_id" value="' . $blog_id . '">
+							<label for="new_site_name_' . $blog_id . '">Nome do novo site:</label>
+							<input type="text" id="new_site_name_' . $blog_id . '" name="new_site_name" required>
+							<label for="new_site_slug_' . $blog_id . '">Slug do novo site:</label>
+							<input type="text" id="new_site_slug_' . $blog_id . '" name="new_site_slug" required>
+							<button type="submit">Clonar site</button>
+					</form>
+			</div>
+	</div>';
+	return $links;
+}
+add_action('manage_sites_action_links', 'add_clone_site_column', 10, 2);
+
+add_action('admin_footer', 'add_clone_site_script');
+
+function add_clone_site_script() {
+    ?>
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', function () {
+				const cloneButtons = document.querySelectorAll('.clone-site-button');
+			cloneButtons.forEach(button => {
+				button.addEventListener('click', function (event) {
+					event.preventDefault();
+					const siteId = this.getAttribute('data-site-id');
+					const cloneFields = document.querySelector('#cloneSiteForm-' + siteId).parentElement;
+					if (cloneFields.style.display === 'none') {
+							cloneFields.style.display = 'block';
+					} else {
+							cloneFields.style.display = 'none';
+					}
+				});
+			});
+		});
+	</script>
+	<?php
+}
+add_action('admin_init', 'handle_clone_site_action');
+
+function handle_clone_site_action() {
+	if (isset($_GET['action']) && $_GET['action'] == 'clone_site' && isset($_GET['site_id']) && isset($_GET['new_site_name']) && isset($_GET['new_site_slug'])) {
+		// Verificar se o usuário atual tem permissões de super admin
+		if (!current_user_can('manage_network')) {
+				wp_die('Você não tem permissão para clonar sites.');
+		}
+
+		// ID do site a ser clonado
+		$site_id_to_clone = intval($_GET['site_id']);
+		$new_site_name = sanitize_text_field($_GET['new_site_name']);
+		$new_site_slug = sanitize_title($_GET['new_site_slug']);
+
+		// Clonar o site
+		$new_site_id = clone_site($site_id_to_clone, $new_site_name, $new_site_slug);
+
+		// Redirecionar para a página de edição do novo site
+		if ($new_site_id) {
+				wp_redirect(network_admin_url('site-info.php?id=' . $new_site_id));
+				exit;
+		} else {
+				wp_die('Erro ao clonar o site.');
+		}
+	}
+}
+function clone_site($site_id_to_clone, $new_site_name, $new_site_slug) {
+	global $wpdb;
+
+	// Obter detalhes do site a ser clonado
+	$site_to_clone = get_blog_details($site_id_to_clone);
+	if (!$site_to_clone) {
+			return false;
+	}
+
+	// Configurar detalhes do novo site
+	$new_domain = $site_to_clone->domain;
+	$new_path = trailingslashit($site_to_clone->path . 'singular/' . $new_site_slug);
+
+	// Criar o novo site
+	$new_blog_id = wpmu_create_blog($new_domain, $new_path, $new_site_name, get_current_user_id(), array(), $site_to_clone->site_id);
+	if (is_wp_error($new_blog_id)) {
+			return false;
+	}
+
+	// Clonar tabelas do banco de dados
+	clone_database_tables($site_id_to_clone, $new_blog_id);
+
+	// Clonar arquivos do site
+	clone_files($site_id_to_clone, $new_blog_id);
+
+	return $new_blog_id;
+}
+
+
+/*add_filter('wpmu_blogs_columns', 'add_clone_site_column');
+function add_clone_site_column($columns) {
+    $columns['clone_site'] = 'Clonar Site';
+    return $columns;
+}
+
+add_action('manage_sites_custom_column', 'show_clone_site_button', 10, 2);
+function show_clone_site_button($column_name, $blog_id) {
+    if ($column_name == 'clone_site') {
+        $clone_url = network_admin_url('sites.php?action=clone_site&site_id=' . $blog_id);
+        echo '<a href="' . esc_url($clone_url) . '">Clonar Site</a>';
+    }
+}*/
+/*add_action('network_admin_menu', 'add_clone_site_button');
+
+function add_clone_site_button() {
+    global $wpdb;
+
+    // ID do site principal
+    $main_site_id = 1;
+
+    // URL da página de clonagem
+    $clone_url = network_admin_url('sites.php?action=clone_site&site_id=' . $main_site_id);
+
+    // Adicionar o botão de clonagem abaixo do link "Editar" no menu de administração da rede
+    add_action('manage_sites_custom_column', function ($column_name, $blog_id) use ($clone_url) {
+        if ($column_name == 'actions' && $blog_id == 1) { // Ajuste o ID do blog conforme necessário
+            echo '<span class="clone"><a href="' . esc_url($clone_url) . '">Clonar Site</a></span>';
+        }
+    }, 10, 2);
+}
+
+add_action('admin_init', 'handle_clone_site_action');
+
+function handle_clone_site_action() {
+	if (isset($_GET['action']) && $_GET['action'] == 'clone_site' && isset($_GET['site_id'])) {
+		// Verificar se o usuário atual tem permissões de super admin
+		if (!current_user_can('manage_network')) {
+				wp_die('Você não tem permissão para clonar sites.');
+		}
+
+		// ID do site principal
+		$main_site_id = intval($_GET['site_id']);
+
+		// ID do novo site
+		$new_site_id = clone_site($main_site_id);
+
+		// Redirecionar para a página de edição do novo site
+		if ($new_site_id) {
+				wp_redirect(network_admin_url('site-info.php?id=' . $new_site_id));
+				exit;
+		} else {
+				wp_die('Erro ao clonar o site.');
+		}
+	}
+}
+
+function clone_site($main_site_id) {
+    global $wpdb;
+
+    // Crie o novo blog no banco de dados
+    $new_blog_id = wpmu_create_blog(
+        $wpdb->get_var("SELECT domain FROM {$wpdb->blogs} WHERE blog_id = $main_site_id"),
+        '/projeto/singular/' . time() . '/',
+        'Novo Site Clonado',
+        get_current_user_id(),
+        array(
+            'public' => 1,
+        ),
+        1 // ID do site da rede principal
+    );
+
+    if (is_wp_error($new_blog_id)) {
+        return false;
+    }
+
+    // Clonar as tabelas do banco de dados
+    $tables = array(
+        'comments',
+        'links',
+        'options',
+        'postmeta',
+        'posts',
+        'term_relationships',
+        'term_taxonomy',
+        'terms',
+    );
+
+    foreach ($tables as $table) {
+        $source_table = $wpdb->prefix . $main_site_id . '_' . $table;
+        $target_table = $wpdb->prefix . $new_blog_id . '_' . $table;
+
+        // Clonar a tabela
+        $wpdb->query("CREATE TABLE $target_table LIKE $source_table");
+        $wpdb->query("INSERT INTO $target_table SELECT * FROM $source_table");
+    }
+
+    // Atualizar as opções do novo site
+    switch_to_blog($new_blog_id);
+
+    // Atualizar siteurl e home
+    $main_site_url = get_blog_option($main_site_id, 'siteurl');
+    $new_path = '/projeto/singular/' . trim(get_blog_details($new_blog_id)->path, '/');
+
+    update_option('siteurl', $main_site_url . $new_path);
+    update_option('home', $main_site_url . $new_path);
+
+    // Atualizar outras opções conforme necessário
+    update_option('blogname', 'Nome do Novo Site Clonado');
+    update_option('blogdescription', 'Descrição do Novo Site Clonado');
+
+    // Atualizar URLs em posts e postmeta
+    $wpdb->query($wpdb->prepare(
+        "UPDATE {$wpdb->prefix}posts SET guid = REPLACE(guid, %s, %s)",
+        $main_site_url,
+        $main_site_url . $new_path
+    ));
+    $wpdb->query($wpdb->prepare(
+        "UPDATE {$wpdb->prefix}postmeta SET meta_value = REPLACE(meta_value, %s, %s) WHERE meta_key = '_wp_attached_file'",
+        $main_site_url,
+        $main_site_url . $new_path
+    ));
+
+    restore_current_blog();
+
+    // Copiar arquivos de mídia
+    $source_path = WP_CONTENT_DIR . '/uploads/sites/' . $main_site_id;
+    $target_path = WP_CONTENT_DIR . '/uploads/sites/' . $new_blog_id;
+
+    if (!file_exists($target_path)) {
+        mkdir($target_path, 0755, true);
+    }
+
+    shell_exec("cp -r $source_path/* $target_path/");
+
+    return $new_blog_id;
+}
+*/
+
+	/*add_filter('site_url', 'add_stores_prefix_to_subsite_url', 10, 4);
+function add_stores_prefix_to_subsite_url($url, $path, $blog_id, $scheme) {
+    if ($blog_id > 1) { // Only apply to sub-sites (blog_id > 1)
+        return str_replace($path, '/singular/' . $blog_id . $path, $url);
+    }
+    return $url; // Leave the main site's URL unchanged
+}*/
