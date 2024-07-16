@@ -47,6 +47,7 @@ if( have_rows('colunas') ) {
           $style_absolute .= 'bottom:'.$bottom.'px; ';
         }
       }
+      $pos = '';
       if ($posicao_imagem == 'left') { 
         $pos = 'align-items-start';
       } 
@@ -118,8 +119,12 @@ if( have_rows('colunas') ) {
                         }
                         ?>
                         <div class="card-canais-digitais">
-                          <?php if($estilo_do_botao == 'imagem') { ?>
-                            <a class="button <?php echo $classBtn;?>" href="<?php echo esc_url( $link['url'] ); ?>" target="<?php echo esc_html( $link['target'] ); ?>">
+                          <?php if($estilo_do_botao == 'imagem' && isset($link) ) { ?>
+                            <a 
+                              class="button <?php echo $classBtn;?>" 
+                              href="<?php echo esc_url( $link['url'] ); ?>" 
+                              target="<?php echo esc_html( $link['target'] ); ?>"
+                            >
                               <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" class="<?php echo ($imagem_cta_hover) ? 'has-hover' : '';?>"/>
                               <?php if($imagem_cta_hover) { ?>
                                 <img src="<?php echo esc_url($imagem_cta_hover['url']); ?>" alt="<?php echo esc_html($imagem_cta_hover['alt']); ?>" class="is-hover" />
@@ -130,7 +135,8 @@ if( have_rows('colunas') ) {
                               <a class="button <?php echo $classBtn;?> btn openModalInteresse" href="#" >
                                 <?php echo esc_html( $link['title'] ); ?>
                               </a>
-                            <?php } else { ?>
+                            <?php } else { 
+                              if( isset($link) ) {?>
                               <a 
                                 href="<?php echo esc_url( $link['url'] ); ?>" 
                                 target="<?php echo esc_html( $link['target'] ); ?>"
@@ -139,6 +145,7 @@ if( have_rows('colunas') ) {
                                 <?php echo esc_html( $link['title'] ); ?>
                               </a>
                             <?php } 
+                              }
                             } ?>
                         </div>
                       <?php

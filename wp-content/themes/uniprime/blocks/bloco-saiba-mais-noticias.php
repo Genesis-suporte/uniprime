@@ -125,7 +125,7 @@ $descricao = get_field('descricao');
                 <div class="card-post" >
                   <div class="thumbnail-card tumtum">
                     <a href="<?php echo esc_url($post->guid); ?>" target="_SELF">
-                      <div class="img-post" style="background-image: url(<?php echo $image_path; ?>);">
+                      <div class="img-post" style="background-image: url(<?php echo isset( $image_path ) ? $image_path : ''; ?>);">
                       </div>
                     </a>
                   </div>

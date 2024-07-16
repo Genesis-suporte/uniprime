@@ -8,7 +8,7 @@ get_header();
 $title_banner = get_field('title_banner');
 $description_banner = get_field('description_banner');
 $image_banner = get_field('image_banner');
-$image_banner_mobile = get_field('image_banner_mobile', $block['id']);
+$image_banner_mobile = get_field('image_banner_mobile');
 
 $label = get_field('label');
 $titulo = get_field('titulo');

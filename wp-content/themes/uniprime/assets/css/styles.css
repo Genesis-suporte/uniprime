@@ -49,6 +49,9 @@ a {
   height: 6px;
   position: relative;
 }
+body.wp-admin .arrow {
+  bottom: 0px;
+}
 .arrow.right {
   transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
@@ -1167,7 +1170,8 @@ page-id-401 = para-seu-negocio
   position: relative;
   transition: all .2s ease-in-out;
 }
-.menu-item .dropdown-content .container .menu-subitem a:hover {
+.menu-item .dropdown-content .container .menu-subitem a:hover,
+.menu-item .dropdown-content .container .menu-subitem a.current-menu-item {
   color: var(--color-actived);
 }
 .menu-item .dropdown-content .container .menu-subitem .arrow.right{
@@ -1209,7 +1213,8 @@ page-id-401 = para-seu-negocio
   font-weight: normal;
 } 
 
-.menu-inicial .menu-item .dropdown-content .container .menu-item a:hover {
+.menu-inicial .menu-item .dropdown-content .container .menu-item a:hover,
+.menu-inicial .menu-item .dropdown-content .container .menu-item.current-menu-item a {
   color: var(--color-actived);
 }
 .menu-inicial .menu-item .dropdown-content.dropdown-content-atendimento {
@@ -2575,6 +2580,10 @@ section.diretoria-e-conselhos {
 .canais-digitais-duplo .card-canais-digitais {
   padding-bottom: 24px;  
 }
+body.wp-admin.wp-core-ui .canais-digitais-duplo .button {
+  background-color: transparent !important;
+  border: 0;
+}
 .canais-digitais-duplo a.button img {
   width: auto !important;
 }
@@ -3466,6 +3475,9 @@ section.fale-conosco {
   font-size: 14px;
   line-height: 24px; 
   padding-top: 23px;
+}
+body.wp-admin .bloco-cards a.link  {
+  border: 0;
 }
 .bloco-cards a.link:hover {
   text-decoration: underline !important;
@@ -5071,6 +5083,9 @@ footer {
   .header-menu-banner {
     max-height: 777px;
   }
+  .hero-banner-content {
+    height: 677px;
+  }
   .hero-banner {
     top: 0px;
   }
@@ -5079,7 +5094,6 @@ footer {
     border-top-right-radius: 12px;
     height: 677px;
   }
-  
   .hero-banner .hero-image .image {
     height: 677px; 
   }
@@ -5211,7 +5225,7 @@ footer {
   }
   /* NOSSA HISTÓRIA */
   .nossa-historia {
-    padding: 23px 0 64px;
+    padding: 23px 0 135px;
   }
   .nossa-historia .fix-padding-left {
     padding: 42px 12px 0 !important;
@@ -6133,6 +6147,9 @@ footer {
   /* FOOTER */
   .footer-top {
     padding: 60px 0px 52px 43px ;
+  }
+  #fixed-footer {
+    width: 100%;
   }
   .footer-top .logo-footer {
     justify-content: center;

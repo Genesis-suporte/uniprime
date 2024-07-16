@@ -8,7 +8,7 @@ get_header();
 $title_banner = get_field('title_banner');
 $description_banner = get_field('description_banner');
 $image_banner = get_field('image_banner');
-$image_banner_mobile = get_field('image_banner_mobile', $block['id']);
+$image_banner_mobile = get_field('image_banner_mobile');
 
 $array_fique_por_dentro = array(
   'post_type'   => array( 'sala-de-imprensa' ),
@@ -143,7 +143,7 @@ $upload_url = $upload_dir['baseurl'];
                 <div class="card-post" >
                   <div class="thumbnail-card">
                     <a href="<?php echo esc_url($post->guid); ?>" target="_SELF">
-                      <div class="img-post" style="background-image: url(<?php echo $image_path; ?>);">
+                      <div class="img-post" style="background-image: url(<?php echo isset( $image_path ) ? $image_path : ''; ?>);">
                       </div>
                     </a>
                   </div>

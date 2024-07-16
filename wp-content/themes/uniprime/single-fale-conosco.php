@@ -9,7 +9,7 @@ get_header();
 $title_banner = get_field('title_banner');
 $description_banner = get_field('description_banner');
 $image_banner = get_field('image_banner');
-$image_banner_mobile = get_field('image_banner_mobile', $block['id']);
+$image_banner_mobile = get_field('image_banner_mobile');
 
 ?>
 
@@ -47,36 +47,36 @@ $upload_url = $upload_dir['baseurl'];
 <figure class="wp-block-image alignright size-full is-resized logo-uniprime-background"><img fetchpriority="high" decoding="async" width="674" height="739" src="<?php echo $upload_url;?>/2024/03/logo-uniprime-gigante.png" alt="" class="wp-image-530" style="width:674px;height:auto" srcset="<?php echo $upload_url;?>/2024/03/logo-uniprime-gigante.png 674w, <?php echo $upload_url;?>/2024/03/logo-uniprime-gigante-274x300.png 274w" sizes="(max-width: 674px) 100vw, 674px"></figure>
 </div>
 <?php 
-  $label = get_field('label', $block['id']);
-  $titulo = get_field('titulo', $block['id']);
-  $descricao = get_field('descricao', $block['id']);
+  $label = get_field('label');
+  $titulo = get_field('titulo');
+  $descricao = get_field('descricao');
 
 
-  $label_bloco_direita = get_field('label_bloco_direita', $block['id']);
-  $descricao_bloco_direita = get_field('descricao_bloco_direita', $block['id']);
-  $telefone_1 = get_field('telefone_1', $block['id']);
-  $descricao_1 = get_field('descricao_1', $block['id']);
-  $link_1 = get_field('link_1', $block['id']);
-  $telefone_2 = get_field('telefone_2', $block['id']);
-  $descricao_2 = get_field('descricao_2', $block['id']);
-  $link_2 = get_field('link_2', $block['id']);
-  $telefone_3 = get_field('telefone_3', $block['id']);
-  $descricao_3 = get_field('descricao_3', $block['id']);
-  $link_3 = get_field('link_3', $block['id']);
+  $label_bloco_direita = get_field('label_bloco_direita');
+  $descricao_bloco_direita = get_field('descricao_bloco_direita');
+  $telefone_1 = get_field('telefone_1');
+  $descricao_1 = get_field('descricao_1');
+  $link_1 = get_field('link_1');
+  $telefone_2 = get_field('telefone_2');
+  $descricao_2 = get_field('descricao_2');
+  $link_2 = get_field('link_2');
+  $telefone_3 = get_field('telefone_3');
+  $descricao_3 = get_field('descricao_3');
+  $link_3 = get_field('link_3');
 
-  $label_ouvidoria = get_field('label_ouvidoria', $block['id']);
-  $descricao_ouvidoria = get_field('descricao_ouvidoria', $block['id']);
-  $telefone_4 = get_field('telefone_4', $block['id']);
-  $descricao_4 = get_field('descricao_4', $block['id']);
-  $link_4 = get_field('link_4', $block['id']);
-  $telefone_5 = get_field('telefone_5', $block['id']);
-  $descricao_5 = get_field('descricao_5', $block['id']);
-  $link_5 = get_field('link_5', $block['id']);
-  $descricao_pos_ouvidoria = get_field('descricao_pos_ouvidoria', $block['id']);
-  $label_uniprime_central = get_field('label_uniprime_central', $block['id']);
-  $descricao_uniprime_central = get_field('descricao_uniprime_central', $block['id']);
-  $telefone_6 = get_field('telefone_6', $block['id']);
-  $descricao_6 = get_field('descricao_6', $block['id']);
+  $label_ouvidoria = get_field('label_ouvidoria');
+  $descricao_ouvidoria = get_field('descricao_ouvidoria');
+  $telefone_4 = get_field('telefone_4');
+  $descricao_4 = get_field('descricao_4');
+  $link_4 = get_field('link_4');
+  $telefone_5 = get_field('telefone_5');
+  $descricao_5 = get_field('descricao_5');
+  $link_5 = get_field('link_5');
+  $descricao_pos_ouvidoria = get_field('descricao_pos_ouvidoria');
+  $label_uniprime_central = get_field('label_uniprime_central');
+  $descricao_uniprime_central = get_field('descricao_uniprime_central');
+  $telefone_6 = get_field('telefone_6');
+  $descricao_6 = get_field('descricao_6');
 ?>
 
 <section class="fale-conosco mw-100 z-13">

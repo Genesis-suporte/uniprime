@@ -8,7 +8,7 @@ get_header();
 $title_banner = get_field('title_banner');
 $description_banner = get_field('description_banner');
 $image_banner = get_field('image_banner');
-$image_banner_mobile = get_field('image_banner_mobile', $block['id']);
+$image_banner_mobile = get_field('image_banner_mobile');
 
 $array_fique_por_dentro = array(
   'post_type'   => array( 'campanha' ),
@@ -236,7 +236,8 @@ $upload_url = $upload_dir['baseurl'];
                   }
                 } else {
                   $image_url = get_field('image_banner',$post->ID);
-                  $image_path = $image_url['url'];
+                  if( isset($image_url)) 
+                    $image_path = $image_url['url'];
                 }
                 
                 ?>

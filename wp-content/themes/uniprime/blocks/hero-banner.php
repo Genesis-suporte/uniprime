@@ -205,6 +205,9 @@
                             if(isset( $item[ 'class' ])) {
                               $class = esc_attr( implode( ' ', $item['class']));
                             }
+                            if( $item[ 'link' ] === get_permalink()) {
+                              $class .= ' current-menu-item';
+                            }
                             $menu_atendimento .= '<div class="col-6 menu-subitem '.$class.'">'."\n";
                             $menu_atendimento .= '<li class="menu-item '.$class.'">'."\n";
                             $menu_atendimento .= '<a href="'. esc_html($item['link']) .'">'. esc_html($item['title']) .'</a>'."\n";              
@@ -434,6 +437,9 @@
                                 if(isset( $item[ 'class' ])) {
                                   $class = esc_attr( implode( ' ', $item['class']));
                                 }
+                                if( $item[ 'link' ] === get_permalink()) {
+                                  $class .= ' current-menu-item';
+                                }
                                 $menu_atendimento .= '<div class="menu-subitem '.$class.'">'."\n";
                                 $menu_atendimento .= '<a href="'. esc_html($item['link']) .'" class="icon-menu icon-'.$class.'-gold">'. esc_html($item['title']) ."\n";
                                 $menu_atendimento .= '<i class="arrow right"></i></a>'."\n";
@@ -539,7 +545,7 @@
   
   </div>
 </header>
-<div class="position-relative">
+<div class="position-relative hero-banner-content">
   <div class="hero-banner position-relative mw-100 <?php echo $tipo_homepage;?>">
     <?php 
     if( have_rows('banner_container') ):

@@ -91,8 +91,8 @@
         </div>
       </div>
     </div>
-    <div class="header-menu-banner position-relative mw-100 <?php echo $tipo_homepage;?>">
-      <div class="main-menu interna header-main-menu <?php echo $tipo_homepage;?>" id="main-menu">
+    <div class="header-menu-banner position-relative mw-100">
+      <div class="main-menu interna header-main-menu" id="main-menu">
         <div class="container d-flex justify-content-between">
           <div class="logo">
             <a href="/" class="link-logo">
@@ -115,6 +115,9 @@
                             if(isset( $item[ 'class' ])) {
                               $class = esc_attr( implode( ' ', $item['class']));
                             }
+                            if(isset( $item[ 'active' ])) {
+                              $class .= ' '.$item[ 'active' ];
+                            }
                             $menu_a_uniprime .= '<div class="menu-subitem '.$class.'">'."\n";
                             $menu_a_uniprime .= '<a href="'. esc_html($item['link']) .'" class="icon-menu icon-'.$class.'">'. esc_html($item['title']) ."\n";
                             $menu_a_uniprime .= '<i class="arrow right"></i></a>'."\n";
@@ -136,6 +139,9 @@
                               if(isset( $item[ 'class' ])) {
                                 $class = esc_attr( implode( ' ', $item['class']));
                               }
+                              if( $item[ 'link' ] === get_permalink()) {
+                                $class .= ' current-menu-item';
+                              }
                               $menu_governanca .= '<li class="menu-item '.$class.'">'."\n";
                               $menu_governanca .= '<a href="'. esc_html($item['link']) .'">'. esc_html($item['title']) .'</a>'."\n";              
                               $menu_governanca .= '</li>'."\n";
@@ -156,6 +162,9 @@
                               $class = '';
                               if(isset( $item[ 'class' ])) {
                                 $class = esc_attr( implode( ' ', $item['class']));
+                              }
+                              if( $item[ 'link' ] === get_permalink()) {
+                                $class .= ' current-menu-item';
                               }
                               $menu_fique_por_dentro .= '<li class="menu-item '.$class.'">'."\n";
                               $menu_fique_por_dentro .= '<a href="'. esc_html($item['link']) .'">'. esc_html($item['title']) .'</a>'."\n";              
@@ -185,6 +194,9 @@
                           if(isset( $item[ 'class' ])) {
                             $class = esc_attr( implode( ' ', $item['class']));
                           }
+                          if(isset( $item[ 'active' ])) {
+                            $class .= ' '.$item[ 'active' ];
+                          }
                           $menu_solucoes .= '<div class="col-4 menu-subitem '.$class.'">'."\n";
                           $menu_solucoes .= '<a href="'. esc_html($item['link']) .'" class="icon-menu icon-'.$class.'">'. esc_html($item['title']) ."\n";
                           $menu_solucoes .= '<i class="arrow right"></i></a>'."\n";
@@ -209,6 +221,9 @@
                             $class = '';
                             if(isset( $item[ 'class' ])) {
                               $class = esc_attr( implode( ' ', $item['class']));
+                            }
+                            if( $item[ 'link' ] === get_permalink()) {
+                              $class .= ' current-menu-item';
                             }
                             $menu_atendimento .= '<div class="col-6 menu-subitem '.$class.'">'."\n";
                             $menu_atendimento .= '<li class="menu-item '.$class.'">'."\n";
@@ -438,6 +453,9 @@
                                 $class = '';
                                 if(isset( $item[ 'class' ])) {
                                   $class = esc_attr( implode( ' ', $item['class']));
+                                }
+                                if( $item[ 'link' ] === get_permalink()) {
+                                  $class .= ' current-menu-item';
                                 }
                                 $menu_atendimento .= '<div class="menu-subitem '.$class.'">'."\n";
                                 $menu_atendimento .= '<a href="'. esc_html($item['link']) .'" class="icon-menu icon-'.$class.'-gold">'. esc_html($item['title']) ."\n";

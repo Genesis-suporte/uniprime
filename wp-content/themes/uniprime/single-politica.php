@@ -3,7 +3,7 @@
 /**
  * Template Name: Página de políticas
  */
-
+$tipo_homepage = '';
 get_header(); 
 $array_politica = array(
   'post_type'   => 'politica'

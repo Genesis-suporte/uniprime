@@ -5,6 +5,7 @@
   $posicao_imagem = get_field('posicao_imagem', $block['id']);
   $img = get_field('imagem', $block['id']);
   $image_mobile = get_field('image_mobile', $block['id']);
+  $titulo_card = get_sub_field('titulo_card');
 
 ?>
 
@@ -48,7 +49,6 @@
               } else if($estilo_do_botao == 'link') {
                 $classBtn = 'link';
               }
-              
               if($estilo_do_botao != 'nenhum') {
                 if($habilitar_modal) { ?>
                 <div class="d-block pt-4  text-center text-sm-left">
@@ -78,10 +78,10 @@
                     <?php } ?>
                   </a>
                 </div>
-                <?php } else { ?>
+                <?php } else {  ?>
                 <div class="d-block pt-4">
                   <a 
-                    href="<?php echo esc_url( $link['url'] ); ?>" 
+                    href="<?php echo isset($link) ? esc_url( $link['url'] ) : ''; ?>" 
                     class=" <?php echo $classBtn;?>" 
                     <?php if($estilo_do_botao == 'imagem') { ?>
                       target="<?php echo esc_html( $link['target'] ); ?>"
@@ -90,7 +90,7 @@
                     <?php if($estilo_do_botao == 'imagem') { ?>
                       <img src="<?php echo esc_url($imagem_cta['url']); ?>" alt="<?php echo esc_html($imagem_cta['alt']); ?>" />
                     <?php } else { ?> 
-                      <?php echo esc_html( $link['title'] ); ?>
+                      <?php echo isset($link) ? esc_html( $link['title'] ) : ''; ?>
                       <?php if($estilo_do_botao == 'branco') {
                         echo '<i class="icon-cta-blue right"></i>';
                       } ?>

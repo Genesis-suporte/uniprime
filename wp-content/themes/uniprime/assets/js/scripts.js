@@ -1,17 +1,5 @@
 (function($){
   window.addEventListener("load", ()=>{
-    /*$(".menu-item a").click(function(e) {
-      e.preventDefault();
-      console.log("clicou");
-    })*/
-    // DETECT IF IS MOBILE SCREEN
-    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-      // true for mobile device
-      //console.log("mobile device");
-    }else{
-      // false for not mobile device
-      //console.log("not mobile device");
-    }
     
     mainMenu = document.querySelector('#main-menu');
     body = document.querySelector('body');
@@ -21,10 +9,12 @@
     let lastScrollY = window.scrollY;
     
     single_politica = document.querySelector('.single-politica');
+    const colNav = document.querySelector('.col-nav');
+    let colNavOffsetTop_initial = 0;
+    if(colNav) {
+      colNavOffsetTop_initial = colNav.offsetTop;
+    }
     if(single_politica) {
-      const colNav = document.querySelector('.col-nav');
-      const colNavOffsetTop = colNav.offsetTop;
-      console.log('init', colNavOffsetTop);
       copy_politica = document.querySelector('.copy-politica');
     }
 
@@ -38,7 +28,7 @@
           if (!mainMenu.classList.contains('actived')) {
             $('#main-menu').addClass('actived');
           }
-        }
+        }    
       } else {
         $('#fixed-footer-content').addClass('actived');
         if(mainMenu && !mainMenu.classList.contains('isMobile')) {
@@ -71,9 +61,6 @@
             $('.top-bar').removeClass('slide');
           }
         }
-        if(single_politica) {
-          $('.col-nav').css('top', '223px');
-        }
       } else {
         if (window.scrollY > 1 && window.scrollY < 173) {
           if(topBar.classList.contains('position-relative') || topBar.classList.contains('slide-in-top')) {
@@ -92,26 +79,35 @@
             $('.top-bar').addClass('slide');
           }
         }
-        if(single_politica) {
-          $('.col-nav').css('top', '50px');
-        }
       }
-      lastScrollY = window.scrollY;
       
       /* Políticas Panel fixed when scrolled */
       if(single_politica) {
+        colNavOffsetTop = colNav.offsetTop;
+        
         if (window.scrollY >= colNavOffsetTop) {
           colNav.classList.add('fixed');
           copy_politica.classList.add('fixed');
-          console.log(window.scrollY, lastScrollY);
+          $('.col-nav').css('top', '50px');
+          
+          if (window.scrollY < lastScrollY) {
+            if( window.scrollY < colNavOffsetTop_initial ) {
+              colNav.classList.remove('fixed');
+              copy_politica.classList.remove('fixed');
+              $('.col-nav').css('top', '0px');
+            } else {
+              $('.col-nav').css('top', '223px');
+            }
+          }
           
         } else {
           colNav.classList.remove('fixed');
           copy_politica.classList.remove('fixed');
           $('.col-nav').css('top', '0px');
         }
-        //lastScrollY2 = window.scrollY;
       }
+      
+      lastScrollY = window.scrollY;
     });
     function checkResize () {      
       
