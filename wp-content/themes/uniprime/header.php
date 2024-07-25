@@ -32,8 +32,11 @@
       $currentSlug = 'para-voce';
     } else {
       global $post;
-      $currentSlug = $post->post_name;
-      
+      if(isset($post->post_name)) {
+        $currentSlug = $post->post_name;
+      } else {
+        $currentSlug = 'para-voce';
+      }      
     }
   ?>
 <header class="header-top-bar main-header position-relative  mw-100">

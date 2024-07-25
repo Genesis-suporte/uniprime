@@ -980,10 +980,26 @@ function protocolo_template_redirect() {
 	if (isset($wp_query->query_vars['protocolo'])) {
 		$protocolo = $wp_query->query_vars['protocolo'];
 		$post = get_page_by_path($protocolo, OBJECT, 'protocolo');
+		if ($post) {
+			$wp_query->queried_object = $post;
+			$wp_query->post = $post;
+			$wp_query->found_posts = 1;
+			$wp_query->post_count = 1;
+			$wp_query->max_num_pages = 1;
+			$wp_query->is_single = true;
+			$wp_query->is_404 = false;
+			$wp_query->is_protocolo = true;
+		} else {
+			$wp_query->is_single = false;
+			$wp_query->is_protocolo = true;
+			$wp_query->is_404 = true;
+		}
 		include(get_template_directory() . '/page-protocolo.php');
+		exit;
 	}
 }
 add_action('template_redirect', 'protocolo_template_redirect');
+
 add_action('init', function() { flush_rewrite_rules(); });
 /* BUSCA */
 function custom_search_filter($query) {
@@ -1079,7 +1095,6 @@ function filter_post_type_link($post_link, $post) {
 add_filter('post_type_link', 'filter_post_type_link', 10, 2);
 
 function my_rewrite_flush() {
-	my_custom_post_type();
 	flush_rewrite_rules();
 }
 add_action('after_switch_theme', 'my_rewrite_flush');

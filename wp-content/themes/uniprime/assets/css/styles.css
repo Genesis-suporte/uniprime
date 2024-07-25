@@ -6080,6 +6080,15 @@ footer {
     padding: 46px 36px 35px;
     margin-bottom: 64px;
   }
+  .denuncias .bloco-consulta-protocolo {
+    min-width: auto;
+  }
+  .denuncias .container-denuncias {
+    margin: 12px;
+  }
+  .denuncias .container-denuncias .content-protocolo {
+    padding: 64px 24px !important;
+  }
   .banner-internas.canal-denuncia .hero-image .copy .description {
     font-size: 17px !important;
     line-height: 24px !important;

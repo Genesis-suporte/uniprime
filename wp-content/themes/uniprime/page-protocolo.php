@@ -2,16 +2,30 @@
 /**
  * Template Name: Página de protocolo
  */
+global $wp_query;
 
+if (isset($wp_query->query_vars['protocolo'])) {
+  $protocolo = $wp_query->query_vars['protocolo'];
+  $post = get_page_by_path($protocolo, OBJECT, 'protocolo');
+  if ($post) {
+    setup_postdata($post);
+    global $post;
+  }
+}
+if (!$post) { ?>
+<head>
+
+<title>Protocolo não encontrado</title>
+
+</head>
+<?php }
 get_header(); 
 $title_banner = get_field('title_banner', '60');
 $description_banner = get_field('description_banner', '60');
 $image_banner = get_field('image_banner', '60');
 // Captura o número do protocolo da URL
 //$protocolo = isset($_GET['protocolo']) ? sanitize_text_field($_GET['protocolo']) : '';
-if (isset($wp_query->query_vars['protocolo'])) {
-  $protocolo = $wp_query->query_vars['protocolo'];
-  $post = get_page_by_path($protocolo, OBJECT, 'protocolo');}
+
 ?>
 <div class="banner-internas position-relative">
   <div class="hero-image">
@@ -46,7 +60,9 @@ $data_denuncia_raw = get_post_meta(get_the_ID(), 'data_denuncia', true);
 if (!empty($data_resposta_raw)) {
   $data_resposta_timestamp = strtotime($data_resposta_raw);
   $data_resposta_formatada = date('d/m/Y - H:i:s', $data_resposta_timestamp);
-} 
+} else {
+  $data_resposta_formatada = '-';
+}
 if (!empty($data_denuncia_raw)) {
   $data_denuncia_timestamp = strtotime($data_denuncia_raw);
   $data_denuncia_formatada = date('d/m/Y - H:i:s', $data_denuncia_timestamp);
@@ -93,6 +109,18 @@ if (!empty($agencias_data) && isset($agencias_data['singulares'])) {
   <div class="container">
     <div class="content">
       <div class="">
+        
+        <div class="bloco-consulta-protocolo card-canais-digitais d-block d-lg-none">
+          <div class="title-block title-20 switzerlandBold color-actived">
+            <?php echo __('Consultar protocolo'); ?>
+          </div>
+          <div class="div-input-protocolo">
+            <form id="search-protocolo-form-mobile">
+              <input type="text" name="input-protocolo" id="input-protocolo-mobile" class="single-canal-denuncia-mobile" value="" aria-invalid="false" placeholder="Número do protocolo" required >
+              <button class="btn-consultar"><i class="icon-menu icon-search-white"></i>Consultar</button>
+            </form>
+          </div>
+        </div>
         <div class="container-denuncias">
           <div class="main-protocolo row">
             <div class="content-protocolo">
@@ -112,8 +140,9 @@ if (!empty($agencias_data) && isset($agencias_data['singulares'])) {
                         echo '<p>Resposta: ' . get_post_meta(get_the_ID(), 'resposta', true).'</p>';
                       } ?>
                     </div>
-                  <?php }  else { ?>
-                    <div class="num-protocolo title-28 switzerlandBold"><?php echo __('Protocolo: #'). $protocolo; ?></div>
+                  <?php }  else { 
+                    $numero_protocolo = str_replace('protocolo-', '', $protocolo);?>
+                    <div class="num-protocolo title-28 switzerlandBold"><?php echo __('Protocolo: #'). $numero_protocolo; ?></div>
                     <div>
                       <p>Não encontramos nenhum protocolo com esse número.<br/>
                       Verifique o número digitado ou digite outro.</p>
@@ -121,13 +150,13 @@ if (!empty($agencias_data) && isset($agencias_data['singulares'])) {
                   <?php } ?>
                 </div>
                 <div class="col-right">
-                  <div class="bloco-consulta-protocolo card-canais-digitais">
+                  <div class="bloco-consulta-protocolo card-canais-digitais d-none d-lg-block">
                     <div class="title-block title-20 switzerlandBold color-actived">
                       <?php echo __('Consultar protocolo'); ?>
                     </div>
                     <div class="div-input-protocolo">
                       <form id="search-protocolo-form">
-                        <input type="text" name="input-protocolo" id="input-protocolo" value="" aria-invalid="false" placeholder="Número do protocolo">
+                        <input type="text" name="input-protocolo" id="input-protocolo" class="page-protocolo" value="" aria-invalid="false" placeholder="Número do protocolo">
                         <button class="btn-consultar" id="btn-consultar"><i class="icon-menu icon-search-white"></i>Consultar</button>
                       </form>
                     </div>
@@ -139,7 +168,7 @@ if (!empty($agencias_data) && isset($agencias_data['singulares'])) {
           <?php if ($post) { ?>
           <div class="div-dados-protocolo">
             <div class="row gap-4">
-              <div class="col bg-gray">
+              <div class="col-12 col-lg bg-gray">
                 <div class="content-protocolo">
                   <div class="title-block title-28 switzerlandBold">Seus dados</div>
                   <div class="dados-protocolo">
@@ -152,7 +181,7 @@ if (!empty($agencias_data) && isset($agencias_data['singulares'])) {
                   </div>
                 </div>
               </div>
-              <div class="col bg-gray">
+              <div class="col-12 col-lg bg-gray">
                 <div class="content-protocolo">
                   <div class="title-block title-28 switzerlandBold">Dados do relato</div>
                   <div class="dados-protocolo">
@@ -230,6 +259,15 @@ if (!empty($agencias_data) && isset($agencias_data['singulares'])) {
         if (protocolo) {
             var url = '<?php echo home_url('/protocolo/'); ?>protocolo-' + protocolo;
             window.location.href = url;
+        }
+      });
+      
+      $('#search-protocolo-form-mobile').on('submit', function(e) {
+        e.preventDefault();
+        var protocolo = $('#input-protocolo-mobile').val();
+        if (protocolo) {
+          var url = '<?php echo home_url('/protocolo/'); ?>protocolo-' + protocolo;
+          window.location.href = url;
         }
       });
     });

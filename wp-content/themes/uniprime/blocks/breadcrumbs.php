@@ -1,12 +1,28 @@
 <?php
 //function display_breadcrumbs() {
   global $post, $wp_query;
+  if ( ! isset( $post ) ) {
+    // Forçar a definição do global $post
+    $post = get_post();
+  }
   $separator = ' <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-separator"><path d="M9.1665 7.5L11.6665 10L9.1665 12.5" stroke="#6C6C6C" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/></svg> ';
   $home_title = 'Home';
   $home_url = get_home_url();
   $breadcrumb_content = '';
   
-  if (!is_front_page()) {
+  if ($wp_query->is_protocolo) {
+    $breadcrumb_content .= '<div class=\'position-relative\'><nav class=\'nav-breadcrumb\' style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'8\' height=\'8\'%3E%3Cpath d=\'M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z\' fill=\'%236c757d\'\/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">';
+    $breadcrumb_content .= "<div class='container'>\n";
+    $breadcrumb_content .= "<div class='content-breadcrumbs'>\n<ol class='breadcrumb'>\n";
+    $breadcrumb_content .= "<li class='breadcrumb-item'><a href='$home_url'>$home_title</a></li>\n";
+    $breadcrumb_content .= "<li class='breadcrumb-item'>" . __("A Uniprime") . "</li>\n";
+    $breadcrumb_content .= "<li class='breadcrumb-item'><b>" . __("Canal de denúncias") . "</b></li>\n";
+    $breadcrumb_content .= "</ol>\n</div>\n</div>\n</nav>\n";
+    echo $breadcrumb_content;?>
+      </div>
+      <?php
+  }
+  if (!is_front_page() && !$wp_query->is_protocolo) {
       $breadcrumb_content .= '<div class=\'position-relative\'><nav class=\'nav-breadcrumb\' style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'8\' height=\'8\'%3E%3Cpath d=\'M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z\' fill=\'%236c757d\'\/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">';
       $breadcrumb_content .= "<div class='container'>\n";
       $breadcrumb_content .= "<div class='content-breadcrumbs'>\n<ol class='breadcrumb'>\n";
@@ -27,7 +43,6 @@
       }
   
       // If the post belongs to 'solucoes' post type
-      //var_dump($post);
       if ($post->post_name == 'relatorio-do-sistema' || $post->post_name == 'assembleias-ago-e-age'  || $post->post_name == 'cooperativismo-financeiro' || $post->post_name == 'sobre-a-uniprime' || $post->post_type == 'politica' || $post->post_type == 'noticia' || $post->post_name == 'noticias' || $post->post_type == 'campanha' || $post->post_name == 'campanha' || $post->post_type == 'sala-de-imprensa' || $post->post_name == 'sala-de-imprensa' || $post->post_name == 'canal-de-denuncia' || $post->post_type == 'protocolo' || $post->post_name == 'onde-estamos' || $post->post_name == 'portabilidade-de-conta-salario'  || $post->post_name == 'ouvidoria'  ) {
         $breadcrumb_content .= "<li class='breadcrumb-item'>" . __("A Uniprime") . "</li>\n";
       }

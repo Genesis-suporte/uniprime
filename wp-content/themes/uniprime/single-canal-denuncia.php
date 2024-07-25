@@ -57,8 +57,8 @@ $upload_url = $upload_dir['baseurl'];
             <?php echo $titulo_consultar_protocolo; ?>
           </div>
           <div class="div-input-protocolo">
-            <form id="search-protocolo-form">
-              <input type="text" name="input-protocolo" id="input-protocolo" value="" aria-invalid="false" placeholder="Número do protocolo" required >
+            <form id="search-protocolo-form-mobile">
+              <input type="text" name="input-protocolo" id="input-protocolo-mobile" class="single-canal-denuncia-mobile" value="" aria-invalid="false" placeholder="Número do protocolo" required >
               <button class="btn-consultar"><i class="icon-menu icon-search-white"></i>Consultar</button>
             </form>
           </div>
@@ -91,7 +91,7 @@ $upload_url = $upload_dir['baseurl'];
             </div>
             <div class="div-input-protocolo">
               <form id="search-protocolo-form">
-                <input type="text" name="input-protocolo" id="input-protocolo" value="" aria-invalid="false" placeholder="Número do protocolo" required >
+                <input type="text" name="input-protocolo" id="input-protocolo" class="single-canal-denuncia-desktop" value="" aria-invalid="false" placeholder="Número do protocolo" required >
                 <button class="btn-consultar"><i class="icon-menu icon-search-white"></i>Consultar</button>
               </form>
             </div>
@@ -153,6 +153,15 @@ $upload_url = $upload_dir['baseurl'];
       $('#search-protocolo-form').on('submit', function(e) {
         e.preventDefault();
         var protocolo = $('#input-protocolo').val();
+        console.log(protocolo);
+        if (protocolo) {
+          var url = '<?php echo home_url('/protocolo/'); ?>protocolo-' + protocolo;
+          window.location.href = url;
+        }
+      });
+      $('#search-protocolo-form-mobile').on('submit', function(e) {
+        e.preventDefault();
+        var protocolo = $('#input-protocolo-mobile').val();
         if (protocolo) {
           var url = '<?php echo home_url('/protocolo/'); ?>protocolo-' + protocolo;
           window.location.href = url;

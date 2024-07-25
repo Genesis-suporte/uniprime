@@ -1,0 +1,1 @@
+[20-Jul-2024 20:35:06 UTC] PHP Warning:  mysqli_real_connect(): (HY000/2002): Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente in C:\Users\tyara\Local Sites\uniprime\app\public\wp-includes\class-wpdb.php on line 1987

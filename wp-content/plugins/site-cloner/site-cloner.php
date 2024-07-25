@@ -3,8 +3,9 @@
  * Plugin Name: Site Cloner
  * Description: Plugin para clonar sites no WordPress Multisite.
  * Version: 1.0
- * Author: Seu Nome
- * Author URI: http://seusite.com
+ * Author: GENESiS - Agência Digital Porto Alegre
+ * Author URI: https://marketingdigitalportoalegre.genesis.digital
+ * Text Domain: site-cloner
  */
 
 // FUNCTION PRA CLONAR SINGULARES
