@@ -6222,3 +6222,7 @@ footer {
     grid-template-columns: auto;
   }
 }
+
+.notice.notice-warning.update-nag.inline {
+  display: none !important;
+}

@@ -192,8 +192,8 @@ function clone_site($site_id_to_clone, $new_site_name, $new_site_slug) {
 
 	// Configurar o novo caminho do site
 	$new_domain = $site_to_clone->domain;
-	//$new_path = '/' . trailingslashit('singular/' . $new_site_slug);
-	$new_path = '/' . trailingslashit($new_site_slug);
+	$new_path = '/' . trailingslashit('singular/' . $new_site_slug);
+	//$new_path = '/' . trailingslashit($new_site_slug);
 
 	// Criar novo site
 	$new_blog_id = wpmu_create_blog($new_domain, $new_path, $new_site_name, get_current_user_id(), array(), $site_to_clone->site_id);
@@ -218,30 +218,37 @@ function clone_site($site_id_to_clone, $new_site_name, $new_site_slug) {
 }
 
 function add_clone_site_column($links, $blog_id) {
+	
 	$clone_link = 'admin.php?' . http_build_query(
 		array(
 			'action' => 'clone_site',
 			'site_id' => $blog_id
 		)
 	);
-
+	//var_dump($blog_id);
+	if($blog_id != 1) {
+		$link_enable_principal = '<a href="#" class="clone-site-button" data-site-id="' . $blog_id . '">Clonar site</a>';
+	} else {
+		$link_enable_principal = '<a href="#" class="" data-site-id="' . $blog_id . '"></a>';
+	}
 	$links['clone'] = '
-	<div class="clone-site-container">
-		<span class="clone">
-			<a href="#" class="clone-site-button" data-site-id="' . $blog_id . '">Clonar site</a>
-		</span>
-		<div class="clone-site-fields" style="display:none;">
-			<form id="cloneSiteForm-' . $blog_id . '" action="' . network_admin_url($clone_link) . '" method="get">
-				<input type="hidden" name="action" value="clone_site">
-				<input type="hidden" name="site_id" value="' . $blog_id . '">
-				<label for="new_site_name_' . $blog_id . '">Nome do novo site:</label>
-				<input type="text" id="new_site_name_' . $blog_id . '" name="new_site_name" required>
-				<label for="new_site_slug_' . $blog_id . '">Slug do novo site:</label>
-				<input type="text" id="new_site_slug_' . $blog_id . '" name="new_site_slug" required>
-				<button type="submit">Clonar site</button>
-			</form>
-		</div>
-	</div>';
+		<div class="clone-site-container">
+			<span class="clone">
+				'. $link_enable_principal .'
+			</span>
+			<div class="clone-site-fields" style="display:none;">
+				<form id="cloneSiteForm-' . $blog_id . '" action="' . network_admin_url($clone_link) . '" method="get">
+					<input type="hidden" name="action" value="clone_site">
+					<input type="hidden" name="site_id" value="' . $blog_id . '">
+					<label for="new_site_name_' . $blog_id . '">Nome do novo site:</label>
+					<input type="text" id="new_site_name_' . $blog_id . '" name="new_site_name" required>
+					<label for="new_site_slug_' . $blog_id . '">Slug do novo site:</label>
+					<input type="text" id="new_site_slug_' . $blog_id . '" name="new_site_slug" required>
+					<button type="submit">Clonar site</button>
+				</form>
+			</div>
+		</div>';
+		
 	return $links;
 }
 add_action('manage_sites_action_links', 'add_clone_site_column', 10, 2);
@@ -257,12 +264,15 @@ function add_clone_site_script() {
 				button.addEventListener('click', function (event) {
 					event.preventDefault();
 					const siteId = this.getAttribute('data-site-id');
+					console.log(siteId);
+					
 					const cloneFields = document.querySelector('#cloneSiteForm-' + siteId).parentElement;
 					if (cloneFields.style.display === 'none') {
 						cloneFields.style.display = 'block';
 					} else {
 						cloneFields.style.display = 'none';
 					}
+					
 				});
 			});
 		});

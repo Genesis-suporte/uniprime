@@ -1198,6 +1198,7 @@ function remove_menu_items() {
 
 	// Remove menu de Comentários
 	remove_menu_page('edit-comments.php');
+	
 }
 add_action('admin_menu', 'remove_menu_items');
 function remove_menu_items_for_non_admins() {
@@ -1220,15 +1221,45 @@ function remove_menu_items_for_non_admins() {
 	}
 }
 add_action('admin_menu', 'remove_menu_items_for_non_admins');
-/*
-function get_default_post_thumbnail($post_id, $size = 'thumbnail') {
-	if (has_post_thumbnail($post_id)) {
-			return get_the_post_thumbnail($post_id, $size);
-	} else {
-			$default_thumbnail = get_template_directory_uri() . '/path/to/default-thumbnail.jpg'; // Substitua pelo caminho da sua imagem padrão
-			return '<img src="' . $default_thumbnail . '" alt="' . get_the_title($post_id) . '" class="default-thumbnail">';
+
+function remove_network_admin_menus_from_my_sites($admin_bar) {
+	if (is_user_logged_in() && is_multisite()) {
+		// Remove as opções específicas do menu "Meus Sites > Painel de Rede"
+		//$admin_bar->remove_menu('network-admin'); // Remove "Painel - pai"
+		$admin_bar->remove_menu('network-admin-o'); // Remove "Painel de Rede"
+		//$admin_bar->remove_menu('network-admin-d'); // Remove "Painel de Rede"
+		//$admin_bar->remove_menu('network-admin-u'); // Remove "Usuários"
+		$admin_bar->remove_menu('network-admin-t'); // Remove "Temas"
+		$admin_bar->remove_menu('network-admin-p'); // Remove "Plugins"
+		//$admin_bar->remove_menu('network-admin-s'); // Remove "Configurações"*/
+		$admin_bar->remove_menu('updates'); // Remove "Updates"
+		
+		$user_blogs = get_blogs_of_user(get_current_user_id());
+
+		foreach ($user_blogs as $blog) {
+			$blog_id = 'blog-' . $blog->userblog_id;
+
+			// Remover "Novo post"
+			$admin_bar->remove_menu($blog_id . '-n');
+
+			// Remover "Gerenciar comentários"
+			$admin_bar->remove_menu($blog_id . '-c');
+		}
 	}
-}*/
+	//var_dump($admin_bar);
+}
+add_action('admin_bar_menu', 'remove_network_admin_menus_from_my_sites', 100);
+
+function remove_network_admin_menu_items() {
+	if (is_user_logged_in() && is_multisite()) {
+		remove_menu_page('index.php'); // Remove "Painel"
+		remove_menu_page('users.php');        // Remove "Usuários"
+		remove_menu_page('themes.php');       // Remove "Temas"
+		remove_menu_page('plugins.php');      // Remove "Plugins"
+		remove_menu_page('settings.php');     // Remove "Configurações"
+	}
+}
+add_action('network_admin_menu', 'remove_network_admin_menu_items', 100);
 
 
 function redirect_from_main_blog()

@@ -18,11 +18,11 @@ $array_fique_por_dentro = array(
   'order'          => 'DESC'*/
 );
 
-$get_fique_por_dentro = get_posts( $array_fique_por_dentro );
+//$get_fique_por_dentro = get_posts( $array_fique_por_dentro );
 
 $tipo_conteudo = get_field('tipo_conteudo');
 $array_fique_por_dentro = array(
-  'post_type'   => array( 'noticia', 'campanha', 'sala-de-imprensa' ),
+  'post_type'   => array( 'sala-de-imprensa' ),
   'posts_per_page' => -1,
   'orderby'        => 'date',
   'order'          => 'DESC'
