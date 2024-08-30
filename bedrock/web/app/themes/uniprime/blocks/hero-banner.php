@@ -557,7 +557,7 @@
           $cta_banner = get_sub_field('cta_banner');
           $image_banner = get_sub_field('image_banner');
           //->filename url alt
-          //print_r( $image_banner);?>
+          //print_r( $cta_banner);?>
           <div class="hero-image">
             <div class="container position-relative">
               <div class="copy position-absolute">
@@ -567,9 +567,11 @@
                 <div class="description">
                   <?php echo esc_html($description_banner); ?>
                 </div>
+                <?php if($cta_banner) { ?>
                 <div class="cta">
                   <?php echo '<a href="'. esc_url($cta_banner['url']) .'" class="btn btn-actived">'. esc_html($cta_banner['title']) .'<i class="icon icon-cta"></i></a>'; ?>
                 </div>
+                <?php } ?>
               </div>
             </div>
             <div class="image" style="background-image: url(<?php echo esc_url($image_banner['url']); ?>);"></div>
