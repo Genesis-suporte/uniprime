@@ -1,0 +1,34 @@
+# Deny access to any files with a .php extension in the files directory
+# Works in sub-directory installs and also in multisite network
+# Keep logging the requests to parse later (or to pass to firewall utilities such as fail2ban)
+location ~* /(?:files)/.*\.php$ {
+	deny all;
+}
+
+location ~ ^/([^/]+/)?files/(.+) {
+	try_files /wp-content/blogs.dir/0/files/$2 /wp-includes/ms-files.php?file=$2;
+	access_log off;
+	log_not_found off;
+	expires 5m;
+}
+
+if (!-e $request_filename) {
+	# rewrite /wp-admin$ $resolved_scheme://$host$uri/ permanent;
+	# rewrite ^(/[^/]+)?(/wp-.*) $2 last;
+	# rewrite ^(/[^/]+)?(/.*\.php) $2 last;
+	rewrite /wp-admin$ $scheme://$host$uri/ permanent;
+  rewrite ^(/[^/]+)?(/wp-.*) /wp$2 last;
+  rewrite ^(/[^/]+)?(/.*.php) /wp$2 last;
+}
+
+# Redirecionar caminhos para incluir "singular"
+rewrite ^/singular/(.*)$ /$1 last;
+
+location / {
+	try_files $uri $uri/ /index.php$is_args$args;
+}
+
+# Add trailing slash to */wp-admin requests.
+rewrite ^(.*)(wp-admin)$ $1$2/ permanent;
+rewrite ^/(wp-.*.php)$ /wp/$1 last;
+rewrite ^/(wp-(content|admin|includes).*) /wp/$1 last;

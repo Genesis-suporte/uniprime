@@ -1205,12 +1205,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "45aeef736b4bfeaa48c136087c4a9e8aed854ddf"
+                "reference": "bf0a2bc01eb100833e274608a292352c8636d326"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/45aeef736b4bfeaa48c136087c4a9e8aed854ddf",
-                "reference": "45aeef736b4bfeaa48c136087c4a9e8aed854ddf",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/bf0a2bc01eb100833e274608a292352c8636d326",
+                "reference": "bf0a2bc01eb100833e274608a292352c8636d326",
                 "shasum": ""
             },
             "conflict": {
@@ -1587,7 +1587,7 @@
                 "mojo42/jirafeau": "<4.4",
                 "mongodb/mongodb": ">=1,<1.9.2",
                 "monolog/monolog": ">=1.8,<1.12",
-                "moodle/moodle": "<4.3.6|>=4.4.0.0-beta,<4.4.2",
+                "moodle/moodle": "<4.3.6|>=4.4,<4.4.2",
                 "mos/cimage": "<0.7.19",
                 "movim/moxl": ">=0.8,<=0.10",
                 "movingbytes/social-network": "<=1.2.1",
@@ -2038,7 +2038,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-11-12T20:05:05+00:00"
+            "time": "2024-11-12T22:04:37+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
