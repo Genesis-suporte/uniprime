@@ -1,0 +1,9 @@
+{
+  "name": "uniprime/uniprime",
+  "type": "wordpress-theme",
+  "version": "1.0.0",
+  "description": "Uniprime WordPress Theme",
+  "require": {
+    "php": ">=8.0"
+  }
+}

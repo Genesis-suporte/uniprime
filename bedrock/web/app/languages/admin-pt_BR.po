@@ -876,7 +876,7 @@ msgstr "<a href=\"https://wordpress.org/documentation/article/keyboard-shortcuts
 msgid "<a href=\"https://wordpress.org/documentation/article/understand-comment-spam/\">Documentation on Comment Spam</a>"
 msgstr "<a href=\"https://wordpress.org/documentation/article/understand-comment-spam/\">Documentação sobre comentários em spam</a>"
 
-#: wp-admin/customize.php:255
+#: wp-admin/customize.php:257
 msgid "<a href=\"https://wordpress.org/documentation/article/customizer/\">Documentation on Customizer</a>"
 msgstr "<a href=\"https://wordpress.org/documentation/article/customizer/\">Documentação do Personalizador</a>"
 
@@ -2741,7 +2741,7 @@ msgstr "As atualizações automáticas podem ser ativadas ou desativadas para ve
 msgid "<strong>Important:</strong> Before updating, please <a href=\"%1$s\">back up your database and files</a>. For help with updates, visit the <a href=\"%2$s\">Updating WordPress</a> documentation page."
 msgstr "<strong>Importante:</strong> Antes de atualizar, <a href=\"%1$s\">faça uma cópia de segurança dos seus arquivos e da base de dados</a>. Para obter ajuda com as atualizações, visite a página <a href=\"%2$s\">Atualizando o WordPress</a> da documentação."
 
-#: wp-admin/customize.php:201 wp-admin/theme-install.php:433
+#: wp-admin/customize.php:203 wp-admin/theme-install.php:433
 #: wp-admin/theme-install.php:495 wp-admin/themes.php:631
 #: wp-admin/themes.php:1000 wp-admin/themes.php:1238
 msgctxt "theme"
@@ -4150,15 +4150,15 @@ msgstr "Este plugin não foi carregado corretamente e está em pausa durante o m
 msgid "Go to the Themes screen"
 msgstr "Ir para a tela temas"
 
-#: wp-admin/includes/class-wp-debug-data.php:1734
+#: wp-admin/includes/class-wp-debug-data.php:1746
 msgid "Total size is not available. Some errors were encountered when determining the size of your installation."
 msgstr "Tamanho total indisponível. Alguns erros foram encontrados ao tentar determinar o tamanho da sua instalação."
 
-#: wp-admin/includes/class-wp-debug-data.php:1683
+#: wp-admin/includes/class-wp-debug-data.php:1695
 msgid "The size cannot be calculated. The directory is not accessible. Usually caused by invalid permissions."
 msgstr "Não foi possível calcular o tamanho. O diretório não está acessível. Normalmente, isso é causado por permissões inválidas."
 
-#: wp-admin/includes/class-wp-debug-data.php:1690
+#: wp-admin/includes/class-wp-debug-data.php:1702
 msgid "The directory size calculation has timed out. Usually caused by a very large number of sub-directories and files."
 msgstr "O tempo para o cálculo do tamanho do diretório foi excedido. Normalmente, isso é causado por um número muito grande de subdiretórios e arquivos."
 
@@ -4871,7 +4871,7 @@ msgstr "Versão do ImageMagick (número)"
 #: wp-admin/includes/class-wp-debug-data.php:521
 #: wp-admin/includes/class-wp-debug-data.php:543
 #: wp-admin/includes/class-wp-debug-data.php:560
-#: wp-admin/includes/class-wp-debug-data.php:1718 wp-admin/includes/ms.php:803
+#: wp-admin/includes/class-wp-debug-data.php:1730 wp-admin/includes/ms.php:803
 msgid "Not available"
 msgstr "Indisponível"
 
@@ -6699,7 +6699,7 @@ msgstr "Você não tem permissão para excluir usuários."
 msgid "Sorry, you are not allowed to create users."
 msgstr "Sem permissão para criar usuários."
 
-#: wp-admin/customize.php:270
+#: wp-admin/customize.php:272
 msgctxt "short (~12 characters) label for hide controls button"
 msgid "Hide Controls"
 msgstr "Esconder controles"
@@ -6773,7 +6773,7 @@ msgstr "Sem permissão para anexar arquivos a este post."
 msgid "https://wordpress.org/plugins/"
 msgstr "https://br.wordpress.org/plugins/"
 
-#: wp-admin/customize.php:250
+#: wp-admin/customize.php:252
 msgid "The Customizer allows you to preview changes to your site before publishing them. You can navigate to different pages on your site within the preview. Edit shortcuts are shown for some editable elements. The Customizer is intended for use with non-block themes."
 msgstr "O Personalizador permite que você visualize as alterações em seu site antes de publicá-las. Você pode navegar para diferentes páginas em seu site na visualização. Os atalhos de edição são mostrados para alguns elementos editáveis. O Personalizador destina-se ao uso com temas sem blocos."
 
@@ -7143,7 +7143,7 @@ msgid "You can filter the list of posts by post status using the text links abov
 msgstr "Você pode filtrar a lista de posts por status utilizando os links acima da lista de posts para exibir apenas os posts daquele status. A visualização padrão exibe todos os posts."
 
 #. translators: Hidden accessibility text.
-#: wp-admin/customize.php:215
+#: wp-admin/customize.php:217
 msgid "Close the Customizer and go back to the previous page"
 msgstr "Fechar o Personalizador e voltar para a página anterior"
 
@@ -9754,7 +9754,7 @@ msgstr "O pacote não contém arquivos."
 msgid "To navigate between revisions, <strong>drag the slider handle left or right</strong> or <strong>use the Previous or Next buttons</strong>."
 msgstr "Para navegar entre as revisões, <strong>arraste a barra de rolagem para direita ou esquerda</strong> ou <strong>use os botões Anterior e Próxima</strong>."
 
-#: wp-admin/customize.php:153 wp-admin/includes/class-wp-debug-data.php:453
+#: wp-admin/customize.php:155 wp-admin/includes/class-wp-debug-data.php:453
 #: wp-admin/includes/dashboard.php:1172
 msgid "Loading&hellip;"
 msgstr "Carregando&hellip;"

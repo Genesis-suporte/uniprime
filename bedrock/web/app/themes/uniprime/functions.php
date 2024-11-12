@@ -1250,7 +1250,7 @@ function remove_network_admin_menus_from_my_sites($admin_bar) {
 }
 add_action('admin_bar_menu', 'remove_network_admin_menus_from_my_sites', 100);
 
-function remove_network_admin_menu_items() {
+/*function remove_network_admin_menu_items() {
 	if (is_user_logged_in() && is_multisite()) {
 		remove_menu_page('index.php'); // Remove "Painel"
 		remove_menu_page('users.php');        // Remove "Usuários"
@@ -1259,7 +1259,7 @@ function remove_network_admin_menu_items() {
 		remove_menu_page('settings.php');     // Remove "Configurações"
 	}
 }
-add_action('network_admin_menu', 'remove_network_admin_menu_items', 100);
+add_action('network_admin_menu', 'remove_network_admin_menu_items', 100);*/
 
 
 
