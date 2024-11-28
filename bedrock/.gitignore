@@ -1,11 +1,11 @@
 # Application
-web/app/plugins/*
-!web/app/plugins/.gitkeep
-web/app/mu-plugins/*/
+#web/app/plugins/*
+#!web/app/plugins/.gitkeep
+#web/app/mu-plugins/*/
 web/app/themes/twentytwentyfour/
-web/app/upgrade
-web/app/uploads/*
-!web/app/uploads/.gitkeep
+#web/app/upgrade
+#web/app/uploads/*
+#!web/app/uploads/.gitkeep
 web/app/cache/*
 
 # WordPress
@@ -16,12 +16,12 @@ web/.htaccess
 *.log
 
 # Dotenv
-.env
-.env.*
+#.env
+#.env.*
 !.env.example
 
 # Composer
 /vendor
 
 # WP-CLI
-wp-cli.local.yml
+#wp-cli.local.yml
