@@ -1295,3 +1295,16 @@ function custom_redirect_singular_tyara() {
 			exit;
 	}
 }
+
+//VErifica se o ACF está ativo, pois se não estiver vai causar erro crítico
+add_action('admin_init', 'verificar_acf_ativo');
+function verificar_acf_ativo() {
+    if (!function_exists('acf_add_local_field_group')) {
+        add_action('admin_notices', function() {
+            echo '<div class="notice notice-error"><p>';
+            echo 'O plugin <strong>Advanced Custom Fields Pro</strong> está desativado. Por favor, ative-o para evitar erros no site.';
+            echo '</p></div>';
+        });
+        remove_action('init', 'seu_recurso_dependente_do_acf');
+    }
+}
