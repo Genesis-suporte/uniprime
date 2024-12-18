@@ -5,10 +5,10 @@
  */
 get_header(); 
 
-$title_banner = get_field('title_banner');
-$description_banner = get_field('description_banner');
-$image_banner = get_field('image_banner');
-$image_banner_mobile = get_field('image_banner_mobile');
+$title_banner = get_field('title_banner') ?: '';
+$description_banner = get_field('description_banner') ?: '';
+$image_banner = get_field('image_banner') ?: '';
+$image_banner_mobile = get_field('image_banner_mobile') ?: '';
 
 $array_fique_por_dentro = array(
   'post_type'   => array( 'sala-de-imprensa' ),
@@ -29,9 +29,9 @@ $array_fique_por_dentro = array(
 );
 
 $get_fique_por_dentro = get_posts( $array_fique_por_dentro );
-$label = get_field('label');
-$titulo = get_field('titulo');
-$descricao = get_field('descricao');
+$label = get_field('label') ?: '';
+$titulo = get_field('titulo') ?: '';
+$descricao = get_field('descricao') ?: '';
 
 ?>
 <div class="banner-internas position-relative">
@@ -80,9 +80,9 @@ $upload_url = $upload_dir['baseurl'];
 <figure class="wp-block-image alignright size-full is-resized logo-uniprime-background"><img fetchpriority="high" decoding="async" width="674" height="739" src="<?php echo $upload_url;?>/2024/03/logo-uniprime-gigante.png" alt="" class="wp-image-530" style="width:674px;height:auto" srcset="<?php echo $upload_url;?>/2024/03/logo-uniprime-gigante.png 674w, <?php echo $upload_url;?>/2024/03/logo-uniprime-gigante-274x300.png 274w" sizes="(max-width: 674px) 100vw, 674px"></figure>
 </div>
 <?php   
-  $label_novidades = get_field('label_novidades');
-  $titulo_novidades = get_field('titulo_novidades');
-  $descricao_novidades = get_field('descricao_novidades');
+  $label_novidades = get_field('label_novidades') ?: '';
+  $titulo_novidades = get_field('titulo_novidades') ?: '';
+  $descricao_novidades = get_field('descricao_novidades') ?: '';
 ?>
 
 <section class="bloco-noticias z-13 page-sala-de-imprensa">

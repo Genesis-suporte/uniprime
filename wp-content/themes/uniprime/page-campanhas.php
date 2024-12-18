@@ -5,10 +5,10 @@
  */
 get_header(); 
 
-$title_banner = get_field('title_banner');
-$description_banner = get_field('description_banner');
-$image_banner = get_field('image_banner');
-$image_banner_mobile = get_field('image_banner_mobile');
+$title_banner = get_field('title_banner') ?: '';
+$description_banner = get_field('description_banner') ?: '';
+$image_banner = get_field('image_banner') ?: '';
+$image_banner_mobile = get_field('image_banner_mobile') ?: '';
 
 $array_fique_por_dentro = array(
   'post_type'   => array( 'campanha' ),
@@ -29,22 +29,22 @@ $array_fique_por_dentro = array(
 );
 
 $get_fique_por_dentro = get_posts( $array_fique_por_dentro );
-$label = get_field('label');
-$titulo = get_field('titulo');
-$descricao = get_field('descricao');
+$label = get_field('label') ?: '';
+$titulo = get_field('titulo') ?: '';
+$descricao = get_field('descricao') ?: '';
 
-$label_canais_digitais = get_field('label_canais_digitais');
-  $titulo_canais_digitais = get_field('titulo_canais_digitais'); 
-  $tamanho_titulo = get_field('tamanho_titulo');
-  $fonte_titulo = get_field('fonte_titulo');
+  $label_canais_digitais = get_field('label_canais_digitais') ?: '';
+  $titulo_canais_digitais = get_field('titulo_canais_digitais') ?: ''; 
+  $tamanho_titulo = get_field('tamanho_titulo') ?: '';
+  $fonte_titulo = get_field('fonte_titulo') ?: '';
   if($fonte_titulo == 'Normal') {
     $fonte_style = '';
   } else {
     $fonte_style = $fonte_titulo;
   }
-  $descricao_canais_digitais = get_field('descricao_canais_digitais');
-  $img = get_field('imagem_do_bloco');
-  $imagem_de_fundo = get_field('imagem_de_fundo');
+  $descricao_canais_digitais = get_field('descricao_canais_digitais') ?: '';
+  $img = get_field('imagem_do_bloco') ?: '';
+  $imagem_de_fundo = get_field('imagem_de_fundo') ?: '';
   if($imagem_de_fundo) {
     $bg_image = 'style="background: url('.esc_html($imagem_de_fundo).') no-repeat; z-index:13"';
   } else {
@@ -56,13 +56,13 @@ $label_canais_digitais = get_field('label_canais_digitais');
     while ( have_rows('botoes') ) : the_row();
       // Case: Paragraph layout.
       if( get_row_layout() == 'botao' ) {
-        $estilo_do_botao = get_sub_field('estilo_do_botao'); 
-        $habilitar_modal = get_sub_field('habilitar_modal');
-        $link = get_sub_field('link');
+        $estilo_do_botao = get_sub_field('estilo_do_botao') ?: ''; 
+        $habilitar_modal = get_sub_field('habilitar_modal') ?: '';
+        $link = get_sub_field('link') ?: '';
         
         if($estilo_do_botao == 'imagem') {
-          $imagem_cta = get_sub_field('imagem_cta');
-          $imagem_cta_hover = get_sub_field('imagem_cta_hover');
+          $imagem_cta = get_sub_field('imagem_cta') ?: '';
+          $imagem_cta_hover = get_sub_field('imagem_cta_hover') ?: '';
           if($imagem_cta_hover) {
             $classBtn = 'img-has-hover position-relative';
           } else {

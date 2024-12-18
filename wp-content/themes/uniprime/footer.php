@@ -1,16 +1,17 @@
 <?php
-$logo_footer = get_field('logo_footer', 'option');
-$label_bloco_central = get_field('label_bloco_central', 'option');
-$telefone = get_field('telefone', 'option');
-$descricao = get_field('descricao', 'option');
-$label_bloco_direita = get_field('label_bloco_direita', 'option');
-$telefone_1_direita = get_field('telefone_1_direita', 'option');
-$descricao_1_direita = get_field('descricao_1_direita', 'option');
-$telefone_2_direita = get_field('telefone_2_direita', 'option');
-$descricao_2_direita = get_field('descricao_2_direita', 'option');
-$telefone_3_direita = get_field('telefone_3_direita', 'option');
-$descricao_3_direita = get_field('descricao_3_direita', 'option');
-$texto_solucoes = get_field('texto_solucoes', 'option');
+$logo_footer = get_field('logo_footer', 'option') ?: '';
+$label_bloco_central = get_field('label_bloco_central', 'option') ?: '';
+$telefone = get_field('telefone', 'option') ?: '';
+$descricao = get_field('descricao', 'option') ?: '';
+$label_bloco_direita = get_field('label_bloco_direita', 'option') ?: '';
+$telefone_1_direita = get_field('telefone_1_direita', 'option') ?: '';
+$descricao_1_direita = get_field('descricao_1_direita', 'option') ?: '';
+$telefone_2_direita = get_field('telefone_2_direita', 'option') ?: '';
+$descricao_2_direita = get_field('descricao_2_direita', 'option') ?: '';
+$telefone_3_direita = get_field('telefone_3_direita', 'option') ?: '';
+$descricao_3_direita = get_field('descricao_3_direita', 'option') ?: '';
+$texto_solucoes = get_field('texto_solucoes', 'option') ?: '';
+
 
 ?>
 <footer class="footer mw-100">

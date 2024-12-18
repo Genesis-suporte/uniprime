@@ -28,16 +28,16 @@ define( 'DB_HOST', 'localhost' );
 */
 // ** Database settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'local' );
+define( 'DB_NAME', 'uniprime' );
 
 /** Database username */
 define( 'DB_USER', 'root' );
 
 /** Database password */
-define( 'DB_PASSWORD', 'root' );
+define( 'DB_PASSWORD', 'secret' );
 
 /** Database hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', '127.0.0.1' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -99,19 +99,19 @@ $table_prefix = 'wp_';
 }*/
 define('WP_DEBUG', true);
 define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', false);
+define('WP_DEBUG_DISPLAY', true);
 
 
 define( 'WP_ALLOW_MULTISITE', true );
 define( 'MULTISITE', true );
 define( 'SUBDOMAIN_INSTALL', false );
-$base = '/';
-define( 'DOMAIN_CURRENT_SITE', 'uniprime.local' );
-define( 'PATH_CURRENT_SITE', '/' );
+// $base = '/';
+define( 'DOMAIN_CURRENT_SITE', 'uniprime.test' );
+// define( 'PATH_CURRENT_SITE', '/' );
 define( 'SITE_ID_CURRENT_SITE', 1 );
 define( 'BLOG_ID_CURRENT_SITE', 1 );
 
-define( 'WP_ENVIRONMENT_TYPE', 'local' );
+// define( 'WP_ENVIRONMENT_TYPE', 'local' );
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */

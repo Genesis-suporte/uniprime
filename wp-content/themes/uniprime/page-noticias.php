@@ -5,10 +5,10 @@
  */
 get_header(); 
 
-$title_banner = get_field('title_banner');
-$description_banner = get_field('description_banner');
-$image_banner = get_field('image_banner');
-$image_banner_mobile = get_field('image_banner_mobile');
+$title_banner = get_field('title_banner') ?: '';
+$description_banner = get_field('description_banner') ?: '';
+$image_banner = get_field('image_banner') ?: '';
+$image_banner_mobile = get_field('image_banner_mobile') ?: '';
 
 $array_fique_por_dentro = array(
   'post_type'   => array( 'noticia', 'campanha', 'sala-de-imprensa' ),
